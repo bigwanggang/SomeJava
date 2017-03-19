@@ -2,3 +2,4 @@
 .idea/*.xml
 .idea/*
 target/*
+src/main/java/com/bigwanggang/*
