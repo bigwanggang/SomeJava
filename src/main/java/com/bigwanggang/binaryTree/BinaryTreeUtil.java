@@ -14,23 +14,17 @@ public class BinaryTreeUtil {
         BinaryTree r3 = new BinaryTree('3');
         BinaryTree r4 = new BinaryTree('4');
         BinaryTree r5 = new BinaryTree('5');
+        BinaryTree r6 = new BinaryTree('6');
+        BinaryTree r7 = new BinaryTree('7');
         root.left = r1;
         root.right = r2;
         r1.left = r3;
         r1.right = r4;
         r4.left = r5;
+        r5.left = r6;
+        r6.right = r7;
 
-        int hight = hight(root) - 1;
-
-        int topToLeft = distenceFromLeft(hight);
-        char[][] chart = new char[topToLeft + 1][2 * topToLeft + 1];
-        contructChart(chart, root, hight, topToLeft, 0);
-        for (int i = 0; i < chart.length; i++) {
-            for (int j = 0; j < chart[0].length; j++) {
-                System.out.print(chart[i][j]);
-            }
-            System.out.println();
-        }
+        printBinaryTree(root);
     }
 
     public static void contructChart(char[][] chart, BinaryTree node, int level, int x, int y) {
@@ -50,6 +44,24 @@ public class BinaryTreeUtil {
                 chart[y + i][x + i] = '\\';
             }
             contructChart(chart, node.right, level - 1, x + lenthOfLine + 1, y + lenthOfLine + 1);
+        }
+    }
+
+    /**
+     * 控制台打印二叉树
+     * @param root
+     */
+    public static void printBinaryTree(BinaryTree root) {
+        int hight = hight(root) - 1;
+
+        int topToLeft = distenceFromLeft(hight);
+        char[][] chart = new char[topToLeft + 1][2 * topToLeft + 1];
+        contructChart(chart, root, hight, topToLeft, 0);
+        for (int i = 0; i < chart.length; i++) {
+            for (int j = 0; j < chart[0].length; j++) {
+                System.out.print(chart[i][j]);
+            }
+            System.out.println();
         }
     }
 
