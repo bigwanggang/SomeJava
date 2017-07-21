@@ -1,6 +1,7 @@
 package com.bigwanggang.dataStructureAndAlgo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -10,8 +11,11 @@ import java.util.List;
 public class NSumProblem {
     public static void main(String[] args) {
         int[] nums = {-1, 0, 1, 2, -1, -4};
+        int[] nums1 = {-1, 0,-2,-2,-3, 1, 2,-3,-3, -1, -4};
         NSumProblem solution = new NSumProblem();
         System.out.println(solution.threeSum(nums));
+
+        System.out.println(solution.twoSum(nums1, 0));
     }
 
     public List<List<Integer>> threeSum(int[] nums) {
@@ -37,5 +41,36 @@ public class NSumProblem {
             ans.remove(ans.size() - 1);
             sum -= nums[j];
         }
+    }
+
+    public List<List<Integer>> twoSum(int[] nums, int target) {
+        List<List<Integer>> answer = new ArrayList<>();
+        Arrays.sort(nums);
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int sum = nums[left] + nums[right];
+            if (sum == target) {
+                List<Integer> result = new ArrayList<>();
+                result.add(nums[left]);
+                result.add(nums[right]);
+                answer.add(result);
+                left++;
+                right--;
+                while (nums[left] == nums[left - 1])
+                    left++;
+                while (nums[right] == nums[right + 1])
+                    right--;
+            } else if (sum > target) {
+                right--;
+                while (nums[right] == nums[right + 1])
+                    right--;
+            } else {
+                left++;
+                while (nums[left] == nums[left - 1])
+                    left++;
+            }
+        }
+        return answer;
     }
 }
