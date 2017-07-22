@@ -11,11 +11,11 @@ import java.util.List;
 public class NSumProblem {
     public static void main(String[] args) {
         int[] nums = {-1, 0, 1, 2, -1, -4};
-        int[] nums1 = {-1, 0,-2,-2,-3, 1, 2,-3,-3, -1, -4};
+        int[] nums1 = {-1, 0, -2, -2, -3, 1, 2, -3, -3, -1, -4};
         NSumProblem solution = new NSumProblem();
         System.out.println(solution.threeSum(nums));
-
-        System.out.println(solution.twoSum(nums1, 0));
+        int[] num2 = {1, 1, 1, 1, 1, 1};
+        System.out.println(solution.twoSum(num2, 0));
     }
 
     public List<List<Integer>> threeSum(int[] nums) {
@@ -57,17 +57,17 @@ public class NSumProblem {
                 answer.add(result);
                 left++;
                 right--;
-                while (nums[left] == nums[left - 1])
+                while (left < right && nums[left] == nums[left - 1])
                     left++;
-                while (nums[right] == nums[right + 1])
+                while (left < right && nums[right] == nums[right + 1])
                     right--;
             } else if (sum > target) {
                 right--;
-                while (nums[right] == nums[right + 1])
+                while (left < right && nums[right] == nums[right + 1])
                     right--;
             } else {
                 left++;
-                while (nums[left] == nums[left - 1])
+                while (left < right && nums[left] == nums[left - 1])
                     left++;
             }
         }
