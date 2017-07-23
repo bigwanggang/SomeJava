@@ -20,11 +20,16 @@ public class BinaryTreeUtil {
         root.right = r2;
         r1.left = r3;
         r1.right = r4;
-        r4.left = r5;
-        r5.left = r6;
-        r6.right = r7;
+        r2.left = r5;
+        r2.right = r6;
 
         printBinaryTree(root);
+        System.out.println("\npreOrder:");
+        preOrder(root);
+        System.out.println("\ninorder:");
+        inOrder(root);
+        System.out.println("\npostorder:");
+        postOrder(root);
     }
 
     public static void contructChart(char[][] chart, BinaryTree node, int level, int x, int y) {
@@ -79,4 +84,39 @@ public class BinaryTreeUtil {
         return (int) Math.pow(2, level - 1);
     }
 
+    /**
+     * 前序遍历
+     * @param root 跟节点
+     */
+    public static void preOrder(BinaryTree root) {
+        if(root == null)
+            return;
+        System.out.print(root.element + " ");
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+
+    /**
+     * 中序遍历
+     * @param root 跟节点
+     */
+    public static void inOrder(BinaryTree root) {
+        if(root == null)
+            return;
+        inOrder(root.left);
+        System.out.print(root.element + " ");
+        inOrder(root.right);
+    }
+
+    /**
+     * 后序遍历
+     * @param root 跟节点
+     */
+    public static void postOrder(BinaryTree root) {
+        if(root == null)
+            return;
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.element + " ");
+    }
 }
