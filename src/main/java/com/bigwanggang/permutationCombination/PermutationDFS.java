@@ -33,7 +33,7 @@ public class PermutationDFS {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 2, 3};
+        int[] a = {1, 2, 3,4,5};
         PermutationDFS permutation = new PermutationDFS();
         System.out.println(permutation.permute(a));
         List<Integer> temp = new ArrayList<Integer>();
