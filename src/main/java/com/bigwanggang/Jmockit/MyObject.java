@@ -8,4 +8,8 @@ public class MyObject {
     public static int tripple(int i) {
         return i * 3;
     }
+
+    public static void main(String[] args) {
+        System.out.println("hwlloworld");
+    }
 }
