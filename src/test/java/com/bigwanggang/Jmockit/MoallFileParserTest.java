@@ -22,7 +22,7 @@ public class MoallFileParserTest {
 
     @Test
     public void testIsStart() {
-        MoallFileParser mofile = new MoallFileParser(anyString, );
+//        MoallFileParser mofile = new MoallFileParser(anyString, );
 
     }
 }

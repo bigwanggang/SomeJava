@@ -9,7 +9,8 @@ public class MyObject {
         return i * 3;
     }
 
-    public static void main(String[] args) {
-        System.out.println("hwlloworld");
+    public String returnString() {
+        return "String";
     }
+
 }

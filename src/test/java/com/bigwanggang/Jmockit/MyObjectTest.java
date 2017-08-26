@@ -1,9 +1,7 @@
 package com.bigwanggang.Jmockit;
 
 import junit.framework.Assert;
-import mockit.Mocked;
-import mockit.NonStrictExpectations;
-import mockit.Verifications;
+import mockit.*;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,18 +13,8 @@ public class MyObjectTest {
 
     @Test
     public void testHello() {
-        new NonStrictExpectations() {
-            {
-                obj.hello("nihao");
-                returns("hello nihao");
-            }
-        };
-        Assert.assertEquals("hello nihao", obj.hello("nihao"));
-        new Verifications() {
-            {
-                obj.hello("nihao");
-                times = 1;
-            }
-        };
+
+        Assert.assertEquals(null, obj.hello(""));
+        Assert.assertEquals(null, obj.returnString());
     }
 }
