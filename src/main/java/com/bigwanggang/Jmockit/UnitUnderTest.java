@@ -11,7 +11,6 @@ public class UnitUnderTest {
 
             try {
                 s = abc.stringReturningMethod();
-                System.out.println(s);
             } catch (SomeCheckedException e) {
                 // 处理异常
             }
