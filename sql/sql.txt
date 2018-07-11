@@ -1,0 +1,38 @@
+create database school;
+
+create table S(
+	SID int primary key,
+	SName char(25),
+	SSex char(1),
+	SProId int,
+	SAge int
+);
+
+create table T(
+	TWorkID int primary key,
+	TName char(25),
+	CourseId int
+);
+
+create table C (
+	CID int primary key,
+	CName char(25),
+	Credit int,
+	TWorkerID int,
+	CTime datetime
+);
+
+create table STC(
+	SID int,
+	CID int,
+	Score int
+);
+
+
+select CName, SID, SName from S, T, C, STC 
+	Where T.CourseId in (select T.CourseId from T Where TName = "zhangdamin") 
+	and STC.CID = T.CourseId
+	and C.CID = T.CourseId
+	and Stc.SID in (select stc.SID from STC Where Score > 90)
+	and s.sid = stc.sid
+	order by cname, score desc;
