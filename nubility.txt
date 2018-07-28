@@ -19,3 +19,5 @@ idea 社区版创建web工程，并部署tomcat
             </plugins>
          </build>
 引用自： https://blog.csdn.net/u012364631/article/details/47682011
+
+ArrayList的elementData为什么要修饰为transient?
