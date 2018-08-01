@@ -28,3 +28,8 @@
         spring.datasource.username=root
         spring.datasource.password=root123
         以上为配置数据源
+        
+        spring.jpa.hibernate.ddl-auto=update
+        spring.jpa.show-sql=true
+        spring.jackson.serialization.indent_output=true
+        (以上引自 java开发颠覆者springboot P266)
