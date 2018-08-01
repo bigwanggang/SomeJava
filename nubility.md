@@ -23,7 +23,7 @@
 # ArrayList的elementData为什么要修饰为transient?
 
 # SpringBoot相关
- spring.datasource.driverClassName=com.mysql.jdbc.Driver
+spring.datasource.driverClassName=com.mysql.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/test
 spring.datasource.username=root
 spring.datasource.password=root123
