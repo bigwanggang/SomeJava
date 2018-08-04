@@ -33,3 +33,26 @@
         spring.jpa.show-sql=true
         spring.jackson.serialization.indent_output=true
         (以上引自 java开发颠覆者springboot P266)
+
+# idea springboot 热部署
+        ##### 1.添加依赖
+         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+         ##### 2.添加插件
+         <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <configuration>
+                            <fork>true</fork>
+                        </configuration>
+                    </plugin>
+                </plugins>
+        </build>
+        ##### 3. idea setting
+        file->Settings->Build,Execution,Deplment->Compiler , 选择Build project automatically 点击OK按钮
+        ##### 4. 组合键：Shift+ALT+Ctrl+/ ，选择“Registry”，回车，找到“complier.automake.allow.when.app.running” 
