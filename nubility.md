@@ -88,4 +88,6 @@
         file->Settings->Build,Execution,Deplment->Compiler , 选择Build project automatically 点击OK按钮
         4. 组合键：Shift+ALT+Ctrl+/ ，选择“Registry”，回车，找到“complier.automake.allow.when.app.running” 
         
-
+# 较新版的Spring Boot取消了@SpringApplicationConfiguration这个注解
+        用@SpringBootTest就可以了
+        @RunWith(SpringRunner.class)
