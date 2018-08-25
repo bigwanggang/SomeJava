@@ -91,3 +91,5 @@
 # 较新版的Spring Boot取消了@SpringApplicationConfiguration这个注解
         用@SpringBootTest就可以了
         @RunWith(SpringRunner.class)
+        
+# Redis 查看所有的key的命令： keys *  
