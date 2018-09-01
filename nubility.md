@@ -126,5 +126,6 @@
         删除远程分支 git branch -r -d origin/branchname
         git push origin :branchName
         
-        
+# spring cloud
+        每个使用配置管理的客户端项目中一个名为bookstrap.yml的本地配置文件，用来设定连接配置管理服务器、应用的名称、以及需要有配置管理服务器提供的配置文件等参数
      
