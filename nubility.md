@@ -141,3 +141,6 @@
      以上配置是一个配置管理客户端的bookstrap.yml的配置信息，它包含的信息是：该客户端使用的配置文件是http://localhost:8888配置服务器的web-development.yml配置文件，如果profiles.active不配置，则对应web.yml配置文件
      
      @RefreshScope是解决配置信息在线实时更新的，可以用在服务端和客户端，但是必须要有spring-boot-starter-actuator 这个依赖才可以
+
+# docker
+        
