@@ -143,6 +143,7 @@
      @RefreshScope是解决配置信息在线实时更新的，可以用在服务端和客户端，但是必须要有spring-boot-starter-actuator 这个依赖才可以
 
 # docker
+        docker build -t demo:v1 . 制作镜像
         
         
 # Dockerfile
