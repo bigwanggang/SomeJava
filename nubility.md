@@ -144,3 +144,17 @@
 
 # docker
         
+        
+# Dockerfile
+        FROM 基础镜像,必须为第一条指令
+        VOLUME 可以实现挂载功能
+        语法为： VOLUME ["/data"]
+        RUN 运行指定的命令，例如：
+                RUN /bin/bash -c 'echo hello'
+                RUN ["/bin/bash", "-c", "echo hello"]
+        ADD 复制命令，把文件复制到镜像中， 如果把虚拟机与容器想象成两台linux服务器的话，那么这个命令就类似于scp
+        ENTRYPOINT 功能是启动是的默认命令
+        语法如下：
+
+        1. ENTRYPOINT ["executable", "param1", "param2"]
+        2. ENTRYPOINT command param1 param2
