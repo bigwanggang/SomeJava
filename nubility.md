@@ -21,6 +21,7 @@
 引用自： https://blog.csdn.net/u012364631/article/details/47682011
 
 # ArrayList的elementData为什么要修饰为transient?
+        ArrayList的实现原理是动态数组，elementData是个存储数据的数组，随着不断的往数组add数据，如果数组容量不够，要进行扩容，ArrayList扩容是在当前数组容量的1.5倍扩容，ArrayList里真正存储数据的个数是size，size肯定是小于elementData数组的容量的，elementData用transient修饰的目的是，序列化的过程中不序列化elementData，而是通过实现readObject（）和writeObject（）两个方法来实现序列化，问：readObject（）和writeObject（）是private的，是怎么调用的？
 
 # SpringBoot相关
         spring.datasource.driverClassName=com.mysql.jdbc.Driver
