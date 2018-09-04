@@ -165,4 +165,15 @@
 # 任务
         java实现死锁
         java锁的理解， synchronize，Lock 区别和优缺点
+        pubilc synchronized void test() {}
+ 
+ 
+        pubilc synchronized void test() {}   //synchronized用在方法上
         
+        synchronized也可以用在代码块上：
+        public void test() {
+             synchronized(obj) {
+                  System.out.println("===");
+             }
+        }
+        synchronized 用在方法和代码块上有什么区别呢？
