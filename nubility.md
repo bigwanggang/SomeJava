@@ -164,4 +164,5 @@
 # hashMap和HashTable 区别
 # 任务
         java实现死锁
+        java锁的理解， synchronize，Lock 区别和优缺点
         
