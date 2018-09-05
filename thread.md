@@ -13,3 +13,14 @@
       }
     }
     如果一个方法同时被synchronized和static修饰，即使多个线程拥有多个实例，也是需要同步，因为这个方法是static，方法不属于实例，而属于类
+    
+    synchronized void method(){
+        //code
+    } 
+    void method(){
+        synchronized(this){
+            //code
+        }
+    }
+    以上两个是等同的
+    
