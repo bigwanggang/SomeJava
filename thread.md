@@ -1,5 +1,5 @@
-##### 非线程安全存在于实例变量，不会存在于方法内部的私有变量
-##### synchronized取得的锁是对象锁。例如：
+#### 非线程安全存在于实例变量，不会存在于方法内部的私有变量
+#### synchronized取得的锁是对象锁。例如：
     class Resource1{
       synchronized public void f(){
         //do something;
