@@ -54,7 +54,7 @@
     }
     ```
     输出是：
-    ···Bash
+    ```Bash
     pool-1-thread-1--0:0
     ...
     pool-1-thread-1--0:49
