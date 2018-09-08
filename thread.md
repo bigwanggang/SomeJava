@@ -26,7 +26,7 @@
     
 ## Executor
     newSingleThreadExecutor 的例子：
-    ```java
+```java
         public class NewSingleThreadExecutorTest {
         public static void main(String[] args) {
             ExecutorService service = Executors.newSingleThreadExecutor();
@@ -52,9 +52,9 @@
             }
         }
     }
-    ```
+```
     输出是：
-    ```Bash
+```Bash
     pool-1-thread-1--0:0
     ...
     pool-1-thread-1--0:49
@@ -63,5 +63,5 @@
     pool-1-thread-1--1:49
     pool-1-thread-1--2:0
     ...
-    ```
+```
     所有的线程都运行完（没有打印输出），程序还没有结束
