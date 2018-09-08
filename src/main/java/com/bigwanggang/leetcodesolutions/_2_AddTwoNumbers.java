@@ -1,6 +1,5 @@
 package com.bigwanggang.leetcodesolutions;
 
-import java.util.List;
 
 /**
  * Created by gustaov on 2018/9/2.
@@ -58,11 +57,3 @@ public class _2_AddTwoNumbers {
     }
 }
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-    }
-}

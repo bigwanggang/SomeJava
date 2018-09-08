@@ -1,0 +1,205 @@
+Classfile /D:/MYWORKSPACE/JAVACODE/src/main/java/com/bigwanggang/multithread/AccountingSync.class
+  Last modified 2018-9-6; size 1040 bytes
+  MD5 checksum 18bdee9061d76c157f6ac2c0e717ab46
+  Compiled from "AccountingSync.java"
+public class com.bigwanggang.multithread.AccountingSync implements java.lang.Runnable
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #13.#34        // java/lang/Object."<init>":()V
+   #2 = Fieldref           #5.#35         // com/bigwanggang/multithread/AccountingSync.i:I
+   #3 = Integer            1000000
+   #4 = Methodref          #5.#36         // com/bigwanggang/multithread/AccountingSync.increase:()V
+   #5 = Class              #37            // com/bigwanggang/multithread/AccountingSync
+   #6 = Methodref          #5.#34         // com/bigwanggang/multithread/AccountingSync."<init>":()V
+   #7 = Class              #38            // java/lang/Thread
+   #8 = Methodref          #7.#39         // java/lang/Thread."<init>":(Ljava/lang/Runnable;)V
+   #9 = Methodref          #7.#40         // java/lang/Thread.start:()V
+  #10 = Methodref          #7.#41         // java/lang/Thread.join:()V
+  #11 = Fieldref           #42.#43        // java/lang/System.out:Ljava/io/PrintStream;
+  #12 = Methodref          #44.#45        // java/io/PrintStream.println:(I)V
+  #13 = Class              #46            // java/lang/Object
+  #14 = Class              #47            // java/lang/Runnable
+  #15 = Utf8               i
+  #16 = Utf8               I
+  #17 = Utf8               <init>
+  #18 = Utf8               ()V
+  #19 = Utf8               Code
+  #20 = Utf8               LineNumberTable
+  #21 = Utf8               increase
+  #22 = Utf8               StackMapTable
+  #23 = Class              #37            // com/bigwanggang/multithread/AccountingSync
+  #24 = Class              #46            // java/lang/Object
+  #25 = Class              #48            // java/lang/Throwable
+  #26 = Utf8               run
+  #27 = Utf8               main
+  #28 = Utf8               ([Ljava/lang/String;)V
+  #29 = Utf8               Exceptions
+  #30 = Class              #49            // java/lang/InterruptedException
+  #31 = Utf8               <clinit>
+  #32 = Utf8               SourceFile
+  #33 = Utf8               AccountingSync.java
+  #34 = NameAndType        #17:#18        // "<init>":()V
+  #35 = NameAndType        #15:#16        // i:I
+  #36 = NameAndType        #21:#18        // increase:()V
+  #37 = Utf8               com/bigwanggang/multithread/AccountingSync
+  #38 = Utf8               java/lang/Thread
+  #39 = NameAndType        #17:#50        // "<init>":(Ljava/lang/Runnable;)V
+  #40 = NameAndType        #51:#18        // start:()V
+  #41 = NameAndType        #52:#18        // join:()V
+  #42 = Class              #53            // java/lang/System
+  #43 = NameAndType        #54:#55        // out:Ljava/io/PrintStream;
+  #44 = Class              #56            // java/io/PrintStream
+  #45 = NameAndType        #57:#58        // println:(I)V
+  #46 = Utf8               java/lang/Object
+  #47 = Utf8               java/lang/Runnable
+  #48 = Utf8               java/lang/Throwable
+  #49 = Utf8               java/lang/InterruptedException
+  #50 = Utf8               (Ljava/lang/Runnable;)V
+  #51 = Utf8               start
+  #52 = Utf8               join
+  #53 = Utf8               java/lang/System
+  #54 = Utf8               out
+  #55 = Utf8               Ljava/io/PrintStream;
+  #56 = Utf8               java/io/PrintStream
+  #57 = Utf8               println
+  #58 = Utf8               (I)V
+{
+  static int i;
+    descriptor: I
+    flags: ACC_STATIC
+
+  public com.bigwanggang.multithread.AccountingSync();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 3: 0
+
+  public void increase();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=3, args_size=1
+         0: aload_0
+         1: dup
+         2: astore_1
+         3: monitorenter
+         4: getstatic     #2                  // Field i:I
+         7: iconst_1
+         8: iadd
+         9: putstatic     #2                  // Field i:I
+        12: aload_1
+        13: monitorexit
+        14: goto          22
+        17: astore_2
+        18: aload_1
+        19: monitorexit
+        20: aload_2
+        21: athrow
+        22: return
+      Exception table:
+         from    to  target type
+             4    14    17   any
+            17    20    17   any
+      LineNumberTable:
+        line 11: 0
+        line 12: 4
+        line 13: 12
+        line 14: 22
+      StackMapTable: number_of_entries = 2
+        frame_type = 255 /* full_frame */
+          offset_delta = 17
+          locals = [ class com/bigwanggang/multithread/AccountingSync, class java/lang/Object ]
+          stack = [ class java/lang/Throwable ]
+        frame_type = 250 /* chop */
+          offset_delta = 4
+
+  public void run();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=1
+         0: iconst_0
+         1: istore_1
+         2: iload_1
+         3: ldc           #3                  // int 1000000
+         5: if_icmpge     18
+         8: aload_0
+         9: invokevirtual #4                  // Method increase:()V
+        12: iinc          1, 1
+        15: goto          2
+        18: return
+      LineNumberTable:
+        line 18: 0
+        line 19: 8
+        line 18: 12
+        line 21: 18
+      StackMapTable: number_of_entries = 2
+        frame_type = 252 /* append */
+          offset_delta = 2
+          locals = [ int ]
+        frame_type = 250 /* chop */
+          offset_delta = 15
+
+  public static void main(java.lang.String[]) throws java.lang.InterruptedException;
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=4, args_size=1
+         0: new           #5                  // class com/bigwanggang/multithread/AccountingSync
+         3: dup
+         4: invokespecial #6                  // Method "<init>":()V
+         7: astore_1
+         8: new           #7                  // class java/lang/Thread
+        11: dup
+        12: aload_1
+        13: invokespecial #8                  // Method java/lang/Thread."<init>":(Ljava/lang/Runnable;)V
+        16: astore_2
+        17: new           #7                  // class java/lang/Thread
+        20: dup
+        21: aload_1
+        22: invokespecial #8                  // Method java/lang/Thread."<init>":(Ljava/lang/Runnable;)V
+        25: astore_3
+        26: aload_2
+        27: invokevirtual #9                  // Method java/lang/Thread.start:()V
+        30: aload_3
+        31: invokevirtual #9                  // Method java/lang/Thread.start:()V
+        34: aload_2
+        35: invokevirtual #10                 // Method java/lang/Thread.join:()V
+        38: aload_3
+        39: invokevirtual #10                 // Method java/lang/Thread.join:()V
+        42: getstatic     #11                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        45: getstatic     #2                  // Field i:I
+        48: invokevirtual #12                 // Method java/io/PrintStream.println:(I)V
+        51: return
+      LineNumberTable:
+        line 24: 0
+        line 25: 8
+        line 26: 17
+        line 27: 26
+        line 28: 30
+        line 29: 34
+        line 30: 38
+        line 31: 42
+        line 32: 51
+    Exceptions:
+      throws java.lang.InterruptedException
+
+  static {};
+    descriptor: ()V
+    flags: ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: iconst_0
+         1: putstatic     #2                  // Field i:I
+         4: return
+      LineNumberTable:
+        line 5: 0
+}
+SourceFile: "AccountingSync.java"
