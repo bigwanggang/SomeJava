@@ -26,7 +26,7 @@
     
 ## Executor
     newSingleThreadExecutor 的例子：
-'''java
+```java
     public class NewSingleThreadExecutorTest {
     public static void main(String[] args) {
         ExecutorService service = Executors.newSingleThreadExecutor();
@@ -52,4 +52,4 @@ class MyRunnable implements Runnable {
         }
     }
 }
-'''
+```
