@@ -179,4 +179,8 @@
         synchronized 用在方法和代码块上有什么区别呢？
 # Java 基础
         有点类构造方法里会有super(),目的是引用父类的无参构造器，这个super()是可以省略的
+        在idea里执行 Thread.activeCount() 为什么为2
+        Integer和AtomicInteger区别
+        优先使用ConcurrentHashMap,而不是Collections.SynchronizedMap或Hashtable
    ## 反射了解一下
+   ## 事务了解一下
