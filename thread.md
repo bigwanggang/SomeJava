@@ -25,4 +25,4 @@
     以上两个是等同的
     
 ## Executor
-    newSingleThreadExecutor 的例子：https://github.com/bigwanggang/JAVA/blob/master/src/main/java/com/bigwanggang/multithread/NewSingleThreadExecutorTest.java
+    - [newSingleThreadExecutor 的例子]：（https://github.com/bigwanggang/JAVA/blob/master/src/main/java/com/bigwanggang/multithread/NewSingleThreadExecutorTest.java）
