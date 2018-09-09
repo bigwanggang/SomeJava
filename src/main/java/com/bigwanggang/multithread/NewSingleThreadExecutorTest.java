@@ -13,7 +13,7 @@ public class NewSingleThreadExecutorTest {
             Runnable runnable = new MyRunnable(i);
             service.submit(runnable);
         }
-        service.shutdown();
+        service.shutdownNow();
     }
 }
 
