@@ -183,7 +183,7 @@
         Integer和AtomicInteger区别
         优先使用ConcurrentHashMap,而不是Collections.SynchronizedMap或Hashtable
         引用类的final static常量，不会初始化该类，引用static变量，会初始化该类
-···java
+``` java
         public class InitialTest {
             public static void main(String[] args) {
                 System.out.println(Class1.a);
