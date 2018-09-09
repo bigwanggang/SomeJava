@@ -182,5 +182,30 @@
         在idea里执行 Thread.activeCount() 为什么为2
         Integer和AtomicInteger区别
         优先使用ConcurrentHashMap,而不是Collections.SynchronizedMap或Hashtable
+        引用类的final static常量，不会初始化该类，引用static变量，会初始化该类
+···java
+        public class InitialTest {
+            public static void main(String[] args) {
+                System.out.println(Class1.a);
+                System.out.println(Class2.a);
+            }
+        }
+
+        class Class1 {
+            final static String a = "hello";
+
+            static {
+                System.out.println("Class1 init");
+            }
+        }
+
+        class Class2 {
+            static String a = "hello";
+
+            static {
+                System.out.println("Class2 init");
+            }
+        }
+```
    ## 反射了解一下
    ## 事务了解一下
