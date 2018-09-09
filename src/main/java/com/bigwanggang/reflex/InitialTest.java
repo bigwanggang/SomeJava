@@ -5,7 +5,8 @@ package com.bigwanggang.reflex;
  */
 public class InitialTest {
     public static void main(String[] args) throws ClassNotFoundException {
-        Class.forName("com.bigwanggang.reflex.Class1");
+        System.out.println(Class1.a);
+        System.out.println(Class2.a);
     }
 }
 
