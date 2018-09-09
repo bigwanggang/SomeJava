@@ -66,4 +66,4 @@
 ```
     所有的线程都运行完（没有打印输出），程序还没有结束
     
-![image](https://github.com/bigwanggang/JAVA/tree/master/picture/jvm.jpg)
+![](https://github.com/bigwanggang/JAVA/tree/master/picture/jvm.jpg)
