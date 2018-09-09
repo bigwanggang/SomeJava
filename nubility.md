@@ -189,9 +189,7 @@
                 System.out.println(Class1.a);
                 System.out.println(Class2.a);
             }
-        }
-
-        class Class1 {
+	            class Class1 {
             final static String a = "hello";
 
             static {
@@ -205,6 +203,7 @@
             static {
                 System.out.println("Class2 init");
             }
+        }
         }
 ```
 	输出为：
