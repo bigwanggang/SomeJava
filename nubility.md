@@ -212,6 +212,8 @@
 	hello
 	Class2 init
 	hello
+	
+	BlockingQueue 了解一下
 ## 反射了解一下
 	RTTI，编译器在编译时打开和检查.class文件
 	反射，运行时打开和检查.class文件   		
