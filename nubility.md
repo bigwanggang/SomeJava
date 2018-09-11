@@ -215,6 +215,7 @@
 	
 	BlockingQueue 了解一下
 	Thread的interrupt()不会中断正则执行的线程，只会中断sleep、wait、join的阻塞状态的线程
+	查看程序InterruptTest和InterruptTest1的区别，只在InterruptTest1里面中断了阻塞的状态，抛出异常：java.lang.InterruptedException: sleep interrupted
 ## 反射了解一下
 	RTTI，编译器在编译时打开和检查.class文件
 	反射，运行时打开和检查.class文件   		
