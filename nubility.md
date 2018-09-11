@@ -225,6 +225,8 @@
 	说明t2线程执行interrupt（）之后，还是继续等待并获取了锁，只是在执行阻塞方法sleep时，由于该线程的中断标志位为1，所以直接抛出异常
 	
 	LockInterruptTest 演示了lockInterruptibly()方法，当一个线程想要获取一个锁的时候，如果这个锁被其他线程占有，这个线程就处于阻塞的状态，此时如果执行该线程的interrupt()方法，立刻抛出异常，因为lockInterruptibly()方法抛出InterruptedException
+	
+	JdbcTemplate 了解一下：https://www.cnblogs.com/tuhooo/p/6491913.html
 ## 反射了解一下
 	RTTI，编译器在编译时打开和检查.class文件
 	反射，运行时打开和检查.class文件   		
