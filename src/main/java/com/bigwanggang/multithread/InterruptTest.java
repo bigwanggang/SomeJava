@@ -1,4 +1,4 @@
-package com.zte.sync;
+package com.bigwanggang.multithread;
 
 public class InterruptTest implements Runnable {
     public static void main(String[] args) {
