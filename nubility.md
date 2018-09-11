@@ -216,6 +216,13 @@
 	BlockingQueue 了解一下
 	Thread的interrupt()不会中断正则执行的线程，只会中断sleep、wait、join的阻塞状态的线程
 	查看程序InterruptTest和InterruptTest1的区别，只在InterruptTest1里面中断了阻塞的状态，抛出异常：java.lang.InterruptedException: sleep interrupted，通过interrupt()中断阻塞的线程，只是将线程的中断标志位置1，该中断标志位可通过isInterrupted()获得。
+	ReentrantLock常用的有三个锁的方法，lock(), tryLock(),lockInterruptibly（）,弄清楚
+	LockTest大概演示了lockInterruptibly（）的用法，当一个线程想要获取一个锁的时候，如果这个锁被其他线程占有，这个线程就处于阻塞的状态，此时如果执行该线程的interrupt()方法，会把该线程的中断标志位置1，并不会立刻终止该线程，LockTest的输出为：
+	Thread-0 in run()...
+	Thread-0 out run()...
+	Thread-1 in run()...
+	Thread-1 interrupt()...
+	说明t2线程执行interrupt（）之后，还是继续等待并获取了锁，只是在执行阻塞方法sleep时，由于该线程的中断标志位为1，所以直接抛出异常
 ## 反射了解一下
 	RTTI，编译器在编译时打开和检查.class文件
 	反射，运行时打开和检查.class文件   		
