@@ -22,3 +22,4 @@ http://www.importnew.com/13107.html
         14: istore        5
 ```        
         其中2147483647是存储在常量池中
+	istore_1是将栈顶元素弹出，存入局部变量1中
