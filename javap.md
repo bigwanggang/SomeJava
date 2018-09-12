@@ -9,6 +9,7 @@ http://www.importnew.com/13107.html
     int d = Integer.MAX_VALUE;
 ```
 将以上java代码编译后：
+```java
          0: iconst_5
          1: istore_1
          2: iconst_m1
@@ -19,5 +20,5 @@ http://www.importnew.com/13107.html
         10: istore        4
         12: ldc           #3                  // int 2147483647
         14: istore        5
-        
+```        
         其中2147483647是存储在常量池中
