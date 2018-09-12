@@ -23,3 +23,22 @@ http://www.importnew.com/13107.html
 ```        
         其中2147483647是存储在常量池中
 	istore_1是将栈顶元素弹出，存入局部变量1中
+
+```java
+	void spin() {
+	int i; 
+	for (i = 0; i < 100; i++) {
+	; // Loop body is empty 
+		} 
+	}
+```
+```java
+	 0: iconst_0		#将0压入栈
+         1: istore_1		#将栈顶元素弹出，存入局部变量1中
+         2: iload_1		#将局部变量1的值压入栈
+         3: bipush        100	#将100压入栈
+         5: if_icmpge     14	#如果局部变量1的值大于等于（greater equal）100 跳转到14
+         8: iinc          1, 1	#局部变量1的值加1
+        11: goto          2
+        14: return
+```
