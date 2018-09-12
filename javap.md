@@ -42,3 +42,5 @@ http://www.importnew.com/13107.html
         11: goto          2
         14: return
 ```
+
+	dup 指令的作用
