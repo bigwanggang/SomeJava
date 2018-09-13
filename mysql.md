@@ -57,3 +57,12 @@ create table employee(
 );
 ```
 primary key 和 UNIQUE区别
+查看表结构：
+```sql
+ 	desc table_name
+```
+查看表的详细结构：
+```sql
+	show create table table_name\G;
+```
+
