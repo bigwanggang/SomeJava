@@ -35,7 +35,7 @@ create table S(
 	SName char(25),
 	SSex char(1),
 	SProId int,
-	SAge int，
-	PRIMARY KEY(SID,Sname)
+	SAge int,
+	PRIMARY KEY(SID,SName)
 );
 ```
