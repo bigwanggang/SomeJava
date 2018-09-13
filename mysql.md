@@ -48,9 +48,10 @@ create table department(
 );
 create table employee(
 	id int(11) primary key,
-	name varchar(25),
+	name varchar(25) unique,
 	deptId int(11),
 	salary FLOAT,
 	CONSTRAINT fk_emp_dept FOREIGN KEY(deptId) REFERENCES department(id)
 );
 ```
+primary key 和 UNIQUE区别
