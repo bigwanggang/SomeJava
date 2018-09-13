@@ -36,6 +36,6 @@ create table S(
 	SSex char(1),
 	SProId int,
 	SAge int，
-  PRIMARY KEY(SID,Sname)
+	PRIMARY KEY(SID,Sname)
 );
 ```
