@@ -1,3 +1,4 @@
+### 数据库操作：
 显示所有数据库：
 ```sql
 show databases;
@@ -18,6 +19,7 @@ show create database database_name\G;
 ```sql
 drop database database_name;
 ```
+### 表的操作
 主键约束：
 ```sql
 create table S(
