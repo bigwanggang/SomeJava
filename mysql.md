@@ -39,3 +39,18 @@ create table S(
 	PRIMARY KEY(SID,SName)
 );
 ```
+外键约束：
+```sql
+create table department(
+	id int(11) primary key,
+	name varchar(22) not null,
+	location varchar(50)
+);
+create table employee(
+	id int(11) primary key,
+	name varchar(25),
+	deptId int(11),
+	salary FLOAT,
+	CONSTRAINT fk_emp_dept FOREIGN KEY(deptId) REFERENCES department(id)
+);
+```
