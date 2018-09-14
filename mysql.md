@@ -91,6 +91,8 @@ create table employee(
 	bookid int not null,
 	bookname varchar(255) not null,
 	authors varchar(255) not null,
+	info varchar(255) default null,
+	comment varchar(255) default null,
 	year_publication YEAR not null,
 	INDEX(year_publication)
 	);
@@ -102,6 +104,17 @@ create table employee(
 	alter table book add index BkNameIdx(bookname(30));
 ```
 - 可以使用 show index from book \G; 查看表中的索引
+- 在book表的bookId字段建立名称为UniquedIdx的唯一索引
+```sql
+	alter table book add unique index uniqidIdx(bookid);
+```
+- 在book表的authors和info字段建立组合索引
+```sql
+	alter table book add unique index BkAuAndInfoIdx(authors(20),info(50));
+```
+- 查看表的索引： show index from book \G;
+
+
 ### 总结
 - 外键约束不能夸引擎使用
 - 一个表只能有一个字段使用auto_increment,且该字段必须为主键的一部分
