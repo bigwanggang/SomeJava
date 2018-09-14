@@ -1,4 +1,4 @@
-# idea 社区版创建web工程，并部署tomcat
+### idea 社区版创建web工程，并部署tomcat
 1. 创建webapp工程
 2. Edit Configurations->add maven   Command Line: tomcat7:run
 3. 先在pom.xml中加入tomcat7的插件
@@ -20,10 +20,10 @@
          </build>
 引用自： https://blog.csdn.net/u012364631/article/details/47682011
 
-# ArrayList的elementData为什么要修饰为transient?
+### ArrayList的elementData为什么要修饰为transient?
         ArrayList的实现原理是动态数组，elementData是个存储数据的数组，随着不断的往数组add数据，如果数组容量不够，要进行扩容，ArrayList扩容是在当前数组容量的1.5倍扩容，ArrayList里真正存储数据的个数是size，size肯定是小于elementData数组的容量的，elementData用transient修饰的目的是，序列化的过程中不序列化elementData，而是通过实现readObject（）和writeObject（）两个方法来实现序列化，问：readObject（）和writeObject（）是private的，是怎么调用的？
 
-# SpringBoot相关
+### SpringBoot相关
         spring.datasource.driverClassName=com.mysql.jdbc.Driver
         spring.datasource.url=jdbc:mysql://localhost:3306/test
         spring.datasource.username=root
@@ -66,7 +66,7 @@
         </dependency>
     </dependencies>
 
-# idea springboot 热部署
+### idea springboot 热部署
         1.添加依赖
          <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -89,16 +89,16 @@
         file->Settings->Build,Execution,Deplment->Compiler , 选择Build project automatically 点击OK按钮
         4. 组合键：Shift+ALT+Ctrl+/ ，选择“Registry”，回车，找到“complier.automake.allow.when.app.running” 
         
-# 较新版的Spring Boot取消了@SpringApplicationConfiguration这个注解
+### 较新版的Spring Boot取消了@SpringApplicationConfiguration这个注解
         用@SpringBootTest就可以了
         @SpringBootTest
         @RunWith(SpringRunner.class)
         
-# Redis 查看所有的key的命令： keys *  
-# git相关
-        git clean -xfd 清除所有
-        git branch -a 查看远程分支
-        git branch 查看本地分支
+### Redis 查看所有的key的命令： keys *  
+### git相关
+ - git clean -xfd 清除所有
+ -       git branch -a 查看远程分支
+ -        git branch 查看本地分支
         git branch branchName 创建本地分支
         git branch -d branchName 删除本地分支
         git checkout branchName 切换到新分支(该branchName 是git branch命令 查看显示的分支，是本地分支)
@@ -127,7 +127,7 @@
         删除远程分支 git branch -r -d origin/branchname
         git push origin :branchName
         
-# spring cloud
+### spring cloud
         每个使用配置管理的客户端项目中一个名为bookstrap.yml的本地配置文件，用来设定连接配置管理服务器、应用的名称、以及需要有配置管理服务器提供的配置文件等参数
         例如：
         spring:
@@ -143,11 +143,11 @@
      
      @RefreshScope是解决配置信息在线实时更新的，可以用在服务端和客户端，但是必须要有spring-boot-starter-actuator 这个依赖才可以
 
-# docker
+### docker
         docker build -t demo:v1 . 制作镜像
         
         
-# Dockerfile
+### Dockerfile
         FROM 基础镜像,必须为第一条指令
         VOLUME 可以实现挂载功能
         语法为： VOLUME ["/data"]
@@ -161,8 +161,8 @@
         1. ENTRYPOINT ["executable", "param1", "param2"]
         2. ENTRYPOINT command param1 param2
 
-# hashMap和HashTable 区别
-# 任务
+### hashMap和HashTable 区别
+### 任务
         java实现死锁
         java锁的理解， synchronize，Lock 区别和优缺点
         pubilc synchronized void test() {}
@@ -177,14 +177,15 @@
              }
         }
         synchronized 用在方法和代码块上有什么区别呢？
-# Java 基础
-        - 有点类构造方法里会有super(),目的是引用父类的无参构造器，这个super()是可以省略的
-        - 在idea里执行 Thread.activeCount() 为什么为2
-        - Integer和AtomicInteger区别
-        - 优先使用ConcurrentHashMap,而不是Collections.SynchronizedMap或Hashtable
-        - 引用类的final static常量，不会初始化该类，引用static变量，会初始化该类
+### Java 基础
+- 有点类构造方法里会有super(),目的是引用父类的无参构造器，这个super()是可以省略的
+- 在idea里执行 Thread.activeCount() 为什么为2
+- Integer和AtomicInteger区别
+- 优先使用ConcurrentHashMap,而不是Collections.SynchronizedMap或Hashtable
+- Runnable与Callable的区别
+- 引用类的final static常量，不会初始化该类，引用static变量，会初始化该类
 	例子：
-	- Runnable与Callable的区别
+
 ``` java
         public class InitialTest {
             public static void main(String[] args) {
