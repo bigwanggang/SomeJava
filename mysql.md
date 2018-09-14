@@ -83,8 +83,10 @@ create table employee(
  - 一张表,里面有ID自增主键,当insert了17条记录之后,删除了第15,16,17条记录,再把Mysql重启,再insert一条记录,这条记录的ID是18还是15 ?
 - 请简述项目中优化sql语句执行效率的方法
 - 为什么平衡二叉树不适合做mysql的索引
+- 阿里手册里的mysql每项都要了解
 
 ### 总结
 - 外键约束不能夸引擎使用
 - 一个表只能有一个字段使用auto_increment,且该字段必须为主键的一部分
 - 可以通过建表时增加auto_increment=100或alter table student auto_increment=100的方式修改默认初始值，但是Innodb引擎如果mysql服务端重启之后auto_increment的默认初始值会被刷新，而MyIsam引擎是将auto_increment的默认初始值存在文件中，即使服务器重启也不会改变
+
