@@ -97,14 +97,14 @@
 ### Redis 查看所有的key的命令： keys *  
 ### git相关
  - git clean -xfd 清除所有
- -       git branch -a 查看远程分支
- -        git branch 查看本地分支
-        git branch branchName 创建本地分支
-        git branch -d branchName 删除本地分支
-        git checkout branchName 切换到新分支(该branchName 是git branch命令 查看显示的分支，是本地分支)
-        git checkout -b branchName 相当于 git branch branchName + git checkout branchName
+ - git branch -a 查看远程分支
+ - git branch 查看本地分支
+ - git branch branchName 创建本地分支
+ - git branch -d branchName 删除本地分支
+ - git checkout branchName 切换到新分支(该branchName 是git branch命令 查看显示的分支，是本地分支)
+ - git checkout -b branchName 相当于 git branch branchName + git checkout branchName
         
-        从远程分支拉到本地分支
+- 从远程分支拉到本地分支
         git checkout -b localName remoteBranchName
         git branch -vv 查看本地分支和远程分支的对应关系
         git tag 可以查看标签
@@ -214,22 +214,24 @@
 	Class2 init
 	hello
 	
-	BlockingQueue 了解一下
-	Thread的interrupt()不会中断正则执行的线程，只会中断sleep、wait、join的阻塞状态的线程
-	查看程序InterruptTest和InterruptTest1的区别，只在InterruptTest1里面中断了阻塞的状态，抛出异常：java.lang.InterruptedException: sleep interrupted，通过interrupt()中断阻塞的线程，只是将线程的中断标志位置1，该中断标志位可通过isInterrupted()获得。
-	ReentrantLock常用的有三个锁的方法，lock(), tryLock(),lockInterruptibly（）,弄清楚
-	LockTest大概演示了lock（）的用法，当一个线程想要获取一个锁的时候，如果这个锁被其他线程占有，这个线程就处于阻塞的状态，此时如果执行该线程的interrupt()方法，会把该线程的中断标志位置1，并不会立刻终止该线程，LockTest的输出为：
+- BlockingQueue 了解一下
+- Thread的interrupt()不会中断正则执行的线程，只会中断sleep、wait、join的阻塞状态的线程
+- 查看程序InterruptTest和InterruptTest1的区别，只在InterruptTest1里面中断了阻塞的状态，抛出异常：java.lang.InterruptedException: sleep interrupted，通过interrupt()中断阻塞的线程，只是将线程的中断标志位置1，该中断标志位可通过isInterrupted()获得。
+- ReentrantLock常用的有三个锁的方法，lock(), tryLock(),lockInterruptibly（）,弄清楚
+- LockTest大概演示了lock（）的用法，当一个线程想要获取一个锁的时候，如果这个锁被其他线程占有，这个线程就处于阻塞的状态，此时如果执行该线程的interrupt()方法，会把该线程的中断标志位置1，并不会立刻终止该线程，LockTest的输出为：
+```Bash
 	Thread-0 in run()...
 	Thread-0 out run()...
 	Thread-1 in run()...
 	Thread-1 interrupt()...
+```
 	说明t2线程执行interrupt（）之后，还是继续等待并获取了锁，只是在执行阻塞方法sleep时，由于该线程的中断标志位为1，所以直接抛出异常
 	
-	LockInterruptTest 演示了lockInterruptibly()方法，当一个线程想要获取一个锁的时候，如果这个锁被其他线程占有，这个线程就处于阻塞的状态，此时如果执行该线程的interrupt()方法，立刻抛出异常，因为lockInterruptibly()方法抛出InterruptedException
+- LockInterruptTest 演示了lockInterruptibly()方法，当一个线程想要获取一个锁的时候，如果这个锁被其他线程占有，这个线程就处于阻塞的状态，此时如果执行该线程的interrupt()方法，立刻抛出异常，因为lockInterruptibly()方法抛出InterruptedException
 	
-	- JdbcTemplate 了解一下：https://www.cnblogs.com/tuhooo/p/6491913.html
-	- 平衡二叉树和红黑树熟悉一下
-## 反射了解一下
-	RTTI，编译器在编译时打开和检查.class文件
-	反射，运行时打开和检查.class文件   		
-## 事务了解一下
+- JdbcTemplate 了解一下：https://www.cnblogs.com/tuhooo/p/6491913.html
+- 平衡二叉树和红黑树熟悉一下
+### 反射了解一下
+- RTTI，编译器在编译时打开和检查.class文件
+- 反射，运行时打开和检查.class文件   		
+### 事务了解一下
