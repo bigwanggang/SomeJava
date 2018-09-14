@@ -111,6 +111,7 @@ create table employee(
 - 在book表的authors和info字段建立组合索引
 ```sql
 	alter table book add unique index BkAuAndInfoIdx(authors(20),info(50));
+	create index BkAuAndInfoIdx ON book(authors(20),info(50));
 ```
 - 查看表的索引： show index from book \G;
 
