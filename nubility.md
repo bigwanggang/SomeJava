@@ -178,13 +178,13 @@
         }
         synchronized 用在方法和代码块上有什么区别呢？
 # Java 基础
-        有点类构造方法里会有super(),目的是引用父类的无参构造器，这个super()是可以省略的
-        在idea里执行 Thread.activeCount() 为什么为2
-        Integer和AtomicInteger区别
-        优先使用ConcurrentHashMap,而不是Collections.SynchronizedMap或Hashtable
-        引用类的final static常量，不会初始化该类，引用static变量，会初始化该类
+        - 有点类构造方法里会有super(),目的是引用父类的无参构造器，这个super()是可以省略的
+        - 在idea里执行 Thread.activeCount() 为什么为2
+        - Integer和AtomicInteger区别
+        - 优先使用ConcurrentHashMap,而不是Collections.SynchronizedMap或Hashtable
+        - 引用类的final static常量，不会初始化该类，引用static变量，会初始化该类
 	例子：
-	Runnable与Callable的区别
+	- Runnable与Callable的区别
 ``` java
         public class InitialTest {
             public static void main(String[] args) {
@@ -226,7 +226,8 @@
 	
 	LockInterruptTest 演示了lockInterruptibly()方法，当一个线程想要获取一个锁的时候，如果这个锁被其他线程占有，这个线程就处于阻塞的状态，此时如果执行该线程的interrupt()方法，立刻抛出异常，因为lockInterruptibly()方法抛出InterruptedException
 	
-	JdbcTemplate 了解一下：https://www.cnblogs.com/tuhooo/p/6491913.html
+	- JdbcTemplate 了解一下：https://www.cnblogs.com/tuhooo/p/6491913.html
+	- 平衡二叉树和红黑树熟悉一下
 ## 反射了解一下
 	RTTI，编译器在编译时打开和检查.class文件
 	反射，运行时打开和检查.class文件   		
