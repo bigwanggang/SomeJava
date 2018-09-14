@@ -71,11 +71,12 @@ create table employee(
 ```
 - auto_increment
 ```sql
-create table student(
-	id int primary key auto_increment,
-	name varchar
-);
+	create table student(
+		id int primary key auto_increment,
+		name varchar(25)
+	) auto_increment=100;
 ```
+
  ### 问题
  - mysql主从复制原理及流程
  - primary key 和 UNIQUE区别
@@ -85,3 +86,4 @@ create table student(
 ### 总结
 - 外键约束不能夸引擎使用
 - 一个表只能有一个字段使用auto_increment,且该字段必须为主键的一部分
+- 可以通过建表时增加auto_increment=100或alter table student auto_increment=100的方式修改默认初始值，但是Innodb引擎如果mysql服务端重启之后auto_increment的默认初始值会被刷新，而MyIsam引擎是将auto_increment的默认初始值存在文件中，即使服务器重启也不会改变
