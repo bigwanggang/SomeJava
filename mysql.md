@@ -77,3 +77,4 @@ create table employee(
 
 ### 总结
 - 外键约束不能夸引擎使用
+- 一个表智能有一个字段使用auto_increment,且该字段必须为主键的一部分
