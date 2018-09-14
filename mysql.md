@@ -68,3 +68,4 @@ create table employee(
  ### 问题
  - mysql主从复制原理及流程
  - primary key 和 UNIQUE区别
+ - 一张表,里面有ID自增主键,当insert了17条记录之后,删除了第15,16,17条记录,再把Mysql重启,再insert一条记录,这条记录的ID是18还是15 ?
