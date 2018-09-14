@@ -69,6 +69,13 @@ create table employee(
 ```sql
 	alter table table_name engine=myisam;
 ```
+- auto_increment
+```sql
+	create table student(
+		id int primary key auto_increment,
+		name varchar
+	);
+```
  ### 问题
  - mysql主从复制原理及流程
  - primary key 和 UNIQUE区别
