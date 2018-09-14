@@ -65,6 +65,10 @@ create table employee(
 ```sql
 	show create table table_name\G;
 ```
+- 修改表的存储类型
+```sql
+	alter table table_name engine=myisam;
+```
  ### 问题
  - mysql主从复制原理及流程
  - primary key 和 UNIQUE区别
