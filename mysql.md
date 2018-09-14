@@ -65,4 +65,5 @@ primary key 和 UNIQUE区别
 ```sql
 	show create table table_name\G;
 ```
-
+ ### 问题
+ - mysql主从复制原理及流程
