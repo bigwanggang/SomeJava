@@ -85,6 +85,23 @@ create table employee(
 - 为什么平衡二叉树不适合做mysql的索引
 - 阿里手册里的mysql每项都要了解
 
+### 索引
+```sql
+	create table book(
+	bookid int not null,
+	bookname varchar(255) not null,
+	authors varchar(255) not null,
+	year_publication YEAR not null,
+	INDEX(year_publication)
+	);
+```
+使用show create table book\G; 可以查看已经在year_publication字段加上索引
+使用explain语句查看索引是否正在使用，explain select * from book where year_publication=1990 \G;
+在已经存在的表创建索引：
+```sql
+	alter table book add index BkNameIdx(bookname(30));
+```
+- 可以使用 show index from book \G; 查看表中的索引
 ### 总结
 - 外键约束不能夸引擎使用
 - 一个表只能有一个字段使用auto_increment,且该字段必须为主键的一部分
