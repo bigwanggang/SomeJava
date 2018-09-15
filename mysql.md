@@ -76,7 +76,7 @@ create table employee(
 		name varchar(25)
 	) auto_increment=100;
 ```
-- SELECT 和LIKE百分号通配符%匹配字符
+* SELECT 和LIKE百分号通配符%匹配字符
 * 查询authors 以B开头的book表中的bookid,authors,info
 ```sql
 	select bookid, authors,info from book where authors LIKE 'B%';
