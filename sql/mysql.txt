@@ -1,1 +1,0 @@
-select student.id, name, pro from student, course where student.id = course.id and courseName = 'math';
