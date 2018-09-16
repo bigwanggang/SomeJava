@@ -131,3 +131,21 @@ create table employee(
 	select name,price from fruits order by name,price
 ```
 	如果第一列是唯一的就只对第一列排序，如果第一列不唯一，才对第二列排序
+	
+	
+	
+```sql
+	create table fruits(
+		f_id char(10) primary key,
+		s_id int(11) not null,
+		f_name char(255) not null,
+		f_price decimal(8,2) not null
+	);
+	create table suppliers(
+		s_id int(11) primary key auto_increment,
+		s_name char(50) not null,
+		s_city char(50),
+		s_zip char(10),
+		s_call char(50) not null
+		);
+```
