@@ -1,6 +1,6 @@
 ```sql
 create database school;
-```
+
 
 create table S(
 	SID int primary key,
@@ -48,7 +48,6 @@ create table tbl2(
 );
 
 	
-```sql
 	create table fruits(
 		f_id char(10) primary key,
 		s_id int(11) not null,
@@ -62,7 +61,6 @@ create table tbl2(
 		s_zip char(10),
 		s_call char(50) not null
 		);
-```
 
 insert into fruits values 
 
@@ -92,3 +90,5 @@ alter table test_table2 drop index ComDateIdx;
 alter table test_table2 add unique index UniqIdx2(id DESC);
 create index MultiComIdx2 on test_table2(firstname,middlename, lastname);
 create FULLTEXT index FTIdx on test_table2(title);
+
+```
