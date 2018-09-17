@@ -78,10 +78,20 @@ create table tbl2(
 	('t4',107,'xbababa', 3.6),
 	('m3',105,'xxtt', 11.6 ),
 	('b5',107,'xxxx', 3.6);
+	
+	insert into suppliers(s_id,s_name, s_call) values
+	(101,'FastFruit Inc', '1123123'),
+	(102,'LT Suppliers', '1123123'),
+	(103,'ACME', '1123123'),
+	(104,'FNK Inc', '1123123'),
+	(105,'Good Set', '1123123'),
+	(106,'Just Eat Ours', '1123123'),
+	(107,'DK Inc', '1123123');
 
 select * from fruits where f_price between 2 and 10.2;
 select * from fruits where f_name like 'b%y';
 select * from fruits where f_price like '1%';
+select suppliers.s_id, s_name, f_name, f_price from fruits inner join suppliers on fruits.s_id=suppliers.s_id;
 
 
 insert into fruits values 
