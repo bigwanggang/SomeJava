@@ -79,6 +79,10 @@ create table tbl2(
 	('m3',105,'xxtt', 11.6 ),
 	('b5',107,'xxxx', 3.6);
 
+select * from fruits where f_price between 2 and 10.2;
+select * from fruits where f_name like 'b%y';
+select * from fruits where f_price like '1%';
+
 
 insert into fruits values 
 
