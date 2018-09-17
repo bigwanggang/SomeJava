@@ -1,3 +1,4 @@
+### Mysql 5.5从零开始学的部分sql语句
 ```sql
 create database school;
 
@@ -122,5 +123,47 @@ alter table test_table2 drop index ComDateIdx;
 alter table test_table2 add unique index UniqIdx2(id DESC);
 create index MultiComIdx2 on test_table2(firstname,middlename, lastname);
 create FULLTEXT index FTIdx on test_table2(title);
+
+	drop table if exists employee;
+	create table employee(
+		e_no int(11) primary key,
+		e_name varchar(50) not null,
+		e_gender char(2) not null,
+		dept_no int not null,
+		e_job varchar(50) not null,
+		e_salary int not null,
+		hireDate DATE not null, 
+		CONSTRAINT fk_dno FOREIGN KEY(dept_no) references dept(d_no)
+	);
+	
+	drop table if exists dept;
+	create table dept(
+		d_no int not null primary key auto_increment,
+		d_name varchar(50),
+		d_location varchar(100)
+	);
+	
+	insert into employee values
+	(1001, 'SMITH', 'm', 20, 'CLERK', 800,20051112),
+	(1002, 'ALLEN', 'f', 30, 'SALESMAN', 1600,20030512),
+	(1003, 'WORD', 'f', 30, 'SALESMAN', 1250,20030512),
+	(1004, 'JONES', 'm', 20, 'MANAGER', 2975,19980518),
+	(1005, 'MARTIN', 'm', 30, 'SALESMAN', 1250,20010612),
+	(1006, 'BLAKE', 'f', 30, 'MANAGER', 2850,19970215),
+	(1007, 'CLARK', 'm', 10, 'MANAGER', 2450,20020912),
+	(1008, 'SCOTT', 'm', 20, 'ANALYST', 3000,20030512),
+	(1009, 'KING', 'f', 10, 'PRESIDENT', 5000,19950101),
+	(1010, 'TURNER', 'f', 30, 'SALESMAN', 1500,19971012),
+	(1011, 'ADAMS', 'm', 20, 'CLERK', 1100,19991005),
+	(1012, 'JAMES', 'f', 30, 'CLERK', 950,20080615);
+	
+	
+	insert into dept values
+	(10, 'ACCOUNTING', 'shanghai'),
+	(20, 'RESEARCH', 'beijing'),
+	(30, 'SALES', 'shenzhen'),
+	(40, 'POERATIONS', 'fujian');
+	
+	select e_job , sum(e_salary) as total_salary from employee group by e_job
 
 ```
