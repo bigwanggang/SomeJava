@@ -24,7 +24,7 @@
     }
     以上两个是等同的
     
-## Executor
+### Executor
     newSingleThreadExecutor 的例子：
 ```java
         public class NewSingleThreadExecutorTest {
@@ -69,4 +69,9 @@
 ![image](https://github.com/bigwanggang/JAVA/tree/master/picture/jvm.jpg)
 ![image](https://github.com/ButBueatiful/dotvim/raw/master/screenshots/vim-screenshot.jpg)
 
-## 多线程之wait、notify、notifyAll
+### 多线程之wait、notify、notifyAll
+
+### ThreadLocal
+
+### 写个程序证明延迟初始化在多线程中是不安全的
+    
