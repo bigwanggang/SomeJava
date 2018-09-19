@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FindAllFiles {
-    static String path = "D:\\workspace\\code\\gulommb\\umts\\src\\com\\zte\\ums";
+    static String path = "D:\\workspace\\code\\";
     static Pattern pattern = Pattern.compile(".*.java");
     static String[] findString = {"Thread", "Runnable"};
 
