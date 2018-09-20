@@ -66,5 +66,50 @@
     }
 ```
   该方法是取hash值的高几位，例如默认情况下，segmentShift为28， segmentMask为15（0xFFFF）,把hash无符号右移28位再与OxFFFF取与，就是取hash的高4位
+  
+#### 先从put方法说起
+```java
+        public V put(K key, V value) {
+        if (value == null)
+            throw new NullPointerException();
+        int hash = hash(key.hashCode());  //1
+        return segmentFor(hash).put(key, hash, value, false);   		//2
+    }
+```    
+    1. 算出key值的hash值
+	2. 首先通过segmengFor方法定位到具体哪个Segment， 然后调用Segment的put方法
+	Segment的put方法如下：
+```java
+		V put(K key, int hash, V value, boolean onlyIfAbsent) {
+            lock();
+            try {
+                int c = count;
+                if (c++ > threshold) // ensure capacity
+                    rehash();
+                HashEntry<K,V>[] tab = table;
+                int index = hash & (tab.length - 1);
+                HashEntry<K,V> first = tab[index];
+                HashEntry<K,V> e = first;
+                while (e != null && (e.hash != hash || !key.equals(e.key)))
+                    e = e.next;
+
+                V oldValue;
+                if (e != null) {
+                    oldValue = e.value;
+                    if (!onlyIfAbsent)
+                        e.value = value;
+                }
+                else {
+                    oldValue = null;
+                    ++modCount;
+                    tab[index] = new HashEntry<K,V>(key, hash, first, value);
+                    count = c; // write-volatile
+                }
+                return oldValue;
+            } finally {
+                unlock();
+            }
+        }
+```		
 
 ## JDK1.8
