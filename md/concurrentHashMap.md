@@ -1,6 +1,6 @@
 
 ## 1.6
-### 构造函数
+#### 构造函数
 ```java
   public ConcurrentHashMap(int initialCapacity,
                              float loadFactor, int concurrencyLevel) {
@@ -42,9 +42,29 @@
   4. 根据ConcurrentHashMap的初始容量，算出能容下该容量的每个Segment中容量的大小，并且该大小为2的n次幂            
             
 
+#### Segment
+  Segment<K,V> extends ReentrantLock 所以Segment是个重入锁
+  transient volatile HashEntry<K,V>[] table; 这个table是数组加链表的方式来存储数据
+  Segment的构造函数，只有一个构造函数
+```java
+          Segment(int initialCapacity, float lf) {
+            loadFactor = lf;
+            setTable(HashEntry.<K,V>newArray(initialCapacity));
+        }
+        void setTable(HashEntry<K,V>[] newTable) {
+            threshold = (int)(newTable.length * loadFactor);
+            table = newTable;
+        }
+```
+  loadFactor 跟HashMap的loadFactor同样作用，0到1之间，默认0.75，当存储的个数占总容量的比例达到loadFactor的时候，就需要扩容
+  threshold 门限值，threshold = 总容量 * loadFactor, 达到门限值就扩容
 
-
-
-
+#### segmentFor方法
+```java
+    final Segment<K,V> segmentFor(int hash) {
+        return segments[(hash >>> segmentShift) & segmentMask];
+    }
+```
+  该方法是取hash值的高几位，例如默认情况下，segmentShift为28， segmentMask为15（0xFFFF）,把hash无符号右移28位再与OxFFFF取与，就是取hash的高4位
 
 ## JDK1.8
