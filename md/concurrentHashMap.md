@@ -85,21 +85,21 @@
             try {
                 int c = count;
                 if (c++ > threshold) // ensure capacity
-                    rehash();
+                    rehash();							//1
                 HashEntry<K,V>[] tab = table;
                 int index = hash & (tab.length - 1);
                 HashEntry<K,V> first = tab[index];
                 HashEntry<K,V> e = first;
-                while (e != null && (e.hash != hash || !key.equals(e.key)))
+                while (e != null && (e.hash != hash || !key.equals(e.key)))	//2
                     e = e.next;
 
                 V oldValue;
-                if (e != null) {
+                if (e != null) {						//3
                     oldValue = e.value;
                     if (!onlyIfAbsent)
                         e.value = value;
                 }
-                else {
+                else {								//4
                     oldValue = null;
                     ++modCount;
                     tab[index] = new HashEntry<K,V>(key, hash, first, value);
@@ -111,7 +111,10 @@
             }
         }
 ```
-	如果容量达到了门限值，则需要rehash（）方法来扩容
+	1. 如果容量达到了门限值，则需要rehash（）方法来扩容,详细分析见下面的分析
+	2. 依次遍历链表（如果链表存在），如果有hash值相同，或key值相同的，停止遍历
+	3. 该条件说明存在hash值相同或key值相同的元素，如果onlyIfAbsent为false，则替换元素
+	4. e == null,有两种可能，一种是原来该数组上，index这个节点就是null，另一种是遍历到最后，没有hash值相同或key值相同的元素，但是不管哪种情形，都把新增的元素加到该链表前
 ```java
         void rehash() {
             HashEntry<K,V>[] oldTable = table;
