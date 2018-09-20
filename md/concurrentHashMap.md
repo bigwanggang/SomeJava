@@ -80,7 +80,7 @@
 	2. 首先通过segmengFor方法定位到具体哪个Segment， 然后调用Segment的put方法
 	Segment的put方法如下：
 ```java
-		V put(K key, int hash, V value, boolean onlyIfAbsent) {
+	V put(K key, int hash, V value, boolean onlyIfAbsent) {
             lock();
             try {
                 int c = count;
@@ -110,6 +110,58 @@
                 unlock();
             }
         }
-```		
+```
+	如果容量达到了门限值，则需要rehash（）方法来扩容
+```java
+        void rehash() {
+            HashEntry<K,V>[] oldTable = table;
+            int oldCapacity = oldTable.length;
+            if (oldCapacity >= MAXIMUM_CAPACITY)
+                return;
+
+            HashEntry<K,V>[] newTable = HashEntry.newArray(oldCapacity<<1);
+            threshold = (int)(newTable.length * loadFactor);
+            int sizeMask = newTable.length - 1;
+            for (int i = 0; i < oldCapacity ; i++) {
+                // We need to guarantee that any existing reads of old Map can
+                //  proceed. So we cannot yet null out each bin.
+                HashEntry<K,V> e = oldTable[i];
+
+                if (e != null) {
+                    HashEntry<K,V> next = e.next;
+                    int idx = e.hash & sizeMask;
+
+                    //  Single node on list
+                    if (next == null)
+                        newTable[idx] = e;
+
+                    else {
+                        // Reuse trailing consecutive sequence at same slot
+                        HashEntry<K,V> lastRun = e;
+                        int lastIdx = idx;
+                        for (HashEntry<K,V> last = next;
+                             last != null;
+                             last = last.next) {
+                            int k = last.hash & sizeMask;
+                            if (k != lastIdx) {
+                                lastIdx = k;
+                                lastRun = last;
+                            }
+                        }
+                        newTable[lastIdx] = lastRun;
+
+                        // Clone all remaining nodes
+                        for (HashEntry<K,V> p = e; p != lastRun; p = p.next) {
+                            int k = p.hash & sizeMask;
+                            HashEntry<K,V> n = newTable[k];
+                            newTable[k] = new HashEntry<K,V>(p.key, p.hash,
+                                                             n, p.value);
+                        }
+                    }
+                }
+            }
+            table = newTable;
+        }
+```
 
 ## JDK1.8
