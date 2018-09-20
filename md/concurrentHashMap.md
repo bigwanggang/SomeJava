@@ -69,7 +69,7 @@
   
 #### 先从put方法说起
 ```java
-        public V put(K key, V value) {
+    public V put(K key, V value) {
         if (value == null)
             throw new NullPointerException();
         int hash = hash(key.hashCode());  //1
@@ -177,5 +177,32 @@
 		for循环遍历分别为 1 0 1 1 0 0共个节点，在第2、3、5个节点（值分别为0、1、0）,才进入if条件，最后记录第5个以及对应的值0,
 		q其实这个for循环的目的就是为了找出最后几个一致的节点，然后记录这几个一致的节点的第一个，然后把这个第一个节点放到新数组里，它后面的几个也都一起过去了。
 	9. 从e开始遍历链表，遍历到刚才说的几个一致的节点链表的第一个节点（不包括该节点），把每个节点加入到新数组newTable上
-
+	
+#### 在说get()
+	ConcurrentHashMap的get方法如下：
+```java
+    public V get(Object key) {
+        int hash = hash(key.hashCode());
+        return segmentFor(hash).get(key, hash);
+    }
+````
+	由get方法可知，先定位到Segment数组的某个节点，然后在该Segment里执行get方法
+	Segmeng的get方法如下：
+```java
+	V get(Object key, int hash) {
+            if (count != 0) { // read-volatile
+                HashEntry<K,V> e = getFirst(hash);
+                while (e != null) {
+                    if (e.hash == hash && key.equals(e.key)) {
+                        V v = e.value;
+                        if (v != null)
+                            return v;
+                        return readValueUnderLock(e); // recheck
+                    }
+                    e = e.next;
+                }
+            }
+            return null;
+        }
+```	
 ## JDK1.8
