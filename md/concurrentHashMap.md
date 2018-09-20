@@ -119,35 +119,35 @@
             if (oldCapacity >= MAXIMUM_CAPACITY)
                 return;
 
-            HashEntry<K,V>[] newTable = HashEntry.newArray(oldCapacity<<1);
+            HashEntry<K,V>[] newTable = HashEntry.newArray(oldCapacity<<1);	//1
             threshold = (int)(newTable.length * loadFactor);
             int sizeMask = newTable.length - 1;
-            for (int i = 0; i < oldCapacity ; i++) {
+            for (int i = 0; i < oldCapacity ; i++) {				//2
                 // We need to guarantee that any existing reads of old Map can
                 //  proceed. So we cannot yet null out each bin.
-                HashEntry<K,V> e = oldTable[i];
+                HashEntry<K,V> e = oldTable[i];					//3
 
                 if (e != null) {
                     HashEntry<K,V> next = e.next;
-                    int idx = e.hash & sizeMask;
+                    int idx = e.hash & sizeMask;				//4
 
                     //  Single node on list
                     if (next == null)
-                        newTable[idx] = e;
+                        newTable[idx] = e;					//5
 
-                    else {
+                    else {							//6
                         // Reuse trailing consecutive sequence at same slot
                         HashEntry<K,V> lastRun = e;
                         int lastIdx = idx;
-                        for (HashEntry<K,V> last = next;
+                        for (HashEntry<K,V> last = next;			
                              last != null;
                              last = last.next) {
-                            int k = last.hash & sizeMask;
+                            int k = last.hash & sizeMask;			//7
                             if (k != lastIdx) {
                                 lastIdx = k;
                                 lastRun = last;
                             }
-                        }
+                        }							//8
                         newTable[lastIdx] = lastRun;
 
                         // Clone all remaining nodes
@@ -155,7 +155,7 @@
                             int k = p.hash & sizeMask;
                             HashEntry<K,V> n = newTable[k];
                             newTable[k] = new HashEntry<K,V>(p.key, p.hash,
-                                                             n, p.value);
+                                                             n, p.value);	//9
                         }
                     }
                 }
@@ -163,5 +163,16 @@
             table = newTable;
         }
 ```
+	1. 首先将数组扩容2倍
+	2. 通过for循环遍历oldTable,
+	3. 通过for循环依次获取oldTable数组上每个元素，注：不是每个元素都有值，有的为null
+	4. 算出e落到新数组newTable里的index
+	5. 如果e没有next，就直接把e放入newTable数组里就可以了
+	6. 如果e.next不为null。情况就比较复杂
+	7. 计算当前节点落到newTable数组中的哪个index上
+	8. for循环从e.next一直遍历到链表的最后，得到最后一个和上一个节点不会落到新数组同一个index的节点，举例：
+		for循环遍历分别为 1 0 1 1 0 0共个节点，在第2、3、5个节点（值分别为0、1、0）,才进入if条件，最后记录第5个以及对应的值0,
+		q其实这个for循环的目的就是为了找出最后几个一致的节点，然后记录这几个一致的节点的第一个，然后把这个第一个节点放到新数组里，它后面的几个也都一起过去了。
+	9. 从e开始遍历链表，遍历到刚才说的几个一致的节点链表的第一个节点（不包括该节点），把每个节点加入到新数组newTable上
 
 ## JDK1.8
