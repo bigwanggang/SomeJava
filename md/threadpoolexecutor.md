@@ -69,3 +69,4 @@ https://blog.csdn.net/qq_25806863/article/details/71126867 这篇文章关于Thr
             reject(command);
     }
 ```    
+https://www.cnblogs.com/trust-freedom/p/6681948.html#label_3_1 关于ThreadPoolExecutor源码的分析，这个文章也不错，jdk1.8
