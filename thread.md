@@ -75,3 +75,5 @@
 
 ### 写个程序证明延迟初始化在多线程中是不安全的
     
+### @GuardedBy注解的作用
+    https://blog.csdn.net/lihenair/article/details/61913542
