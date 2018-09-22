@@ -5,6 +5,8 @@
 - [多线程](https://github.com/bigwanggang/JAVA/blob/master/thread.md)
   - [threadpoolexecutor](https://github.com/bigwanggang/JAVA/blob/master/md/threadpoolexecutor.md)
   - [concurrentHashMap](https://github.com/bigwanggang/JAVA/blob/master/md/concurrentHashMap.md)
+  - [ConcurrentLinkedQueue](https://github.com/bigwanggang/JAVA/blob/master/md/ConcurrentLinkedQueue.md)
+  
 - [mysql](https://github.com/bigwanggang/JAVA/blob/master/mysql.md)
 
 ### 专项学习
