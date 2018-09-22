@@ -40,3 +40,25 @@
     }
 
 ```
+
+### add jdk1.6
+```java
+    public boolean offer(E e) {
+        if (e == null) throw new NullPointerException();
+        Node<E> n = new Node<E>(e, null);
+        for (;;) {
+            Node<E> t = tail;
+            Node<E> s = t.getNext();
+            if (t == tail) {
+                if (s == null) {
+                    if (t.casNext(s, n)) {
+                        casTail(t, n);
+                        return true;
+                    }
+                } else {
+                    casTail(t, s);
+                }
+            }
+        }
+    }
+```    
