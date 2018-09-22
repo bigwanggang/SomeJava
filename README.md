@@ -7,5 +7,5 @@
   - [concurrentHashMap](https://github.com/bigwanggang/JAVA/blob/master/md/concurrentHashMap.md)
 - [mysql](https://github.com/bigwanggang/JAVA/blob/master/mysql.md)
 
-### 分析与学习
+### 专项学习
 - [AtomicInteger](https://github.com/bigwanggang/JAVA/blob/master/md/AtomicInteger.md)
