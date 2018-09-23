@@ -13,3 +13,4 @@
 - [AtomicInteger](https://github.com/bigwanggang/JAVA/blob/master/md/AtomicInteger.md)
 - [生产者消费者模式](https://github.com/bigwanggang/JAVA/blob/master/md/producerConsumer.md)
 - [阻塞队列](https://github.com/bigwanggang/JAVA/blob/master/md/blockingQueue.md)
+- [AbstractQueuedSynchronizer](https://github.com/bigwanggang/JAVA/blob/master/md/AbstractQueuedSynchronizer.md)
