@@ -87,6 +87,7 @@ https://www.cnblogs.com/trust-freedom/p/6681948.html#label_3_1 关于ThreadPoolE
     COUNT_BITS=29；
     CAPACITY=(1 << 29) - 1 = 0x1FFFFFFF (低29位都是1)
     RUNNING = -1 << 29 = 0xFFFFFFFF = 0xE0000000 (高3为为1)
+    SHUTDOWN 的高3位为000
     STOP 的高3位为001
     TIDYING 的高3位为010
     TERMINATED 的高3位为011
