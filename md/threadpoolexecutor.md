@@ -70,3 +70,35 @@ https://blog.csdn.net/qq_25806863/article/details/71126867 这篇文章关于Thr
     }
 ```    
 https://www.cnblogs.com/trust-freedom/p/6681948.html#label_3_1 关于ThreadPoolExecutor源码的分析，这个文章也不错，jdk1.8
+
+## 分析
+    内部主要变量如下：
+```java
+    private static final int COUNT_BITS = Integer.SIZE - 3;
+    private static final int CAPACITY   = (1 << COUNT_BITS) - 1;
+
+    // runState is stored in the high-order bits
+    private static final int RUNNING    = -1 << COUNT_BITS;
+    private static final int SHUTDOWN   =  0 << COUNT_BITS;
+    private static final int STOP       =  1 << COUNT_BITS;
+    private static final int TIDYING    =  2 << COUNT_BITS;
+    private static final int TERMINATED =  3 << COUNT_BITS;
+```    
+    COUNT_BITS=29；
+    CAPACITY=(1 << 29) - 1 = 0x1FFFFFFF (低29位都是1)
+    RUNNING = -1 << 29 = 0xFFFFFFFF = 0xE0000000 (高3为为1)
+    SHUTDOWN 的高3位为000
+    STOP 的高3位为001
+    TIDYING 的高3位为010
+    TERMINATED 的高3位为011
+    几个变量的大小关系位：RUNNING<SHUTDOWN<STOP<TIDYING<TERMINATED，RUNNING为负值
+    
+    内部的几个方法
+```java
+    private static int runStateOf(int c)     { return c & ~CAPACITY; }
+    private static int workerCountOf(int c)  { return c & CAPACITY; }
+    private static int ctlOf(int rs, int wc) { return rs | wc; }
+```    
+    runStateOf 是获取高3位的线程状态
+    workerCountOf 是获取低29为的线程个数
+    ctlOf 是将线程状态和线程个数 打包成一个值
