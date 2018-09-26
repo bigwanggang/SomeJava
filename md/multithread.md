@@ -2,15 +2,15 @@
 
 ```sql
   create table info(
-    name varchar(50),
-    age varchar(10),
-    height varchar(10),
-    phone varchar(30),
-    sex varchar(10),
-    location varchar(50),
-    job varchar(50),
-    hometown varchar(50),
-    education varchar(30),
-    major varchar(40),
-    message varchar(255)
+    name varchar(50) not null,
+    age varchar(10) not null,
+    height varchar(10) not null,
+    phone varchar(30) not null,
+    sex varchar(10) not null,
+    location varchar(50) not null,
+    job varchar(50) not null,
+    hometown varchar(50) not null,
+    education varchar(30) not null,
+    major varchar(40) not null,
+    message varchar(255) not null
   );
