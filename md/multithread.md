@@ -12,5 +12,5 @@
     hometown varchar(50),
     education varchar(30),
     major varchar(40),
-    desc varchar(255)
+    message varchar(255)
   );
