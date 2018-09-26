@@ -241,3 +241,6 @@
 ### 事务了解一下
 
 ### IDEA 编译中文乱码的问题
+
+### 例子WriteInfo中，向excel写数据，有时会出现java.lang.OutOfMemoryError: Java heap space 异常，不同的机器出现异常几率不同
+	
