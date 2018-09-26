@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.*;
 
-import static com.bigwanggang.excel.Utils.getWorkbok;
 
 public class WriteInfo {
     public static final String Path = "D:/writeExcel.xlsx";
@@ -22,17 +21,16 @@ public class WriteInfo {
         List<String> list = new ArrayList<String>();
         list.addAll(Arrays.asList("Name", "age", "height", "phone", "sex", "location", "job", "hometown", "education",
                 "major", "desc"));
-        writeExcel(list, 30, Path);
+        writeExcel(list, Path);
     }
 
-    public static void writeExcel(List<String> dataList, int cloumnCount, String finalXlsxPath) {
+    public static void writeExcel(List<String> dataList, String finalXlsxPath) {
         OutputStream out = null;
         try {
-            // 获取总列数
-            int columnNumCount = cloumnCount;
+
             // 读取Excel文档
             File finalXlsxFile = new File(finalXlsxPath);
-            Workbook workBook = getWorkbok(finalXlsxFile);
+            Workbook workBook = Utils.getWorkbook(finalXlsxFile);
             // sheet 对应一个工作页
             Sheet sheet = workBook.getSheetAt(0);
             /**
@@ -51,14 +49,15 @@ public class WriteInfo {
              * 往Excel中写新数据
              */
 
+            Row row = null;
             // 创建一行：从第二行开始，跳过属性列
             for (int i = 0; i < 30000; i++) {
-                Row row = sheet.createRow(i);
+                row = sheet.createRow(i);
 
                 for (int k = 0; k < dataList.size(); k++) {
                     // 在一行内循环
                     Cell first = row.createCell(k);
-                    first.setCellValue(dataList.get(k)+ i);
+                    first.setCellValue(dataList.get(k) + i);
 
                 }
             }

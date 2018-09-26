@@ -72,4 +72,21 @@ public class Info {
     public String getMessage() {
         return message;
     }
+
+    @Override
+    public String toString() {
+        return "Info{" +
+                "name='" + name + '\'' +
+                ", age='" + age + '\'' +
+                ", height='" + height + '\'' +
+                ", phone='" + phone + '\'' +
+                ", sex='" + sex + '\'' +
+                ", location='" + location + '\'' +
+                ", job='" + job + '\'' +
+                ", hometown='" + hometown + '\'' +
+                ", education='" + education + '\'' +
+                ", major='" + major + '\'' +
+                ", message='" + message + '\'' +
+                '}';
+    }
 }
