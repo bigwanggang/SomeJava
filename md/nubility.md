@@ -244,4 +244,13 @@
 
 ### 例子WriteInfo中，向excel写数据，有时会出现java.lang.OutOfMemoryError: Java heap space 异常，不同的机器出现异常几率不同
 	解决方案：1. IDEA通过-Xms512M -Xmx800M，增加jvm内存值，-Xms表示最小内存， -Xmx表示最大内存
+	
+### 关于byte
+```java
+        byte b = -1;
+        System.out.println(b);
+        System.out.println(b & 0xff);
+```
+	输出为：-1,255
+	原因是System.out.println的输入如果是byte类型，是要转换成int，-1的byte表示为1111_1111, -1的int表示为1111_1111_1111_1111_1111_1111_1111_1111, b & 0xff 相当于只截取低8位的值 
         
