@@ -53,3 +53,6 @@
   public native boolean compareAndSwapInt(Object obj, long offset,
                                           int expect, int update);
 ```                                         
+
+### AtomicInteger原子操作
+      https://blog.csdn.net/javazejian/article/details/72772470 里面有个例子AtomicIntegerDemo 为了证明AtomicInteger的原子操作，但是这个例子并不好，因为该例子使用了join，即使不用AtomicInteger，用int，输出也依然是10000，查看我的例子：IntPPDemo，因为join使10个线程串行执行，并没有产生抢占资源的情况，查看我的例子：AtomicIntegerDemo，该例子中，让10个线程并行运行，然后sleep几秒之后，查看AtomicInteger的结果
