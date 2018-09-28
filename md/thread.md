@@ -77,3 +77,4 @@
     
 ### @GuardedBy注解的作用
     https://blog.csdn.net/lihenair/article/details/61913542
+    在《java并发编程实战》一书中，使用了@GuardedBy和@ThreadSafe\@ThreadUnsafe等注解，这些注解没有起到任何作用，只是提示作用
