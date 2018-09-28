@@ -78,3 +78,8 @@
 ### @GuardedBy注解的作用
     https://blog.csdn.net/lihenair/article/details/61913542
     在《java并发编程实战》一书中，使用了@GuardedBy和@ThreadSafe\@ThreadUnsafe等注解，这些注解没有起到任何作用，只是提示作用
+    
+### Thread的join方法
+    在A线程中调用B线程的join方法，则要等待B线程运行结束之后才执行A线程
+    JoinTest例子中是一个普通的多线程例子，十个线程并行运行
+    
