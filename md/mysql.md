@@ -212,6 +212,11 @@ create table employee(
 	
 	insert into orderdetail values(1,3,1,1),(2,3,2,3),(3,2,2,3),(4,2,4,3);
 ```
+	查询所有交易的所有商品的名称、单价、总价
+```sql	
+	select items.name ,items.price, od.items_num ,(items.price * od.items_num) as sum_price from orderdetail as od inner join items on od.items_id = items.id;
+```	
 
 ### 外键约束
 	上面的例子中，表orders中的user_id 关联 user表中的主键id，主键所在的表为主表（父表）， 与主表关联的表为从表（子表）
+	
