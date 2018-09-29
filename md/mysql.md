@@ -149,3 +149,43 @@ create table employee(
 		s_call char(50) not null
 		);
 ```
+
+### mysql练习
+	https://blog.csdn.net/javazejian/article/details/61614366
+```sql
+	create table items(
+		id int(11) primary key auto_increment,
+		name varchar(32) not null,
+		price float(10,1) not null,
+		detail text,
+		pic varchar(64),
+		createtime datetime not null
+	);
+	
+	create table orderdetail(
+		id int(11) primary key auto_increment,
+		orders_id int(11) not null,
+		items_id int(11) not null,
+		items_num int(11),
+		 CONSTRAINT `FK_orderdetail_1` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`) 
+  ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_orderdetail_2` FOREIGN KEY (`items_id`) REFERENCES `items` (`id`) 
+  ON DELETE NO ACTION ON UPDATE NO ACTION
+	);
+	
+	create table orders(
+		id int(11) primary key auto_increment,
+		user_id int(11) not null,
+		number varchar(32) not null,
+		createtime datetime not null,
+		note varchar(100), 
+		CONSTRAINT FK_orders_id FOREIGN KEY(user_id) REFERENCES user(id) ON DELETE NO ACTION ON UPDATE NO ACTION
+	);
+	create table user(
+		id int(11) primary key auto_increment,
+		username varchar(32) not null,
+		birthday date,
+		sex char(1),
+		address varchar(255) 
+	);
+```
