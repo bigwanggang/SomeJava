@@ -208,7 +208,8 @@ create table employee(
 	insert into orders(id,user_id,number,createtime) values
 	(1,2,'13424234234',now()),
 	(2,3, '2534532435' ,now()),
-	(3,10,'534534534534', '20180929120000');
+	(3,10,'534534534534', '20180929120000'),
+	(4,2,'234823749', now());
 	
 	insert into orderdetail values(1,3,1,1),(2,3,2,3),(3,2,2,3),(4,2,4,3);
 ```
@@ -216,6 +217,11 @@ create table employee(
 ```sql	
 	select items.name ,items.price, od.items_num ,(items.price * od.items_num) as sum_price from orderdetail as od inner join items on od.items_id = items.id;
 ```	
+	查询所有用户的订单信息(用户名称、订单编号number和订单创建时间)，没有订单的用户也要查询出来，
+	如果使用内关联查询，只能查询出orders表有值的所有数据，此时可以用左外链接查询
+```sql
+	select u.username, o.number, o.createtime from user as u left join orders as o on u.id=o.user_id;
+```
 
 ### 外键约束
 	上面的例子中，表orders中的user_id 关联 user表中的主键id，主键所在的表为主表（父表）， 与主表关联的表为从表（子表）
