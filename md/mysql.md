@@ -189,3 +189,6 @@ create table employee(
 		address varchar(255) 
 	);
 ```
+
+### 外键约束
+	上面的例子中，表orders中的user_id 关联 user表中的主键id，主键所在的表为主表（父表）， 与主表关联的表为从表（子表）
