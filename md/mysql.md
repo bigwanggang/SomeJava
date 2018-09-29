@@ -188,6 +188,18 @@ create table employee(
 		sex char(1),
 		address varchar(255) 
 	);
+	
+	 insert into user(id,username,sex) 
+	 values (1,'王五' ,'1');
+	  insert into user(id,username,birthday,sex,address) 
+	 values (2,'张曹宇' ,'19900802','1', '广东省汕头市'),
+	 (10,'张三', '19990606', '0', 'beijing-caoyang'),
+	 (16,'任在名',19961201, '1', 'guangzhou'),
+	 (22,'陈小明', 19950510, '0', 'shenzhen'),
+	 (24,'任传海', 19920308, '1', 'sanya'),
+	 ('3','新数据','1909-12-12','1','常年在外');
+	 
+	 insert into user values('3','新数据','1909-12-12','1','常年在外');  
 ```
 
 ### 外键约束
