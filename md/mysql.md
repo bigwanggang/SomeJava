@@ -199,7 +199,18 @@ create table employee(
 	 (24,'任传海', 19920308, '1', 'sanya'),
 	 ('3','新数据','1909-12-12','1','常年在外');
 	 
-	 insert into user values('3','新数据','1909-12-12','1','常年在外');  
+	insert into items(id,name,price,createtime) values
+	(1,'bag', 200, 20180101),
+	(2, 'iphone x', 8888, 20170201),
+	(3, 'thinking in java', 55.4, 20130101),
+	(4, 'netty guading', 34.4, 20140531);
+	
+	insert into orders(id,user_id,number,createtime) values
+	(1,2,'13424234234',now()),
+	(2,3, '2534532435' ,now()),
+	(3,10,'534534534534', '20180929120000');
+	
+	insert into orderdetail values(1,3,1,1),(2,3,2,3),(3,2,2,3),(4,2,4,3);
 ```
 
 ### 外键约束
