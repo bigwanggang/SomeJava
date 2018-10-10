@@ -149,3 +149,80 @@ create table employee(
 		s_call char(50) not null
 		);
 ```
+
+### mysql练习
+	https://blog.csdn.net/javazejian/article/details/61614366
+```sql
+	create table items(
+		id int(11) primary key auto_increment,
+		name varchar(32) not null,
+		price float(10,1) not null,
+		detail text,
+		pic varchar(64),
+		createtime datetime not null
+	);
+	
+	create table orderdetail(
+		id int(11) primary key auto_increment,
+		orders_id int(11) not null,
+		items_id int(11) not null,
+		items_num int(11),
+		 CONSTRAINT `FK_orderdetail_1` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`) 
+  ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_orderdetail_2` FOREIGN KEY (`items_id`) REFERENCES `items` (`id`) 
+  ON DELETE NO ACTION ON UPDATE NO ACTION
+	);
+	
+	create table orders(
+		id int(11) primary key auto_increment,
+		user_id int(11) not null,
+		number varchar(32) not null,
+		createtime datetime not null,
+		note varchar(100), 
+		CONSTRAINT FK_orders_id FOREIGN KEY(user_id) REFERENCES user(id) ON DELETE NO ACTION ON UPDATE NO ACTION
+	);
+	create table user(
+		id int(11) primary key auto_increment,
+		username varchar(32) not null,
+		birthday date,
+		sex char(1),
+		address varchar(255) 
+	);
+	
+	 insert into user(id,username,sex) 
+	 values (1,'王五' ,'1');
+	  insert into user(id,username,birthday,sex,address) 
+	 values (2,'张曹宇' ,'19900802','1', '广东省汕头市'),
+	 (10,'张三', '19990606', '0', 'beijing-caoyang'),
+	 (16,'任在名',19961201, '1', 'guangzhou'),
+	 (22,'陈小明', 19950510, '0', 'shenzhen'),
+	 (24,'任传海', 19920308, '1', 'sanya'),
+	 ('3','新数据','1909-12-12','1','常年在外');
+	 
+	insert into items(id,name,price,createtime) values
+	(1,'bag', 200, 20180101),
+	(2, 'iphone x', 8888, 20170201),
+	(3, 'thinking in java', 55.4, 20130101),
+	(4, 'netty guading', 34.4, 20140531);
+	
+	insert into orders(id,user_id,number,createtime) values
+	(1,2,'13424234234',now()),
+	(2,3, '2534532435' ,now()),
+	(3,10,'534534534534', '20180929120000'),
+	(4,2,'234823749', now());
+	
+	insert into orderdetail values(1,3,1,1),(2,3,2,3),(3,2,2,3),(4,2,4,3);
+```
+	查询所有交易的所有商品的名称、单价、总价
+```sql	
+	select items.name ,items.price, od.items_num ,(items.price * od.items_num) as sum_price from orderdetail as od inner join items on od.items_id = items.id;
+```	
+	查询所有用户的订单信息(用户名称、订单编号number和订单创建时间)，没有订单的用户也要查询出来，
+	如果使用内关联查询，只能查询出orders表有值的所有数据，此时可以用左外链接查询
+```sql
+	select u.username, o.number, o.createtime from user as u left join orders as o on u.id=o.user_id;
+```
+
+### 外键约束
+	上面的例子中，表orders中的user_id 关联 user表中的主键id，主键所在的表为主表（父表）， 与主表关联的表为从表（子表）
+	
