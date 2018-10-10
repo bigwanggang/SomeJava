@@ -5,7 +5,7 @@ public class JoinTest {
         for (int i = 0; i < 10; i++) {
             Thread t = new Thread(new MyRunnable());
             t.start();
-//            t.join();
+            t.join();
         }
         System.out.println("main");
     }

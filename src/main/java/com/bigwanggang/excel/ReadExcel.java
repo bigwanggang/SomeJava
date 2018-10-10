@@ -8,6 +8,9 @@ import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+import static com.bigwanggang.excel.Utils.*;
+import static com.bigwanggang.mysql.Utils.getConn;
+
 public class ReadExcel {
     static String sql = "insert into info (Name,age,height, phone, sex,location, job," +
             "hometown, education, major, message) values(?,?,?,?,?,?,?,?,?,?,?)";
@@ -25,7 +28,7 @@ public class ReadExcel {
         int lastRow = sheet.getLastRowNum();
 
         Long start = System.currentTimeMillis();
-        Connection conn = Utils.getConn();
+        Connection conn = getConn(JDBC_DRIVER, DB_URL, USER, PASS);
         for (int i = firstRow; i <= lastRow; i++) {
             System.out.println("row" + i);
             Row row = sheet.getRow(i);

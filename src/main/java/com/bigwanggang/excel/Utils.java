@@ -9,11 +9,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import static com.bigwanggang.mysql.Utils.getConn;
+
 public class Utils {
+    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/test";
+
+    static final String USER = "root";
+    static final String PASS = "123456";
     private static final String EXCEL_XLS = ".xls";
     private static final String EXCEL_XLSX = ".xlsx";
 
@@ -28,25 +34,9 @@ public class Utils {
         return wb;
     }
 
-    public static Connection getConn() {
-        String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/test1";
-        String username = "root";
-        String password = "root123";
-        Connection conn = null;
-        try {
-            Class.forName(driver); //classLoader,加载对应驱动
-            conn = (Connection) DriverManager.getConnection(url, username, password);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return conn;
-    }
 
     public static int insert(Info info) {
-        Connection conn = getConn();
+        Connection conn = getConn(JDBC_DRIVER, DB_URL, USER, PASS);
         int i = 0;
         String sql = "insert into info (Name,age,height, phone, sex,location, job," +
                 "hometown, education, major, message) values(?,?,?,?,?,?,?,?,?,?,?)";
