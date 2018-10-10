@@ -226,3 +226,6 @@ create table employee(
 ### 外键约束
 	上面的例子中，表orders中的user_id 关联 user表中的主键id，主键所在的表为主表（父表）， 与主表关联的表为从表（子表）
 	
+### mysql插入数据，单线程与多线程比较
+	InsertData是单线程插入1万条数据，InsertDataMultithread是10个线程，每个线程插入1000条数据，但是多线程插入数据比单线程还要慢一下。
+	
