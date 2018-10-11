@@ -90,6 +90,7 @@ create table employee(
 - 请简述项目中优化sql语句执行效率的方法
 - 为什么平衡二叉树不适合做mysql的索引
 - 阿里手册里的mysql每项都要了解
+- MySQL中varchar与char的区别以及varchar(50)中的50代表的涵义
 
 ### 索引
 ```sql
