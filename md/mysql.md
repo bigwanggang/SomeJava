@@ -230,3 +230,6 @@ create table employee(
 ### mysql插入数据，单线程与多线程比较
 	InsertData是单线程插入1万条数据，InsertDataMultithread是10个线程，每个线程插入1000条数据，但是多线程插入数据比单线程还要慢一下。
 	
+### PreparedStatement和Statement的区别，execute和executeUpdate的区别
+	PreparedStatement和Statement都是接口，PreparedStatement继承Statement，PreparedStatement可以使用占位符？ 
+	
