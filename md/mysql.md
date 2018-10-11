@@ -241,3 +241,5 @@ create table employee(
     例子TransactionDemo中就是一个事务的例子，先通过conn.setAutoCommit(false);把自动提交取消，取消之后执行pstmt.executeUpdate()就不会提交
     必须通过conn.commit()才能提交，这个例子中，executeUpdate了两次，其中第二次会抛出异常（因为不满足条件），在catch块中，rollback()来回滚数据
     如果不回滚，可以把rollback()注释掉，下面如果有commit还是会把之前executeUpdate的数据提交
+    
+    https://www.cnblogs.com/panwenbin-logs/p/8366940.html
