@@ -231,5 +231,13 @@ create table employee(
 	InsertData是单线程插入1万条数据，InsertDataMultithread是10个线程，每个线程插入1000条数据，但是多线程插入数据比单线程还要慢一下。
 	
 ### PreparedStatement和Statement的区别，execute和executeUpdate的区别
-	PreparedStatement和Statement都是接口，PreparedStatement继承Statement，PreparedStatement可以使用占位符？ 
+	PreparedStatement和Statement都是接口，PreparedStatement继承Statement，PreparedStatement可以使用?占位符,然后执行之前通过set方法位占位符注入参数
+	StatementExecuteDemo中是Statement的例子，不能用占位符
+	一般情况用PreparedStatement就可以，PreparedStatement最常用的有execute、 executeQuery 和 executeUpdate 三个方法
+	例子ExecuteDemo中使用execute()方法，结果返回false，但是数据已经插入，因为查询返回true，如果是更新或插入的话就返回false
+	所以更新或插入应该使用executeUpdate，
 	
+### 事务
+    例子TransactionDemo中就是一个事务的例子，先通过conn.setAutoCommit(false);把自动提交取消，取消之后执行pstmt.executeUpdate()就不会提交
+    必须通过conn.commit()才能提交，这个例子中，executeUpdate了两次，其中第二次会抛出异常（因为不满足条件），在catch块中，rollback()来回滚数据
+    如果不回滚，可以把rollback()注释掉，下面如果有commit还是会把之前executeUpdate的数据提交
