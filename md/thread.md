@@ -90,3 +90,7 @@
     
 ### CyclicBarrier
     实现一个例子，一个数组长度为n,启动n个线程，每个线程往数组里填写一个值，所有线程都把值填入完毕后打印整个数组，CyclicBarrierDemo
+
+### ThreadLocal
+    每个线程都保存一份副本，每个线程ThreadLocal.get()的值，都是该线程最后ThreadLocal.set的值，每个线程的值互不影响，《java并发编程实战》中：可以将
+    ThreadLocal<T>视为包含了Map<Thread,T>对象
