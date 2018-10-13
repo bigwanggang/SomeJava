@@ -1,5 +1,5 @@
 - 主要成员变量
-  size:存储的元素个数  
+  size:存储的元素个数    
   Object[] elementData ： 存储元素的数组  
   modCount: ArrayList被改变的次数， add和remove 都会增加  
 - ArrayList里的Arrays.copyOf和System.arraycopy区别
