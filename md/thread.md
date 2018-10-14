@@ -66,12 +66,9 @@
 ```
     所有的线程都运行完（没有打印输出），程序还没有结束
     
-![image](https://github.com/bigwanggang/JAVA/tree/master/picture/jvm.jpg)
-![image](https://github.com/ButBueatiful/dotvim/raw/master/screenshots/vim-screenshot.jpg)
 
 ### 多线程之wait、notify、notifyAll
-
-### ThreadLocal
+    notifyAll之后，所有的wait线程是不是要抢notify放开对象的锁呢？WaitNotifyDemo里证明了每个线程还是要抢锁
 
 ### 写个程序证明延迟初始化在多线程中是不安全的
     
