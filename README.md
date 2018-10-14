@@ -1,3 +1,4 @@
+- jstack和visualVM 工具
 
 ### 常用技术
 - [java 基础](https://github.com/bigwanggang/JAVA/blob/master/md/nubility.md)
