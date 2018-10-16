@@ -51,4 +51,5 @@ public class Resource2 {
   例子WaitNotify.java 就是使用wait、notify实现生产者消费者模式的例子
 
 ### 使用Condition的await、signal来实现生产者消费者模式
-  
+  ConditionDemo例子就是用Condition实现的生产者消费者模式的例子，用Condition比用wait、notify好的原因是，一个锁可以创建多个Condition，  
+  可以更灵活的控制哪些条件的线程取执行，而wait、notify是，notifyAll方法把所有的wait的线程都唤醒
