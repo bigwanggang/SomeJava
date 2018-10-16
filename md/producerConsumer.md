@@ -48,4 +48,6 @@ public class Resource2 {
 }
 
 ```
+
+### 使用Condition的await、signal来实现生产者消费者模式
   
