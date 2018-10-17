@@ -35,11 +35,12 @@
     }
 ```
   1. concurrencyLevel是构造函数传入的值，就是Segment数组的个数，也就是分段的个数，最大值为MAX_SEGMENTS（1<<16）
-  2. 通过while循环，计算出大于concurrencyLevel的并且是2的n次幂的一个值，ssize就是这个值，sshift的值符合2^sshift = ssize;
+  2. 通过while循环，计算出大于concurrencyLevel的并且是2的n次幂（power-of-two）的一个值，ssize就是这个值，sshift的值符合2^sshift = ssize;
       例如：concurrencyLevel=16，ssize=16，sshift=4;
             concurrencyLevel=17~32，ssize=32，sshift=5;
   3. 创建Segment数组，数组的大小为ssize     
-  4. 根据ConcurrentHashMap的初始容量，算出能容下该容量的每个Segment中容量的大小，并且该大小为2的n次幂            
+  4. 根据ConcurrentHashMap的初始容量，算出能容下该容量的每个Segment中容量的大小，c为平均到每个Segment里的个数，然后cap是保证分配到每个Segment的  
+  大小为2的n次幂（power-of-two）            
             
 
 #### Segment
@@ -65,7 +66,8 @@
         return segments[(hash >>> segmentShift) & segmentMask];
     }
 ```
-  该方法是取hash值的高几位，例如默认情况下，segmentShift为28， segmentMask为15（0xFFFF）,把hash无符号右移28位再与OxFFFF取与，就是取hash的高4位
+  该方法是取hash值的高几位，例如默认情况下，segmentShift为28， segmentMask为15（0x000F）,把hash无符号右移28位再与Ox000F取与，就是取hash的高4位  
+  >>>为无符号移位
   
 #### 先从put方法说起
 ```java
