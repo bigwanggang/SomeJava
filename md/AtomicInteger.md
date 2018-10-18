@@ -55,8 +55,25 @@
                                           int expect, int update);
 ```                                         
 
+
+### getAndIncrement() JDK1.6
+      JDK1.6和1.8 的getAndIncrement()有些不一样
+```java
+    public final int getAndIncrement() {
+        for (;;) {
+            int current = get();
+            int next = current + 1;
+            if (compareAndSet(current, next))
+                return current;
+        }
+    }
+    public final boolean compareAndSet(int expect, int update) {
+	return unsafe.compareAndSwapInt(this, valueOffset, expect, update);
+    }
+```    
+
 ### AtomicInteger原子操作
-      https://blog.csdn.net/javazejian/article/details/72772470 里面有个例子AtomicIntegerDemo 为了证明AtomicInteger的
-      原子操作，但是这个例子并不好，因为该例子使用了join，即使不用AtomicInteger，用int，输出也依然是10000，查看我的例子：IntPPDemo，
-      因为join使10个线程串行执行，并没有产生抢占资源的情况，查看我的例子：AtomicIntegerDemo，该例子中，让10个线程并行运行，
-      然后sleep几秒之后， 查看AtomicInteger的结果
+      https://blog.csdn.net/javazejian/article/details/72772470 里面有个例子AtomicIntegerDemo 为了证明AtomicInteger的  
+      原子操作，但是这个例子并不好，因为该例子使用了join，即使不用AtomicInteger，用int，输出也依然是10000，查看我的例子：  
+      IntPPDemo，因为join使10个线程串行执行，并没有产生抢占资源的情况，查看我的例子：AtomicIntegerDemo，该例子中，让10个线程  
+      并行运行，然后sleep几秒之后， 查看AtomicInteger的结果
