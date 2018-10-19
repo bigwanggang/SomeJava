@@ -109,16 +109,16 @@
  - git checkout -b branchName 相当于 git branch branchName + git checkout branchName
         
 - 从远程分支拉到本地分支
-        git checkout -b localName remoteBranchName
-        git branch -vv 查看本地分支和远程分支的对应关系
-        git tag 可以查看标签
-        查看完标签可以用git reset tag 切换到标签
-        git add . 增加文件，删除文件时 git add -A .
-        git push origin master 将本地的master分支推送到origin主机的master分支
-        git reset 提交号 回到某次提交（提交号通过git log查看）
-        git reset --hard 提交号 文件恢复到某次提交
-        这时如果想要回到最新状态 git reset --hard origin/master         
-                               git reset --hard origin/V12.17.10
+        git checkout -b localName remoteBranchName  
+        git branch -vv 查看本地分支和远程分支的对应关系  
+        git tag 可以查看标签  
+        查看完标签可以用git reset tag 切换到标签  
+        git add . 增加文件，删除文件时 git add -A .  
+        git push origin master 将本地的master分支推送到origin主机的master分支  
+        git reset 提交号 回到某次提交（提交号通过git log查看）  
+        git reset --hard 提交号 文件恢复到某次提交  
+        这时如果想要回到最新状态 git reset --hard origin/master           
+                               git reset --hard origin/V12.17.10  
                                
         unlink of file .. failed should I try ... 出现此告警提示，执行如下操作：
         git gc --auto
