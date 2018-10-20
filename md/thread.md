@@ -96,3 +96,5 @@
 ### 多线程书籍
 - java多线程编程核心技术
 - java并发编程的艺术
+
+### 停止一个线程，isInterrupted和interrupted方法
