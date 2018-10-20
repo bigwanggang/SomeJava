@@ -92,3 +92,7 @@
     每个线程都保存一份副本，每个线程ThreadLocal.get()的值，都是该线程最后ThreadLocal.set的值，每个线程的值互不影响，《java并发编程实战》
     中：可以将ThreadLocal<T>视为包含了Map<Thread,T>对象，例子ThreadLocalDemo中，main主线程中和t线程都对ThreadLoca变量set新值，但是，
     get的值都是本线程的值
+
+### 多线程书籍
+    - java多线程编程核心技术
+    - java并发编程的艺术
