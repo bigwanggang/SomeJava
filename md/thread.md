@@ -98,3 +98,4 @@
 - java并发编程的艺术
 
 ### 停止一个线程，isInterrupted和interrupted方法
+    停止一个线程： https://www.cnblogs.com/jenkov/p/juc_interrupt.html
