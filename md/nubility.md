@@ -130,6 +130,12 @@
         
         删除远程分支 git branch -r -d origin/branchname
         git push origin :branchName
+	
+	git提交提示错误：can not push in mirror
+	原因解析git 没有配置pushInsteadOf , 可以通过命令配置，也可以通过修改.gitconfig
+	.gitconfig 位置 window ： c:\\users\\user 下
+			linux : /root/ 下
+			
         
 ### spring cloud
         每个使用配置管理的客户端项目中一个名为bookstrap.yml的本地配置文件，用来设定连接配置管理服务器、应用的名称、以及需要有配置管理服务器提供的配置文件等参数
