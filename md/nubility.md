@@ -273,7 +273,15 @@
 	类型中，  d和d2在内存中存储的是一样的，可以通过MyUtils.double2Bytes将double转成byte数组来查看
 	
 	如果对小数精度有要求，最好用BigDecimal，BigDecimal有3个构造方法，最好不要用double的构造方法，可以用BigDecimal.valueOf或  
-	String的构造方法。
+	String的构造方法。下面里例子，输出值b1为1999.0，b3为1998.9999999999998
+	
+```java
+        BigDecimal b1 = new BigDecimal("19.99").multiply(new BigDecimal("100"));
+        System.out.println(b1);
+	BigDecimal b3 = new BigDecimal(19.99).multiply(new BigDecimal(100));
+        System.out.println(b3.doubleValue());
+```
+	BigDecimal的除法如果不能整除会抛异常，使用时必须先指定小数点精度
         
 ### 需要强化
 	1. 多线程基础，多线程的应用
