@@ -280,7 +280,9 @@
 	BigDecimal b3 = new BigDecimal(19.99).multiply(new BigDecimal(100));
         System.out.println(b3.doubleValue());
 ```
-	BigDecimal的除法如果不能整除会抛异常，使用时必须先指定小数点精度
+	BigDecimal的除法如果不能整除会抛异常，使用时必须先指定小数点精度  
+	MyUtils.double2Bytes方法里面先通过Double.doubleToRawLongBits把double转成long，然后在把long的8个字节存入到byte数组中  
+	q因为double和long都是64为的、8个字节，占用的空间是一样的，也可以通过Double.longBitsToDouble把long型转成double型数据  
         
 ### 需要强化
 	1. 多线程基础，多线程的应用
