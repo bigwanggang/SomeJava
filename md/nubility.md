@@ -298,3 +298,12 @@
 	
 ### github md 语法
 	换行的方法：两个空格加一个回车，直接回车不能换行
+	
+### Gradle
+	gradle下载慢的问题，用阿里的国内云仓库：
+	repositories {
+        //mavenCentral()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+    }
