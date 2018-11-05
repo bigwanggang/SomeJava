@@ -8,5 +8,5 @@ scenario: 方案
 approach: 靠近，方法  
 nested: 嵌套的  
 wrapper: 包装、封装  
-boilerplate: 样板
-
+boilerplate: 样板  
+sophisticated:复杂的
