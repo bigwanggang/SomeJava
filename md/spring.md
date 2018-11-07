@@ -4,6 +4,10 @@
   spring data 依赖配置： https://github.com/spring-projects/spring-data-examples/tree/master/bom  
   JPA里的repository就是传统的DAO，UserRepository 就是传统的UserDao，MyBatis里用Mapper，都是一个意思
   JPA里Repository只有接口，没有实现类
+  
+  @NoRepositoryBean:
+
+  一般用作父类的repository，有这个注解，spring不会去实例化该repository。
 ### JdbcTemplate了解下
 
 
