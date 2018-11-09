@@ -1,18 +1,18 @@
 - jstack和visualVM 工具
 
 ### 常用技术
-- [java 基础](https://github.com/bigwanggang/JAVA/blob/master/md/nubility.md)
+- [java Basic](https://github.com/bigwanggang/JAVA/blob/master/md/nubility.md)
   - [ArrayList](https://github.com/bigwanggang/JAVA/blob/master/md/ArrayList.md)
   - [HashMap](https://github.com/bigwanggang/JAVA/blob/master/md/HashMap.md)
 - [jvm](https://github.com/bigwanggang/JAVA/blob/master/md/javap.md)
-- [多线程](https://github.com/bigwanggang/JAVA/blob/master/md/thread.md)
+- [multiThread](https://github.com/bigwanggang/JAVA/blob/master/md/thread.md)
   - [threadpoolexecutor](https://github.com/bigwanggang/JAVA/blob/master/md/threadpoolexecutor.md)
   - [concurrentHashMap](https://github.com/bigwanggang/JAVA/blob/master/md/concurrentHashMap.md)
   - [ConcurrentLinkedQueue](https://github.com/bigwanggang/JAVA/blob/master/md/ConcurrentLinkedQueue.md)
   
 - [mysql](https://github.com/bigwanggang/JAVA/blob/master/md/mysql.md)
 - [spring](https://github.com/bigwanggang/JAVA/blob/master/md/spring.md)
-- [单词](https://github.com/bigwanggang/JAVA/blob/master/md/english.md)
+- [word](https://github.com/bigwanggang/JAVA/blob/master/md/english.md)
 
 ### 专项学习
 - [AtomicInteger](https://github.com/bigwanggang/JAVA/blob/master/md/AtomicInteger.md)
