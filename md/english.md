@@ -11,4 +11,5 @@ wrapper: 包装、封装
 boilerplate: 样板  
 sophisticated:复杂的  
 derived: 衍生的  
+spam:垃圾邮件  
 
