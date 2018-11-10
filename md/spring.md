@@ -7,7 +7,8 @@
   
   @NoRepositoryBean:
 
-  一般用作父类的repository，有这个注解，spring不会去实例化该repository。
+  一般用作父类的repository，有这个注解，spring不会去实例化该repository。  
+  springboot的Classpath目录：src/main/resources
 ### JdbcTemplate了解下
 
 
