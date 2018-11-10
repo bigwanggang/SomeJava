@@ -17,6 +17,8 @@
         spring.datasource.username=root
         spring.datasource.password=root123
         以上为配置数据源
+        通常无需指定JDBC驱动，springboot会帮助识别驱动，但是如果自动识别出现问题，就显示加上
+        spring.datasource.drive-class-name=com.mysql.jdbc.Driver
         
         spring.jpa.hibernate.ddl-auto=update
         spring.jpa.show-sql=true
