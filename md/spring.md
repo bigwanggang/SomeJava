@@ -9,6 +9,8 @@
 
   一般用作父类的repository，有这个注解，spring不会去实例化该repository。  
   springboot的Classpath目录：src/main/resources
+  springbootinaction中50页，配置文件application.properties或application.yml的优先级，“当前目录的“/config”子目录”的当前  
+  目录指的是src同一级别的目录
 ### JdbcTemplate了解下
 
 ### SpringBoot相关
