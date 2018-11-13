@@ -87,4 +87,6 @@
         @SpringBootTest
         @RunWith(SpringRunner.class)
 
+### WebSecurityConfigurerAdapter
+  springboot里的请求授权通常是扩展（extends）WebSecurityConfigurerAdapter，然后重写几个方法来完成
 
