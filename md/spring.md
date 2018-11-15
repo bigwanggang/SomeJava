@@ -58,6 +58,18 @@
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
         </dependency>
     </dependencies>
+    
+    
+    spring开发时如果要用H2数据库，除了把H2加入到maven依赖之外，还要在application.properties里增加H2的配置,增加的目的是可以通过  
+    localhost：8080/h2-console访问内存数据库
+    spring.datasource.url=jdbc:h2:mem:myproject，配置h2数据库的连接地址
+    spring.datasource.driver-class-name=org.h2.Driver，配置JDBC Driver
+    spring.datasource.username=root，配置数据库用户名
+    spring.datasource.password=123456，配置数据库密码
+    
+    spring.h2.console.enabled=true
+    spring.h2.console.path=/h2-console
+    
 
 ### idea springboot 热部署
         1.添加依赖
