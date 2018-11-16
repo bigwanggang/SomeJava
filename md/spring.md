@@ -111,12 +111,12 @@
 
 ### Jpa
   spring jpa mysql的配置方式
-  # Specify the DBMS
+  #Specify the DBMS
   spring.jpa.database = MYSQL
-  # Show or not log for each sql query
+  #Show or not log for each sql query
   spring.jpa.show-sql = true
-  # Hibernate ddl auto (create, create-drop, update)
+  #Hibernate ddl auto (create, create-drop, update)
   spring.jpa.hibernate.ddl-auto = update
 
-  # stripped before adding them to the entity manager)
+  #stripped before adding them to the entity manager)
   spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
