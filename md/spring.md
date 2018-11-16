@@ -104,3 +104,5 @@
 ### WebSecurityConfigurerAdapter
   springboot里的请求授权通常是扩展（extends）WebSecurityConfigurerAdapter，然后重写几个方法来完成
 
+### maven
+  maven工程的pom.xml文件的packaging标签有三个选项：pom、jar、war。pom表示该模块是个父模块，是被其他子模块继承的模块
