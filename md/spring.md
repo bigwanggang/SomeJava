@@ -107,3 +107,16 @@
 ### maven
   maven工程的pom.xml文件的packaging标签有三个选项：pom、jar、war。pom表示该模块是个父模块，是被其他子模块继承的模块  
   maven子模块的依赖继承父模块的
+
+
+### Jpa
+  spring jpa mysql的配置方式
+  # Specify the DBMS
+  spring.jpa.database = MYSQL
+  # Show or not log for each sql query
+  spring.jpa.show-sql = true
+  # Hibernate ddl auto (create, create-drop, update)
+  spring.jpa.hibernate.ddl-auto = update
+
+  # stripped before adding them to the entity manager)
+  spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
