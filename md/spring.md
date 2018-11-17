@@ -158,4 +158,6 @@ orders` (`id`)
   
   repository: 目前为止直接继承JpaRepository接口，提供的18个方法，已足够需求
   
+### redis
+  windows版本的下载链接：https://github.com/MicrosoftArchive/redis/releases
   
