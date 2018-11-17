@@ -120,3 +120,38 @@
   spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy  
   #stripped before adding them to the entity manager)  
   spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect  
+
+  OneToMany注解一般要联合@JoinColumn注解使用，作用是外键约束的字段名称，  
+  @JoinColumn(name = “order_id”)中的order_id为many一方的外键字段  
+  如下例子有Order和OrderRecord两个entity，在spring启动时会自动创建两个表
+```java
+@Entity
+@Table(name = "orders")
+public class Order {
+    @Id
+    private Long id;
+
+    @OneToMany
+    @JoinColumn(name = "order_id")
+    private Set<OrderRecord> orderRecords;
+}
+@Entity
+public class OrderRecord {
+    @Id
+    private Long id;
+    private String name;
+}
+```
+  使用show create table order_record\G; 查看表的详细信息
+```sql  
+  Create Table: CREATE TABLE `order_record` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `order_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKq7tqcnthko0xae7xntn93n2ft` (`order_id`),
+  CONSTRAINT `FKq7tqcnthko0xae7xntn93n2ft` FOREIGN KEY (`order_id`) REFERENCES `
+orders` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+```
+  可见order_id是作为order_record的一个字段，并且该字段外键关联Order的id
