@@ -154,4 +154,4 @@ public class OrderRecord {
 orders` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ```
-  可见order_id是作为order_record的一个字段，并且该字段外键关联Order的id
+  可见order_id是作为order_record的一个字段，并且该字段外键关联Order的id，而order表中，并没有orderRecords字段
