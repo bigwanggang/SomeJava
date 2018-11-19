@@ -159,5 +159,10 @@ orders` (`id`)
   repository: 目前为止直接继承JpaRepository接口，提供的18个方法，已足够需求
   
 ### redis
-  windows版本的下载链接：https://github.com/MicrosoftArchive/redis/releases
+  windows版本的下载链接：https://github.com/MicrosoftArchive/redis/releases  
+  redis启动远程连接配置：要修改redis.windows.conf的配置  
+  1. 注释掉bind 127.0.0.1  
+  2. 将默认的protected-mode yes改为 protected-mode no  
+  3. 启动服务器要带上配置文件： redis-server.exe redis.windows.conf  
+  
   
