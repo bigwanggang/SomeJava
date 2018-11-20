@@ -21,3 +21,4 @@
 - [阻塞队列](https://github.com/bigwanggang/JAVA/blob/master/md/blockingQueue.md)
 - [AbstractQueuedSynchronizer](https://github.com/bigwanggang/JAVA/blob/master/md/AbstractQueuedSynchronizer.md)
 - [多线程练习](https://github.com/bigwanggang/JAVA/blob/master/md/multithread.md)
+- [guava](https://github.com/bigwanggang/JAVA/blob/master/md/guava.md)
