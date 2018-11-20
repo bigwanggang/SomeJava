@@ -165,4 +165,4 @@ orders` (`id`)
   2. 将默认的protected-mode yes改为 protected-mode no  
   3. 启动服务器要带上配置文件： redis-server.exe redis.windows.conf  
   
-  
+  - 练习在一个普通的springboot+jpa应用中使用redis做缓存
