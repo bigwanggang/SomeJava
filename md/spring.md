@@ -1,17 +1,17 @@
 ### 随记知识点（书中或自己理解）
   - 服务对象和Repository分离，而不是将应用程序和数据访问耦合到一起，导致僵化设计，实现松耦合主要通过接口或Spring的Bean两种方式  
   - 纯粹的JPA方式远胜于基于模板的JPA（JpaTemplate）
-  spring data 依赖配置： https://github.com/spring-projects/spring-data-examples/tree/master/bom  
-  JPA里的repository就是传统的DAO，UserRepository 就是传统的UserDao，MyBatis里用Mapper，都是一个意思
+  - spring data 依赖配置： https://github.com/spring-projects/spring-data-examples/tree/master/bom  
+  - JPA里的repository就是传统的DAO，UserRepository 就是传统的UserDao，MyBatis里用Mapper，都是一个意思
   JPA里Repository只有接口，没有实现类
   
-  @NoRepositoryBean:
-
+  - @NoRepositoryBean:
   一般用作父类的repository，有这个注解，spring不会去实例化该repository。  
-  springboot的Classpath目录：src/main/resources  
-  springbootinaction中50页，配置文件application.properties或application.yml的优先级，“当前目录的“/config”子目录”的当前  
+  - springboot的Classpath目录：src/main/resources  
+  - springbootinaction中50页，配置文件application.properties或application.yml的优先级，“当前目录的“/config”子目录”的当前  
   目录指的是src同一级别的目录，另外yml配置文件优先级高于properites文件  
-  @ConfigurationProperties注解是从properties配置文件中获取信息，但是该属性要有setter方法
+  - @ConfigurationProperties注解是从properties配置文件中获取信息，但是该属性要有setter方法
+  - springboot开发中 spring-boot-starter-thymeleaf依赖spring-boot-starter-web，所以在依赖中如果有thymeleaf就不用依赖web
 ### JdbcTemplate了解下
 
 ### SpringBoot相关
