@@ -167,6 +167,7 @@ orders` (`id`)
   
   - 练习在一个普通的springboot+jpa应用中使用redis做缓存，用JavaEETest中的test22-jpa的基础上增加
   1. 增加依赖：
+```
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
@@ -175,12 +176,16 @@ orders` (`id`)
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-redis</artifactId>
         </dependency>
+```        
+        
    2. 配置：
+```   
      spring.redis.host=localhost
      #Redis服务器连接端口
      spring.redis.port=6379
      #Redis服务器连接密码（默认为空）
      spring.redis.password=
+```     
    3. 增加PersonSerice，注入PersonRepository,同时通过@CachePut、@CacheEvict、@Cacheable来进行缓存处理， 在controller中，注入PersonService  
      restful方法中调用PersonService
    4. Person 要implements Serializable
