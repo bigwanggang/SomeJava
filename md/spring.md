@@ -184,4 +184,5 @@ orders` (`id`)
    3. 增加PersonSerice，注入PersonRepository,同时通过@CachePut、@CacheEvict、@Cacheable来进行缓存处理， 在controller中，注入PersonService  
      restful方法中调用PersonService
    4. Person 要implements Serializable
+   5. Application类要加@EnableCaching注解
     
