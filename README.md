@@ -11,7 +11,7 @@
   - [concurrentHashMap](https://github.com/bigwanggang/JAVA/blob/master/md/concurrentHashMap.md)
   - [ConcurrentLinkedQueue](https://github.com/bigwanggang/JAVA/blob/master/md/ConcurrentLinkedQueue.md)
   
-- [mysql](https://github.com/bigwanggang/JAVA/blob/master/md/mysql.md)
+- [mysql](https://github.com/bigwanggang/JAVA/blob/master/md/mysql.md) 多看看mysql
 - [spring](https://github.com/bigwanggang/JAVA/blob/master/md/spring.md)
 - [word](https://github.com/bigwanggang/JAVA/blob/master/md/english.md)
 
