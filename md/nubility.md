@@ -241,3 +241,14 @@
             url 'http://maven.aliyun.com/nexus/content/groups/public/'
         }
     }
+    
+### @SuppressWarnings的作用
+	@SuppressWarnings的作用是让编辑器对代码的一些警告保持沉默，例如代码中使用的过期的（@deprecation）方法
+```java
+	public void test1(){
+		test();
+	}
+	@Deprecated
+	public void test(){
+	}
+```
