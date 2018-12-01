@@ -248,4 +248,6 @@
 	如果想要忽略提示，就可以用@SuppressWarnings（"unchecked"）
 	
 ### junit jmockit
-	测试时发现个问题没有解决，如果想要mock一个静态方法，而该方法没有返回值（void）,网上找了一些方法都是有result 来返回的，但是不返回的方法还没找到
+	测试时发现个问题没有解决，如果想要mock一个静态方法，而该方法没有返回值（void）,网上找了一些方法都是有result 来返回的，但是不返回的方法还没找到  
+	测试发现，不返回的static方法不用加result 只有一个方法mock就可以  
+	有个例子可以继续研究DBUtils里有个静态getConn方法，StaticClass方法有个静态方法getSqlResult，引用了该方法  
