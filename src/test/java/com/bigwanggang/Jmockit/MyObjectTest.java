@@ -1,20 +1,28 @@
 package com.bigwanggang.Jmockit;
 
-import junit.framework.Assert;
-import mockit.*;
+import mockit.Expectations;
+import mockit.NonStrictExpectations;
+import mockit.Tested;
+import mockit.Verifications;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.sql.SQLException;
+
 @RunWith(JMockit.class)
 public class MyObjectTest {
-    @Mocked
+    @Tested
     MyObject obj;
 
     @Test
-    public void testHello() {
+    public void testUnderTest() throws SQLException {
+        new Expectations(StaticClass.class) {
+            {
+//                StaticClass.getSqlResult();
+            }
+        };
+        obj.underTest();
 
-        Assert.assertEquals(null, obj.hello(""));
-        Assert.assertEquals(null, obj.returnString());
     }
 }

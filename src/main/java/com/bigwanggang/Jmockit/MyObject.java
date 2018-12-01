@@ -1,5 +1,7 @@
 package com.bigwanggang.Jmockit;
 
+import java.sql.SQLException;
+
 public class MyObject {
     public String hello(String name) {
         return "Hello " + name;
@@ -11,6 +13,10 @@ public class MyObject {
 
     public String returnString() {
         return "String";
+    }
+
+    public void underTest() throws SQLException {
+        StaticClass.getSqlResult();
     }
 
 }
