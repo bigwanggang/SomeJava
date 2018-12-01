@@ -247,3 +247,5 @@
 	以表示该方法已过期，但是如果不想在IDE里出现这样的提示就可以用@SuppressWarnings（"deprecation"）来解决， 还有类型转换时IDE也会提示，  
 	如果想要忽略提示，就可以用@SuppressWarnings（"unchecked"）
 	
+### junit jmockit
+	测试时发现个问题没有解决，如果想要mock一个静态方法，而该方法没有返回值（void）,网上找了一些方法都是有result 来返回的，但是不返回的方法还没找到
