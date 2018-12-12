@@ -6,6 +6,8 @@
 
 -   mysql不支持full join,可以用left join和right join的union all 来实现
 
+-   对多个列实现降序排列要在多个列加desc
+-   where 字句中多个条件，condition1 or condition2 and condition3,是condition1 or （condition2 and condition3）    
 ### join
 	技术贴：http://www.runoob.com/mysql/mysql-join.html
 
