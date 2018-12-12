@@ -253,3 +253,6 @@
 	有个例子可以继续研究DBUtils里有个静态getConn方法，StaticClass方法有个静态方法getSqlResult，引用了该方法  
 	有个jmockit的的使用例子：http://jmockit.cn/showArticle.htm?channel=2&id=4　　
 	
+### this.getClass().getClassLoader().getResource("test/resources/file.txt").getPath(); 
+	写ut是如果需要文件，可以用这种方式获取文件路径
+	
