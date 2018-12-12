@@ -253,3 +253,64 @@
 	有个例子可以继续研究DBUtils里有个静态getConn方法，StaticClass方法有个静态方法getSqlResult，引用了该方法  
 	有个jmockit的的使用例子：http://jmockit.cn/showArticle.htm?channel=2&id=4　　
 	
+### java File
+    最近的工作涉及文件相关的一些操作，记录下来
+```
+        for (String arg : args) {
+            System.out.println("string: " + arg);
+            File file = new File(arg);
+            System.out.println("getAbsolutePath: " + file.getAbsolutePath());
+            System.out.println("isDirectory: " + file.isDirectory());
+            System.out.println("isAbsolute: " + file.isAbsolute());
+            System.out.println("isFile: " + file.isFile());
+            System.out.println("exist: " + file.exists());
+        }
+``` 
+    如果输入为一个存在的目录输出为：
+```
+String: C:\Users\gustaov\Desktop\tmp
+getAbsolutePath: C:\Users\gustaov\Desktop\tmp
+isDirectory: true
+isAbsolute: true
+isFile: false
+exist: true
+```
+    如果输入为一个不存在的目录：
+```
+String: C:\Users\gustaov\Desktop\tmp1
+getAbsolutePath: C:\Users\gustaov\Desktop\tmp1
+isDirectory: false
+isAbsolute: true
+isFile: false
+exist: false
+```    
+    如果输入一个文件：
+```
+String: C:\Users\gustaov\Desktop\tmp\test.class
+getAbsolutePath: C:\Users\gustaov\Desktop\tmp\test.class
+isDirectory: false
+isAbsolute: true
+isFile: true
+exist: true
+```    
+    如果只输入一个文件的相对路径：
+```
+String: test.class
+getAbsolutePath: C:\Users\gustaov\Desktop\tmp\test.class
+isDirectory: false
+isAbsolute: false
+isFile: true
+exist: true
+```    
+    如果输入目录的相对路径
+```
+String: src
+getAbsolutePath: C:\Users\gustaov\Desktop\tmp\src
+isDirectory: true
+isAbsolute: false
+isFile: false
+exist: true
+```    
+
+    只有文件存在（exist为true），才可能是文件或是目录，否则isDirectory和isFile肯定都是false
+    
