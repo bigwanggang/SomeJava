@@ -9,7 +9,9 @@
 -   对多个列实现降序排列要在多个列加desc
 -   where 字句中多个条件，condition1 or condition2 and condition3,是condition1 or （condition2 and condition3),因为or的优先级没有and高  
 如果想要先or后and可以这样：(condition1 or condition2) and condition3,
--  老版本mysql只是MyISAM引擎类型支持全文索引FULLTEXT ，新版本的InnoDB也已经支持。  
+-  老版本mysql只是MyISAM引擎类型支持全文索引FULLTEXT ，新版本的InnoDB也已经支持。 
+-  delete 是删除mysql的一行数据，但是如果想要删除所有的行，可以使用truncate table，其原理是删除表然后重新创建。  
+
 
 ### join
 	技术贴：http://www.runoob.com/mysql/mysql-join.html
