@@ -11,6 +11,7 @@
 如果想要先or后and可以这样：(condition1 or condition2) and condition3,
 -  老版本mysql只是MyISAM引擎类型支持全文索引FULLTEXT ，新版本的InnoDB也已经支持。 
 -  delete 是删除mysql的一行数据，但是如果想要删除所有的行，可以使用truncate table，其原理是删除表然后重新创建。  
+-  事务管理可以管理update、insert、delete语句，但是不能管理create、drop，就是是事务中执行create、drop之后，回退也不会撤销  
 
 
 ### join
