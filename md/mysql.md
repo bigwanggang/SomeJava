@@ -13,7 +13,8 @@
 -  delete 是删除mysql的一行数据，但是如果想要删除所有的行，可以使用truncate table，其原理是删除表然后重新创建。  
 -  事务管理可以管理update、insert、delete语句，但是不能管理create、drop，就是是事务中执行create、drop之后，回退也不会撤销  
 -  auto_increment在一个表中只能修饰一列，auto_increment列一定为not null, 并且为primary key或unique   
--  
+-  可以通过alter table *** auto_increment =n 来设置自动增长列下次插入数据的初始值。  
+
 
 
 ### join
