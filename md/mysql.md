@@ -7,7 +7,16 @@
 -   mysql不支持full join,可以用left join和right join的union all 来实现
 
 -   对多个列实现降序排列要在多个列加desc
--   where 字句中多个条件，condition1 or condition2 and condition3,是condition1 or （condition2 and condition3）    
+-   where 字句中多个条件，condition1 or condition2 and condition3,是condition1 or （condition2 and condition3),因为or的优先级没有and高  
+如果想要先or后and可以这样：(condition1 or condition2) and condition3,
+-  老版本mysql只是MyISAM引擎类型支持全文索引FULLTEXT ，新版本的InnoDB也已经支持。 
+-  delete 是删除mysql的一行数据，但是如果想要删除所有的行，可以使用truncate table，其原理是删除表然后重新创建。  
+-  事务管理可以管理update、insert、delete语句，但是不能管理create、drop，就是是事务中执行create、drop之后，回退也不会撤销  
+-  auto_increment在一个表中只能修饰一列，auto_increment列一定为not null, 并且为primary key或unique   
+-  可以通过alter table *** auto_increment =n 来设置自动增长列下次插入数据的初始值。  
+
+
+
 ### join
 	技术贴：http://www.runoob.com/mysql/mysql-join.html
 

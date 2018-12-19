@@ -1,5 +1,6 @@
 #### 知识点不关乎大小，一点一滴的积累,觉得没什么看的时候，逛下github，看下自己收藏的技术贴，有时间看看EMB代码
 - jstack和visualVM 工具
+- [Important](https://github.com/bigwanggang/JAVA/blob/master/md/Important.md)
 
 ### 常用技术
 - [java Basic](https://github.com/bigwanggang/JAVA/blob/master/md/nubility.md)
