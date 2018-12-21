@@ -16,6 +16,8 @@
 -  可以通过alter table *** auto_increment =n 来设置自动增长列下次插入数据的初始值。  
 -  mysql行列转换的帖子：https://blog.csdn.net/sinat_27406925/article/details/77507478, 这个帖子的例子挺经典，在这个例子上多学学常用的sql语句  
 	查询学号为1001的学生的所有科目的成绩，如果没有成绩显示0
+-  ifnull（）方法失效的问题研究下  
+
 
 
 ### join
