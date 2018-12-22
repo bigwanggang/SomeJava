@@ -17,8 +17,21 @@
 -  mysql行列转换的帖子：https://blog.csdn.net/sinat_27406925/article/details/77507478, 这个帖子的例子挺经典，在这个例子上多学学常用的sql语句  
 	查询学号为1001的学生的所有科目的成绩，如果没有成绩显示0
 -  ifnull（）方法失效的问题研究下  
-
-
+-  mysql行转列的栗子：https://www.cnblogs.com/ken-jl/p/8570518.html 中给出了一个行转多列的语句，如果是转单列，用类似于：语文：88，数学：99  
+的样子表示的sql语句如下：
+```sql
+select user_name, 
+group_concat(course, ':', score) 
+from test_tb_grade
+group by user_name;
+```
+-  https://blog.csdn.net/sinat_27406925/article/details/77507478 这个例子中的课程和成绩在两个表里面，怎样像上面的栗子中表示？  
+```sql
+SELECT st.stuid, st.stunm, GROUP_CONCAT(c.coursenm,':' ,sc.scores) AS 成绩
+FROM student st, courses c, score sc
+WHERE st.stuid=sc.stuid AND c.courseno = sc.`courseno` 
+GROUP BY st.stuid;
+```
 
 ### join
 	技术贴：http://www.runoob.com/mysql/mysql-join.html
