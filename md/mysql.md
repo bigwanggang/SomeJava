@@ -2,7 +2,7 @@
 -    通过命令行输入sql语句时，有时会输错，这时可以通过上下箭头切换到刚才输入错误的sql，  
 	然后通过左右箭头重新输入错误的语句，但是即使按住左箭头按键，输入标识符的前进速度  
 	依然很慢，这时可以按住ctrl按键，同时按←按键，速度就很快，因为是按字母来跳跃前进  
--   unoin是把两个表的全集打印出来，但是不包括重复的元素， 而union all 包括重复的元素
+-   unoin是把两个表的全集打印出来，但是不包括重复的元素， 会把重复的元素排除，而union all 包括重复的元素，因此union all的效率高一些
 
 -   mysql不支持full join,可以用left join和right join的union all 来实现
 
@@ -26,11 +26,41 @@ from test_tb_grade
 group by user_name;
 ```
 -  https://blog.csdn.net/sinat_27406925/article/details/77507478 这个例子中的课程和成绩在两个表里面，怎样像上面的栗子中表示？  
-```sql
+```mysql
 SELECT st.stuid, st.stunm, GROUP_CONCAT(c.coursenm,':' ,sc.scores) AS 成绩
 FROM student st, courses c, score sc
 WHERE st.stuid=sc.stuid AND c.courseno = sc.`courseno` 
 GROUP BY st.stuid;
+```
+
+-  列转行，将下面的mobile转成每个mobile为一列的sql:
+```mysql
+select user_name,
+replace(substring(substring_index(mobile,',',a.id),char_length(substring_index(mobile,',',a.id-1)) +1),',','')as mobile
+from tb_sequence a cross join (
+select user_name , concat(mobile,',')as mobile, length(mobile)-length(replace(mobile,',',''))+1 size from user b)b on a.id<=b.size
+
+```
+```text
+id	user_name	over	mobile
+1	唐僧	功德佛	123534234345,13423124,3424343463
+2	猪八戒	净坛使者	12398978798,172879234
+3	孙悟空	斗战胜佛	1239893478923,13712487293,13687234283,13302734873
+4	沙僧	金身罗汉	187873472834,18987289374
+
+
+user_name	mobile
+唐僧	123534234345
+唐僧	13423124
+唐僧	3424343463
+猪八戒	12398978798
+猪八戒	172879234
+孙悟空	1239893478923
+孙悟空	13712487293
+孙悟空	13687234283
+孙悟空	13302734873
+沙僧	187873472834
+沙僧	18987289374
 ```
 
 ### join
