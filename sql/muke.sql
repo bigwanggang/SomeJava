@@ -50,6 +50,24 @@ CREATE TABLE `user_kills` (
 
 insert  into `user_kills`(`id`,`user_id`,`timestr`,`kills`) values (1,2,'2011-02-22 13:44:23',1),(2,3,'2011-02-23 08:23:56',3),(3,2,'2011-02-23 12:00:00',2),(4,4,'2011-02-23 16:00:00',1),(5,3,'2011-02-24 01:00:00',2),(6,4,'2011-02-24 03:00:00',2),(7,3,'2011-02-24 08:00:00',3),(8,2,'2011-02-24 16:00:00',2),(9,2,'2011-02-25 06:00:00',4),(10,3,'2011-02-26 09:00:00',5),(11,3,'2011-02-23 15:00:00',4);
 
+/*Table structure for table `user_skills` */
+
+DROP TABLE IF EXISTS `user_skills`;
+
+CREATE TABLE `user_skills` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `skill` varchar(30) DEFAULT NULL,
+  `level` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_user_id1` (`user_id`),
+  CONSTRAINT `fk_user_id1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+
+/*Data for the table `user_skills` */
+
+insert  into `user_skills`(`id`,`user_id`,`skill`,`level`) values (1,1,'紧箍咒',5),(2,1,'打坐',4),(3,1,'念经',5),(4,1,'变化',0),(5,2,'变化',4),(6,2,'腾云',3),(7,2,'浮水',5),(8,2,'念经',0),(9,2,'紧箍咒',0),(10,3,'变化',5),(11,3,'腾云',5),(12,3,'浮水',3),(13,3,'念经',2),(14,3,'请神',5),(15,3,'紧箍咒',0),(16,4,'变化',2),(17,4,'腾云',2),(18,4,'浮水',4),(19,4,'念经',1),(20,4,'紧箍咒',0);
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
