@@ -1,5 +1,5 @@
 ### 技术
--    通过命令行输入sql语句时，有时会输错，这时可以通过上下箭头切换到刚才输入错误的sql，  
+-   通过命令行输入sql语句时，有时会输错，这时可以通过上下箭头切换到刚才输入错误的sql，  
 	然后通过左右箭头重新输入错误的语句，但是即使按住左箭头按键，输入标识符的前进速度  
 	依然很慢，这时可以按住ctrl按键，同时按←按键，速度就很快，因为是按字母来跳跃前进  
 -   unoin是把两个表的全集打印出来，但是不包括重复的元素， 会把重复的元素排除，而union all 包括重复的元素，因此union all的效率高一些
@@ -18,7 +18,20 @@
 	查询学号为1001的学生的所有科目的成绩，如果没有成绩显示0
 -  ifnull（）方法失效的问题研究下  
 -  mysql行转列的栗子：https://www.cnblogs.com/ken-jl/p/8570518.html 中给出了一个行转多列的语句，如果是转单列，用类似于：语文：88，数学：99  
-的样子表示的sql语句如下：
+的样子表示的sql语句如下
+-  muke的栗子，user_kills 是每个人打怪的记录，如果想要查看每个人每天打怪的数量，要用到group by多列：
+```mysql
+SELECT user_id, DATE(timestr) AS date1, SUM(kills) FROM user_kills GROUP BY user_id, date1;
+```
+-  如果打印每个人打怪数量最多的一天和当天打怪的数量
+```mysql
+SELECT a.user_name, c.date1,  c.maxkills FROM
+USER a JOIN
+(SELECT b.user_id, b.date1, MAX(b.sumkills) maxkills FROM
+(SELECT user_id, DATE(timestr) AS date1, SUM(kills) sumkills FROM user_kills GROUP BY user_id, date1) b GROUP BY user_id) c
+ON a.`id` = c.user_id;
+```
+
 ```sql
 select user_name, 
 group_concat(course, ':', score) 
