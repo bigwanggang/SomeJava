@@ -322,3 +322,6 @@ exist: true
 
     只有文件存在（exist为true），才可能是文件或是目录，否则isDirectory和isFile肯定都是false
     
+    
+### python
+	python -m SimpleHTTPServer 8000提供一个文件浏览的web服务，可以通过http访问当前目录
