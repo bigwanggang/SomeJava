@@ -103,3 +103,8 @@
     
 ### 比如：一个方法是阻塞等待返回的，怎么设置超时终止？
     一个办法是将该方法放在一个线程中执行，通过Callable的返回Future，Future的get可以设置超时终止，详见：StopBlockingThread
+
+
+### volatile
+    volatile能提供变量在多线程中的可见性，但是不要过度依赖volatile的可见性（java并发编程实战）  
+    
