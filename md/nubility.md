@@ -333,5 +333,9 @@ exist: true
 	
 ### Exception
 	RuntimeException 运行时异常，编译器不会检查RuntimeException异常
-	编译器不会检查RuntimeException异常。例如，除数为零时，抛出ArithmeticException异常。RuntimeException是ArithmeticException的超类。当代码发生除数为零的情况时，倘若既"没有通过throws声明抛出ArithmeticException异常"，也"没有通过try...catch...处理该异常"，也能通过编译。这就是我们所说的"编译器不会检查RuntimeException异常"！
+	编译器不会检查RuntimeException异常。例如，除数为零时，抛出ArithmeticException异常。RuntimeException是ArithmeticException的超类。  
+	当代码发生除数为零的情况时，倘若既"没有通过throws声明抛出ArithmeticException异常"，也"没有通过try...catch...处理该异常"，也能通过编译。 
+	这就是我们所说的"编译器不会检查RuntimeException异常"！数组越界时产生的IndexOutOfBoundsException异常，fail-fail机制产生的  
+	ConcurrentModificationException异常等，都属于运行时异常。  
+	Exception类本身，以及Exception的子类中除了"运行时异常"之外的其它子类都属于被检查异常
 	
