@@ -191,3 +191,5 @@ orders` (`id`)
    4. Person 要implements Serializable
    5. Application类要加@EnableCaching注解
     
+### SpringMvc
+  源码分析：https://www.cnblogs.com/fangjian0423/p/springMVC-directory-summary.html
