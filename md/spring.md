@@ -195,5 +195,10 @@ orders` (`id`)
   源码分析：https://www.cnblogs.com/fangjian0423/p/springMVC-directory-summary.html
   
 ### 源码分析
-  ClassPathXmlApplicationContext  
+  ClassPathXmlApplicationContext  　　
+  
+### DefaultListableBeanFactory
+  源码分析：https://www.cnblogs.com/davidwang456/p/4187012.html，DefaultListableBeanFactory的类结构图在前面的源码分析里  
+  
+  
   

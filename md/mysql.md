@@ -20,11 +20,11 @@
 -  mysql行转列的栗子：https://www.cnblogs.com/ken-jl/p/8570518.html 中给出了一个行转多列的语句，如果是转单列，用类似于：语文：88，数学：99  
 的样子表示的sql语句如下
 -  muke的栗子，user_kills 是每个人打怪的记录，如果想要查看每个人每天打怪的数量，要用到group by多列：
-```mysql
+```
 SELECT user_id, DATE(timestr) AS date1, SUM(kills) FROM user_kills GROUP BY user_id, date1;
 ```
 -  如果打印每个人打怪数量最多的一天和当天打怪的数量
-```mysql
+```
 SELECT a.user_name, c.date1,  c.maxkills FROM
 USER a JOIN
 (SELECT b.user_id, b.date1, MAX(b.sumkills) maxkills FROM
@@ -32,14 +32,14 @@ USER a JOIN
 ON a.`id` = c.user_id;
 ```
 
-```sql
+```
 select user_name, 
 group_concat(course, ':', score) 
 from test_tb_grade
 group by user_name;
 ```
 -  https://blog.csdn.net/sinat_27406925/article/details/77507478 这个例子中的课程和成绩在两个表里面，怎样像上面的栗子中表示？  
-```mysql
+```
 SELECT st.stuid, st.stunm, GROUP_CONCAT(c.coursenm,':' ,sc.scores) AS 成绩
 FROM student st, courses c, score sc
 WHERE st.stuid=sc.stuid AND c.courseno = sc.`courseno` 
@@ -47,14 +47,14 @@ GROUP BY st.stuid;
 ```
 
 -  列转行，将下面的mobile转成每个mobile为一列的sql:
-```mysql
+```
 select user_name,
 replace(substring(substring_index(mobile,',',a.id),char_length(substring_index(mobile,',',a.id-1)) +1),',','')as mobile
 from tb_sequence a cross join (
 select user_name , concat(mobile,',')as mobile, length(mobile)-length(replace(mobile,',',''))+1 size from user b)b on a.id<=b.size
 
 ```
-```text
+```
 id	user_name	over	mobile
 1	唐僧	功德佛	123534234345,13423124,3424343463
 2	猪八戒	净坛使者	12398978798,172879234
@@ -81,15 +81,15 @@ user_name	mobile
 
 ### 数据库操作：
 - 显示所有数据库：
-```sql
+```
 show databases;
 ```
 - 创建数据库：
-```sql
+```
 create database database_name;
 ```
 - 切换数据库：
-```sql
+```
 use database_name;
 ```
 - 查看创建好的数据库的定义：

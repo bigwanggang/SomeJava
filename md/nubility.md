@@ -131,7 +131,7 @@
 - 引用类的final static常量，不会初始化该类，引用static变量，会初始化该类
 	例子：
 
-``` java
+```
         public class InitialTest {
             public static void main(String[] args) {
                 System.out.println(Class1.a);
@@ -194,7 +194,7 @@
 	解决方案：1. IDEA通过-Xms512M -Xmx800M，增加jvm内存值，-Xms表示最小内存， -Xmx表示最大内存
 	
 ### 关于byte
-```java
+```
         byte b = -1;
         System.out.println(b);
         System.out.println(b & 0xff);
@@ -204,9 +204,9 @@
 	为1111_1111_1111_1111_1111_1111_1111_1111, b & 0xff 相当于只截取低8位的值 
 
 ### 关于double的精度
-```java
+```
 	double d = 19.99;
-        double d1 = d*10;
+    double d1 = d*10;
 	double d2 = 19.989999999999998, 
 ```
 	d=19.99,但是d1=199.89999999999998,（可以试着打印输出看看）这是为什么呢？  
@@ -217,10 +217,10 @@
 	如果对小数精度有要求，最好用BigDecimal，BigDecimal有3个构造方法，最好不要用double的构造方法，可以用BigDecimal.valueOf或  
 	String的构造方法。下面里例子，输出值b1为1999.0，b3为1998.9999999999998
 	
-```java
+```
         BigDecimal b1 = new BigDecimal("19.99").multiply(new BigDecimal("100"));
         System.out.println(b1);
-	BigDecimal b3 = new BigDecimal(19.99).multiply(new BigDecimal(100));
+	    BigDecimal b3 = new BigDecimal(19.99).multiply(new BigDecimal(100));
         System.out.println(b3.doubleValue());
 ```
 	BigDecimal的除法如果不能整除会抛异常，使用时必须先指定小数点精度  
