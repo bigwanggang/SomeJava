@@ -1,7 +1,7 @@
 
 ## 1.6
 #### 构造函数
-```java
+```
   public ConcurrentHashMap(int initialCapacity,
                              float loadFactor, int concurrencyLevel) {
         if (!(loadFactor > 0) || initialCapacity < 0 || concurrencyLevel <= 0)
@@ -47,7 +47,7 @@
   Segment<K,V> extends ReentrantLock 所以Segment是个重入锁
   transient volatile HashEntry<K,V>[] table; 这个table是数组加链表的方式来存储数据
   Segment的构造函数，只有一个构造函数
-```java
+```
           Segment(int initialCapacity, float lf) {
             loadFactor = lf;
             setTable(HashEntry.<K,V>newArray(initialCapacity));
@@ -61,7 +61,7 @@
   threshold 门限值，threshold = 总容量 * loadFactor, 达到门限值就扩容
 
 #### segmentFor方法
-```java
+```
     final Segment<K,V> segmentFor(int hash) {
         return segments[(hash >>> segmentShift) & segmentMask];
     }
@@ -70,7 +70,7 @@
   >>>为无符号移位
   
 #### 先从put方法说起
-```java
+```
     public V put(K key, V value) {
         if (value == null)
             throw new NullPointerException();
@@ -81,7 +81,7 @@
     1. 算出key值的hash值
 	2. 首先通过segmengFor方法定位到具体哪个Segment， 然后调用Segment的put方法
 	Segment的put方法如下：
-```java
+```
 	V put(K key, int hash, V value, boolean onlyIfAbsent) {
             lock();
             try {
@@ -117,7 +117,7 @@
 	2. 依次遍历链表（如果链表存在），如果有hash值相同，或key值相同的，停止遍历
 	3. 该条件说明存在hash值相同或key值相同的元素，如果onlyIfAbsent为false，则替换元素
 	4. e == null,有两种可能，一种是原来该数组上，index这个节点就是null，另一种是遍历到最后，没有hash值相同或key值相同的元素，但是不管哪种情形，都把新增的元素加到该链表前
-```java
+```
         void rehash() {
             HashEntry<K,V>[] oldTable = table;
             int oldCapacity = oldTable.length;
@@ -182,7 +182,7 @@
 	
 #### 在说get()
 	ConcurrentHashMap的get方法如下：
-```java
+```
     public V get(Object key) {
         int hash = hash(key.hashCode());
         return segmentFor(hash).get(key, hash);
@@ -190,7 +190,7 @@
 ````
 	由get方法可知，先定位到Segment数组的某个节点，然后在该Segment里执行get方法
 	Segmeng的get方法如下：
-```java
+```
 	V get(Object key, int hash) {
             if (count != 0) { // read-volatile
                 HashEntry<K,V> e = getFirst(hash);

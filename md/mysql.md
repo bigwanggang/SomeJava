@@ -93,7 +93,7 @@ create database database_name;
 use database_name;
 ```
 - 查看创建好的数据库的定义：
-```sql
+```
 show create database database_name\G;
 ```
 - 删除数据库：执行删除数据库，该数据库中的数据一同被删除
@@ -139,19 +139,19 @@ create table employee(
 ```
 
 - 查看表结构：
-```sql
+```
  	desc table_name
 ```
 - 查看表的详细结构：
-```sql
+```
 	show create table table_name\G;
 ```
 - 修改表的存储类型
-```sql
+```
 	alter table table_name engine=myisam;
 ```
 - auto_increment
-```sql
+```
 	create table student(
 		id int primary key auto_increment,
 		name varchar(25)
@@ -159,7 +159,7 @@ create table employee(
 ```
 * SELECT 和LIKE百分号通配符%匹配字符
 * 查询authors 以B开头的book表中的bookid,authors,info,'B%'表示以B开头，%表示匹配0个或多个字符
-```sql
+```
 	select bookid, authors,info from book where authors LIKE 'B%';
 ```
 * SELECT 和LIKE 下划线‘_’匹配一个字符
@@ -209,14 +209,14 @@ create table employee(
 - 一个表只能有一个字段使用auto_increment,且该字段必须为主键的一部分
 - 可以通过建表时增加auto_increment=100或alter table student auto_increment=100的方式修改默认初始值，但是Innodb引擎如果mysql服务端重启之后auto_increment的默认初始值会被刷新，而MyIsam引擎是将auto_increment的默认初始值存在文件中，即使服务器重启也不会改变
 - select多列排序:
-```sql
+```
 	select name,price from fruits order by name,price
 ```
 	如果第一列是唯一的就只对第一列排序，如果第一列不唯一，才对第二列排序
 	
 	
 	
-```sql
+```
 	create table fruits(
 		f_id char(10) primary key,
 		s_id int(11) not null,
@@ -234,7 +234,7 @@ create table employee(
 
 ### mysql练习
 	https://blog.csdn.net/javazejian/article/details/61614366
-```sql
+```
 	create table items(
 		id int(11) primary key auto_increment,
 		name varchar(32) not null,

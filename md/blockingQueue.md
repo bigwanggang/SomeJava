@@ -1,6 +1,6 @@
 ### ArrayBlockingQueue
   ArrayBlockingQueue是由数组实现，创建对象时就要指定数组长度
-```java
+```
     /** The queued items */
     final Object[] items;
 

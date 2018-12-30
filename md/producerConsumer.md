@@ -4,7 +4,7 @@
 ### 用wait() notify()实现生产者消费者模式
   执行wait()\ notify()之前，首先要获得对象的锁，锁的对象和执行wait的对象应该是一个对象，而不应该锁一个对象，而去执行另一个对象的wait notify
   例如：下面的例子：Resource中锁的是list，然后对Resource对象执行wait是不对的，Resource1 和 Resource2是正确的
-```java
+```
   public class Resource {
     LinkedList<String> list = new LinkedList<>();
 

@@ -1,5 +1,5 @@
 ## ThreadPoolExecutor的构造函数：
-```java
+```
     public ThreadPoolExecutor(int corePoolSize,
                               int maximumPoolSize,
                               long keepAliveTime,
@@ -29,7 +29,7 @@
 https://blog.csdn.net/qq_25806863/article/details/71126867 这篇文章关于ThreadPoolExecutor讲解的很细致
 
 ## execute方法
-```java
+```
     public void execute(Runnable command) {
         if (command == null)
             throw new NullPointerException();
@@ -74,7 +74,7 @@ https://www.cnblogs.com/trust-freedom/p/6681948.html#label_3_1 关于ThreadPoolE
 
 ## 分析
     内部主要变量如下：
-```java
+```
     private static final int COUNT_BITS = Integer.SIZE - 3;
     private static final int CAPACITY   = (1 << COUNT_BITS) - 1;
 
@@ -95,7 +95,7 @@ https://www.cnblogs.com/trust-freedom/p/6681948.html#label_3_1 关于ThreadPoolE
     几个变量的大小关系位：RUNNING<SHUTDOWN<STOP<TIDYING<TERMINATED，RUNNING为负值
     
     内部的几个方法
-```java
+```
     private static int runStateOf(int c)     { return c & ~CAPACITY; }
     private static int workerCountOf(int c)  { return c & CAPACITY; }
     private static int ctlOf(int rs, int wc) { return rs | wc; }

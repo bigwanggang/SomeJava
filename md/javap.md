@@ -1,7 +1,7 @@
 http://www.importnew.com/13107.html
 
 将常量压入栈：当int取值-1-5采用iconst指令，取值-128-127采用bipush指令，取值-32768-32767采用sipush指令，取值-2147483648-2147483647采用 ldc 指令。
-```java
+```
 		int i=5; 
 		int j=-1;
 		int b = 6;
@@ -9,7 +9,7 @@ http://www.importnew.com/13107.html
     int d = Integer.MAX_VALUE;
 ```
 将以上java代码编译后：
-```java
+```
          0: iconst_5
          1: istore_1
          2: iconst_m1
@@ -24,7 +24,7 @@ http://www.importnew.com/13107.html
         其中2147483647是存储在常量池中,通过ldc命令，把常量池总的数压入栈
 	istore_1是将栈顶元素弹出，存入局部变量1中
 
-```java
+```
 	void spin() {
 	int i; 
 	for (i = 0; i < 100; i++) {
@@ -32,7 +32,7 @@ http://www.importnew.com/13107.html
 		} 
 	}
 ```
-```java
+```
 	 0: iconst_0		#将0压入栈
          1: istore_1		#将栈顶元素弹出，存入局部变量1中
          2: iload_1		#将局部变量1的值压入栈

@@ -1,6 +1,6 @@
 #### 练习题：excel中有3w行数据，将这些数据缓存到mysql数据库，分别比较单线程和多线程所花费的时间
 
-```sql
+```mysql
   create table info(
     name varchar(50) not null,
     age varchar(10) not null,

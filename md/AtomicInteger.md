@@ -2,13 +2,13 @@
 
 
 #### getAndIncrement() jdk1.8
-```java
+```
       public final int getAndIncrement() {
         return unsafe.getAndAddInt(this, valueOffset, 1);
     }
 ```
   Unsafe类的getAndAddInt方法如下：
-```java
+```
     public final int getAndAddInt(Object var1, long var2, int var4) {
         int var5;
         do {
@@ -19,7 +19,7 @@
     }
 ```   
       getIntVolatile和compareAndSwapInt是Unsafe对象的native方法，
-```java
+```
   /***
    * Retrieves the value of the integer field at the specified offset in the
    * supplied object with volatile load semantics.
@@ -58,7 +58,7 @@
 
 ### getAndIncrement() JDK1.6
       JDK1.6和1.8 的getAndIncrement()有些不一样
-```java
+```
     public final int getAndIncrement() {
         for (;;) {
             int current = get();
