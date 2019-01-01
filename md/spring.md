@@ -195,10 +195,20 @@ orders` (`id`)
   源码分析：https://www.cnblogs.com/fangjian0423/p/springMVC-directory-summary.html
   
 ### 源码分析
-  ClassPathXmlApplicationContext  　　
+  ClassPathXmlApplicationContext 
+   spring的源码不是一时半会就就能看懂的，要不停的积累，经常看，把重要的类记下，没事看看，要能说清楚重要的类的功能  
+   BeanFactory  
+   ApplicationContext  
+   WebApplicationContext  
+   DefaultListableBeanFactory  
+   XmlBeanFactory  
+   XmlBeanDefinationReader  
+   注册并解析BeanDefination　　
   
 ### DefaultListableBeanFactory
   源码分析：https://www.cnblogs.com/davidwang456/p/4187012.html，DefaultListableBeanFactory的类结构图在前面的源码分析里  
-  DefaultListableBeanFactory 是整个spring ioc的始祖，研究透它的前生今世对我们理解spring ioc的概念有着重要的作用。
+  DefaultListableBeanFactory 是整个spring ioc的始祖，研究透它的前生今世对我们理解spring ioc的概念有着重要的作用。  
+  XmlBeanFactory对DefaultListableBeanFactory进行了扩展，只多了XmlBeanDefinitionReader类型的reader属性  
+  
   
   
