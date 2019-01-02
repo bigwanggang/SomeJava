@@ -188,7 +188,9 @@
 ### IDEA 编译中文乱码的问题
 	bin文件夹下面idea64.exe.vmoptions和idea.exe.vmoptions这两个文件，分别在这两个文件中添加：-Dfile.encoding=UTF-8  
 	找到intellij idea的file---settings---Editor---FileEncodings的GlobalEncoding和ProjectEncoding和  
-	Default encoding for properties都配置成UTF-8
+	Default encoding for properties都配置成UTF-8  
+	IntelliJ IDEA中pom.xml报错project上Failed to read artifact descriptor for XXX.jar: 通过everything工具搜索lastupdate,  
+	把所有的搜索到记录都删除，然后在重新刷新maven导入
 
 ### 例子WriteInfo中，向excel写数据，有时会出现java.lang.OutOfMemoryError: Java heap space 异常，不同的机器出现异常几率不同
 	解决方案：1. IDEA通过-Xms512M -Xmx800M，增加jvm内存值，-Xms表示最小内存， -Xmx表示最大内存
