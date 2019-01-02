@@ -342,3 +342,5 @@ exist: true
 	ConcurrentModificationException异常等，都属于运行时异常。  
 	Exception类本身，以及Exception的子类中除了"运行时异常"之外的其它子类都属于被检查异常
 	
+### jsoup 解析html
+	把test.html的路径解析
