@@ -242,9 +242,12 @@
 	https://blog.csdn.net/mingjie1212/article/details/51143444  
 	查看源码时如果想看类的继承关系，可以在IDEA类上右键Diagrams
 	
-### github md 语法
+### github 
 	换行的方法：两个空格加一个回车，直接回车不能换行  
-	两个'~'直接的词根java中过期的方法显示一样，是在中间加横岗，例如： ~你好~
+	两个'~'直接的词根java中过期的方法显示一样，是在中间加横岗，例如： ~你好~  
+	https://try.github.io/ 是github交互式学习教程  
+	https://github.com/pcottle/learnGitBranching git学习教程 
+	
 	
 ### Gradle
 	gradle下载慢的问题，用阿里的国内云仓库：
