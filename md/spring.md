@@ -210,5 +210,28 @@ orders` (`id`)
   DefaultListableBeanFactory 是整个spring ioc的始祖，研究透它的前生今世对我们理解spring ioc的概念有着重要的作用。  
   XmlBeanFactory对DefaultListableBeanFactory进行了扩展，只多了XmlBeanDefinitionReader类型的reader属性  
   
+### springboot工程结构
+  
+```
+src
+├─main
+│  ├─java
+│  │  └─com
+│  │      └─example
+│  │          └─demo
+│  │                  DemoApplication.java
+│  │
+│  └─resources
+│      │  application.properties
+│      │
+│      ├─static
+│      └─templates
+└─test
+    └─java
+        └─com
+            └─example
+                └─demo
+                        DemoApplicationTests.java
+```
   
   
