@@ -247,6 +247,7 @@
 	两个'~'直接的词根java中过期的方法显示一样，是在中间加横岗，例如： ~你好~  
 	https://try.github.io/ 是github交互式学习教程  
 	https://github.com/pcottle/learnGitBranching git学习教程 
+	git 多学习下，至少常用的命令要熟练使用  
 	
 	
 ### Gradle
