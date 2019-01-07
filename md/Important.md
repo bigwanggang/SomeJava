@@ -12,3 +12,9 @@
 Resource resource = new ClassPathResource("123.xml");
         File f = resource.getFile();
 ```
+- 路径的问题： 问题的出现可能是在windows下使用路径"\\path\\workspace\\code"，如果在linux下改路径一般不合法，要改成正斜杠：/，怎么能让该路径在  
+windows和linux环境自动转换成相应的路径分隔符，下面的方式跑出异常:java.lang.IllegalArgumentException: character to be escaped is missing
+```
+    String s = "\\path\\workspace\\code";
+    String s1 = s.replaceAll("\\\\", File.separator);
+```        
