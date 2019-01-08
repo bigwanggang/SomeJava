@@ -72,6 +72,15 @@
     
     之后就可以通过浏览器访问H2数据库，访问：localhost：8080/h2-console,url\username\password都填入application.properties  
     的配置内容
+    
+    springboot项目如果想要启动时执行resources下的data.sql，可以配置如下：
+```
+spring:
+   datasource:
+     platform: mysql
+     schema: classpath:schema.sql
+     data: classpath:data.sql
+```
 
 ### idea springboot 热部署
         1.添加依赖
