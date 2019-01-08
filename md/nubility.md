@@ -177,7 +177,8 @@
 - JdbcTemplate 了解一下：https://www.cnblogs.com/tuhooo/p/6491913.html
 - 平衡二叉树和红黑树熟悉一下  
 - 与null比较，比如a==null,通常用null==a 的方式来表示，优点是外一把"=="不小心写成： "="，程序会报错，否则这个错误很难定位。  
-- 双重检查单例模式  
+- 双重检查单例模式
+- 不要在finally中赋值，更不要在finally中return
 
 
 ### 反射了解一下
