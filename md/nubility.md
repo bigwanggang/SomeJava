@@ -274,6 +274,25 @@
 	
 ### this.getClass().getClassLoader().getResource("test/resources/file.txt").getPath(); 
 	写ut是如果需要文件，可以用这种方式获取文件路径
+	发现在本地跑ut和项目上跑的ut如果涉及resources路径，就会不一致，暂时可以通过以下方式获得resources的路径：
+```
+    public static String getResourceRootPath() {
+        return isRunningInIDE() ? getIDEResourcePath() : getBuildResourcePath();
+    }
+
+    private static String getIDEResourcePath() {
+        return (Class.class.getClass().getResource("/").getPath() + File.separator).substring(1).replace("%20", " ");
+    }
+
+    private static String getBuildResourcePath() {
+        return Class.class.getClass().getResource("/").getPath().replace("classes", "resources") + File.separator;
+    }
+
+    public static boolean isRunningInIDE() {
+        String runTimeRootPath = Class.class.getClass().getResource("/").getPath().substring(1).replace("%20", " ").replace("/", File.separator);
+        return runTimeRootPath.contains(File.separator + "out" + File.separator);
+    }
+```    
 	
 ### java File
     最近的工作涉及文件相关的一些操作，记录下来
