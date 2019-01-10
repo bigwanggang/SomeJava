@@ -22,3 +22,6 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
 
 ## 一天弄懂一个面试题
 - 2019-01-08：HashMap的底层实现原理？ 主要熟悉put和resize方法
+- 2019-01-09: java中的错误和异常：Throwable、Error、Exception、RunTimeException
+- 2019-01-10: java中的集合框架
+
