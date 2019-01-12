@@ -7,3 +7,4 @@
    表示从数组src的srcPos位置开始，往数组dest的destPos位置开始复制length个元素，复制的个数自己控制，否则抛异常  
    arraycopy使用native修饰的，表示是调用原生方法（可能是C或C++）  
    Arrays.copyOf 本质的也是调用System.arraycopy  
+-  Arrays.asList是可以把数组转换成list，但是抓换的list不能add、remove、clear，对list的元素修改，也同时对数组修改
