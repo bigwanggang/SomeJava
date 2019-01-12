@@ -45,6 +45,8 @@
         
 - 从远程分支拉到本地分支
         git checkout -b localName remoteBranchName  
+	工作中发现，如果本地分支名称和远程分支名称不一致导致提交失败，所以最好让本地分支和远程分支名称一致，  
+	也就是如果远程分支是  origin/release/V1.2.3.4, 本地分支名要是release/V1.2.3.4  
         git branch -vv 查看本地分支和远程分支的对应关系  
         git tag 可以查看标签  
         查看完标签可以用git reset tag 切换到标签  
