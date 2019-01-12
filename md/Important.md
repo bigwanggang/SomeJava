@@ -18,6 +18,7 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
     String s = "\\path\\workspace\\code";
     String s1 = s.replaceAll("\\\\", File.separator);
 ```        
+- HashMap里的hash和tableSizeFor方法要弄清楚怎么回事
 
 
 ## 一天弄懂一个面试题
