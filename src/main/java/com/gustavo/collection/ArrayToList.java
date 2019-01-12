@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by gustaov on 2019/1/12.
  */
-public class ArrayListDemo {
+public class ArrayToList {
     public static void main(String[] args) {
         String[] stringArray = new String[3];
         stringArray[0] = "one";
