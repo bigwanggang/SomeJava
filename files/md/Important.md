@@ -1,3 +1,4 @@
+## 技术记录
 - java内存分析工具， MemoryAnalyzer : http://www.eclipse.org/mat/  
   MemoryAnalyzer分析：https://www.cnblogs.com/trust-freedom/p/6744948.html  
 - extend继承父类时，如果想对父类的方法引用，可以通过super.funcname()的方式来调用，例如ClassC栗子
@@ -14,11 +15,12 @@ Resource resource = new ClassPathResource("123.xml");
 ```
 - 路径的问题： 问题的出现可能是在windows下使用路径"\\path\\workspace\\code"，如果在linux下改路径一般不合法，要改成正斜杠：/，怎么能让该路径在  
 windows和linux环境自动转换成相应的路径分隔符，下面的方式跑出异常:java.lang.IllegalArgumentException: character to be escaped is missing
-```
+```java
     String s = "\\path\\workspace\\code";
     String s1 = s.replaceAll("\\\\", File.separator);
 ```        
 - HashMap里的hash和tableSizeFor方法要弄清楚怎么回事
+- ClassLoader只能加载classpath下面的类，而URLClassLoader可以加载任意路径下的类
 
 
 ## 一天弄懂一个面试题

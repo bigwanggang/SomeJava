@@ -5,7 +5,7 @@
 ### 常用技术
 - [java Basic](https://github.com/bigwanggang/JAVA/blob/master/files/md/nubility.md)
   - [ArrayList](https://github.com/bigwanggang/JAVA/blob/master/files/md/ArrayList.md)
-  - [HashMap](https://github.com/bigwanggang/JAVA/blob/master/files/md/HashMap.md)
+  - [Map](https://github.com/bigwanggang/JAVA/blob/master/files/md/Map.md)
 - [jvm](https://github.com/bigwanggang/JAVA/blob/master/files/md/javap.md)
 - [multiThread](https://github.com/bigwanggang/JAVA/blob/master/files/md/thread.md)
   - [threadpoolexecutor](https://github.com/bigwanggang/JAVA/blob/master/files/md/threadpoolexecutor.md)
