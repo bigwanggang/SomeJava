@@ -26,7 +26,7 @@
         ArrayList的实现原理是动态数组，elementData是个存储数据的数组，随着不断的往数组add数据，如果数组容量不够，要进行扩容，ArrayList扩容是在  
 	当前数组容量的1.5倍扩容，ArrayList里真正存储数据的个数是size，size肯定是小于elementData数组的容量的，elementData用transient修饰的目  
 	的是，序列化的过程中不序列化elementData，而是通过实现readObject（）和writeObject（）两个方法来实现序列化，问：readObject（）和  
-	writeObject（）是private的，是怎么调用的？
+	writeObject（）是private的，是怎么调用的？ 肯定时反射，文章：https://www.cnblogs.com/sharkli/p/5607895.html
 
 	
 ### 注意点： 导入hamcrest包后执行单元测试，有时会出现错误： java.lang.NoSuchMethodError: org.hamcrest.core.AllOf.allOf(Lorg/hamcrest/Matcher;Lorg/hamcrest/Matcher;)Lorg/hamcrest/Matcher;
