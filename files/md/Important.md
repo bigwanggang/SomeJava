@@ -21,6 +21,13 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
 ```        
 - HashMap里的hash和tableSizeFor方法要弄清楚怎么回事
 - ClassLoader只能加载classpath下面的类，而URLClassLoader可以加载任意路径下的类
+- String 深入学习,解释下面的例子输出的原因
+```
+        String s3 = new String("1") + new String("1");
+        String s5 = s3.intern();
+        String s4 = "11";
+        System.out.println(s3 == s4);
+```        
 
 
 ## 一天弄懂一个面试题
