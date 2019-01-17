@@ -37,4 +37,4 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
 - 2019-01-09: java中的错误和异常：Throwable、Error、Exception、RunTimeException
 - 2019-01-10: java中的集合框架
 - 2019-01-16: java中不可变类的理解。例如String
-
+- 2019-01-16: 实现单例的方式及注意事项
