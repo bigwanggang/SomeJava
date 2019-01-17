@@ -30,7 +30,18 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
         System.out.println(s5 == s4);
         System.out.println(s3 == s4);
 ```        
-- 拆箱和装箱： https://www.cnblogs.com/dolphin0520/p/3780005.html
+- 拆箱和装箱： https://www.cnblogs.com/dolphin0520/p/3780005.html， Integer、Short、Long、Boolean、Byte、Charactor,这六个类在由\
+  基本类型到类的装箱的过程，本质都是调用valueOf方法，而且除Boolean之外，都是缓存-128-127之间的数，Boolean装箱方式赋值，是同一个值
+```java
+          Integer a1 = 100;
+        Integer a2 = 100;
+
+        Integer b1 = 200;
+        Integer b2 = 200;
+
+        System.out.println(a1==a2); //true
+        System.out.println(b1==b2); //false
+```
 
 ## 一天弄懂一个面试题
 - 2019-01-08：HashMap的底层实现原理？ 主要熟悉put和resize方法
