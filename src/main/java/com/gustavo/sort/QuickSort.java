@@ -2,6 +2,9 @@ package com.gustavo.sort;
 
 import java.util.Random;
 
+/**
+ * 快速排序第一个版本，产生java.lang.StackOverflowError
+ */
 public class QuickSort {
     public static void main(String[] args) {
         int[] array = init(5, 100);
