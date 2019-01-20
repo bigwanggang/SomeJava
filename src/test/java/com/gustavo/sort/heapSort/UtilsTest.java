@@ -21,12 +21,20 @@ public class UtilsTest {
     }
 
     @Test
-    public void testParent(){
+    public void testParent() {
         assertEquals(0, Utils.parent(1));
         assertEquals(0, Utils.parent(2));
         assertEquals(1, Utils.parent(3));
         assertEquals(1, Utils.parent(4));
         assertEquals(2, Utils.parent(5));
         assertEquals(2, Utils.parent(6));
+    }
+
+    @Test
+    public void testMaxHeapify() {
+        int[] array = {16, 4, 10, 14, 7, 9, 3, 2, 8, 1};
+        Utils.printArray(array);
+        Utils.maxHeapify(array,1);
+        Utils.printArray(array);
     }
 }

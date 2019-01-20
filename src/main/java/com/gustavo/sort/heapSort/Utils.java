@@ -1,23 +1,22 @@
 package com.gustavo.sort.heapSort;
 
-import com.gustavo.sort.QuickSort;
-
 /**
  * CLR
  */
 public class Utils {
     public static void maxHeapify(int[] array, int i) {
         int largest = i;
+        int len = array.length;
         int l = left(i);
         int r = right(i);
-        if (array[l] > array[i])
+        if (l < len && array[l] > array[i])
             largest = l;
-        if (array[r] > largest)
+        if (r < len && array[r] > array[largest])
             largest = r;
         if (largest != i) {
-            QuickSort.swap(array, i, largest);
+            swap(array, i, largest);
+            maxHeapify(array, largest);
         }
-        maxHeapify(array, largest);
     }
 
     public static int left(int i) {
@@ -33,4 +32,17 @@ public class Utils {
     }
 
 
+    public static void swap(int[] array, int i, int j) {
+        int tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
+
+    public static void printArray(int[] array) {
+        int len = array.length;
+        for (int i = 0; i < len; i++) {
+            System.out.print(array[i] + "\t");
+        }
+        System.out.println();
+    }
 }

@@ -1,5 +1,7 @@
 package com.gustavo.sort;
 
+import com.gustavo.sort.heapSort.Utils;
+
 import java.util.Random;
 
 /**
@@ -8,7 +10,7 @@ import java.util.Random;
 public class QuickSort {
     public static void main(String[] args) {
         int[] array = init(5, 100);
-        printArray(array);
+        Utils.printArray(array);
         quickSort(array, 0, array.length - 1);
     }
 
@@ -18,7 +20,7 @@ public class QuickSort {
         int i = left;
         for (int j = right; i < j; ) {
             if (array[i] > array[j]) {
-                swap(array, i, j);
+                Utils.swap(array, i, j);
                 if (flag) {
                     i++;
                 } else {
@@ -32,19 +34,13 @@ public class QuickSort {
                     i++;
             }
         }
-        printArray(array);
+        Utils.printArray(array);
         System.out.println("middle: " + array[i]);
         if(i>0)
             quickSort(array, 0, i-1);
         if(i<array.length-1)
             quickSort(array, i+1, array.length-1);
 
-    }
-
-    public static void swap(int[] array, int i, int j) {
-        int tmp = array[i];
-        array[i] = array[j];
-        array[j] = tmp;
     }
 
     public static int[] init(int num, int limit) {
@@ -56,11 +52,4 @@ public class QuickSort {
         return array;
     }
 
-    private static void printArray(int[] array) {
-        int len = array.length;
-        for (int i = 0; i < len; i++) {
-            System.out.print(array[i] + "\t");
-        }
-        System.out.println();
-    }
 }
