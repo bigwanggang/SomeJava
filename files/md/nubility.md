@@ -182,7 +182,7 @@
 - 双重检查单例模式
 - 不要在finally中赋值，更不要在finally中return
 - 新项目中日志最好使用slf4j+logback的组合日志
-
+- ？？？为什么TCP是长连接的，而基于TCP的HTTP协议是无连接的？？？
 
 ### 反射了解一下
 - RTTI，编译器在编译时打开和检查.class文件
