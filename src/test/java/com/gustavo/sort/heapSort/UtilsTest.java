@@ -34,7 +34,30 @@ public class UtilsTest {
     public void testMaxHeapify() {
         int[] array = {16, 4, 10, 14, 7, 9, 3, 2, 8, 1};
         Utils.printArray(array);
-        Utils.maxHeapify(array,1);
+        Utils.maxHeapify(array, array.length, 1);
+        Utils.printArray(array);
+    }
+
+    @Test
+    public void testBuildMaxHeap() {
+        int[] array = {4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
+        Utils.buildMaxHeap(array);
+        Utils.printArray(array);
+    }
+
+    @Test
+    public void testBuildMaxHeap1() {
+        int[] array = Utils.createArray(12, 100);
+        Utils.printArray(array);
+        Utils.buildMaxHeap(array);
+        Utils.printArray(array);
+    }
+
+    @Test
+    public void testHeapSort() {
+        int[] array = Utils.createArray(12, 100);
+        Utils.printArray(array);
+        Utils.heapSort(array);
         Utils.printArray(array);
     }
 }
