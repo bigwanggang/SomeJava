@@ -43,6 +43,7 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
         System.out.println(b1==b2); //false
 ```
 - GET请求发送一个TCP包，POST请求发送两个TCP包
+- ping命令就是基于UDP的传输层协议
 
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - 《码出高效》
