@@ -108,3 +108,6 @@
 ### volatile
     volatile能提供变量在多线程中的可见性，但是不要过度依赖volatile的可见性（java并发编程实战）  
     
+### LockSupport
+    LockSupport的park和unpark方法实现的功能和wait、notify差不多，但是它比后者好的地方是，wait和notify一定要先wait，后notify，才能生效，否则\
+    wait会一直等下去，但是park和unpark却没有这样的问题
