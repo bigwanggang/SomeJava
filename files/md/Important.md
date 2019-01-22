@@ -54,6 +54,7 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
   关于线程状态的一个文章：https://blog.csdn.net/pange1991/article/details/53860651
 - 通过ThreadStatusDemo_Join和ThreadStatusDemo_JoinWithTime对比发现，join方法如果带参数（超时），则是TIMED_WAITING，如果不带参数则是WAITING状态
   
+- 通过实现Runnable接口的方式在run方法里面通常不能抛出异常，但是可以通过setUncaughtExceptionHandler来实现，见栗子：SetUncatchedExceptionDemo  
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - 《码出高效》
 
