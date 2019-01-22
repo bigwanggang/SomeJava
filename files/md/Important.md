@@ -46,7 +46,9 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
 - ping命令就是基于UDP的传输层协议
 - 线程的几种状态，以及通过代码的方式理解线程的状态切换, 线程状态的理解，new 一个Thread就是NEW状态，调用start()之后，线程执行之前就是RUNNABLE状态\
   但是有一点代码的演示和我的理解有偏差，不是执行run（）就应该是RUNNING状态吗，怎么ThreadStatusDemo栗子中在run方法中打印线程的状态还是RUNNABLE状态？\
-  Blocked状态：如果一个两个线程抢同一个资源，其中一个线程抢到了，另一个线程的状态就是BLOCKED,见栗子：ThreadStatusDemo_Blocked
+  BLOCKED状态：如果一个两个线程抢同一个资源，其中一个线程抢到了，另一个线程的状态就是BLOCKED,见栗子：ThreadStatusDemo_Blocked\
+  WAITING：如果一个线程执行wait方法，则其状态为WAITING。见栗子：ThreadStatusDemo_WaitNotify
+  
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - 《码出高效》
 
