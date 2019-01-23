@@ -73,6 +73,7 @@
 	.gitconfig 位置 window ： c:\\users\\user 下
 			linux : /root/ 下
 -	git检出与提交如果涉及换行符的转换就配置core.autocrlf 为true，如果不需要就配置为false	
+-	git如果删除了文件可以用git reset HEAD来恢复
         
 ### spring cloud
         每个使用配置管理的客户端项目中一个名为bookstrap.yml的本地配置文件，用来设定连接配置管理服务器、应用的名称、以及需要有配置管理服务器提供的配置文件等参数
