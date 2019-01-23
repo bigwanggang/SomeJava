@@ -15,6 +15,7 @@
 - [mysql](https://github.com/bigwanggang/JAVA/blob/master/files/md/mysql.md) 多看看mysql
 - [spring](https://github.com/bigwanggang/JAVA/blob/master/files/md/spring.md)
 - [word](https://github.com/bigwanggang/JAVA/blob/master/files/md/english.md)
+- [netty](https://github.com/bigwanggang/JAVA/blob/master/files/md/netty.md)
 
 ### 专项学习
 - [AtomicInteger](https://github.com/bigwanggang/JAVA/blob/master/files/md/AtomicInteger.md)
