@@ -72,7 +72,7 @@
 	原因解析git 没有配置pushInsteadOf , 可以通过命令配置，也可以通过修改.gitconfig
 	.gitconfig 位置 window ： c:\\users\\user 下
 			linux : /root/ 下
-			
+-	git检出与提交如果涉及换行符的转换就配置core.autocrlf 为true，如果不需要就配置为false	
         
 ### spring cloud
         每个使用配置管理的客户端项目中一个名为bookstrap.yml的本地配置文件，用来设定连接配置管理服务器、应用的名称、以及需要有配置管理服务器提供的配置文件等参数
