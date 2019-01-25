@@ -59,6 +59,11 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - 《码出高效》
 
+
+## 消息
+  ActiveMQ 是jms消息的实现，jms消息提供的消息的规范和接口，是比较老的消息队列（相比RabbitMq）
+
+
 ## 一天弄懂一个面试题
 - 2019-01-08：HashMap的底层实现原理？ 主要熟悉put和resize方法
 - 2019-01-09: java中的错误和异常：Throwable、Error、Exception、RunTimeException
