@@ -196,6 +196,8 @@
 	Default encoding for properties都配置成UTF-8  
 	IntelliJ IDEA中pom.xml报错project上Failed to read artifact descriptor for XXX.jar: 通过everything工具搜索lastupdate,  
 	把所有的搜索到记录都删除，然后在重新刷新maven导入
+### idea有时引入多工程时，跑UT路径问题
+	在project Structure里，Modules里能看到多个工程，把Paths标签的“Output path”和"Test output path"修改成对于的路径就可以
 
 ### 例子WriteInfo中，向excel写数据，有时会出现java.lang.OutOfMemoryError: Java heap space 异常，不同的机器出现异常几率不同
 	解决方案：1. IDEA通过-Xms512M -Xmx800M，增加jvm内存值，-Xms表示最小内存， -Xmx表示最大内存
