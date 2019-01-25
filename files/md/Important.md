@@ -55,8 +55,7 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
 - 通过ThreadStatusDemo_Join和ThreadStatusDemo_JoinWithTime对比发现，join方法如果带参数（超时），则是TIMED_WAITING，如果不带参数则是WAITING状态
   
 - 通过实现Runnable接口的方式在run方法里面通常不能抛出异常，但是可以通过setUncaughtExceptionHandler来实现，见栗子：SetUncatchedExceptionDemo 
-- 不管用nio还是bio还是netty实现的服务器，都可以用telnet localhost 8080 来模拟客户端访问，其实，也可以用浏览器localhost：8080来访问，\
-  服务端收到的是HTTP的GET请求，但是通常服务端返回给客户端的信息在浏览器不能解析，所以客户端显示：“网页无法工作”。
+- 不管用nio还是bio还是netty实现的服务器，都可以用telnet localhost 8080 来模拟客户端访问，其实，也可以用浏览器localhost：8080来访问，服务端收到的是HTTP的GET请求，但是通常服务端返回给客户端的信息在浏览器不能解析，所以客户端显示：“网页无法工作”。
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - 《码出高效》
 
