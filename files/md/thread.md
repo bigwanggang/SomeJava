@@ -68,7 +68,10 @@
     
 
 ### 多线程之wait、notify、notifyAll
-    notifyAll之后，所有的wait线程是不是要抢notify放开对象的锁呢？WaitNotifyDemo里证明了每个线程还是要抢锁
+-   notifyAll之后，所有的wait线程是不是要抢notify放开对象的锁呢？WaitNotifyDemo里证明了每个线程还是要抢锁
+-   两个线程轮流打印奇偶数，AlternatePrintOddEven_Wrong的栗子是个错误的栗子，仔细分析错误原因    
+
+
 
 ### 写个程序证明延迟初始化在多线程中是不安全的
     
@@ -111,3 +114,6 @@
 ### LockSupport
     LockSupport的park和unpark方法实现的功能和wait、notify差不多，但是它比后者好的地方是，wait和notify一定要先wait，后notify，才能生效，否则\
     wait会一直等下去，但是park和unpark却没有这样的问题
+-   试着用LockSupport实现两个线程轮流打印奇偶数    
+
+
