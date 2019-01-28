@@ -52,7 +52,10 @@ public class Resource2 {
 ```
 - 例子WaitNotify.java 就是使用wait、notify实现生产者消费者模式的例子
 - ProducerConsumer_waitNotify_notgood 也是wait、notify实现生产者消费者的例子，但是有缺陷，需要优化
-- ProducerConsumer_waitNotify_good 是完善的代码
+- ProducerConsumer_waitNotify_good 是完善的代码,它在notgood上的只优化了一个地方：不在锁里sleep（sleep的目的是不让程序跑的太快，不加其实也可以）
+  另外一个注意点：每个线程里的wait一定要用while包围，因为多个生产者和多个消费者都是使用同一把锁，任何一个生产者notifyAll的时候可能唤醒的也是生产者
+  因此条件需要再次判断
+
 
 ### 使用Condition的await、signal来实现生产者消费者模式
   ConditionDemo例子就是用Condition实现的生产者消费者模式的例子，用Condition比用wait、notify好的原因是，一个锁可以创建多个Condition，  
