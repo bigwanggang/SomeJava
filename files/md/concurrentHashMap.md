@@ -238,11 +238,12 @@
         Segment<K,V> s0 =
             new Segment<K,V>(loadFactor, (int)(cap * loadFactor),
                              (HashEntry<K,V>[])new HashEntry[cap]);
-        Segment<K,V>[] ss = (Segment<K,V>[])new Segment[ssize];
-        UNSAFE.putOrderedObject(ss, SBASE, s0); // ordered write of segments[0]
+        Segment<K,V>[] ss = (Segment<K,V>[])new Segment[ssize];    //1
+        UNSAFE.putOrderedObject(ss, SBASE, s0); // ordered write of segments[0]    //2
         this.segments = ss;
     }
 ```    
+#### put
 
 
 ## JDK1.8
