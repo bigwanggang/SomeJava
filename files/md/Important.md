@@ -58,6 +58,7 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
 - 不管用nio还是bio还是netty实现的服务器，都可以用telnet localhost 8080 来模拟客户端访问，其实，也可以用浏览器localhost：8080来访问，服务端收到的是HTTP的GET请求，但是通常服务端返回给客户端的信息在浏览器不能解析，所以客户端显示：“localhost 发送的响应无效。”。
 - 尽量使用UT而不是浏览器的方式来测试应用
 - jdk 5,6,7,8 对于版本号49,50,51,52
+- Runtime.getRuntime().availableProcessors()可以查看运行电脑的cpu个数
 
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - 《码出高效》
