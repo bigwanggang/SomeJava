@@ -59,6 +59,7 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
 - 尽量使用UT而不是浏览器的方式来测试应用
 - jdk 5,6,7,8 对于版本号49,50,51,52
 - Runtime.getRuntime().availableProcessors()可以查看运行电脑的cpu个数
+- Integer.numberOfLeadingZeros 方法可以算出一个int值的2进制数（32位）从左第一个开始的连续的零的个数
 
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - 《码出高效》
