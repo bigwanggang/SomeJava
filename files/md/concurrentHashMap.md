@@ -242,8 +242,85 @@
         UNSAFE.putOrderedObject(ss, SBASE, s0); // ordered write of segments[0]    //2
         this.segments = ss;
     }
+```  
+
+#### CAS相关
+```java
+    private static final sun.misc.Unsafe UNSAFE;
+    private static final long SBASE;
+    private static final int SSHIFT;
+    private static final long TBASE;
+    private static final int TSHIFT;
+    private static final long HASHSEED_OFFSET;
+    private static final long SEGSHIFT_OFFSET;
+    private static final long SEGMASK_OFFSET;
+    private static final long SEGMENTS_OFFSET;
+     static {
+        int ss, ts;
+        try {
+            UNSAFE = sun.misc.Unsafe.getUnsafe();
+            Class tc = HashEntry[].class;
+            Class sc = Segment[].class;
+            TBASE = UNSAFE.arrayBaseOffset(tc);    //1
+            SBASE = UNSAFE.arrayBaseOffset(sc);
+            ts = UNSAFE.arrayIndexScale(tc);   //2
+            ss = UNSAFE.arrayIndexScale(sc);
+            HASHSEED_OFFSET = UNSAFE.objectFieldOffset(
+                ConcurrentHashMap.class.getDeclaredField("hashSeed"));
+            SEGSHIFT_OFFSET = UNSAFE.objectFieldOffset(
+                ConcurrentHashMap.class.getDeclaredField("segmentShift"));
+            SEGMASK_OFFSET = UNSAFE.objectFieldOffset(
+                ConcurrentHashMap.class.getDeclaredField("segmentMask"));
+            SEGMENTS_OFFSET = UNSAFE.objectFieldOffset(
+                ConcurrentHashMap.class.getDeclaredField("segments"));
+        } catch (Exception e) {
+            throw new Error(e);
+        }
+        if ((ss & (ss-1)) != 0 || (ts & (ts-1)) != 0)
+            throw new Error("data type scale not a power of two");
+        SSHIFT = 31 - Integer.numberOfLeadingZeros(ss);
+        TSHIFT = 31 - Integer.numberOfLeadingZeros(ts);
+    }
 ```    
 #### put
-
+```java
+    public V put(K key, V value) {
+        Segment<K,V> s;
+        if (value == null)
+            throw new NullPointerException();
+        int hash = hash(key);
+        int j = (hash >>> segmentShift) & segmentMask;
+        if ((s = (Segment<K,V>)UNSAFE.getObject(segments, (j << SSHIFT) + SBASE)) == null) //  1
+            s = ensureSegment(j);                          //2
+        return s.put(key, hash, value, false);
+    }
+```  
+-	1. 通过UNSAFE.getObject(segments, (j << SSHIFT) + SBASE)来获取segment数组的第j个元素
+-	2. 如果segment数组的第j个元素为null，通过ensureSegment来给segment[j]通过CAS的方式来赋值
+```java
+  private Segment<K,V> ensureSegment(int k) {
+        final Segment<K,V>[] ss = this.segments;
+        long u = (k << SSHIFT) + SBASE; // raw offset
+        Segment<K,V> seg;
+        if ((seg = (Segment<K,V>)UNSAFE.getObjectVolatile(ss, u)) == null) {
+            Segment<K,V> proto = ss[0]; // use segment 0 as prototype
+            int cap = proto.table.length;
+            float lf = proto.loadFactor;
+            int threshold = (int)(cap * lf);
+            HashEntry<K,V>[] tab = (HashEntry<K,V>[])new HashEntry[cap];
+            if ((seg = (Segment<K,V>)UNSAFE.getObjectVolatile(ss, u))
+                == null) { // recheck
+                Segment<K,V> s = new Segment<K,V>(lf, threshold, tab);
+                while ((seg = (Segment<K,V>)UNSAFE.getObjectVolatile(ss, u))
+                       == null) {
+                    if (UNSAFE.compareAndSwapObject(ss, u, null, seg = s))             //1
+                        break;
+                }
+            }
+        }
+        return seg;
+    }
+```
+-	1. 通过循环CAS的方式进行对segment[j]赋值
 
 ## JDK1.8
