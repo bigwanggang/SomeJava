@@ -328,7 +328,7 @@
     
 ```
 -	1. 通过循环CAS的方式进行对segment[j]赋值
-
+Segment的put方法：
 ```java
 	final V put(K key, int hash, V value, boolean onlyIfAbsent) {
             HashEntry<K,V> node = tryLock() ? null :
@@ -336,8 +336,8 @@
             V oldValue;
             try {
                 HashEntry<K,V>[] tab = table;
-                int index = (tab.length - 1) & hash;
-                HashEntry<K,V> first = entryAt(tab, index);
+                int index = (tab.length - 1) & hash;          //1
+                HashEntry<K,V> first = entryAt(tab, index);    //2
                 for (HashEntry<K,V> e = first;;) {
                     if (e != null) {
                         K k;
@@ -373,8 +373,15 @@
             }
             return oldValue;
         }
+	
+      static final <K,V> HashEntry<K,V> entryAt(HashEntry<K,V>[] tab, int i) {
+        return (tab == null) ? null :
+            (HashEntry<K,V>) UNSAFE.getObjectVolatile
+            (tab, ((long)i << TSHIFT) + TBASE);
+    }
 ```
--	
+-	1. 通过(tab.length - 1) & hash通过hash算出落到HashEntry数组的哪个位置上
+-	2. entryAt是用CAS的方式取数组的第i个元素，i是上面计算出来的
 
 
 ## JDK1.8
