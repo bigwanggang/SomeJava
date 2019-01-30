@@ -68,7 +68,7 @@
     }
 ```
   该方法是取hash值的高几位，例如默认情况下，segmentShift为28， segmentMask为15（0x000F）,把hash无符号右移28位再与Ox000F取与，就是取hash的高4位  
-  '>>>'为无符号移位
+  '>>>'为无符号移位, 既然‘>>>’是无符号右移，移segmentShift位之后不就是取高（32-segmengShift）位了吗？怎么还要与segmengMask取与，为什么？？？
   
 #### 先从put方法说起
 ```
