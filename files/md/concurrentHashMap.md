@@ -301,7 +301,7 @@
     }
 ```  
 -	1. 通过UNSAFE.getObject(segments, (j << SSHIFT) + SBASE)来获取segment数组的第j个元素
--	2. 如果segment数组的第j个元素为null，通过ensureSegment来给segment[j]通过CAS的方式来赋值
+-	2. 如果segment数组的第j个元素为null，通过ensureSegment来给segment[j]通过CAS的方式来赋值， 然后调用Segment的put方法
 ```java
   private Segment<K,V> ensureSegment(int k) {
         final Segment<K,V>[] ss = this.segments;
@@ -325,7 +325,56 @@
         }
         return seg;
     }
+    
 ```
 -	1. 通过循环CAS的方式进行对segment[j]赋值
+
+```java
+	final V put(K key, int hash, V value, boolean onlyIfAbsent) {
+            HashEntry<K,V> node = tryLock() ? null :
+                scanAndLockForPut(key, hash, value);
+            V oldValue;
+            try {
+                HashEntry<K,V>[] tab = table;
+                int index = (tab.length - 1) & hash;
+                HashEntry<K,V> first = entryAt(tab, index);
+                for (HashEntry<K,V> e = first;;) {
+                    if (e != null) {
+                        K k;
+                        if ((k = e.key) == key ||
+                            (e.hash == hash && key.equals(k))) {
+                            oldValue = e.value;
+                            if (!onlyIfAbsent) {
+                                e.value = value;
+                                ++modCount;
+                            }
+                            break;
+                        }
+                        e = e.next;
+                    }
+                    else {
+                        if (node != null)
+                            node.setNext(first);
+                        else
+                            node = new HashEntry<K,V>(hash, key, value, first);
+                        int c = count + 1;
+                        if (c > threshold && tab.length < MAXIMUM_CAPACITY)
+                            rehash(node);
+                        else
+                            setEntryAt(tab, index, node);
+                        ++modCount;
+                        count = c;
+                        oldValue = null;
+                        break;
+                    }
+                }
+            } finally {
+                unlock();
+            }
+            return oldValue;
+        }
+```
+-	
+
 
 ## JDK1.8
