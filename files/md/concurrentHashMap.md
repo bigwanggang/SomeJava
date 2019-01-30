@@ -243,6 +243,7 @@
         this.segments = ss;
     }
 ```  
+-	初始化segment数组的第一个，用UNSAFE的方式赋值，如果1、2出不是很理解，以后慢慢理解，只需要知道1.7跟1.6的区别是没有初始化数组的所有元素，而是先把第一个元素赋值，其他的元素需要的时候在初始化（通过CAS的方式）	
 
 #### CAS相关
 ```java
@@ -276,12 +277,15 @@
         } catch (Exception e) {
             throw new Error(e);
         }
-        if ((ss & (ss-1)) != 0 || (ts & (ts-1)) != 0)
+        if ((ss & (ss-1)) != 0 || (ts & (ts-1)) != 0)     //3
             throw new Error("data type scale not a power of two");
         SSHIFT = 31 - Integer.numberOfLeadingZeros(ss);
         TSHIFT = 31 - Integer.numberOfLeadingZeros(ts);
     }
-```    
+```  
+-	1数组的基础偏移
+-	2数组每个元素的宽度, 通过数组的偏移和每个元素的宽度就可以算出每个数组元素的地址
+-	3通过(ss & (ss-1)) != 0 来判断ss的值是2的n次幂
 #### put
 ```java
     public V put(K key, V value) {
