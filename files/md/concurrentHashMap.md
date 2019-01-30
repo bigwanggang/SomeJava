@@ -383,5 +383,30 @@ Segment的put方法：
 -	1. 通过(tab.length - 1) & hash通过hash算出落到HashEntry数组的哪个位置上
 -	2. entryAt是用CAS的方式取数组的第i个元素，i是上面计算出来的
 
+#### 1.7 get()
+```java
+   public V get(Object key) {
+        Segment<K,V> s; // manually integrate access methods to reduce overhead
+        HashEntry<K,V>[] tab;
+        int h = hash(key);                    //1
+        long u = (((h >>> segmentShift) & segmentMask) << SSHIFT) + SBASE;       //2
+        if ((s = (Segment<K,V>)UNSAFE.getObjectVolatile(segments, u)) != null &&
+            (tab = s.table) != null) {                                            //3
+            for (HashEntry<K,V> e = (HashEntry<K,V>) UNSAFE.getObjectVolatile
+                     (tab, ((long)(((tab.length - 1) & h)) << TSHIFT) + TBASE);
+                 e != null; e = e.next) {                                         //4
+                K k;
+                if ((k = e.key) == key || (e.hash == h && key.equals(k)))
+                    return e.value;
+            }
+        }
+        return null;
+    }
+``` 
+-	1. 通过hash方法算出key的hash值
+-	2. (h >>> segmentShift) & segmentMask得到的是hash值定位到Segment数组的哪个元素（例如算出为第a个元素），
+	(((h >>> segmentShift) & segmentMask) << SSHIFT) + SBASE的值是第a个元素在通过Unsafe内存计算时的数组偏移
+-	3. 通过Unsafe获取Segmeng数组的第a个元素，并且要改元素的table都不为null
+-	4. 遍历链表，如果找到返回值，其中(tab.length - 1) & h是计算key值对于的hash在table数组中落到哪个元素上
 
 ## JDK1.8
