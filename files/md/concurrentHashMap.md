@@ -300,8 +300,8 @@
         return s.put(key, hash, value, false);
     }
 ```  
--	1. 通过UNSAFE.getObject(segments, (j << SSHIFT) + SBASE)来获取segment数组的第j个元素
--	2. 如果segment数组的第j个元素为null，通过ensureSegment来给segment[j]通过CAS的方式来赋值， 然后调用Segment的put方法
+-	1 通过UNSAFE.getObject(segments, (j << SSHIFT) + SBASE)来获取segment数组的第j个元素
+-	2 如果segment数组的第j个元素为null，通过ensureSegment来给segment[j]通过CAS的方式来赋值， 然后调用Segment的put方法
 ```java
   private Segment<K,V> ensureSegment(int k) {
         final Segment<K,V>[] ss = this.segments;
@@ -327,7 +327,7 @@
     }
     
 ```
--	1. 通过循环CAS的方式进行对segment[j]赋值
+-	1 通过循环CAS的方式进行对segment[j]赋值
 Segment的put方法：
 ```java
 	final V put(K key, int hash, V value, boolean onlyIfAbsent) {
@@ -380,8 +380,8 @@ Segment的put方法：
             (tab, ((long)i << TSHIFT) + TBASE);
     }
 ```
--	1. 通过(tab.length - 1) & hash通过hash算出落到HashEntry数组的哪个位置上
--	2. entryAt是用CAS的方式取数组的第i个元素，i是上面计算出来的
+-	1 通过(tab.length - 1) & hash通过hash算出落到HashEntry数组的哪个位置上
+-	2 entryAt是用CAS的方式取数组的第i个元素，i是上面计算出来的
 
 #### 1.7 get()
 ```java
@@ -403,10 +403,108 @@ Segment的put方法：
         return null;
     }
 ``` 
--	1. 通过hash方法算出key的hash值
--	2. (h >>> segmentShift) & segmentMask得到的是hash值定位到Segment数组的哪个元素（例如算出为第a个元素），
+-	1 通过hash方法算出key的hash值
+-	2 (h >>> segmentShift) & segmentMask得到的是hash值定位到Segment数组的哪个元素（例如算出为第a个元素），
 	(((h >>> segmentShift) & segmentMask) << SSHIFT) + SBASE的值是第a个元素在通过Unsafe内存计算时的数组偏移
--	3. 通过Unsafe获取Segmeng数组的第a个元素，并且要改元素的table都不为null
--	4. 遍历链表，如果找到返回值，其中(tab.length - 1) & h是计算key值对于的hash在table数组中落到哪个元素上
+-	3 通过Unsafe获取Segmeng数组的第a个元素，并且要改元素的table都不为null
+-	4 遍历链表，如果找到返回值，其中(tab.length - 1) & h是计算key值对于的hash在table数组中落到哪个元素上
 
 ## JDK1.8
+#### 构造函数
+```java
+    public ConcurrentHashMap(int initialCapacity,
+                             float loadFactor, int concurrencyLevel) {
+        if (!(loadFactor > 0.0f) || initialCapacity < 0 || concurrencyLevel <= 0)
+            throw new IllegalArgumentException();
+        if (initialCapacity < concurrencyLevel)   // Use at least as many bins
+            initialCapacity = concurrencyLevel;   // as estimated threads
+        long size = (long)(1.0 + (long)initialCapacity / loadFactor);
+        int cap = (size >= (long)MAXIMUM_CAPACITY) ?
+            MAXIMUM_CAPACITY : tableSizeFor((int)size);      //1
+        this.sizeCtl = cap;
+    }
+```
+-   1 tableSizeFor方法是计算大于size的最小的2的n次幂, jdk1.7是用:
+```java
+while (cap < c)
+            cap <<= 1;
+```
+    的方式来算的
+    
+#### 1.8 put
+```java
+    transient volatile Node<K,V>[] table;           //1
+
+ public V put(K key, V value) {
+        return putVal(key, value, false);
+    }
+
+    /** Implementation for put and putIfAbsent */
+    final V putVal(K key, V value, boolean onlyIfAbsent) {
+        if (key == null || value == null) throw new NullPointerException();
+        int hash = spread(key.hashCode());
+        int binCount = 0;
+        for (Node<K,V>[] tab = table;;) {
+            Node<K,V> f; int n, i, fh;
+            if (tab == null || (n = tab.length) == 0)
+                tab = initTable();
+            else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {
+                if (casTabAt(tab, i, null,
+                             new Node<K,V>(hash, key, value, null)))
+                    break;                   // no lock when adding to empty bin
+            }
+            else if ((fh = f.hash) == MOVED)
+                tab = helpTransfer(tab, f);
+            else {
+                V oldVal = null;
+                synchronized (f) {
+                    if (tabAt(tab, i) == f) {
+                        if (fh >= 0) {
+                            binCount = 1;
+                            for (Node<K,V> e = f;; ++binCount) {
+                                K ek;
+                                if (e.hash == hash &&
+                                    ((ek = e.key) == key ||
+                                     (ek != null && key.equals(ek)))) {
+                                    oldVal = e.val;
+                                    if (!onlyIfAbsent)
+                                        e.val = value;
+                                    break;
+                                }
+                                Node<K,V> pred = e;
+                                if ((e = e.next) == null) {
+                                    pred.next = new Node<K,V>(hash, key,
+                                                              value, null);
+                                    break;
+                                }
+                            }
+                        }
+                        else if (f instanceof TreeBin) {
+                            Node<K,V> p;
+                            binCount = 2;
+                            if ((p = ((TreeBin<K,V>)f).putTreeVal(hash, key,
+                                                           value)) != null) {
+                                oldVal = p.val;
+                                if (!onlyIfAbsent)
+                                    p.val = value;
+                            }
+                        }
+                    }
+                }
+                if (binCount != 0) {
+                    if (binCount >= TREEIFY_THRESHOLD)
+                        treeifyBin(tab, i);
+                    if (oldVal != null)
+                        return oldVal;
+                    break;
+                }
+            }
+        }
+        addCount(1L, binCount);
+        return null;
+    }
+    static final int spread(int h) {
+            return (h ^ (h >>> 16)) & HASH_BITS;
+     }
+```
+-   1 jdk1.8中不是用Segment数组分段，引入Node数组的概念
