@@ -18,14 +18,14 @@
             ssize <<= 1;
         }
         segmentShift = 32 - sshift;
-        segmentMask = ssize - 1;
-        this.segments = Segment.newArray(ssize); //3
+        segmentMask = ssize - 1;             //3
+        this.segments = Segment.newArray(ssize); //4
 
         if (initialCapacity > MAXIMUM_CAPACITY)
             initialCapacity = MAXIMUM_CAPACITY;
         int c = initialCapacity / ssize;
         if (c * ssize < initialCapacity)
-            ++c;              //4
+            ++c;              //5
         int cap = 1;
         while (cap < c)
             cap <<= 1;
@@ -36,10 +36,11 @@
 ```
   1. concurrencyLevel是构造函数传入的值，就是Segment数组的个数，也就是分段的个数，最大值为MAX_SEGMENTS（1<<16）
   2. 通过while循环，计算出大于concurrencyLevel的并且是2的n次幂（power-of-two）的一个值，ssize就是这个值，sshift的值符合2^sshift = ssize;
-      例如：concurrencyLevel=16，ssize=16，sshift=4;
+      例如：concurrencyLevel=16，ssize=16，sshift=4;\
             concurrencyLevel=17~32，ssize=32，sshift=5;
-  3. 创建Segment数组，数组的大小为ssize     
-  4. 根据ConcurrentHashMap的初始容量，算出能容下该容量的每个Segment中容量的大小，c为平均到每个Segment里的个数，然后cap是保证分配到每个Segment的  
+  3. segmentMask是ssize-1,也就是segmentMask的值是有sshift个1, segmentShift是32-sshift,也就是segmentMask这个数的1的个数与segmentShift之和是32
+  4. 创建Segment数组，数组的大小为ssize     
+  5. 根据ConcurrentHashMap的初始容量，算出能容下该容量的每个Segment中容量的大小，c为平均到每个Segment里的个数，然后cap是保证分配到每个Segment的  
   大小为2的n次幂（power-of-two）            
             
 
