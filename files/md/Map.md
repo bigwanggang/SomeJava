@@ -1,6 +1,6 @@
 ## HashMap
 
-#### 1.6 构造函数
+#### jdk 1.6 构造函数
 ```java
     public HashMap(int initialCapacity, float loadFactor) {
         if (initialCapacity < 0)
@@ -23,10 +23,57 @@
         init();
     }
 ```    
+-   根据构造函数可以得知，HashMap这个类主要有三个重要的参数，loadFactor是传入的加载因子，默认为0.75， capacity容量是根据传入的值算出的一个2的次幂的值， 门限值 threshold = (int)(capacity * loadFactor);
+
+#### jdk 1.6 hash方法 
+```java
+    static int hash(int h) {
+        // This function ensures that hashCodes that differ only by
+        // constant multiples at each bit position have a bounded
+        // number of collisions (approximately 8 at default load factor).
+        h ^= (h >>> 20) ^ (h >>> 12);
+        return h ^ (h >>> 7) ^ (h >>> 4);
+    }
+```
+
+#### jdk 1.6 put方法
+```java
+ public V put(K key, V value) {
+        if (key == null)
+            return putForNullKey(value);
+        int hash = hash(key.hashCode());
+        int i = indexFor(hash, table.length);                             //1
+        for (Entry<K,V> e = table[i]; e != null; e = e.next) {            //2
+            Object k;
+            if (e.hash == hash && ((k = e.key) == key || key.equals(k))) {
+                V oldValue = e.value;
+                e.value = value;
+                e.recordAccess(this);
+                return oldValue;
+            }
+        }
+
+        modCount++;
+        addEntry(hash, key, value, i);                          //3
+        return null;
+    }
+    static int indexFor(int h, int length) {
+        return h & (length-1);
+    }
+    void addEntry(int hash, K key, V value, int bucketIndex) {
+	Entry<K,V> e = table[bucketIndex];
+        table[bucketIndex] = new Entry<K,V>(hash, key, value, e);     //4
+        if (size++ >= threshold)
+            resize(2 * table.length);
+    }
+```
+-   1 通过indexFor算出key的hash值落在数组的哪个元素上，计算方法就是用按位与的方式（由于数组的个数一定是2的n次幂）
+-   2 通过for循环遍历链表，如果找到就替换
+-   3 如果链表里没找到，或者该数组的元素为null，就通过addEntry方法把要添加的元素加进数组
+-   4 可以看出， 每次增加新元素，都是增加到这个链表的开头
 
 
-
-- HashMap计算hash的方法  
+#### jdk 1.8 hash方法 
 ```java
     static final int hash(Object key) {
         int h;
