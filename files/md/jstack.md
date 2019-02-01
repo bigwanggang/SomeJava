@@ -27,7 +27,7 @@
 ```
 
 ### 通过jstack来学习线程的状态
-- ThreadStatusDemo_Blocked1的栗子是两个线程抢一把锁，抢到了就永远循环，通过jstack查看有如下信息：
+- ThreadStatusDemo_Blocked_jstack的栗子是两个线程抢一把锁，抢到了就永远循环，通过jstack查看有如下信息：
 ```
 "thread2" #12 prio=5 os_prio=0 tid=0x000000001bc96800 nid=0x11dfc waiting for monitor entry [0x000000001d01f000]
    java.lang.Thread.State: BLOCKED (on object monitor)
