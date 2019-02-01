@@ -27,7 +27,7 @@
 ```
 
 ### 通过jstack来学习线程的状态
-- ThreadStatusDemo_Blocked_jstack的栗子是两个线程抢一把锁，抢到了就永远循环，通过jstack查看有如下信息：
+- ThreadStatusDemo_Blocked_jstack的栗子是两个线程抢一把锁，抢到了就永远循环，为RUNNABLE状态， 另一个线程就是BLOCKED， 通过jstack查看有如下信息：
 ```
 "thread2" #12 prio=5 os_prio=0 tid=0x000000001bc96800 nid=0x11dfc waiting for monitor entry [0x000000001d01f000]
    java.lang.Thread.State: BLOCKED (on object monitor)
@@ -48,3 +48,20 @@
    Locked ownable synchronizers:
 	- None
 ```  
+
+- ThreadStatusDemo_WaitNotify_jstack的栗子是测试Object.wait()方法时，线程的状态，通过jstack分析可知是WAITING状态
+```
+"Thread-1" #12 prio=5 os_prio=0 tid=0x000000001bdf3000 nid=0x17f80 in Object.wait() [0x000000001d01f000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007801c2ec0> (a java.lang.Object)
+	at java.lang.Object.wait(Object.java:502)
+	at com.gustavo.thread.ThreadStatusDemo_WaitNotify_jstack$MyRunn.run(ThreadStatusDemo_WaitNotify_jstack.java:24)
+	- locked <0x00000007801c2ec0> (a java.lang.Object)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+```
+
+- 如果Object.wait()就是WAITING状态，如果是Object.wait(long time)则线程的状态就是TIMED_WAITING
