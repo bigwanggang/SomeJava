@@ -64,4 +64,6 @@
 	- None
 ```
 
+#### WAITING和TIMED_WAITING 状态分析
+
 - 如果Object.wait()就是WAITING状态，如果是Object.wait(long time)则线程的状态就是TIMED_WAITING
