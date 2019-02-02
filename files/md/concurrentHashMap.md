@@ -431,9 +431,9 @@ while (cap < c)
 ```
     的方式来算的
     
-#### 1.8 put
+#### 1.8 put(), 有点复杂，慢慢理解
 ```java
-    transient volatile Node<K,V>[] table;           //1
+    transient volatile Node<K,V>[] table;                             //1
 
  public V put(K key, V value) {
         return putVal(key, value, false);
@@ -446,22 +446,22 @@ while (cap < c)
         int binCount = 0;
         for (Node<K,V>[] tab = table;;) {
             Node<K,V> f; int n, i, fh;
-            if (tab == null || (n = tab.length) == 0)
+            if (tab == null || (n = tab.length) == 0)                       //2
                 tab = initTable();
-            else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {
+            else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {        //3
                 if (casTabAt(tab, i, null,
                              new Node<K,V>(hash, key, value, null)))
                     break;                   // no lock when adding to empty bin
             }
-            else if ((fh = f.hash) == MOVED)
+            else if ((fh = f.hash) == MOVED)                                //4
                 tab = helpTransfer(tab, f);
-            else {
+            else {                                                          //5
                 V oldVal = null;
                 synchronized (f) {
                     if (tabAt(tab, i) == f) {
                         if (fh >= 0) {
                             binCount = 1;
-                            for (Node<K,V> e = f;; ++binCount) {
+                            for (Node<K,V> e = f;; ++binCount) {            //6
                                 K ek;
                                 if (e.hash == hash &&
                                     ((ek = e.key) == key ||
@@ -506,5 +506,14 @@ while (cap < c)
     static final int spread(int h) {
             return (h ^ (h >>> 16)) & HASH_BITS;
      }
+    static final <K,V> Node<K,V> tabAt(Node<K,V>[] tab, int i) {
+        return (Node<K,V>)U.getObjectVolatile(tab, ((long)i << ASHIFT) + ABASE);
+    }
 ```
 -   1 jdk1.8中不是用Segment数组分段，引入Node数组的概念
+-   2 条件1： 数组还没初始化，就初始化数组
+-   3 条件2： 根据hash值算出数组下标，如果数组该下标的值为null，则把key\value的值赋给它，取值方法tabAt和赋值方法casTabAt都是用Unsafe的方式
+-   4 条件3： 如果f的hash值为MOVED，则说明有线程正在执行移动，执行helpTransfer去帮助转移数据，这里还没有完全理解，之后慢慢理解
+-   5 条件4： 如果数组通过hash算出的下标的元素有值，并且没有其他线程正在执行transfer，则该线程锁住该元素，遍历链表（该元素时链表头）
+-   6: 该for循环遍历链表，如果找到找到key值相等的元素，则替换，如果遍历整个链表都没有相同的key值，则把新key\value值加入到链表后面
+-   有个疑问：如果遇到key值相同的，会返回原来的value值，但是看代码中是直接break了，怎么返回的？？？
