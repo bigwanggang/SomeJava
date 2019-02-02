@@ -65,5 +65,121 @@
 ```
 
 #### WAITING和TIMED_WAITING 状态分析
+##### Object.wait()方法，线程的状态为WAITING
+```
+"Thread-0" #11 prio=5 os_prio=0 tid=0x000000001bd87000 nid=0x199c4 in Object.wait() [0x000000001cbaf000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007801c2e70> (a java.lang.Object)
+	at java.lang.Object.wait(Object.java:502)
+	at com.gustavo.thread.ThreadStatusDemo_WaitNotify_jstack$MyRunn.run(ThreadStatusDemo_WaitNotify_jstack.java:22)
+	- locked <0x00000007801c2e70> (a java.lang.Object)
+	at java.lang.Thread.run(Thread.java:748)
 
-- 如果Object.wait()就是WAITING状态，如果是Object.wait(long time)则线程的状态就是TIMED_WAITING
+   Locked ownable synchronizers:
+	- None
+```
+
+##### Object.wait(long timeout)方法, 状态为TIMED_WAITING
+```
+"Thread-0" #11 prio=5 os_prio=0 tid=0x000000001bbee800 nid=0x19734 in Object.wait() [0x000000001ca3f000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007801c2e70> (a java.lang.Object)
+	at com.gustavo.thread.ThreadStatusDemo_WaitNotify_jstack$MyRunn.run(ThreadStatusDemo_WaitNotify_jstack.java:22)
+	- locked <0x00000007801c2e70> (a java.lang.Object)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+```
+##### Thread.join()方法, 状态为WAITING
+```
+"Thread-1" #12 prio=5 os_prio=0 tid=0x000000001bdd3000 nid=0x19468 in Object.wait() [0x000000001c18e000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007801c2678> (a java.lang.Thread)
+	at java.lang.Thread.join(Thread.java:1252)
+	- locked <0x00000007801c2678> (a java.lang.Thread)
+	at java.lang.Thread.join(Thread.java:1326)
+	at com.gustavo.thread.ThreadStatusDemo_Join_jstack$Joinning1.run(ThreadStatusDemo_Join_jstack.java:22)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+```
+##### Thread.join(long millis)方法, 状态为TIMED_WAITING
+```
+"Thread-1" #12 prio=5 os_prio=0 tid=0x000000001bc59000 nid=0x19b88 in Object.wait() [0x000000001cd7f000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007801c2678> (a java.lang.Thread)
+	at java.lang.Thread.join(Thread.java:1260)
+	- locked <0x00000007801c2678> (a java.lang.Thread)
+	at com.gustavo.thread.ThreadStatusDemo_Join_jstack$Joinning1.run(ThreadStatusDemo_Join_jstack.java:22)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+```
+
+##### Condition.await() 方法, 状态为WAITING
+```
+"Thread-0" #11 prio=5 os_prio=0 tid=0x000000001bb1e800 nid=0x19674 waiting on condition [0x000000001c80e000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x00000007801cab38> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+	at com.gustavo.thread.ThreadStatusDemo_Condition_jstack$Thread1.run(ThreadStatusDemo_Condition_jstack.java:26)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+```
+
+##### Condition.await() 方法, 状态为WAITING
+```
+"Thread-0" #11 prio=5 os_prio=0 tid=0x000000001bccb000 nid=0x191ec waiting on condition [0x000000001c6de000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x00000007801cab38> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2163)
+	at com.gustavo.thread.ThreadStatusDemo_Condition_jstack$Thread1.run(ThreadStatusDemo_Condition_jstack.java:25)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+```
+##### Condition.await(long time, TimeUnit unit) 方法, 状态为TIMED_WAITING
+```
+"Thread-0" #11 prio=5 os_prio=0 tid=0x000000001bcd1000 nid=0x197ec waiting on condition [0x000000001ceef000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x00000007801cab38> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2163)
+	at com.gustavo.thread.ThreadStatusDemo_Condition_jstack$Thread1.run(ThreadStatusDemo_Condition_jstack.java:25)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+```
+##### LockSupport.park(),状态为WAITING
+```
+"Thread-0" #11 prio=5 os_prio=0 tid=0x000000001bce4000 nid=0x19928 waiting on condition [0x000000001c5ce000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:304)
+	at com.gustavo.thread.ThreadStatusDemo_park$ParkThread.run(ThreadStatusDemo_park.java:14)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+```
+
+
+
+
+
