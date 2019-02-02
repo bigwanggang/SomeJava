@@ -547,3 +547,4 @@ while (cap < c)
 -   有个疑问：如果遇到key值相同的，会返回原来的value值，但是看代码中是直接break了，怎么返回的？？？
 -   7 binCount是链表的长度，如果链表长度超过8个，就执行treeifyBin方法，把链表改成红黑树
 -   jdk 1.8 concurrentHashmap的代码分析：https://www.cnblogs.com/zerotomax/p/8687425.html
+-   sizeCtl变量在jdk 1.8中引入的，
