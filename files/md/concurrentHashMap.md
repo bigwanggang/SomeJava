@@ -493,7 +493,7 @@ while (cap < c)
                 }
                 if (binCount != 0) {
                     if (binCount >= TREEIFY_THRESHOLD)
-                        treeifyBin(tab, i);
+                        treeifyBin(tab, i);                                  //7 方法见下面
                     if (oldVal != null)
                         return oldVal;
                     break;
@@ -506,9 +506,37 @@ while (cap < c)
     static final int spread(int h) {
             return (h ^ (h >>> 16)) & HASH_BITS;
      }
+     
     static final <K,V> Node<K,V> tabAt(Node<K,V>[] tab, int i) {
         return (Node<K,V>)U.getObjectVolatile(tab, ((long)i << ASHIFT) + ABASE);
     }
+    
+    private final void treeifyBin(Node<K,V>[] tab, int index) {
+        Node<K,V> b; int n, sc;
+        if (tab != null) {
+            if ((n = tab.length) < MIN_TREEIFY_CAPACITY)              //判断数组的长度如果小于64，则不转成红黑树，先对数组扩容
+                tryPresize(n << 1);
+            else if ((b = tabAt(tab, index)) != null && b.hash >= 0) {
+                synchronized (b) {
+                    if (tabAt(tab, index) == b) {
+                        TreeNode<K,V> hd = null, tl = null;
+                        for (Node<K,V> e = b; e != null; e = e.next) {
+                            TreeNode<K,V> p =
+                                new TreeNode<K,V>(e.hash, e.key, e.val,
+                                                  null, null);
+                            if ((p.prev = tl) == null)
+                                hd = p;
+                            else
+                                tl.next = p;
+                            tl = p;
+                        }
+                        setTabAt(tab, index, new TreeBin<K,V>(hd));
+                    }
+                }
+            }
+        }
+    }
+
 ```
 -   1 jdk1.8中不是用Segment数组分段，引入Node数组的概念
 -   2 条件1： 数组还没初始化，就初始化数组
@@ -517,3 +545,5 @@ while (cap < c)
 -   5 条件4： 如果数组通过hash算出的下标的元素有值，并且没有其他线程正在执行transfer，则该线程锁住该元素，遍历链表（该元素时链表头）
 -   6: 该for循环遍历链表，如果找到找到key值相等的元素，则替换，如果遍历整个链表都没有相同的key值，则把新key\value值加入到链表后面
 -   有个疑问：如果遇到key值相同的，会返回原来的value值，但是看代码中是直接break了，怎么返回的？？？
+-   7 binCount是链表的长度，如果链表长度超过8个，就执行treeifyBin方法，把链表改成红黑树
+-   jdk 1.8 concurrentHashmap的代码分析：https://www.cnblogs.com/zerotomax/p/8687425.html
