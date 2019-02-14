@@ -44,6 +44,7 @@ http://www.importnew.com/13107.html
 ```
 
 -	dup 指令的作用:dup指令为复制操作数栈顶值，并将其压入栈顶，也就是说此时操作数栈上有连续相同的两个对象地址
+-	store是将栈顶元素弹出，存入变量中，istort_1是存入变量1中， load是将局部变量的值压入栈，iload_1是将局部变量1的值压入栈
 - 	通过javap反编译代码对比StringBuilder和String的性能：StringBuilderDemo, 通过编译的代码可以发现，用String和加号+的方式原理是每次循环都创建一个StringBuilder对象，效率相比StringBuilder的append的方式低
 ```
   public static java.lang.String getStr();
