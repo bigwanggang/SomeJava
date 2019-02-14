@@ -88,7 +88,7 @@ https://blog.csdn.net/qq_25806863/article/details/71126867 这篇文章关于Thr
 ```    
     COUNT_BITS=29；
     CAPACITY=(1 << 29) - 1 = 0x1FFFFFFF (低29位都是1)
-    RUNNING = -1 << 29 = 0xFFFFFFFF = 0xE0000000 (高3为为1)
+    RUNNING = -1 << 29 = 0xFFFFFFFF << 29 = 0xE0000000 (高3为为1), -1的二进制表示为32个1（0xFFFFFFFF）
     SHUTDOWN 的高3位为000
     STOP 的高3位为001
     TIDYING 的高3位为010
