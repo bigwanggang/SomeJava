@@ -116,4 +116,4 @@
     wait会一直等下去，但是park和unpark却没有这样的问题,LockSupport.unpark是个某个线程一个许可，之后如果遇到LockSupport.park,就不会阻塞，但是多个unpark并不能给多个许可，要park之后才能再次给许可
 -   试着用LockSupport实现两个线程轮流打印奇偶数，由于执行wait是释放锁，等待其他线程执行notify，才能达到轮流交替的效果，而LockSupport.park并不释放锁，因而用LockSupport不能实现轮流打印奇偶数
 
-
+### CopyOnWriteArrayList和ConcurrentSkipListMap了解
