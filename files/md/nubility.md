@@ -197,7 +197,7 @@
         List<Object> objectList = list1;
 ```
 - 'List<？>'是通配符，不能add，可以clear和remove，可以把任何类型的集合赋给'List<？>'
-
+- 《码出高效》中的栗子，Garfield继承自Cat，Cat继承于Animal, List<Garfield>不能赋值给List<? super Cat>, List<Animal>不能赋给List<? extends Cat>
 
 
 ### 反射了解一下
