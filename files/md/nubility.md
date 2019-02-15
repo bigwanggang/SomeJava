@@ -173,7 +173,7 @@
 	Thread-1 in run()...
 	Thread-1 interrupt()...
 ```
-	说明t2线程执行interrupt（）之后，还是继续等待并获取了锁，只是在执行阻塞方法sleep时，由于该线程的中断标志位为1，所以直接抛出异常
+说明t2线程执行interrupt（）之后，还是继续等待并获取了锁，只是在执行阻塞方法sleep时，由于该线程的中断标志位为1，所以直接抛出异常
 	
 - LockInterruptTest 演示了lockInterruptibly()方法，当一个线程想要获取一个锁的时候，如果这个锁被其他线程占有，这个线程就处于阻塞的状态，此时如果执行该线程的interrupt()方法，立刻抛出异常，因为lockInterruptibly()方法抛出InterruptedException
 	
@@ -187,7 +187,16 @@
 - Integer.toHexString()可以实现十进制到十六进制的转换，
 - Integer.toBinaryString 方法是把十进制转换成二进制，测试35和-35的二进制分别为：100011\11111111111111111111111111011101，二进制是用补码的方式显示，正数的补码和原码一样，负数的补码是取反加一
 - 移位运算符<<和>> 是针对整形和长整形的，如果对整形运算，移位的位数是要对32取余数，例如35>>33等于35>>1(35是整形数)，如果long l = 35; l>>65==l>>1
+
+
+### 泛型
 - 泛型的栗子：GenericDemo， 方法的泛型是放在<>里面，尖括号里的是代表一种未知类型，可以随便写比如<shui,bian,xie>,泛型一定要放在方法法返回值前
+- 下的的情况是赋值失败的：
+```java
+        List<Integer> list1 = new ArrayList<>();
+        List<Object> objectList = list1;
+```
+- List<?>是通配符，不能add，可以clear和remove，可以把任何类型的集合赋给List<?>
 
 
 
