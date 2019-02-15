@@ -61,6 +61,9 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
 - Runtime.getRuntime().availableProcessors()可以查看运行电脑的cpu个数
 - Integer.numberOfLeadingZeros 方法可以算出一个int值的2进制数（32位）从左第一个开始的连续的零的个数
 - 总所周知，接口List继承自接口Collection，为什么Collection已经有了size()\isEmpty()等方法，List中还是再定义一次？？？
+- 栗子：ArrayListFailFast中，如果把four一行注释掉，就运行正常，否则会抛出ConcurrentModificationException异常
+
+
 
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - 《码出高效》
