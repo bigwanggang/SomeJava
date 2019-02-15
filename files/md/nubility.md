@@ -196,8 +196,8 @@
         List<Integer> list1 = new ArrayList<>();
         List<Object> objectList = list1;
 ```
-- List\<?\>是通配符，不能add，可以clear和remove，可以把任何类型的集合赋给List<？>
-- 《码出高效》中的栗子，Garfield继承自Cat，Cat继承于Animal, List<Garfield>不能赋值给List<? super Cat>, List<Animal>不能赋给List<? extends Cat>
+- List\<?\>是通配符，不能add，可以clear和remove，可以把任何类型的集合赋给List\<?\>
+- 《码出高效》中的栗子，Garfield继承自Cat，Cat继承于Animal, List\<Garfield\>不能赋值给List\<? super Cat\>, List\<Animal\>不能赋给List\<? extends Cat\>, 任何元素都不能添加到List\<? extends T\> 集合内，List<\? super Cat\>集合只能添加Cat或Cat的子类， List<\? super T\>可以get，但是只能返回Object类型，List\<? extends Cat\>可以get，只能返回Cat或Cat的父类
 
 
 ### 反射了解一下
