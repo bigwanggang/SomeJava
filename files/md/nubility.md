@@ -196,7 +196,7 @@
         List<Integer> list1 = new ArrayList<>();
         List<Object> objectList = list1;
 ```
-- 'List<?>'是通配符，不能add，可以clear和remove，可以把任何类型的集合赋给'List<?>'
+- 'List<？>'是通配符，不能add，可以clear和remove，可以把任何类型的集合赋给'List<？>'
 
 
 
