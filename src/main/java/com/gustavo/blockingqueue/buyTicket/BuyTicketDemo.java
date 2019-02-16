@@ -21,6 +21,7 @@ public class BuyTicketDemo {
                 service.submit(new PayingRunnable(i, ticketId));
             }
         }
+        service.shutdown();
 
         try {
             TimeUnit.SECONDS.sleep(10);
