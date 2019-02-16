@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BuyTicketDemo {
 
-    public static final int BUYERID = 20;
+    public static final int BUYERID = 10;
 
     public static void main(String[] args) {
 

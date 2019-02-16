@@ -121,3 +121,4 @@
 
 ### 用DelayQueue模拟实现抢票一定时间内没有付款，票自动失效的栗子
 -   在blockingqueue.buyTicket，实现了简单的DelayQueue实现买票的功能，但是需要完善
+-   DelayQueueRemoveDemo的栗子演示多线程对DelayQueue调用Remove, 为什么List就会出现ConcurrentModificationException（栗子：ArrayListRemoveDemo），fail-fast机制研究下

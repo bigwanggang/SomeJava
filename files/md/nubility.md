@@ -271,7 +271,7 @@
 	https://github.com/pcottle/learnGitBranching git学习教程 
 	git 多学习下，至少常用的命令要熟练使用  
 	一些符号要通过反斜杠来进行转移，
-	\\   反斜线    
+	\   反斜线    
 \`   反引号  
 \*   星号  
 \_   底线  

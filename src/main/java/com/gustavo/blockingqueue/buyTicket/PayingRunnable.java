@@ -22,7 +22,7 @@ public class PayingRunnable implements Runnable {
     public void run() {
         Random random = new Random();
         int payingTime = random.nextInt(6000);
-        System.out.println("buyer: " + buyerId + "paying time: " + payingTime);
+        System.out.println("buyer: " + buyerId + "， paying time: " + payingTime);
         try {
             TimeUnit.MILLISECONDS.sleep(payingTime);
         } catch (InterruptedException e) {
