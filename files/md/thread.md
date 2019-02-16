@@ -117,3 +117,7 @@
 -   试着用LockSupport实现两个线程轮流打印奇偶数，由于执行wait是释放锁，等待其他线程执行notify，才能达到轮流交替的效果，而LockSupport.park并不释放锁，因而用LockSupport不能实现轮流打印奇偶数
 
 ### CopyOnWriteArrayList和ConcurrentSkipListMap了解
+
+
+### 用DelayQueue模拟实现抢票一定时间内没有付款，票自动失效的栗子
+-   在blockingqueue.buyTicket，实现了简单的DelayQueue实现买票的功能，但是需要完善

@@ -1,11 +1,11 @@
 ### Node 类, 主要有2个成员变量：
-```
+```java
         volatile E item;
         volatile Node<E> next;
-```        
+```    
   
 ### add
-```
+```java
     public boolean add(E e) {
         return offer(e);
     }
@@ -42,13 +42,13 @@
 ```
         1. p.casNext(null, newNode), 这个代码的作用是让p.next = newNode, castNext本质的利用CAS的方式来让p的next指向newNode,  
         但是compareAndSwapObject方法可能成功，也可能失败，失败的原因是其他线程先在p后插入的一个新元素
-```
+```java
         boolean casNext(Node<E> cmp, Node<E> val) {
             return UNSAFE.compareAndSwapObject(this, nextOffset, cmp, val);
         }
 ```
 ### add jdk1.6
-```
+```java
     public boolean offer(E e) {
         if (e == null) throw new NullPointerException();
         Node<E> n = new Node<E>(e);
@@ -73,6 +73,6 @@
         }
     }
 ```
-        1. 如果next!=null, 可能其他线程先与本线程，在p后增加了新元素，所以next有可能不为null，
-        2. hops >=HOPS(1) 是因为 前面进入了next != null
+-       1. 如果next!=null, 可能其他线程先与本线程，在p后增加了新元素，所以next有可能不为null，
+-       2. hops >=HOPS(1) 是因为 前面进入了next != null
        

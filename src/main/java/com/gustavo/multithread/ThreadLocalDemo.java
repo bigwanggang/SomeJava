@@ -3,8 +3,12 @@ package com.gustavo.multithread;
 public class ThreadLocalDemo {
 
     public static void main(String[] args) throws InterruptedException {
-        ThreadLocal<String> local = new ThreadLocal<>();
-        local.set("main");
+        ThreadLocal<String> local = new ThreadLocal<String>(){
+            protected String initialValue() {
+                return "initial value";
+            }
+        };
+
         Thread t = new Thread(new InnerRunnable(local));
         t.start();
         t.join();
@@ -20,6 +24,7 @@ public class ThreadLocalDemo {
 
         @Override
         public void run() {
+            System.out.println(local.get());
             local.set(Thread.currentThread() + " set");
             System.out.println(local.get());
         }
