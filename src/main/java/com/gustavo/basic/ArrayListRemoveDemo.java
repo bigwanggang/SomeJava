@@ -1,6 +1,7 @@
 package com.gustavo.basic;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -19,6 +20,10 @@ public class ArrayListRemoveDemo {
 
         for (String s : list) {
             System.out.println(s);
+        }
+
+        for (Iterator<String> iter = list.iterator(); iter.hasNext(); ) {
+            System.out.println(iter.next());
         }
         System.out.println(list.size());
     }

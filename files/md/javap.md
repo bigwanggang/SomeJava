@@ -122,3 +122,64 @@ http://www.importnew.com/13107.html
 ```
 
 ###  通过javap 字节码分析集中ArrayList的遍历方式的区别
+```java
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+
+        for (String s : list) {
+            System.out.println(s);
+        }
+
+        for (Iterator<String> iter = list.iterator(); iter.hasNext(); ) {
+            System.out.println(iter.next());
+        }
+```
+```
+         0: new           #2                  // class java/util/ArrayList
+         3: dup
+         4: invokespecial #3                  // Method java/util/ArrayList."<init>":()V
+         7: astore_1
+         8: iconst_0
+         9: istore_2
+        10: iload_2
+        11: aload_1
+        12: invokeinterface #4,  1            // InterfaceMethod java/util/List.size:()I
+        17: if_icmpge     42
+        20: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        23: aload_1
+        24: iload_2
+        25: invokeinterface #6,  2            // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+        30: checkcast     #7                  // class java/lang/String
+        33: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        36: iinc          2, 1
+        39: goto          10
+		
+        42: aload_1
+        43: invokeinterface #9,  1            // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        48: astore_2
+        49: aload_2
+        50: invokeinterface #10,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+        55: ifeq          78
+        58: aload_2
+        59: invokeinterface #11,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        64: checkcast     #7                  // class java/lang/String
+        67: astore_3
+        68: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        71: aload_3
+        72: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        75: goto          49
+		
+        78: aload_1
+        79: invokeinterface #9,  1            // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        84: astore_2
+        85: aload_2
+        86: invokeinterface #10,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+        91: ifeq          112
+        94: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        97: aload_2
+        98: invokeinterface #11,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       103: checkcast     #7                  // class java/lang/String
+       106: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       109: goto          85
+```
