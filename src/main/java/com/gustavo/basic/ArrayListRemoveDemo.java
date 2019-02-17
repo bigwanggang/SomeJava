@@ -13,10 +13,12 @@ public class ArrayListRemoveDemo {
             list.add("" + i);
         }
 
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+
         for (String s : list) {
-            if(s.equals("50")){
-                list.remove(s);
-            }
+            System.out.println(s);
         }
         System.out.println(list.size());
     }
