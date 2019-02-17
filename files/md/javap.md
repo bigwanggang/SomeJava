@@ -183,3 +183,4 @@ http://www.importnew.com/13107.html
        106: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
        109: goto          85
 ```
+-   通过分析可知，foreach的方式和用迭代器的方式是类似的，编译之后，本质上也是用迭代器的方式循环
