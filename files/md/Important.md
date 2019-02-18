@@ -61,7 +61,26 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
 - Runtime.getRuntime().availableProcessors()可以查看运行电脑的cpu个数
 - Integer.numberOfLeadingZeros 方法可以算出一个int值的2进制数（32位）从左第一个开始的连续的零的个数
 - 总所周知，接口List继承自接口Collection，为什么Collection已经有了size()\isEmpty()等方法，List中还是再定义一次？？？
-- 栗子：ArrayListFailFast中，如果把four一行注释掉，就运行正常，否则会抛出ConcurrentModificationException异常
+- 栗子：ArrayListFailFast中，如果把four一行注释掉，就运行正常，否则会抛出ConcurrentModificationException异常,(《码出高效》中栗子)， 原因分析：
+用foreach方法遍历ArrayList，本质上是用迭代器的方式遍历，也就是调用迭代器的hasNext()\next()方法，如下，
+```java
+        public boolean hasNext() {
+            return cursor != size;
+        }
+
+        @SuppressWarnings("unchecked")
+        public E next() {
+            checkForComodification();
+            int i = cursor;
+            if (i >= size)
+                throw new NoSuchElementException();
+            Object[] elementData = ArrayList.this.elementData;
+            if (i >= elementData.length)
+                throw new ConcurrentModificationException();
+            cursor = i + 1;
+            return (E) elementData[lastRet = i];
+        }
+```
 - 多个线程往DelayQueue里remove元素，需不需要加锁, 不需要因为DelayQueue的remove里删除的操作有锁保护
 
 
