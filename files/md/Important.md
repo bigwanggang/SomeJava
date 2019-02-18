@@ -82,6 +82,8 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
         }
 ```
 - 多个线程往DelayQueue里remove元素，需不需要加锁, 不需要因为DelayQueue的remove里删除的操作有锁保护
+- Iterator和Iterable的区别，Iterator是迭代器，Iterable的作用是让类有迭代功能，可以通过foreach方式遍历，详见例子StringIter
+
 
 
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
