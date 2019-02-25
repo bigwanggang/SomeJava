@@ -10,7 +10,14 @@
 - spring实战
 - mysql必知必会
 - Java性能优化权威指南 
-
+- 深入理解JVM虚拟机
+- Java并发编程实战
+- Java并发编程艺术
+- Effective Java
+- MySQL技术内幕：innodb存储引擎
+- 大型网站技术架构 : 核心原理与案例分析
+- 码出高效：Java开发手册
+-  https://www.jianshu.com/p/7122916a63fa
 ## 技术记录
 
 - java内存分析工具， MemoryAnalyzer : http://www.eclipse.org/mat/  
