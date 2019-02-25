@@ -1,9 +1,11 @@
-查书可以在豆瓣读书里查找： https://book.douban.com/
-图灵社区：http://www.ituring.com.cn/
+## 查书
+- 豆瓣读书里查找： https://book.douban.com/
+- 图灵社区：http://www.ituring.com.cn/
 ## 要看的书单
 - 大型网站系统与Java中间件开发实践
 - 分布式Java应用 : 基础与实践
-- 
+- Head First 设计模式（中文版）
+- 大规模分布式存储系统 : 原理解析与架构实战
 
 ## 技术记录
 
