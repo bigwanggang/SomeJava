@@ -17,6 +17,7 @@
 - MySQL技术内幕：innodb存储引擎
 - 大型网站技术架构 : 核心原理与案例分析
 - 码出高效：Java开发手册
+- 深入分析Java Web技术内幕（修订版）
 -  https://www.jianshu.com/p/7122916a63fa
 ## 技术记录
 
