@@ -9,6 +9,7 @@
 - spring揭秘
 - spring实战
 - mysql必知必会
+- Java性能优化权威指南 
 
 ## 技术记录
 
