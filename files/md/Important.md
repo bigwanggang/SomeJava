@@ -13,7 +13,7 @@
 - 深入理解JVM虚拟机
 - Java并发编程实战
 - Java并发编程艺术
-- Effective Java
+- Effective Java -- https://github.com/marhan/effective-java-examples
 - MySQL技术内幕：innodb存储引擎
 - 大型网站技术架构 : 核心原理与案例分析
 - 码出高效：Java开发手册
