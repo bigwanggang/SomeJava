@@ -18,6 +18,7 @@
 - 大型网站技术架构 : 核心原理与案例分析
 - 码出高效：Java开发手册
 - 深入分析Java Web技术内幕（修订版）
+- 重构，改善既有代码的设计
 -  https://www.jianshu.com/p/7122916a63fa
 - https://blog.csdn.net/u012410733/article/details/51869105
 
