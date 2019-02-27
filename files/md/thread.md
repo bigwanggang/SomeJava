@@ -26,6 +26,15 @@
     
  
 -   一个类如果有多个synchronized static方法，所有的synchronized static方法是同步的，也就是多线程即使访问不同的synchronized static方法，也是要阻塞，栗子：SynchronizedStaticDemo
+-   以下两个同步的方法是相同的， 实际上第一个同步方式即使不是static，和第二个方法也是互斥的
+```java
+public static void g() {
+        synchronized (SynchronizedStaticDemo.class) {
+public synchronized static void g() {        
+ 
+```
+
+
 
 ### Executor
     newSingleThreadExecutor 的例子：
@@ -73,14 +82,8 @@
 ### 多线程之wait、notify、notifyAll
 -   notifyAll之后，所有的wait线程是不是要抢notify放开对象的锁呢？WaitNotifyDemo里证明了每个线程还是要抢锁
 -   两个线程轮流打印奇偶数，AlternatePrintOddEven_Wrong的栗子是个错误的栗子，仔细分析错误原因    
--   以下两个同步的方法是相同的
-```java
-public static void g() {
-        synchronized (SynchronizedStaticDemo.class) {
-public synchronized static void g() {        
- 
-```
 
+    
 
 ### 写个程序证明延迟初始化在多线程中是不安全的
     
