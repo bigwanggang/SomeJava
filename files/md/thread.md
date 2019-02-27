@@ -24,6 +24,9 @@
     }
     以上两个是等同的
     
+ 
+-   一个类如果有多个synchronized static方法，所有的synchronized static方法是同步的，也就是多线程即使访问不同的synchronized static方法，也是要阻塞，栗子：SynchronizedStaticDemo
+
 ### Executor
     newSingleThreadExecutor 的例子：
 ```java
