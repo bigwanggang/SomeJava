@@ -73,7 +73,13 @@
 ### 多线程之wait、notify、notifyAll
 -   notifyAll之后，所有的wait线程是不是要抢notify放开对象的锁呢？WaitNotifyDemo里证明了每个线程还是要抢锁
 -   两个线程轮流打印奇偶数，AlternatePrintOddEven_Wrong的栗子是个错误的栗子，仔细分析错误原因    
-
+-   以下两个同步的方法是相同的
+```java
+public static void g() {
+        synchronized (SynchronizedStaticDemo.class) {
+public synchronized static void g() {        
+ 
+```
 
 
 ### 写个程序证明延迟初始化在多线程中是不安全的
