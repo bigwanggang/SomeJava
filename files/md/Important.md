@@ -117,7 +117,7 @@ str.replaceAll("hello(?!world)", "goodbye");
 - 正则的文章： https://blog.csdn.net/u013197629/article/details/73499129
 
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
-- 《netty实战》
+- 《effective java》 《大型网站系统与Java中间件开发实践》
 
 
 ## 消息
