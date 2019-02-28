@@ -101,8 +101,8 @@ public synchronized static void g() {
     但是如果把join去掉，或者先依次start，然后再依次join，最后输出的结果肯定小于10000
     
 ### CyclicBarrier
-    实现一个例子，一个数组长度为n,启动n个线程，每个线程往数组里填写一个值，所有线程都把值填入完毕后打印整个数组，CyclicBarrierDemo
-
+-   实现一个例子，一个数组长度为n,启动n个线程，每个线程往数组里填写一个值，所有线程都把值填入完毕后打印整个数组，CyclicBarrierDemo
+-   CyclicBarrier和CountDownLatch的区别，CyclicBarrier是在await方法上阻塞，await的线程的数量达到了既定的数量，才会同时继续执行，而CountDownLatch却不阻塞，因此如果是放在线程池中执行任务，对于CyclicBarrier一定要确保有足够的容量才行
 ### ThreadLocal
     每个线程都保存一份副本，每个线程ThreadLocal.get()的值，都是该线程最后ThreadLocal.set的值，每个线程的值互不影响，《java并发编程实战》
     中：可以将ThreadLocal<T>视为包含了Map<Thread,T>对象，例子ThreadLocalDemo中，main主线程中和t线程都对ThreadLoca变量set新值，但是，
