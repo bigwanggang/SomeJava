@@ -301,11 +301,13 @@
 	如果想要忽略提示，就可以用@SuppressWarnings（"unchecked"）
 	
 ### junit jmockit
-	测试时发现个问题没有解决，如果想要mock一个静态方法，而该方法没有返回值（void）,网上找了一些方法都是有result 来返回的，但是不返回的方法还没找到  
-	测试发现，不返回的static方法不用加result 只有一个方法mock就可以  
-	有个例子可以继续研究DBUtils里有个静态getConn方法，StaticClass方法有个静态方法getSqlResult，引用了该方法  
-	有个jmockit的的使用例子：http://jmockit.cn/showArticle.htm?channel=2&id=4　　
-	
+-	测试时发现个问题没有解决，如果想要mock一个静态方法，而该方法没有返回值（void）,网上找了一些方法都是有result 来返回的，但是不返回的方法还没找到  
+-	测试发现，不返回的static方法不用加result 只有一个方法mock就可以  
+-	有个例子可以继续研究DBUtils里有个静态getConn方法，StaticClass方法有个静态方法getSqlResult，引用了该方法  
+-	有个jmockit的的使用例子：http://jmockit.cn/showArticle.htm?channel=2&id=4　　
+-	用jmockit来mock对象时，一般用@Mocked注解来完成，但是有些类里面有一些静态的方法，和静态块，到时mock类失败，提示NoClassDefFoundError,遇到这种问题，可以通过@Mocked(stubOutClassInitialization = true) 来完成mock，
+
+
 ### this.getClass().getClassLoader().getResource("test/resources/file.txt").getPath(); 
 	写ut是如果需要文件，可以用这种方式获取文件路径
 	发现在本地跑ut和项目上跑的ut如果涉及resources路径，就会不一致，暂时可以通过以下方式获得resources的路径：
