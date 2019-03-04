@@ -116,6 +116,8 @@ str.replaceAll("hello(?!world)", "goodbye");
 (?<=pattern) 肯定式后顾 ， (?<!pattern) 否定式后顾
 - 正则的文章： https://blog.csdn.net/u013197629/article/details/73499129
 - 动态代理： https://blog.csdn.net/zpf336/article/details/82751925
+- 同步和异步可以同打电话和发短信来形象的比喻
+
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - 《effective java》 《大型网站系统与Java中间件开发实践》
 
