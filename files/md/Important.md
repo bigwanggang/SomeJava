@@ -11,6 +11,7 @@
 - mysql必知必会
 - Java性能优化权威指南 
 - 深入理解JVM虚拟机
+- Java虚拟机规范(Java SE 7版)
 - Java并发编程实战
 - Java并发编程艺术
 - Effective Java -- https://github.com/marhan/effective-java-examples
