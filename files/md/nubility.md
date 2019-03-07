@@ -419,6 +419,7 @@ exist: true
 ### 常见问题
 -	Module xxx is imported from Maven.Any changes made in its configuration may be lost after reimporting, 
 解决办法：pom.xml 增加配置：
+```
     <build>  
        <plugins>
             <plugin>
@@ -432,3 +433,4 @@ exist: true
             </plugin>
         </plugins>
     </build>
+```
