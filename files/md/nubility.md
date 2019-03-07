@@ -415,3 +415,20 @@ exist: true
 	
 ### 网络
 	创建新的Socket客户端对象之后，就完成了三次握手，java底层封装了这个连接过程，开发者不需要考虑
+
+### 常见问题
+-	Module xxx is imported from Maven.Any changes made in its configuration may be lost after reimporting, 
+解决办法：pom.xml 增加配置：
+    <build>  
+       <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
