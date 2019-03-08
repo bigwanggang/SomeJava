@@ -1,4 +1,6 @@
-#### 知识点不关乎大小，一点一滴的积累,觉得没什么看的时候，逛下github，看下自己收藏的技术贴，有时间看看EMB代码
+#### 知识点不关乎大小，一点一滴的积累,觉得没什么看的时候，逛下github，看下自己收藏的技术贴
+#### 当务之急
+- spring一定要熟练、多线程、java网络编程
 - [jstack工具](https://github.com/bigwanggang/JAVA/blob/master/files/md/jstack.md)
 - visualVM 工具
 - [Important](https://github.com/bigwanggang/JAVA/blob/master/files/md/Important.md)
