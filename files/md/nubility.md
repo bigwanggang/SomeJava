@@ -434,3 +434,6 @@ exist: true
         </plugins>
     </build>
 ```
+
+### Writer 相关
+-	修改kw中发现的问题，FileWriter fw = new FileWriter(); BufferedWriter bw = new BufferedWriter(fw);报错FileWriter fw = new FileWriter();没有指定编码方式，通过查看FilelWriter 源码发现，FileWriter并没有指定编码方式，而是采用系统默认的编码，如果想要手动指定编码方式，应该用Writer w = new OutputStreamWriter(new FileOutoutStream(file), "GBK"); 在代码中最好都要指定编码，不要依赖于系统的编码
