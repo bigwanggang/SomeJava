@@ -219,9 +219,9 @@
 	
 ### 关于byte
 ```
-        byte b = -1;
-        System.out.println(b);
-        System.out.println(b & 0xff);
+    byte b = -1;
+    System.out.println(b);
+    System.out.println(b & 0xff);
 ```
 	输出为：-1,255
 	原因是System.out.println的输入如果是byte类型，是要转换成int，-1的byte表示为1111_1111, -1的int表示
@@ -242,10 +242,10 @@
 	String的构造方法。下面里例子，输出值b1为1999.0，b3为1998.9999999999998
 	
 ```
-        BigDecimal b1 = new BigDecimal("19.99").multiply(new BigDecimal("100"));
-        System.out.println(b1);
-	    BigDecimal b3 = new BigDecimal(19.99).multiply(new BigDecimal(100));
-        System.out.println(b3.doubleValue());
+    BigDecimal b1 = new BigDecimal("19.99").multiply(new BigDecimal("100"));
+    System.out.println(b1);
+    BigDecimal b3 = new BigDecimal(19.99).multiply(new BigDecimal(100));
+    System.out.println(b3.doubleValue());
 ```
 	BigDecimal的除法如果不能整除会抛异常，使用时必须先指定小数点精度  
 	MyUtils.double2Bytes方法里面先通过Double.doubleToRawLongBits把double转成long，然后在把long的8个字节存入到byte数组中  
@@ -437,3 +437,8 @@ exist: true
 
 ### Writer 相关
 -	修改kw中发现的问题，FileWriter fw = new FileWriter(); BufferedWriter bw = new BufferedWriter(fw);报错FileWriter fw = new FileWriter();没有指定编码方式，通过查看FilelWriter 源码发现，FileWriter并没有指定编码方式，而是采用系统默认的编码，如果想要手动指定编码方式，应该用Writer w = new OutputStreamWriter(new FileOutoutStream(file), "GBK"); 在代码中最好都要指定编码，不要依赖于系统的编码
+
+### Nginx
+-   windows 的host文件地址：c:\windows\system32\drivers\etc， 生效的命令：ipconfig /flushdns，刷新成功够提示：已成功刷新 DNS 解析缓存。
+可以把hosts中增加127.0.0.1 www.gustavo.com， 然后ipconfig /flushdns刷新DNS， 然后所有www.gustavo.com的访问都会转向127.0.0.1
+比如，之前localhost:8080/hello的访问，可以使用www.gustavo.com:8080/hello的方式来访问
