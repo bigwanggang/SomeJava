@@ -127,7 +127,7 @@ str.replaceAll("hello(?!world)", "goodbye");
 - 同步和异步可以同打电话和发短信来形象的比喻
 
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
-- 《effective java》 《大型网站系统与Java中间件开发实践》
+- 花些时间把nginx弄清楚
 
 ## 好的文章，好用的工具，好的github项目
 - redis工具： https://github.com/MicrosoftArchive/redis
