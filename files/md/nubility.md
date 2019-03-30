@@ -497,3 +497,4 @@ localhost:9090/b        :   b
 	}
 ```
 访问localhost:8854/proxy/a,则返回a,说明被代理到了localhost：9090/a
+-	location匹配规则： https://blog.csdn.net/zwl18210851801/article/details/81699977
