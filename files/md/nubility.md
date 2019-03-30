@@ -476,4 +476,4 @@ location /hello {
 		proxy_pass	http://localhost:9090/hello2;
         }
 ```
-http://localhost:9090/hello2是可以直接访问的，现在通过nginx代理来访问，而不是直接访问， 通过localhost：8854/hello，得到了和直接访问http://localhost:9090/hello2一样的结果，可以得知，nginx完成了代理服务的任务
+http://localhost:9090/hello2 是可以直接访问的，现在通过nginx代理来访问，而不是直接访问， 通过localhost：8854/hello，得到了和直接访问http://localhost:9090/hello2 一样的结果，可以得知，nginx完成了代理服务的任务
