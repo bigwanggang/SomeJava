@@ -477,3 +477,23 @@ location /hello {
         }
 ```
 http://localhost:9090/hello2 是可以直接访问的，现在通过nginx代理来访问，而不是直接访问， 通过localhost：8854/hello，得到了和直接访问http://localhost:9090/hello2 一样的结果，可以得知，nginx完成了代理服务的任务
+-	关于nginx作为代理服务器，有关location的配置的一些记录，现在有服务和返回的列表如下：
+localhost:9090/proxy/  :   proxy
+localhost:9090/proxy/a  :   proxy.a
+localhost:9090/proxy/b  :   proxy.b
+localhost:9090/a        :   a
+localhost:9090/b        :   b
+1. 如果配置如下：
+```
+	location /proxy/ {
+		proxy_pass http://127.0.0.1:9090;
+	}
+```
+访问localhost:8854/proxy/a,则返回proxy.a,说明被代理到了localhost：9090/proxy/a
+2. 如果配置文件如下：注意：跟上一个配置的区别是多了一个/
+```
+	location /proxy/ {
+		proxy_pass http://127.0.0.1:9090/;
+	}
+```
+访问localhost:8854/proxy/a,则返回a,说明被代理到了localhost：9090/a
