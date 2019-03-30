@@ -442,3 +442,38 @@ exist: true
 -   windows 的host文件地址：c:\windows\system32\drivers\etc， 生效的命令：ipconfig /flushdns，刷新成功够提示：已成功刷新 DNS 解析缓存。
 可以把hosts中增加127.0.0.1 www.gustavo.com， 然后ipconfig /flushdns刷新DNS， 然后所有www.gustavo.com的访问都会转向127.0.0.1
 比如，之前localhost:8080/hello的访问，可以使用www.gustavo.com:8080/hello的方式来访问
+- 常用命令：
+关闭nginx：nginx -s stop 
+判断配置文件是否正确： nginx -t
+重启加载配置文件： nginx -s reload
+- 通过nginx访问静态资源， 配置如下：
+```
+    server {
+        listen       8855;
+        server_name  test1.com localhost;
+
+        #charset koi8-r;
+
+        access_log  logs/host.access.log  main;
+
+        location /math {
+            root   D:/workspace/pdfd/books-master/;
+            autoindex  on ;
+        }
+    }
+``` 
+然后访问：localhost：8855/math，就可以访问D:/workspace/pdfd/books-master/math的静态资源，如下配置也可以：
+```
+     location / {
+            root   D:/workspace/pdfd/books-master/math
+            autoindex  on ;
+        }
+```
+只是访问时，通过localhost：8855，就可以
+-	通过nginx做代理, 可以在配置文件中增加：
+```
+location /hello {
+		proxy_pass	http://localhost:9090/hello2;
+        }
+```
+http://localhost:9090/hello2是可以直接访问的，现在通过nginx代理来访问，而不是直接访问， 通过localhost：8854/hello，得到了和直接访问http://localhost:9090/hello2一样的结果，可以得知，nginx完成了代理服务的任务
