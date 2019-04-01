@@ -499,4 +499,5 @@ localhost:9090/b        :   b
 访问localhost:8854/proxy/a,则返回a,说明被代理到了localhost：9090/a
 -	location匹配规则： https://blog.csdn.net/zwl18210851801/article/details/81699977
 - 	关于静态资源访问的： https://blog.csdn.net/zzq900503/article/details/72821081
--   最近想熟悉前后端分离网站的部署流程，后端springboot，前端用vue,用nginx做代理，这几天nginx大概了解怎么用了，花几天时间学学vue
+-   	最近想熟悉前后端分离网站的部署流程，后端springboot，前端用vue,用nginx做代理，这几天nginx大概了解怎么用了，花几天时间学学vue
+- 	a简单能够把vue项目通过npm run build打包后，用nginx来运行访问，nginx的配置信息，在这个连接：https://my.oschina.net/u/1760791/blog/1575808
