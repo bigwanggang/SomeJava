@@ -133,6 +133,7 @@ str.replaceAll("hello(?!world)", "goodbye");
 - redis工具： https://github.com/MicrosoftArchive/redis
 - Thymeleaf: https://www.thymeleaf.org/documentation.html, 里面有个在线交互的学习教程
 - Thymeleaf+ Spring 整合，中文翻译版本：https://www.cnblogs.com/jiangchao226/p/5937458.html
+- Visual Studio Code这个工具不错，有时间研究研究
 
 ## 消息
   ActiveMQ 是jms消息的实现，jms消息提供的消息的规范和接口，是比较老的消息队列（相比RabbitMq）
