@@ -508,3 +508,7 @@ localhost:9090/b        :   b
 	2. jmap -dump:live,format=b,file=filename.hprof pid
 	3. MemoryAnalyzer分析工具导入生成的dump文件
 Retained Heap的值是字节数，转换成M需要把该值除1024*1024
+
+
+### 偏门邪道
+- 	putty遇到ctrl+s，Ctrl+q就可以解决
