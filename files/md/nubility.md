@@ -510,5 +510,32 @@ localhost:9090/b        :   b
 Retained Heap的值是字节数，转换成M需要把该值除1024*1024
 
 
-### 偏门邪道
+### 技术
 - 	putty遇到ctrl+s，Ctrl+q就可以解决
+-	maven工程打包后java -jar xxx.jar来运行，提示：没有主清单属性，可以通过maven的pom.xml文件增加下面内容来解决：
+```
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>1.2.1</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                    <configuration>
+                        <transformers>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <mainClass>timer.ScheduleManager</mainClass>
+                            </transformer>
+                        </transformers>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+```
