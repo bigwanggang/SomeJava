@@ -30,6 +30,9 @@
 -  https://www.jianshu.com/p/7122916a63fa
 - https://blog.csdn.net/u012410733/article/details/51869105
 
+## 遗留技术问题
+- Thread.currentThread().getContextClassLoader() 和 Class.getClassLoader()区别
+
 ## 技术记录
 
 - java内存分析工具， MemoryAnalyzer : http://www.eclipse.org/mat/  
