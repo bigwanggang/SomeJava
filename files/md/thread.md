@@ -134,3 +134,28 @@ public synchronized static void g() {
 ### 用DelayQueue模拟实现抢票一定时间内没有付款，票自动失效的栗子
 -   在blockingqueue.buyTicket，实现了简单的DelayQueue实现买票的功能，但是需要完善
 -   DelayQueueRemoveDemo的栗子演示多线程对DelayQueue调用Remove, 为什么List就会出现ConcurrentModificationException（栗子：ArrayListRemoveDemo），fail-fast机制研究下
+### 延迟队列
+-   首先要一个实现Delayed接口的类, 并实现接口的两个方法，compareTo是Comparable的方法。
+```java
+long getDelay(TimeUnit unit)；
+public int compareTo(T o);
+```
+实现该接口主要完成一件事：计算出该事件延迟的，通常是下面的方法算出来的，
+```java
+this.executeTime = TimeUnit.NANOSECONDS.convert(delayTime, TimeUnit.MICROSECONDS) + System.nanoTime();
+```
+第一部分是TimeUnit.NANOSECONDS.convert(delayTime, TimeUnit.MICROSECONDS)，把传入的值转成纳秒,其实就是很简单的单位转换,
+但是这里一定要转换成纳秒，因为只有System.nanoTime(),没有别的，关于System.nanoTime()和System.currentTimeMillis()的区别，之后熟悉
+秒、毫秒、微妙、纳秒，从前往后，以此是1000倍，其实也可以不用这个方法来转，可以直接乘1000的来算
+```java
+        System.out.println(TimeUnit.MICROSECONDS.convert(1, TimeUnit.MILLISECONDS)); //1000
+        System.out.println(TimeUnit.MICROSECONDS.convert(1, TimeUnit.SECONDS));      //1000*1000
+        System.out.println(TimeUnit.NANOSECONDS.convert(1, TimeUnit.MICROSECONDS));  //1000
+```
+getDelay方法我看网上很多都是这么写的，要把刚才计算出来的时间跟当前的nanoTime比较，如果返回正数说明还没到，如果返回负数就是时间到了
+```java
+    public long getDelay(TimeUnit unit) {  
+        return unit.convert(this.excuteTime - System.nanoTime(), TimeUnit.NANOSECONDS);  
+    }
+```
+有个疑问：
