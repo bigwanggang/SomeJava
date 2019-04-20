@@ -16,6 +16,7 @@
   - [ConcurrentLinkedQueue](https://github.com/Ohlaughing/SomeJava/blob/master/files/md/ConcurrentLinkedQueue.md)
   
 - [mysql](https://github.com/Ohlaughing/SomeJava/blob/master/files/md/mysql.md) 多看看mysql
+- [oracle](https://github.com/Ohlaughing/SomeJava/blob/master/files/md/oracle.md) 
 - [spring](https://github.com/Ohlaughing/SomeJava/blob/master/files/md/spring.md)
 - [word](https://github.com/Ohlaughing/SomeJava/blob/master/files/md/english.md)
 - [netty](https://github.com/Ohlaughing/SomeJava/blob/master/files/md/netty.md)
