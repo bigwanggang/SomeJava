@@ -158,3 +158,4 @@ str.replaceAll("hello(?!world)", "goodbye");
 - a.hashCode() 有什么用？与 a.equals(b) 有什么关系？
 - .float f=3.4;是否正确?
 - Java 中，Comparator 与 Comparable 有什么不同？
+- synchronized的三个作用？
