@@ -159,3 +159,4 @@ str.replaceAll("hello(?!world)", "goodbye");
 - .float f=3.4;是否正确?
 - Java 中，Comparator 与 Comparable 有什么不同？
 - synchronized的三个作用？
+- 一个类的两个synchronized static方法同步吗?
