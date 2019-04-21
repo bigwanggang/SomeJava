@@ -429,8 +429,9 @@ Segment的put方法：
 while (cap < c)
             cap <<= 1;
 ```
-    的方式来算的
+   的方式来算的
     
+-	构造函数中的concurrencyLevel参数已经在JDK1.8中的意义发生了很大的变化，其并不代表所允许的并发数，其只是用来确定sizeCtl大小
 #### 1.8 put(), 有点复杂，慢慢理解
 ```java
     transient volatile Node<K,V>[] table;                             //1
