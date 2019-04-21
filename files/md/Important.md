@@ -144,10 +144,17 @@ str.replaceAll("hello(?!world)", "goodbye");
   ActiveMQ 是jms消息的实现，jms消息提供的消息的规范和接口，是比较老的消息队列（相比RabbitMq）
 
 
-## 一天弄懂一个面试题
+## 面试题知识点
 - 2019-01-08：HashMap的底层实现原理？ 主要熟悉put和resize方法
 - 2019-01-09: java中的错误和异常：Throwable、Error、Exception、RunTimeException
 - 2019-01-10: java中的集合框架
 - 2019-01-16: java中不可变类的理解。例如String
 - 2019-01-16: 实现单例的方式及注意事项
 - 2019-01-22: 两个线程交替打印奇偶数（第一次徒手没有写出来，后来参考资料才写出来，下午再写一次，要熟练，wait\notify 和Condition两种方式都要会）
+- a = a + b 与 a += b 的区别
+- Serial 与 Parallel GC之间的不同之处？
+- Java 中 WeakReference 与 SoftReference的区别？
+- 解释 Java 堆空间及 GC？
+- a.hashCode() 有什么用？与 a.equals(b) 有什么关系？
+- .float f=3.4;是否正确?
+- Java 中，Comparator 与 Comparable 有什么不同？
