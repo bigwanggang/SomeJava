@@ -128,6 +128,8 @@ str.replaceAll("hello(?!world)", "goodbye");
 - 正则的文章： https://blog.csdn.net/u013197629/article/details/73499129
 - 动态代理： https://blog.csdn.net/zpf336/article/details/82751925
 - 同步和异步可以同打电话和发短信来形象的比喻
+- InnerClassDemo是内部类和静态内部类的区别demo
+- LinkedList在1.6是双向循环链表，1.7之后是双向链表（没有循环）
 
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - SpringBoot 揭秘 : 快速构建微服务体系 看透！
