@@ -160,3 +160,16 @@ str.replaceAll("hello(?!world)", "goodbye");
 - Java 中，Comparator 与 Comparable 有什么不同？
 - synchronized的三个作用？
 - 一个类的两个synchronized static方法同步吗?
+- 双重检查锁
+- Runnable接口和Callable接口区别
+- AtomicInteger
+- 编译与解释共存
+- 父类的私有属性和构造方法并不能被继承，所以 Constructor 也就不能被 override
+- 重写： 发生在父子类中，方法名、参数列表必须相同，返回值范围小于等于父类，抛出的异常范围小于等于父类，访问修饰符范围大于等于父类；如果父类方法访问修饰符为 private 则子类就不能重写该方法。
+- Java 面向对象编程三大特性
+- 类中所有的private方法都隐式地指定为final。
+- 静态内部类和非静态内部类区别
+- 静态代码块对于定义在它之后的静态变量，可以赋值，但是不能访问.
+- RandomAccess接口：RandomAccess 接口只是标识，并不是说 ArrayList 实现 RandomAccess 接口才具有快速随机访问功能的！
+- 1.8HashMap的hash函数：高16位与低16位异或
+- hashMap是怎么导致死循环的？画图搞懂！
