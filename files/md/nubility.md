@@ -49,7 +49,7 @@
 	也就是如果远程分支是  origin/release/V1.2.3.4, 本地分支名要是release/V1.2.3.4  
         git branch -vv 查看本地分支和远程分支的对应关系  
         git tag 可以查看标签  
-        查看完标签可以用git reset tag 切换到标签  
+        查看完标签可以用git reset --hard tag 切换到标签  
         git add . 增加文件，删除文件时 git add -A .  
         git push origin master 将本地的master分支推送到origin主机的master分支  
         git reset 提交号 回到某次提交（提交号通过git log查看）  
