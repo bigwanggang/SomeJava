@@ -135,7 +135,7 @@ public synchronized static void g() {
 -   在blockingqueue.buyTicket，实现了简单的DelayQueue实现买票的功能，但是需要完善
 -   DelayQueueRemoveDemo的栗子演示多线程对DelayQueue调用Remove, 为什么List就会出现ConcurrentModificationException（栗子：ArrayListRemoveDemo），fail-fast机制研究下
 ### 延迟队列
--   首先要一个实现Delayed接口的类, 并实现接口的两个方法，compareTo是Comparable的方法。
+-   首先要一个实现Delayed接口的类, 并实现接口的两个方法，compareTo是Comparable的方法(两个方法都要实现才可以)。
 ```java
 long getDelay(TimeUnit unit)；
 public int compareTo(T o);
@@ -158,4 +158,6 @@ getDelay方法我看网上很多都是这么写的，要把刚才计算出来的
         return unit.convert(this.excuteTime - System.nanoTime(), TimeUnit.NANOSECONDS);  
     }
 ```
-有个疑问：
+有个疑问：如果只是查看this.excuteTime - System.nanoTime()的正负，为什么还非要单位转换一下，1000 纳秒，转成啥都是正值啊，只不过由1000和1的区别
+后来想想，还是有区别的，999对于纳秒是个挺大的值，但是如果转成微妙就是0，如果0对于getDelay有意义的话，这么转换就有必要，不管怎么样，就按照这个方法写吧。
+compareTo方法也是比较executeTime，详细参考Message类
