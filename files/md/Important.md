@@ -176,3 +176,4 @@ str.replaceAll("hello(?!world)", "goodbye");
 - 1.8HashMap的hash函数：高16位与低16位异或
 - hashMap是怎么导致死循环的？画图搞懂！
 - ConcurrentHashMap就了解1.7和1.8就星了，1.6就不用看了
+- 单例的instance上加不加final的区别？
