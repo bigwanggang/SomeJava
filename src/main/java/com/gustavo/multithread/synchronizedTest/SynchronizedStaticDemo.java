@@ -1,4 +1,4 @@
-package com.gustavo.multithread;
+package com.gustavo.multithread.synchronizedTest;
 
 import java.util.concurrent.TimeUnit;
 

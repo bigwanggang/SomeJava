@@ -1,4 +1,4 @@
-package com.gustavo.delayqueue;
+package com.gustavo.blockingqueue.delayqueue.demo;
 
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
@@ -35,5 +35,9 @@ public class Message implements Delayed {
         return "Message{" +
                 "msg='" + msg + '\'' +
                 '}';
+    }
+
+    public String getMsg() {
+        return msg;
     }
 }

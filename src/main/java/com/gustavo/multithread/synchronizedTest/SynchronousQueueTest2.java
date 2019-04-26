@@ -1,13 +1,13 @@
-package com.gustavo.multithread;
+package com.gustavo.multithread.synchronizedTest;
 
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.TimeUnit;
 
-public class SynchronousQueueTest1 {
+public class SynchronousQueueTest2 {
     public static void main(String[] args) throws InterruptedException {
         SynchronousQueue<String> queue = new SynchronousQueue<>();
         new Thread(new MyRunn(queue)).start();
-        System.out.println(queue.take());
+        queue.put("hehe");
     }
 
     static final class MyRunn implements Runnable {
@@ -22,7 +22,7 @@ public class SynchronousQueueTest1 {
         public void run() {
             try {
                 TimeUnit.SECONDS.sleep(3);
-                queue.put("haha");
+                System.out.println(queue.take());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
