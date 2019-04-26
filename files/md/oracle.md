@@ -10,3 +10,4 @@
 ### pl/sql 
 - File-New-Command Window就可以打开命令行窗口，输入 set serveroutput on； 打开命令行窗口的打印输出
 - @ 加脚本路径： @ d:\workspace\learnoracle\1.txt， 就可以执行文件中脚本的内容
+- 如果使用DBMS_OUTPUT.PUT_LINE()而不先执行set serveroutput on；命令，是看不到输出的
