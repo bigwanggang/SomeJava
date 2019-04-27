@@ -1,4 +1,4 @@
-package com.gustavo.multithread;
+package com.gustavo.multithread.join;
 
 public class JoinTest {
     public static void main(String[] args) throws InterruptedException {
