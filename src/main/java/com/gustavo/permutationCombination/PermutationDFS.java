@@ -8,8 +8,8 @@ public class PermutationDFS {
     boolean[] visited;
 
     public List<List<Integer>> permute(int[] nums) {
-        result = new ArrayList<>();
-        List<Integer> out = new ArrayList<>();
+        result = new ArrayList<List<Integer>>();
+        List<Integer> out = new ArrayList<Integer>();
         visited = new boolean[nums.length];
         permuteDFS(nums, out);
         return result;

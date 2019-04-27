@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class ImageHandler {
     public static void main(String[] args) throws IOException {
-        Set<RGB> rgbs = new HashSet<>();
+        Set<RGB> rgbs = new HashSet<RGB>();
         System.out.println();
         File image = new File("D:\\123.jpg");
         BufferedImage bi = ImageIO.read(new FileInputStream(image));

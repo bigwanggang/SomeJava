@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class SubListFailFast {
     public static void main(String[] args) {
-        List<String> mastetList = new ArrayList<>();
+        List<String> mastetList = new ArrayList<String>();
         mastetList.add("one");
         mastetList.add("tow");
         mastetList.add("three");

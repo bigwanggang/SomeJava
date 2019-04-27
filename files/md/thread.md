@@ -135,7 +135,8 @@ public void g() {
 
 
 ### volatile
-    volatile能提供变量在多线程中的可见性，但是不要过度依赖volatile的可见性（java并发编程实战）  
+-   volatile能提供变量在多线程中的可见性，但是不要过度依赖volatile的可见性（java并发编程实战）  
+-   volatile可见性的栗子，例如：VolatileDemo,通常要是要复现是有条件的，要是64位jvm，并且-server模式运行（java多线程编程核心技术）  
     
 ### LockSupport
 -   LockSupport的park和unpark方法实现的功能和wait、notify差不多，但是它比后者好的地方是，wait和notify一定要先wait，后notify，才能生效，否则

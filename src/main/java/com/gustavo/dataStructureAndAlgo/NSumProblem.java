@@ -19,15 +19,15 @@ public class NSumProblem {
     }
 
     public List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        List<Integer> ans = new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<Integer> ans = new ArrayList<Integer>();
         helper(result, ans, nums, 0, 0, 0);
         return result;
     }
 
     private void helper(List<List<Integer>> result, List<Integer> ans, int[] nums, int num, int sum, int begin) {
         if (num == 3 && sum == 0) {
-            List<Integer> tmp = new ArrayList<>(ans);
+            List<Integer> tmp = new ArrayList<Integer>(ans);
             result.add(tmp);
             return;
         }
@@ -44,14 +44,14 @@ public class NSumProblem {
     }
 
     public List<List<Integer>> twoSum(int[] nums, int target) {
-        List<List<Integer>> answer = new ArrayList<>();
+        List<List<Integer>> answer = new ArrayList<List<Integer>>();
         Arrays.sort(nums);
         int left = 0;
         int right = nums.length - 1;
         while (left < right) {
             int sum = nums[left] + nums[right];
             if (sum == target) {
-                List<Integer> result = new ArrayList<>();
+                List<Integer> result = new ArrayList<Integer>();
                 result.add(nums[left]);
                 result.add(nums[right]);
                 answer.add(result);

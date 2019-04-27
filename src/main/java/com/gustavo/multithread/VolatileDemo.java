@@ -6,7 +6,7 @@ public class VolatileDemo {
     private int a = 0 ;
     private  volatile boolean flag=true;
     public static void main(String[] args) {
-        VolatileDemo instance = new VolatileDemo();
+       final VolatileDemo instance = new VolatileDemo();
         new Thread(new Runnable() {
             @Override
             public void run() {

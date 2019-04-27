@@ -8,7 +8,7 @@ import java.util.Stack;
  * Created by gustaov on 2017/7/18.
  */
 public class InfixToSuffix {
-    public static Map<Character, Integer> PRIORITY = new HashMap<>();
+    public static Map<Character, Integer> PRIORITY = new HashMap<Character, Integer>();
 
     static {
         PRIORITY.put('(', 0);
@@ -18,7 +18,7 @@ public class InfixToSuffix {
 
     public static String infixToSuffix(char[] chars) {
         StringBuffer sb = new StringBuffer();
-        Stack<Character> stack = new Stack<>();
+        Stack<Character> stack = new Stack<Character>();
         for (char c : chars) {
             if (c == ')') {
                 while (stack.peek() != '(')

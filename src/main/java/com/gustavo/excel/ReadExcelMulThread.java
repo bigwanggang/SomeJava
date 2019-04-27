@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
 public class ReadExcelMulThread {
 
     public static void main(String[] args) throws IOException {
-        ConcurrentHashMap<String, Info> map = new ConcurrentHashMap<>();
+        ConcurrentHashMap<String, Info> map = new ConcurrentHashMap<String, Info>();
         int sheetNum = 10;
         Workbook wb = Utils.getWorkbook(new File(WriteExcelMultiSheet.Path));
 

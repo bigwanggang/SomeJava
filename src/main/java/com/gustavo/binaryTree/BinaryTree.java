@@ -1,11 +1,11 @@
 package com.gustavo.binaryTree;
 
 public class BinaryTree {
-    public BinaryTree(Object element) {
+    public BinaryTree(char element) {
         this.element = element;
     }
 
-    Object element;
+    char element;
     BinaryTree left;
     BinaryTree right;
 }

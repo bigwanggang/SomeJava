@@ -30,7 +30,7 @@ public class Test {
 
         int c[] = {1, 3, 2, 7, 6, 5, 4, 9};
         // parallelSort(int[] a) 按照数字顺序排列指定的数组(并行的)。同sort方法一样也有按范围的排序
-        Arrays.parallelSort(c);
+//        Arrays.parallelSort(c);
         System.out.println("Arrays.parallelSort(c)：");
         for (int i : c) {
             System.out.print(i);
@@ -40,7 +40,7 @@ public class Test {
 
         // parallelSort给字符数组排序，sort也可以
         char d[] = {'a', 'f', 'b', 'c', 'e', 'A', 'C', 'B'};
-        Arrays.parallelSort(d);
+//        Arrays.parallelSort(d);
         System.out.println("Arrays.parallelSort(d)：");
         for (char d2 : d) {
             System.out.print(d2);

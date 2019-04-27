@@ -8,9 +8,9 @@ import java.util.List;
  */
 public class AnimalCatCarfield {
     public static void main(String[] args) {
-        List<Animal> animalList = new ArrayList<>();
-        List<Cat> cats = new ArrayList<>();
-        List<Garfield> garfields = new ArrayList<>();
+        List<Animal> animalList = new ArrayList<Animal>();
+        List<Cat> cats = new ArrayList<Cat>();
+        List<Garfield> garfields = new ArrayList<Garfield>();
 
         animalList.add(new Animal());
         cats.add(new Cat());

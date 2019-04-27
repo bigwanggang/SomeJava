@@ -15,7 +15,7 @@ public class TicketManager {
 
     private static Thread thread;
 
-    private static DelayQueue<DelayPayment> delayPayments = new DelayQueue<>();
+    private static DelayQueue<DelayPayment> delayPayments = new DelayQueue<DelayPayment>();
     private static TicketManager ticketManager = new TicketManager();
 
     public static TicketManager getInstance() {

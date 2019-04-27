@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WaitNotifyDemo {
     public static void main(String[] args) {
-        LinkedList<String> list = new LinkedList<>();
+        LinkedList<String> list = new LinkedList<String>();
         for (int i = 0; i < 3; i++) {
             new Thread(new Consumer(list), "thread: " + i).start();
         }

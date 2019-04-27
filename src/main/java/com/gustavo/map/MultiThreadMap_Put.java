@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class MultiThreadMap_Put {
-    static Map<String, String> map = new HashMap<>();
+    static Map<String, String> map = new HashMap<String, String>();
 
     public static void main(String[] args) throws InterruptedException {
         for (int i = 0; i < 100; i++) {

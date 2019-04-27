@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class ReadExcelToMem {
-    static LinkedList<Info> list = new LinkedList<>();
+    static LinkedList<Info> list = new LinkedList<Info>();
 
     public static void main(String[] args) throws Exception {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(10));

@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SynchronousQueueTest3 {
     public static void main(String[] args) throws InterruptedException {
-        SynchronousQueue<String> queue = new SynchronousQueue<>();
+        SynchronousQueue<String> queue = new SynchronousQueue<String>();
         new Thread(new MyRunn(queue)).start();
         new Thread(new MyConcum(queue)).start();
         queue.put("hehe");

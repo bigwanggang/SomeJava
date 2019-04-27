@@ -17,7 +17,7 @@ public class WaitNotify {
     }
 
     static class Resource {
-        LinkedList<String> list = new LinkedList<>();
+        LinkedList<String> list = new LinkedList<String>();
         int MAX = 10;
         int num;
         int index = 0;

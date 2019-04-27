@@ -33,7 +33,7 @@ public class BinaryTreeUtil {
     }
 
     public static void contructChart(char[][] chart, BinaryTree node, int level, int x, int y) {
-        chart[y][x] = (char) node.element;
+        chart[y][x] = node.element;
         if (level == 0) {
             return;
         }

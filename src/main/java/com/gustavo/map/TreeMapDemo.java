@@ -7,7 +7,7 @@ import java.util.TreeMap;
  */
 public class TreeMapDemo {
     public static void main(String[] args) {
-        TreeMap<Integer, String> treeMap = new TreeMap<>();
+        TreeMap<Integer, String> treeMap = new TreeMap<Integer, String>();
         treeMap.put(55,"fifty-five");
         treeMap.put(56,"fifty-six");
         treeMap.put(57,"fifty-seven");

@@ -7,7 +7,7 @@ import java.util.concurrent.*;
  */
 public class ThreadPoolExecutorDemo {
     public static void main(String[] args) {
-        ExecutorService service = new ThreadPoolExecutor(0, 4, 60, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
+        ExecutorService service = new ThreadPoolExecutor(0, 4, 60, TimeUnit.SECONDS, new LinkedBlockingDeque<Runnable>());
         service.submit(new Print());
         service.submit(new Print());
         service.submit(new Print());

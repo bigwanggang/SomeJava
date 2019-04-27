@@ -8,7 +8,7 @@ public class CyclicBarrierDemo {
     private static int LEN = 10;
 
     public static void main(String[] args) {
-        int[] array = new int[LEN];
+        final int[] array = new int[LEN];
         CyclicBarrier barrier = new CyclicBarrier(LEN, new Runnable() {
             @Override
             public void run() {

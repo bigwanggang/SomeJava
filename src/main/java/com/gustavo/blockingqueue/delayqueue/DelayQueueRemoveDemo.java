@@ -12,7 +12,7 @@ public class DelayQueueRemoveDemo {
     public static final int THREAD_NUM = 100;
 
     public static void main(String[] args) {
-        DelayQueue<DelayPayment> queue = new DelayQueue<>();
+        DelayQueue<DelayPayment> queue = new DelayQueue<DelayPayment>();
         for (int i = 0; i < THREAD_NUM * 1000; i++) {
             queue.add(new DelayPayment(1000 * 1000, i, i));
         }

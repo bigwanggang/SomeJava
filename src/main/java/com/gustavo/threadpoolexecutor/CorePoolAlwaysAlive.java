@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class CorePoolAlwaysAlive {
     public static void main(String[] args) {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 3, 2, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 3, 2, TimeUnit.SECONDS, new LinkedBlockingDeque<Runnable>());
         System.out.println("core pool size: " + executor.getCorePoolSize());
         executor.submit(new MyRunnable());
         executor.submit(new MyRunnable());

@@ -5,7 +5,7 @@ import java.util.concurrent.locks.LockSupport;
 
 public class LockSupportDemo {
     public static void main(String[] args) throws InterruptedException {
-        Object object = new Object();
+        final Object object = new Object();
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {

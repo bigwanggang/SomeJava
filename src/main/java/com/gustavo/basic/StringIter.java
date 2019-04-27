@@ -29,6 +29,11 @@ public class StringIter implements Iterable<String> {
             public String next() {
                 return strs[cursor++];
             }
+
+            @Override
+            public void remove() {
+
+            }
         };
     }
 

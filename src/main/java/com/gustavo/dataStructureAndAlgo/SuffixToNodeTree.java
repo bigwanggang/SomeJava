@@ -6,10 +6,10 @@ import java.util.Set;
 import java.util.Stack;
 
 public class SuffixToNodeTree {
-    public static Set<Character> SYMBOL = new HashSet<>(Arrays.asList('*', '+'));
+    public static Set<Character> SYMBOL = new HashSet<Character>(Arrays.asList('*', '+'));
 
     public static BinaryNode suffixToBinaryNode(char[] chars) {
-        Stack<BinaryNode> nodeStack = new Stack<>();
+        Stack<BinaryNode> nodeStack = new Stack<BinaryNode>();
         for (char c : chars) {
             if (SYMBOL.contains(c)) {
                 BinaryNode n1 = nodeStack.pop();
