@@ -30,3 +30,8 @@ INTO a表 VALUES(其它值) .... 再跟一个SELECT 语句"。
 select instr('helloworld', 'o') from dual;   
 select instr('helloworld', 'or') from dual;   
 ```
+- substr 是返回字符串自串的功能，例如，下面两个命令都返回：hel
+```
+select substr('helloworld', 1, 3) from dual
+select substr('helloworld', 0, 3) from dual
+```
