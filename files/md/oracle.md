@@ -12,3 +12,11 @@
 - @ 加脚本路径： @ d:\workspace\learnoracle\1.txt， 就可以执行文件中脚本的内容
 - 如果使用DBMS_OUTPUT.PUT_LINE()而不先执行set serveroutput on；命令，是看不到输出的
 - oracle中斜杠（/）的含义：斜杠就是让服务器执行前面所写的sql脚本。如果是普通的select语句，一个分号，就可以执行了。但是如果是存储过程，那么遇到分号，就不能马上执行了。这个时候，就需要通过斜杠(/)来执行。
+- ORACLE表中插入多值，是不支持这种方式的：INSERT INTO 某表 VALUES(各个值)，VALUES(各个值),.....;在oracle中如果插入多条记录可以用：
+```
+"INSERT ALL INTO  a表
+VALUES(各个值)  
+INTO a表 VALUES (其它值) 
+INTO a表 VALUES(其它值) .... 再跟一个SELECT 语句"。
+```
+- oracle创建函数，可以把函数写入文件中，然后通过命令行执行：@ d:\sql\add1.txt，如提示Function created，就说明函数创建成功，就可以像使用系统内置函数一样使用自己创建的函数
