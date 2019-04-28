@@ -20,3 +20,8 @@ INTO a表 VALUES (其它值)
 INTO a表 VALUES(其它值) .... 再跟一个SELECT 语句"。
 ```
 - oracle创建函数，可以把函数写入文件中，然后通过命令行执行：@ d:\sql\add1.txt，如提示Function created，就说明函数创建成功，就可以像使用系统内置函数一样使用自己创建的函数
+- oracle中有个特别的表：dual.
+```
+ select user from dual;  //查询当前连接用户
+ select sysdate from dual; -- 查询当前连接日期时间
+ ```
