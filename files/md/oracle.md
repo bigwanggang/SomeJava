@@ -25,3 +25,8 @@ INTO a表 VALUES(其它值) .... 再跟一个SELECT 语句"。
  select user from dual;  //查询当前连接用户
  select sysdate from dual; -- 查询当前连接日期时间
  ```
+- instr函数为查找字符串位置的功能，例如：下面的两个select分别返回5和7
+```
+select instr('helloworld', 'o') from dual;   
+select instr('helloworld', 'or') from dual;   
+```
