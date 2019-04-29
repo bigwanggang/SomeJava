@@ -35,3 +35,5 @@ select instr('helloworld', 'or') from dual;
 select substr('helloworld', 1, 3) from dual
 select substr('helloworld', 0, 3) from dual
 ```
+- 存储过程procedure和函数function的区别？
+- procedure入门：http://blog.itpub.net/31358702/viewspace-2153725/
