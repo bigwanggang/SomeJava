@@ -42,6 +42,7 @@
  - git branch -d branchName 删除本地分支
  - git checkout branchName 切换到新分支(该branchName 是git branch命令 查看显示的分支，是本地分支)
  - git checkout -b branchName 相当于 git branch branchName + git checkout branchName
+-  git log fileName  查看某文件的变更记录
         
 - 从远程分支拉到本地分支
         git checkout -b localName remoteBranchName  
