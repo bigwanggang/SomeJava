@@ -48,4 +48,8 @@ end;
 /
 ```
 命令行：执行call hello(); 并不打印，再次执行exec hello()会打印两个hello，为什么？
- 
+- execute immediate是可以执行单条语句的意思：
+```
+ execute immediate 'select * from user';
+ execute immediate 'call selectEmp()';
+```
