@@ -80,17 +80,8 @@ windows和linux环境自动转换成相应的路径分隔符，下面的方式�
 ```
 - GET请求发送一个TCP包，POST请求发送两个TCP包
 - ping命令就是基于UDP的传输层协议
-- 线程的几种状态，以及通过代码的方式理解线程的状态切换, 线程状态的理解，new 一个Thread就是NEW状态，调用start()之后，线程执行之前就是RUNNABLE状态\
-  但是有一点代码的演示和我的理解有偏差，不是执行run（）就应该是RUNNING状态吗，怎么ThreadStatusDemo栗子中在run方法中打印线程的状态还是RUNNABLE状态？\
-  BLOCKED状态：如果一个两个线程抢同一个资源，其中一个线程抢到了，另一个线程的状态就是BLOCKED,见栗子：ThreadStatusDemo_Blocked\
-  WAITING：如果一个线程执行wait方法，则其状态为WAITING。见栗子：ThreadStatusDemo_WaitNotify, 执行join也是同样，栗子：ThreadStatusDemo_Join\
-  TIMED_WAITING:如果线程调用Thread.sleep()或者TimeUnit.SECONDS.sleep();其状态为TIMED_WAITING，
-- 关于线程的状态，很多资料上都是说有5中状态：NEW、RUNNABLE、RUNNING、BLOCKED、DEAD，但是通过thread.getState()方法，或查看State源码发现\
-  状态有NEW、RUNNABLE、BLOCKED、WAITING、TIMED_WAITING、TERMINATED六个状态，咋整？？？\
-  关于线程状态的一个文章：https://blog.csdn.net/pange1991/article/details/53860651
-- 通过ThreadStatusDemo_Join和ThreadStatusDemo_JoinWithTime对比发现，join方法如果带参数（超时），则是TIMED_WAITING，如果不带参数则是WAITING状态
-  
-- 通过实现Runnable接口的方式在run方法里面通常不能抛出异常，但是可以通过setUncaughtExceptionHandler来实现，见栗子：SetUncatchedExceptionDemo 
+
+ 
 - 不管用nio还是bio还是netty实现的服务器，都可以用telnet localhost 8080 来模拟客户端访问，其实，也可以用浏览器localhost：8080来访问，服务端收到的是HTTP的GET请求，但是通常服务端返回给客户端的信息在浏览器不能解析，所以客户端显示：“localhost 发送的响应无效。”。
 - 尽量使用UT而不是浏览器的方式来测试应用
 - jdk 5,6,7,8 对于版本号49,50,51,52
@@ -130,6 +121,7 @@ str.replaceAll("hello(?!world)", "goodbye");
 - 同步和异步可以同打电话和发短信来形象的比喻
 - InnerClassDemo是内部类和静态内部类的区别demo
 - LinkedList在1.6是双向循环链表，1.7之后是双向链表（没有循环）
+- 为什么双重检查锁需要两次null检查
 
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - SpringBoot 揭秘 : 快速构建微服务体系 看透！

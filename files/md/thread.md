@@ -178,3 +178,16 @@ getDelay方法我看网上很多都是这么写的，要把刚才计算出来的
 有个疑问：如果只是查看this.excuteTime - System.nanoTime()的正负，为什么还非要单位转换一下，1000 纳秒，转成啥都是正值啊，只不过由1000和1的区别
 后来想想，还是有区别的，999对于纳秒是个挺大的值，但是如果转成微妙就是0，如果0对于getDelay有意义的话，这么转换就有必要，不管怎么样，就按照这个方法写吧。
 compareTo方法也是比较executeTime，详细参考Message类
+
+### 多线程知识点
+- 线程的几种状态，以及通过代码的方式理解线程的状态切换, 线程状态的理解，new 一个Thread就是NEW状态，调用start()之后，线程执行之前就是RUNNABLE状态\
+  但是有一点代码的演示和我的理解有偏差，不是执行run（）就应该是RUNNING状态吗，怎么ThreadStatusDemo栗子中在run方法中打印线程的状态还是RUNNABLE状态？\
+  BLOCKED状态：如果一个两个线程抢同一个资源，其中一个线程抢到了，另一个线程的状态就是BLOCKED,见栗子：ThreadStatusDemo_Blocked\
+  WAITING：如果一个线程执行wait方法，则其状态为WAITING。见栗子：ThreadStatusDemo_WaitNotify, 执行join也是同样，栗子：ThreadStatusDemo_Join\
+  TIMED_WAITING:如果线程调用Thread.sleep()或者TimeUnit.SECONDS.sleep();其状态为TIMED_WAITING，
+- 关于线程的状态，很多资料上都是说有5中状态：NEW、RUNNABLE、RUNNING、BLOCKED、DEAD，但是通过thread.getState()方法，或查看State源码发现\
+  状态有NEW、RUNNABLE、BLOCKED、WAITING、TIMED_WAITING、TERMINATED六个状态，《java多线程编程核心技术》288页也有线程状态的讲解，
+  其实通过查看Thread代码就能看出线程的状态
+  关于线程状态的一个文章：https://blog.csdn.net/pange1991/article/details/53860651
+- 通过ThreadStatusDemo_Join和ThreadStatusDemo_JoinWithTime对比发现，join方法如果带参数（超时），则是TIMED_WAITING，如果不带参数则是WAITING状态
+- 通过实现Runnable接口的方式在run方法里面通常不能抛出异常，但是可以通过setUncaughtExceptionHandler来实现，见栗子：SetUncatchedExceptionDemo
