@@ -38,3 +38,14 @@ select substr('helloworld', 0, 3) from dual
 - 存储过程procedure和函数function的区别？
 - procedure入门：http://blog.itpub.net/31358702/viewspace-2153725/
 - oracle查看表结构：describe， 而mysql用：desc 
+- 存储过程call和exec的区别？栗子：存储过程如下：
+```
+create or replace procedure hello
+as
+begin
+DBMS_OUTPUT.PUT_LINE('hello');
+end;
+/
+```
+命令行：执行call hello(); 并不打印，再次执行exec hello()会打印两个hello，为什么？
+ 
