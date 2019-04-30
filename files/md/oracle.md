@@ -48,8 +48,12 @@ end;
 /
 ```
 命令行：执行call hello(); 并不打印，再次执行exec hello()会打印两个hello，为什么？
+call hello() 如果是无参存储过程，exec hello可以执行，exec不用带括号，而call必须要带括号
+exec是sqlplus的命令，只能在sqlplus（查了下 应该是 客户端操作）中使用；
+call是sql命令，任何工具都可以使用,call必须有括号，即使没有参数 。
 - execute immediate是可以执行单条语句的意思：
 ```
  execute immediate 'select * from user';
  execute immediate 'call selectEmp()';
 ```
+- 
