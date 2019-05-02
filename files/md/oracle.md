@@ -57,3 +57,5 @@ call是sql命令，任何工具都可以使用,call必须有括号，即使没�
  execute immediate 'call selectEmp()';
 ```
 - DROP FUNCTION function_name; 删除创建的方法
+- 隐式游标的游标名为sql
+- 通过显示游标打印emp表中deptno=30的所有员工的name和
