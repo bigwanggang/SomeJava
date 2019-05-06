@@ -126,6 +126,22 @@ str.replaceAll("hello(?!world)", "goodbye");
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - SpringBoot 揭秘 : 快速构建微服务体系 看透！
 
+## java多线程编程核心技术阅读记录
+1. P19 countoperate this.isAlive()
+2. interrupt()
+3. gc线程是守护线程
+4. synchronized(x) 和 synchronized 方法 、synchronized（this） 等同
+5. synchronized(A.class)方法加static与不加static的区别
+6. jps与jstack命令查看死锁
+7. P110 静态内部类PublicClass栗子
+8. P131 synchronized保证多线程可见性栗子
+9. 假死： 所有线程都在waiting，没有线程notify
+10. wait、notify熟练生产者、消费者和交替打印
+11. join内部用wait实现
+12. P188 Run1栗子
+13. 单例模式之readResolve()
+
+
 ## 好的文章，好用的工具，好的github项目
 - redis工具： https://github.com/MicrosoftArchive/redis
 - Thymeleaf: https://www.thymeleaf.org/documentation.html, 里面有个在线交互的学习教程
