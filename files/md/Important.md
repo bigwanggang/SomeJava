@@ -170,3 +170,4 @@ str.replaceAll("hello(?!world)", "goodbye");
 - ConcurrentHashMap就了解1.7和1.8就星了，1.6就不用看了
 - 单例的instance上加不加final的区别？
 - Integer相关的算法要注意溢出问题
+- long l = Integer.MAX_VALUE + 1; // l = -2147483648,  如果不想溢出可以用：long a = 1; long l = Integer.MAX_VALUE + a; 
