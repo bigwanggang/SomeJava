@@ -7,4 +7,5 @@
 
 ### 排列组合
 - 组合重在“选出”，而排列重在“选出后还再排列”
-- next_permutation和pre_permutation, next_permutation分三步：1。 从后往前找到i,使得arr[i] < arr[i+1], 2. 从i往后找到大于arr[i],并且差值最小的，假设位置为k,然后交换i和k的值，3. i位置之后的数组reverse, 详见栗子：_031_NextPermutation
+- next_permutation和pre_permutation, next_permutation分三步：1。 从后往前找到i,使得arr[i] < arr[i+1], 2. 从i往后找到大于arr[i],并且差值最小的，假设位置为k,然后交换i和k的值，3. i位置之后的数组reverse, 详见栗子：_031_NextPermutation， 
+pre_permutation的算法流程正好和next_permutation相反，1. 从前往后找到i使得arr[i] > arr[i+1], 2. 从i往后找到小于arr[i]，并且差值最小的，假设找到位置为k,交换i和k的值，3. i位置之后的部分数组reverse，详见栗子：PrePermutation
