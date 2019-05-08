@@ -1,5 +1,8 @@
 package com.gustavo.sort;
 
+/**
+ * CLR 是算法导论
+ */
 public class QuickSort_CLR {
     public static void main(String[] args) {
         int[] array = {5, 4, 3, 2, 1};
