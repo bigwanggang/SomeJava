@@ -4,6 +4,7 @@
 ### quick sort
 - 试着写个快速排序，第一个版本由于递归条件没有弄好，产生了StackOverflowError异常，详见栗子：QuickSort.java \
   解决stackoverflowerror的版本：QuickSort1.java，但是还不能完成排序功能
+- quick sort 还是按算法导论的来吧，多写几遍就慢慢理解了
 
 ### 排列组合
 - 组合重在“选出”，而排列重在“选出后还再排列”
