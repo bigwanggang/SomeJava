@@ -188,3 +188,4 @@ str.replaceAll("hello(?!world)", "goodbye");
 - Integer相关的算法要注意溢出问题
 - long l = Integer.MAX_VALUE + 1; // l = -2147483648,  如果不想溢出可以用：long a = 1; long l = Integer.MAX_VALUE + a; 
 - -1>>1,和-1>>>1的值分别是什么？
+- MessageFormate 如果遇到单引号会不能替换，可以通过两个单引号来解决：https://winse.iteye.com/blog/1830987
