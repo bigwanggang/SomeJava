@@ -12,4 +12,5 @@
   两个线程对ArrayList同时add会发生什么情况？ 其中一种是出现ArrayIndexOutOfBoundsException异常，原因是例如，ArrayList中的数组长度为100\
   已经存了99个数据，ArrayList的add方法处理流程是先查看数组是否有一个多余的空间可以存放元素，这时如果两个线程同时检查了数组是否有多余的空间存放\
   元素，则往数组里存元素，第二个存的就会跑出ArrayIndexOutOfBoundsException:100异常，对于这个问题还有一个知识点就是抛异常的可能为：\
-  10、15、55、33、49、73,因为ArrayList的默认数组长度为10，之后扩容是以1.5倍的大小来扩容
+  10、15、55、33、49、73,因为ArrayList的默认数组长度为10，之后扩容是以1.5倍的大小来扩容，详见栗子：MulThreadArrayListAdd
+如果将ArrayList默认的长度为11，则发生ArrayIndexOutOfBoundsException的提示就为：11、16...

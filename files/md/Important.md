@@ -189,3 +189,7 @@ str.replaceAll("hello(?!world)", "goodbye");
 - long l = Integer.MAX_VALUE + 1; // l = -2147483648,  如果不想溢出可以用：long a = 1; long l = Integer.MAX_VALUE + a; 
 - -1>>1,和-1>>>1的值分别是什么？
 - MessageFormate 如果遇到单引号会不能替换，可以通过两个单引号来解决：https://winse.iteye.com/blog/1830987
+- 对于Resultset 和Statement 对象可以不进行显式回收，但Connection 一定要显式回收，因为Connection 在任何时候都无法自动回收，
+而Connection一旦回收，Resultset 和Statement 对象就会立即为NULL。但是如果使用连接池，情况就不一样了，除了要显式地关闭连接，
+还必须显式地关闭Resultset Statement 对象（关闭其中一个，另外一个也会关闭），否则就会造成大量的Statement 对象无法释放，
+从而引起内存泄漏。这种情况下一般都会在try里面去的连接，在finally里面释放连接。
