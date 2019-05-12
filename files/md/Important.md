@@ -193,3 +193,7 @@ str.replaceAll("hello(?!world)", "goodbye");
 而Connection一旦回收，Resultset 和Statement 对象就会立即为NULL。但是如果使用连接池，情况就不一样了，除了要显式地关闭连接，
 还必须显式地关闭Resultset Statement 对象（关闭其中一个，另外一个也会关闭），否则就会造成大量的Statement 对象无法释放，
 从而引起内存泄漏。这种情况下一般都会在try里面去的连接，在finally里面释放连接。
+- HotSpot虚拟机不区分虚拟机栈和本地方法栈
+- java类哪些场景执行初始化？（6个场景）
+- 方法区是虚拟机规范，永久代是HotSpot对方法区的实现
+- finalize()方法不需要学会使用
