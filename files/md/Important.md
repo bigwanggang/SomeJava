@@ -122,6 +122,10 @@ str.replaceAll("hello(?!world)", "goodbye");
 - InnerClassDemo是内部类和静态内部类的区别demo
 - LinkedList在1.6是双向循环链表，1.7之后是双向链表（没有循环）
 - 为什么双重检查锁需要两次null检查
+- Fail-Fast机制研究：FailFastForEachRemoveDemo这个栗子是产生Fail-fast问题的栗子，执行该程序会抛出ConcurrentModificationException，
+而FailFastIteratorRemoveDemo就可以解决这个问题，详细原因可通过javap反编译字节码来分析（javap -v),详细反编译后的代码不贴出，将两个class文件反编译后对比发现，通过foreach的方式remove相当于调用List的remove, 而通过Iterator的方式remove是调用的Iterator迭代器的remove
+这两个remove有什么区别？原理ArrayList和LinkedList里都有一个modCount字段，每当list有变动，add或remove，modCount都加1，
+modCount的作用用jdk里面的描述是：The number of times this list has been structurally modified，出现fail-fast的原因是每个集合都可以通过迭代器的方式访问，ArrayList的迭代器中有个expectedModCount字段，每次通过迭代器访问List都会先检查expectedModCount和ArrayList的modCount的值是否相等，如果不等就抛ConcurrentModificationException，调用List的remove相当于ArrayList的modCount值加，而迭代器的expectedModCount值没变，因此下次执行next就会抛异常，而Iterator的方式remove是将modCount和expectedModCount的值同时修改
 
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - SpringBoot 揭秘 : 快速构建微服务体系 看透！
@@ -213,4 +217,4 @@ str.replaceAll("hello(?!world)", "goodbye");
 - 常量池中有类的符号引用
 - JVM不是一开始就把所有的类都加载进内存中，而是只有第一次遇到某个需要运行的类时才会加载，且只加载一次。
 - 多线程向ArrayList和LinkedList中add元素会发生什么？
-- 
+- javap jdk自带工具，能够对class字节码反编译
