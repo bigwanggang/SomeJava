@@ -220,3 +220,5 @@ modCount的作用用jdk里面的描述是：The number of times this list has be
 - 多线程向ArrayList和LinkedList中add元素会发生什么？
 - javap jdk自带工具，能够对class字节码反编译
 - 300W的数组取出第10大的数据
+- 编程：快排、去重（从已排序但有重复数据中取出第k大数据，如果没有第k大，返回k-1）
+- 编程：部分排序
