@@ -152,6 +152,19 @@ str.replaceAll("hello(?!world)", "goodbye");
 
 ## 消息
   ActiveMQ 是jms消息的实现，jms消息提供的消息的规范和接口，是比较老的消息队列（相比RabbitMq）
+  
+  
+## 各种面试经历及问题
+- 蚂蚁金服： https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485251&idx=1&sn=21e5da0d76dd71d165f19015ebeba780&chksm=cea24888f9d5c19e041a145e6da3d4fa94f63b34c71d43f10c29340c7d51a4a23971904d19b5&mpshare=1&scene=1&srcid=&pass_ticket=jtM94aiSbJdtNX9PjlycM%2BEW7hqmh5%2FAs89%2FsvqJEOn8%2BKjx%2FO5Vu6k5SswU2TmE#rd
+- 蚂蚁金服：https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/BATJrealInterviewExperience/%E8%9A%82%E8%9A%81%E9%87%91%E6%9C%8D%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F%E6%80%BB%E7%BB%93(%E5%B7%B2%E6%8B%BF%E5%8F%A3%E5%A4%B4offer).md
+- 蚂蚁金服：https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/BATJrealInterviewExperience/5%E9%9D%A2%E9%98%BF%E9%87%8C,%E7%BB%88%E8%8E%B7offer.md
+- https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/BATJrealInterviewExperience/2019alipay-pinduoduo-toutiao.md
+- 海量数据的面试题：https://blog.csdn.net/v_july_v/article/details/7382693
+- https://blog.csdn.net/v_JULY_v/article/details/6256463
+- 最小堆动画图：http://www.benfrederickson.com/heap-visualization/
+- java   https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247484884&amp;idx=1&amp;sn=0d9b841ce0fc300c78ade2a87ffbfb46&source=41#wechat_redirect
+- 搞定 JVM 垃圾回收就是这么简单： https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247484877&idx=1&sn=f54d41b68f0cd6cc7c0348a2fddbda9f&chksm=cea24a06f9d5c3102bfef946ba6c7cc5df9a503ccb14b9b141c54e179617e4923c260c0b0a01&token=1082669959&lang=zh_CN&scene=21#wechat_redirect
+- TCP/IP : https://www.cnblogs.com/wulala1119/p/4749892.html
 
 
 ## 面试题知识点
@@ -199,3 +212,5 @@ str.replaceAll("hello(?!world)", "goodbye");
 - finalize()方法不需要学会使用
 - 常量池中有类的符号引用
 - JVM不是一开始就把所有的类都加载进内存中，而是只有第一次遇到某个需要运行的类时才会加载，且只加载一次。
+- 多线程向ArrayList和LinkedList中add元素会发生什么？
+- 
