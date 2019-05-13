@@ -219,3 +219,4 @@ modCount的作用用jdk里面的描述是：The number of times this list has be
 - JVM不是一开始就把所有的类都加载进内存中，而是只有第一次遇到某个需要运行的类时才会加载，且只加载一次。
 - 多线程向ArrayList和LinkedList中add元素会发生什么？
 - javap jdk自带工具，能够对class字节码反编译
+- 300W的数组取出第10大的数据
