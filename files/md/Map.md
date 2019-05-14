@@ -87,6 +87,8 @@
 - 用红黑树实现，key值排序，key必须实现Comparator，所以可以不能为null，但value可以为null
 - HashMap使用hashCode和equals方法去重，而TreeMap用Comparable或Compaator去重
 - TreeMap的源码阅读时，着重看下四个有/** From CLR */ 注释的方法，From CLR是用算法导论里的算法
+- TreeMap与红黑树的文章：https://blog.csdn.net/cyywxy/article/details/81151104
+- 读算法导论中的红黑数伪代码，其中的p是代表parent的意思
 
 
 ### HashMap多线程插入元素时，容易出现循环链表，把原因分析下
