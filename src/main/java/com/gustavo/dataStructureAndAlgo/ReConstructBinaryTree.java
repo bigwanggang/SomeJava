@@ -12,15 +12,20 @@ public class ReConstructBinaryTree {
     }
 
     private static TreeNode construct(int[] pre, int preL, int preR, int[] in, int inL, int inR) {
+        if (preL > preR || inL > inR)
+            return null;
+        if (preL == preR) {
+            return new TreeNode(pre[preL]);
+        }
         int rootVal = pre[preL];
-        System.out.println(rootVal);
-        int index = find(in, inL, inR, rootVal);
-        if (index == -1 || preL >=preR || inL >= inR) {
+        int ind = find(in, inL, inR, rootVal);
+        if (ind == -1) {
             return null;
         }
+
         TreeNode node = new TreeNode(rootVal);
-        node.left = construct(pre, preL + 1, preL + index - inL, in, inL, index - 1);
-        node.right = construct(pre, preL + index - inL + 1, preR, in, index + 1, inR);
+        node.left = construct(pre, preL + 1, preL + ind - inL, in, inL, ind - 1);
+        node.right = construct(pre, preL + ind - inL + 1, preR, in, ind + 1, inR);
         return node;
     }
 
