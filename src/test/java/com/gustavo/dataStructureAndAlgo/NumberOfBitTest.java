@@ -1,5 +1,6 @@
 package com.gustavo.dataStructureAndAlgo;
 
+import com.gustavo.dataStructureAndAlgo.pointOffer.NumberOfBit;
 import org.junit.Assert;
 import org.junit.Test;
 

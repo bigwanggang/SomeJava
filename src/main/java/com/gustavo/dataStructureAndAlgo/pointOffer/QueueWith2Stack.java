@@ -1,4 +1,4 @@
-package com.gustavo.dataStructureAndAlgo;
+package com.gustavo.dataStructureAndAlgo.pointOffer;
 
 import java.util.Stack;
 
@@ -9,7 +9,7 @@ public class QueueWith2Stack<E> {
     private Stack<E> in = new Stack<E>();
     private Stack<E> out = new Stack<E>();
 
-    public void put(E e) {
+    public void push(E e) {
         in.push(e);
     }
 

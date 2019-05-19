@@ -1,4 +1,4 @@
-package com.gustavo.dataStructureAndAlgo;
+package com.gustavo.dataStructureAndAlgo.pointOffer;
 
 /**
  * 剑指offer
