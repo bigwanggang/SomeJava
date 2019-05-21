@@ -129,8 +129,9 @@ public void g() {
 - java并发编程的艺术
 
 ### 停止一个线程，isInterrupted和interrupted方法
-    停止一个线程： https://www.cnblogs.com/jenkov/p/juc_interrupt.html  
-    例子中InterruptTest的线程中执行for循环，在主线程中通过interrupt（）方法来中断线程，线程并没有中断，因为interrupt方法只是改变中断标志位  
+-   停止一个线程： https://www.cnblogs.com/jenkov/p/juc_interrupt.html  
+-   例子中InterruptTest的线程中执行for循环，在主线程中通过interrupt（）方法来中断线程，线程并没有中断，因为interrupt方法只是改变中断标志位  
+-   interrupt()并不会中断一个正在运行的线程，而是只向线程发出中断请求，然后线程在下一个合适的时刻中断自己，例如：wait,sleep,join等
     
 ### 比如：一个方法是阻塞等待返回的，怎么设置超时终止？
     一个办法是将该方法放在一个线程中执行，通过Callable的返回Future，Future的get可以设置超时终止，详见：StopBlockingThread
