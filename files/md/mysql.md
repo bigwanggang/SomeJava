@@ -76,6 +76,10 @@ user_name	mobile
 沙僧	18987289374
 ```
 
+-  	select语句中limit是限制返回的条目个数，select * from table 是返回所有记录，select * from table limit 5 是返回5条记录
+select * from table limit m,n 是跳过m条，返回n条，比如一个有5条记录，limit 3,2的意思就是返回后两条
+而select * from table limit m offset n; 是跳过n条记录，返回m条记录，和select * from table limit n,m; 的结果一样
+
 ### join
 	技术贴：http://www.runoob.com/mysql/mysql-join.html
 
