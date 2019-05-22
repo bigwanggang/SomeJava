@@ -1,5 +1,6 @@
 package com.gustavo.dataStructureAndAlgo;
 
+import com.gustavo.dataStructureAndAlgo.pointOffer.TreeNode;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class ReConstructBinaryTreeTest {
     @Test
     public void preOrder() throws Exception {
         List<Integer> list = new ArrayList<>();
-        ReConstructBinaryTree.TreeNode root = init();
+        TreeNode root = init();
         ReConstructBinaryTree.preOrder(root, list);
         System.out.println(list);
     }
@@ -21,29 +22,29 @@ public class ReConstructBinaryTreeTest {
     @Test
     public void inOrder() {
         List<Integer> list = new ArrayList<>();
-        ReConstructBinaryTree.TreeNode root = init();
+        TreeNode root = init();
         ReConstructBinaryTree.inOrder(root, list);
         System.out.println(list);
     }
 
     @Test
     public void levelOrder() {
-        ReConstructBinaryTree.TreeNode root = init();
+        TreeNode root = init();
         LinkedList<Integer> list  = ReConstructBinaryTree.levelOrder(root);
         System.out.println(list);
     }
 
-    private ReConstructBinaryTree.TreeNode init() {
-        ReConstructBinaryTree.TreeNode node10 = new ReConstructBinaryTree.TreeNode(10);
-        ReConstructBinaryTree.TreeNode node12 = new ReConstructBinaryTree.TreeNode(12);
-        ReConstructBinaryTree.TreeNode node1 = new ReConstructBinaryTree.TreeNode(1);
-        ReConstructBinaryTree.TreeNode node5 = new ReConstructBinaryTree.TreeNode(5);
-        ReConstructBinaryTree.TreeNode node8 = new ReConstructBinaryTree.TreeNode(8);
-        ReConstructBinaryTree.TreeNode node7 = new ReConstructBinaryTree.TreeNode(7);
-        ReConstructBinaryTree.TreeNode node6 = new ReConstructBinaryTree.TreeNode(6);
-        ReConstructBinaryTree.TreeNode node9 = new ReConstructBinaryTree.TreeNode(9);
-        ReConstructBinaryTree.TreeNode node3 = new ReConstructBinaryTree.TreeNode(3);
-        ReConstructBinaryTree.TreeNode node4 = new ReConstructBinaryTree.TreeNode(4);
+    private TreeNode init() {
+        TreeNode node10 = new TreeNode(10);
+        TreeNode node12 = new TreeNode(12);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node8 = new TreeNode(8);
+        TreeNode node7 = new TreeNode(7);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node9 = new TreeNode(9);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
         node10.left = node12;
         node10.right = node1;
         node12.left = node5;
@@ -60,7 +61,7 @@ public class ReConstructBinaryTreeTest {
     public void reConstructBinaryTree(){
         int[]pre = {10,12,5,9,3,8,1,7,4,6};
         int[] in={9,5,3,12,8,10,4,7,1,6};
-        ReConstructBinaryTree.TreeNode node = ReConstructBinaryTree.reConstructBinaryTree(pre,in);
+        TreeNode node = ReConstructBinaryTree.reConstructBinaryTree(pre,in);
 
         LinkedList<Integer> list  = ReConstructBinaryTree.levelOrder(node);
         System.out.println(list);

@@ -1,5 +1,7 @@
 package com.gustavo.dataStructureAndAlgo;
 
+import com.gustavo.dataStructureAndAlgo.pointOffer.TreeNode;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -81,16 +83,6 @@ public class ReConstructBinaryTree {
             }
         }
         return list;
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 
 }
