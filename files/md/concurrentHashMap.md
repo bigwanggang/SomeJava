@@ -553,4 +553,7 @@ while (cap < c)
 
 
 ### 案例
--	根据网元文件备份恢复想到一个场景，一个ConcurrentHashMap<String, Map<String,String>> 往里面加元素，key值从0~99，value值任意
+-	根据网元文件备份恢复想到一个场景，一个ConcurrentHashMap<String, List<String>> 往里面加元素，key值从0~99，value值任意
+详见栗子：ConcurrentHashMapDemo， 通过运行发现，要么获得的结果与预期的值不一致，要么就会出现抛异常，该异常是因为多线程往List里put元素
+解决该问题可以通过synchronized加锁来解决，或者
+

@@ -5,22 +5,25 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * 
+ *
  */
 public class ConcurrentHashMapDemo {
-    static ConcurrentMap<String, List<String>> map = new ConcurrentHashMap<>();
-    static Object lock = new Object();
+
+    private static ConcurrentMap<String, List<String>> map = new ConcurrentHashMap<>();
+    private static Object lock = new Object();
+    private static int num =10;
     public static void main(String[] args) {
-        Thread[] threads = new Thread[100];
-        for (int i = 0; i < 100; i++) {
+        Thread[] threads = new Thread[num];
+        for (int i = 0; i < num; i++) {
             threads[i] = new Thread(new AddRunning());
         }
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < num; i++) {
             threads[i].start();
         }
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < num; i++) {
             try {
                 threads[i].join();
             } catch (InterruptedException e) {
@@ -40,17 +43,17 @@ public class ConcurrentHashMapDemo {
         @Override
         public void run() {
             Random r = new Random();
-            for (int i = 0; i < 1000; i++) {
+            for (int i = 0; i < 5000; i++) {
                 String s = String.valueOf(r.nextInt(100));
 //                synchronized (lock) {
-                    if (map.containsKey(s)) {
-                        List<String> l = map.get(s);
-                        l.add(String.valueOf(r.nextInt(10000)));
-                    } else {
-                        List<String> l = new ArrayList<>();
-                        l.add(String.valueOf(r.nextInt(10000)));
-                        map.put(s, l);
-                    }
+                if (map.containsKey(s)) {
+                    List<String> l = map.get(s);
+                    l.add(String.valueOf(r.nextInt(10000)));
+                } else {
+                    List<String> l = new ArrayList<>();
+                    l.add(String.valueOf(r.nextInt(10000)));
+                    map.put(s, l);
+                }
 //                }
             }
         }

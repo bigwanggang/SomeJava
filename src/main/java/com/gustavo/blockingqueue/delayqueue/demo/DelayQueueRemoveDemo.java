@@ -8,7 +8,7 @@ import java.util.concurrent.DelayQueue;
  */
 public class DelayQueueRemoveDemo {
     public static void main(String[] args) {
-        DelayQueue<Message> delayQueue = new DelayQueue<>();
+        final DelayQueue<Message> delayQueue = new DelayQueue<>();
         boolean b = delayQueue.offer(new Message("hello", 10));
         System.out.println(b);
         new Thread(new Runnable() {
