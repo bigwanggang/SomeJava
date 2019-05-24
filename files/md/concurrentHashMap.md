@@ -549,3 +549,8 @@ while (cap < c)
 -   7 binCount是链表的长度，如果链表长度超过8个，就执行treeifyBin方法，把链表改成红黑树
 -   jdk 1.8 concurrentHashmap的代码分析：https://www.cnblogs.com/zerotomax/p/8687425.html
 -   sizeCtl变量在jdk 1.8中引入的，
+
+
+
+### 案例
+-	根据网元文件备份恢复想到一个场景，一个ConcurrentHashMap<String, Map<String,String>> 往里面加元素，key值从0~99，value值任意
