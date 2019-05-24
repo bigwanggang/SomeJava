@@ -1,0 +1,58 @@
+package com.gustavo.thread;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+
+/**
+ * 
+ */
+public class ConcurrentHashMapDemo {
+    static ConcurrentMap<String, List<String>> map = new ConcurrentHashMap<>();
+    static Object lock = new Object();
+    public static void main(String[] args) {
+        Thread[] threads = new Thread[100];
+        for (int i = 0; i < 100; i++) {
+            threads[i] = new Thread(new AddRunning());
+        }
+        for (int i = 0; i < 100; i++) {
+            threads[i].start();
+        }
+        for (int i = 0; i < 100; i++) {
+            try {
+                threads[i].join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        int i = 0;
+        for (String s : map.keySet()) {
+            i += map.get(s).size();
+        }
+        System.out.println(i);
+
+    }
+
+    static class AddRunning implements Runnable {
+
+        @Override
+        public void run() {
+            Random r = new Random();
+            for (int i = 0; i < 1000; i++) {
+                String s = String.valueOf(r.nextInt(100));
+//                synchronized (lock) {
+                    if (map.containsKey(s)) {
+                        List<String> l = map.get(s);
+                        l.add(String.valueOf(r.nextInt(10000)));
+                    } else {
+                        List<String> l = new ArrayList<>();
+                        l.add(String.valueOf(r.nextInt(10000)));
+                        map.put(s, l);
+                    }
+//                }
+            }
+        }
+    }
+}
