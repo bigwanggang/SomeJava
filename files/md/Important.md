@@ -33,6 +33,10 @@
 ## 遗留技术问题
 - Thread.currentThread().getContextClassLoader() 和 Class.getClassLoader()区别
 
+
+### ClassLoader
+-   自定义ClassLoader的栗子，MyClassLoader和MyClassLoader_1, MyClassLoader_1中为什么读取字符没有用byte数组做缓存？
+
 ## 技术记录
 
 - java内存分析工具， MemoryAnalyzer : http://www.eclipse.org/mat/  

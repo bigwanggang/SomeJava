@@ -329,7 +329,9 @@
         String runTimeRootPath = Class.class.getClass().getResource("/").getPath().substring(1).replace("%20", " ").replace("/", File.separator);
         return runTimeRootPath.contains(File.separator + "out" + File.separator);
     }
-```    
+```  
+  
+
 	
 ### java File
     最近的工作涉及文件相关的一些操作，记录下来
