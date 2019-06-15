@@ -184,3 +184,8 @@ http://www.importnew.com/13107.html
        109: goto          85
 ```
 -   通过分析可知，foreach的方式和用迭代器的方式是类似的，编译之后，本质上也是用迭代器的方式循环
+
+
+### jvm
+-	Java -verbose:gc 中参数-verbose:gc 表示输出虚拟机中GC的详细情况.
+-		
