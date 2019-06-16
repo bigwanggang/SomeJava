@@ -3,6 +3,7 @@ package com.gustavo.classloader;
 import java.io.*;
 
 /**
+ * 网上找的栗子
  * Created by gustaov on 2019/6/12.
  */
 public class MyClassLoader_1 extends ClassLoader {
@@ -78,12 +79,13 @@ public class MyClassLoader_1 extends ClassLoader {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         String path = "D:\\MYWORKSPACE\\SomeJava\\src\\main\\resources\\";
         MyClassLoader_1 m = new MyClassLoader_1(path,"");
 
         Class c = m.findClass("com.gustavo.HelloWorld");
         System.out.println(c.getClassLoader());
-
+        Class.forName("com.gustavo.HelloWorld");
+        c.newInstance();
     }
 }

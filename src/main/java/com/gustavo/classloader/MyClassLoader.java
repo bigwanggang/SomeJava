@@ -44,5 +44,8 @@ public class MyClassLoader extends ClassLoader {
         MyClassLoader loader = new MyClassLoader();
         Class clazz =loader.findClass("com.gustavo.HelloWorld");
         System.out.println(clazz.getClassLoader());
+        System.out.println(loader);
+        System.out.println(loader.getParent());
+        System.out.println(loader.getParent().getParent());
     }
 }
