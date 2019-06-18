@@ -228,3 +228,4 @@ modCount的作用用jdk里面的描述是：The number of times this list has be
 - 编程：快排、去重（从已排序但有重复数据中取出第k大数据，如果没有第k大，返回k-1）
 - 编程：部分排序
 - 内存泄漏文章：https://www.cnblogs.com/liuroy/p/6442888.html
+- JDK8-废弃永久代（PermGen）迎来元空间: https://www.cnblogs.com/yulei126/p/6777323.html
