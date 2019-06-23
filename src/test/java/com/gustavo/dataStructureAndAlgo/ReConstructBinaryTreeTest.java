@@ -13,7 +13,7 @@ import java.util.List;
 public class ReConstructBinaryTreeTest {
     @Test
     public void preOrder() throws Exception {
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<Integer>();
         TreeNode root = init();
         ReConstructBinaryTree.preOrder(root, list);
         System.out.println(list);
@@ -21,7 +21,7 @@ public class ReConstructBinaryTreeTest {
 
     @Test
     public void inOrder() {
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<Integer>();
         TreeNode root = init();
         ReConstructBinaryTree.inOrder(root, list);
         System.out.println(list);

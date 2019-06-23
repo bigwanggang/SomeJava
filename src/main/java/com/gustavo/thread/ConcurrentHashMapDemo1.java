@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * ConcurrentHashMap 多线程put测试,key值为String， value为String出现的次数，
  */
 public class ConcurrentHashMapDemo1 {
-    private static ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<String, Integer>();
     private static Object lock = new Object();
 
     public static void main(String[] args) {

@@ -12,7 +12,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class ConcurrentHashMapDemo {
 
-    private static ConcurrentMap<String, List<String>> map = new ConcurrentHashMap<>();
+    private static ConcurrentMap<String, List<String>> map = new ConcurrentHashMap<String, List<String>>();
     private static Object lock = new Object();
     private static int num =10;
     public static void main(String[] args) {
@@ -50,7 +50,7 @@ public class ConcurrentHashMapDemo {
                     List<String> l = map.get(s);
                     l.add(String.valueOf(r.nextInt(10000)));
                 } else {
-                    List<String> l = new ArrayList<>();
+                    List<String> l = new ArrayList<String>();
                     l.add(String.valueOf(r.nextInt(10000)));
                     map.put(s, l);
                 }

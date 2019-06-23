@@ -1,7 +1,9 @@
 package com.gustavo.oom;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -47,16 +49,25 @@ public class MemoryLeakDemo {
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
+
             if (o == null || getClass() != o.getClass()) return false;
+
             Person person = (Person) o;
-            return age == person.age &&
-                    Objects.equals(name, person.name) &&
-                    Objects.equals(msg, person.msg);
+
+            return new EqualsBuilder()
+                    .append(age, person.age)
+                    .append(name, person.name)
+                    .append(msg, person.msg)
+                    .isEquals();
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(name, msg, age);
+            return new HashCodeBuilder(17, 37)
+                    .append(name)
+                    .append(msg)
+                    .append(age)
+                    .toHashCode();
         }
 
         @Override

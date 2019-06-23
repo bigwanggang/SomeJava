@@ -26,7 +26,7 @@ public class PrintListFromEndToHead {
     }
 
     public static void print1(ListNode listNode) {
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<Integer>();
 
         ListNode point = listNode;
         while (point != null) {

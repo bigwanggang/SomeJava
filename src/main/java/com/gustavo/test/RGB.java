@@ -1,6 +1,5 @@
 package com.gustavo.test;
 
-import java.util.Objects;
 
 /**
  * Created by gustaov on 2018/12/19.
@@ -28,15 +27,24 @@ public class RGB {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
+
         if (o == null || getClass() != o.getClass()) return false;
+
         RGB rgb = (RGB) o;
-        return red == rgb.red &&
-                green == rgb.green &&
-                blue == rgb.blue;
+
+        return new org.apache.commons.lang3.builder.EqualsBuilder()
+                .append(red, rgb.red)
+                .append(green, rgb.green)
+                .append(blue, rgb.blue)
+                .isEquals();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(red, green, blue);
+        return new org.apache.commons.lang3.builder.HashCodeBuilder(17, 37)
+                .append(red)
+                .append(green)
+                .append(blue)
+                .toHashCode();
     }
 }

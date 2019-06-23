@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class MulThreadArrayListAdd {
     public static void main(String[] args) {
 //        ArrayList<String> list = new ArrayList<>();
-        ArrayList<String> list = new ArrayList<>(11);
+        ArrayList<String> list = new ArrayList<String>(11);
         new Thread(new AddToArrayList(list)).start();
         new Thread(new AddToArrayList(list)).start();
     }

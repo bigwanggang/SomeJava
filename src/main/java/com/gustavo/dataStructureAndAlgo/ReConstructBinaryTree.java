@@ -72,7 +72,7 @@ public class ReConstructBinaryTree {
      */
     public static LinkedList<Integer> levelOrder(TreeNode root) {
         LinkedList<Integer> list = new LinkedList<Integer>();
-        LinkedList<TreeNode> treeNodes = new LinkedList<>();
+        LinkedList<TreeNode> treeNodes = new LinkedList<TreeNode>();
         treeNodes.add(root);
         while (!treeNodes.isEmpty()) {
             TreeNode node = treeNodes.removeFirst();
