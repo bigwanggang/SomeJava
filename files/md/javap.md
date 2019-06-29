@@ -188,4 +188,13 @@ http://www.importnew.com/13107.html
 
 ### jvm
 -	Java -verbose:gc 中参数-verbose:gc 表示输出虚拟机中GC的详细情况.
--		
+-   一个new语句编译成字节码, 比如：NewInstance n =new NewInstance();
+```
+     0: new           #2                  // class com/gustavo/basic/NewInstance
+     3: dup
+     4: invokespecial #3                  // Method "<init>":()V
+     7: astore_1
+     8: return
+```		
+    从字节码可以看出，通过new初始化一个对象，实际上分为3步
+

@@ -1,7 +1,7 @@
-package com.gustavo.basic;
+package com.gustavo.designpattern;
 
 /**
- *
+ * 双重检查锁实现的线程安全的单例模式
  * Created by gustaov on 2019/4/30.
  */
 public class Singleton1 {

@@ -125,7 +125,7 @@ str.replaceAll("hello(?!world)", "goodbye");
 - 同步和异步可以同打电话和发短信来形象的比喻
 - InnerClassDemo是内部类和静态内部类的区别demo
 - LinkedList在1.6是双向循环链表，1.7之后是双向链表（没有循环）
-- 为什么双重检查锁需要两次null检查
+- 为什么双重检查锁需要两次null检查?, 双重检查锁必须要加volatile，讲的清楚的文章：https://www.cnblogs.com/dquery/p/7077154.html
 - Fail-Fast机制研究：FailFastForEachRemoveDemo这个栗子是产生Fail-fast问题的栗子，执行该程序会抛出ConcurrentModificationException，
 而FailFastIteratorRemoveDemo就可以解决这个问题，详细原因可通过javap反编译字节码来分析（javap -v),详细反编译后的代码不贴出，将两个class文件反编译后对比发现，通过foreach的方式remove相当于调用List的remove, 而通过Iterator的方式remove是调用的Iterator迭代器的remove
 这两个remove有什么区别？原理ArrayList和LinkedList里都有一个modCount字段，每当list有变动，add或remove，modCount都加1，

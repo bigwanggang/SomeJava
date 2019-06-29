@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Comparator_Comparable {
     public static void main(String[] args) {
-        List<Student> list = new ArrayList<>();
+        List<Student> list = new ArrayList<Student>();
         list.add(new Student("abby", "00000001", 77));
         list.add(new Student("xiaoliang", "00000002", 55));
         list.add(new Student("james", "00000003", 66));

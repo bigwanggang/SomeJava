@@ -11,5 +11,10 @@ public class StringIntern {
         String str2 = new StringBuilder().append("ja").append("va").toString();
         System.out.println(str2.intern() == str2);
 
+        System.out.println(System.getProperty("user.dir"));
+        String s = "  8.7";
+        s = s.trim();
+        s = s.replaceAll("  ", "");
+        System.out.println(Double.valueOf(s));
     }
 }

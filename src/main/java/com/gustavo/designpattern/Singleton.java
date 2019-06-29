@@ -1,4 +1,4 @@
-package com.gustavo.basic;
+package com.gustavo.designpattern;
 
 /**
  * 内部类方式的多线程安全的单例模式
