@@ -5,6 +5,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * ConcurrentHashMap 多线程put测试,key值为String， value为String出现的次数，
+ * 测试加锁与不加锁的场景，以及不加锁时，出现不一致的原因
+ * 经分析： 此场景可以用HashMap，而不必用ConcurrentHashMap
  */
 public class ConcurrentHashMapDemo1 {
     private static ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<String, Integer>();
