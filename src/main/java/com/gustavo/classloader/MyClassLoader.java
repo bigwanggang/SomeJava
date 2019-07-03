@@ -1,14 +1,30 @@
 package com.gustavo.classloader;
 
+import com.gustavo.HelloWorld;
+
 import java.io.*;
 
 /**
- * 码出高效 中例子
+ * 码出高效 的栗子的扩展
+ * 本栗中，自定义一个ClassLoader,加载class文件，然后classpath下还有个同样的类（类的全限定名一样），
+ * 但是通过instanceof 判断返回false，因为两个类是通过不同类加载器加载的
  * Created by gustaov on 2019/6/12.
  */
 public class MyClassLoader extends ClassLoader {
 
     private final static String path = System.getProperty("user.dir") + "\\src\\main\\resources\\";
+
+    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        MyClassLoader loader = new MyClassLoader();
+        Class clazz = loader.findClass("com.gustavo.HelloWorld");
+        Object o = clazz.newInstance();
+        System.out.println(o.getClass().getClassLoader());
+        HelloWorld h = new HelloWorld();
+        System.out.println(h.getClass().getClassLoader());
+
+        System.out.println(o instanceof HelloWorld);
+
+    }
 
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
@@ -19,33 +35,25 @@ public class MyClassLoader extends ClassLoader {
 
     private byte[] getClassFromPath(String name) {
         InputStream in = null;
-        byte[] tmp = new byte[2048];
-        name= name.replace(".", "\\");
-        String filePath= path + name + ".class";
+        byte[] tmp = null;
+        name = name.replace(".", "\\");
+        String filePath = path + name + ".class";
         ByteArrayOutputStream outputStream = null;
         try {
             in = new FileInputStream(filePath);
-            outputStream = new ByteArrayOutputStream();
-            int i = -1;
 
-            while ((i = in.read(tmp)) != -1) {
-                outputStream.write(tmp, 0, i);
-            }
+            tmp = new byte[in.available()];
+            in.read(tmp);
+
+//            while ((i = in.read(tmp)) != -1) {
+//                outputStream.write(tmp, 0, i);
+//            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return outputStream.toByteArray();
+        return tmp;
 
-    }
-
-    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        MyClassLoader loader = new MyClassLoader();
-        Class clazz =loader.findClass("com.gustavo.HelloWorld");
-        System.out.println(clazz.getClassLoader());
-        System.out.println(loader);
-        System.out.println(loader.getParent());
-        System.out.println(loader.getParent().getParent());
     }
 }
