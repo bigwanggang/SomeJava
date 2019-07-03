@@ -8,6 +8,8 @@ import java.io.*;
  */
 public class MyClassLoader_1 extends ClassLoader {
 
+    private final static String PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\";
+
     private String path;   //类的加载路径
     private String name;   //类加载器的名字
 
@@ -80,8 +82,7 @@ public class MyClassLoader_1 extends ClassLoader {
 
 
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        String path = "D:\\MYWORKSPACE\\SomeJava\\src\\main\\resources\\";
-        MyClassLoader_1 m = new MyClassLoader_1(path,"");
+        MyClassLoader_1 m = new MyClassLoader_1(PATH,"");
 
         Class c = m.findClass("com.gustavo.HelloWorld");
         System.out.println(c.getClassLoader());
