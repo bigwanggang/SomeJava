@@ -5,6 +5,8 @@ import java.io.*;
 /**
  * 网上找的栗子
  * Created by gustaov on 2019/6/12.
+ * 读取class文件字节数组的过程用了while循环的方式进行读取，也可以通过InputSteam.available()方法来一次性查看可读入的字节数
+ * 但是如果是网络传输的class，字节分多次传输的，就必须用while循环的方式读取
  */
 public class MyClassLoader_1 extends ClassLoader {
 
