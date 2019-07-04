@@ -200,8 +200,9 @@ http://www.importnew.com/13107.html
 
 -	10 个重要的jvm参数： https://www.oschina.net/translate/hotspot-jvm-options-java-examples
 
-### gc相关知识学习
--	YoungGenDemo的程序是创建10个长度为1M的字节数组，通过VM参数：-verbose:gc -XX:+PrintGCDetails，运行：
+### jvm参数
+-	通过https://www.cnblogs.com/smyhvae/p/4736162.html来学习jvm的几个重要的参数
+YoungGenDemo的程序是创建10个长度为1M的字节数组，通过VM参数：-verbose:gc -XX:+PrintGCDetails，运行：
 ```
  PSYoungGen      total 57344K, used 14192K [0x0000000780000000, 0x0000000784000000, 0x00000007c0000000)
   eden space 49152K, 28% used [0x0000000780000000,0x0000000780ddc0d0,0x0000000783000000)
@@ -212,5 +213,22 @@ http://www.importnew.com/13107.html
  Metaspace       used 3334K, capacity 4496K, committed 4864K, reserved 1056768K
   class space    used 355K, capacity 388K, committed 512K, reserved 1048576K
 ```
-根据打印信息可知， 新生代默认有57344K 大小的空间，
-根据VM参数调整新生代内存的大小，VM参数：
+根据打印信息可知， 默认情况下，新生代默认有57344K 大小的空间，老年代有131072K空间大小，共188416k，新生代占32%
+根据VM参数调整堆的大小，VM参数：-Xmx20m -Xms20m -XX:+PrintGCDetails
+结果：
+```
+[GC [PSYoungGen: 4215K->432K(5952K)] 4215K->1456K(19648K), 0.0021844 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+[GC [PSYoungGen: 4847K->336K(5952K)] 5871K->2384K(19648K), 0.0045379 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+Heap
+ PSYoungGen      total 5952K, used 3587K [0x00000000ff960000, 0x0000000100000000, 0x0000000100000000)
+  eden space 5120K, 63% used [0x00000000ff960000,0x00000000ffc8cdb0,0x00000000ffe60000)
+  from space 832K, 40% used [0x00000000fff30000,0x00000000fff84010,0x0000000100000000)
+  to   space 832K, 0% used [0x00000000ffe60000,0x00000000ffe60000,0x00000000fff30000)
+ PSOldGen        total 13696K, used 2048K [0x00000000fec00000, 0x00000000ff960000, 0x00000000ff960000)
+  object space 13696K, 14% used [0x00000000fec00000,0x00000000fee00020,0x00000000ff960000)
+ PSPermGen       total 21248K, used 3501K [0x00000000f9a00000, 0x00000000faec0000, 0x00000000fec00000)
+  object space 21248K, 16% used [0x00000000f9a00000,0x00000000f9d6b700,0x00000000faec0000)
+```  
+当堆内存通过参数设置为20M的时候，新生代分配了5952k，老年代分配了13696k，共19648k， 新生代占30%
+
+
