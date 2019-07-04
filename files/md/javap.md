@@ -198,3 +198,19 @@ http://www.importnew.com/13107.html
 ```		
     从字节码可以看出，通过new初始化一个对象，实际上分为3步
 
+-	10 个重要的jvm参数： https://www.oschina.net/translate/hotspot-jvm-options-java-examples
+
+### gc相关知识学习
+-	YoungGenDemo的程序是创建10个长度为1M的字节数组，通过VM参数：-verbose:gc -XX:+PrintGCDetails，运行：
+```
+ PSYoungGen      total 57344K, used 14192K [0x0000000780000000, 0x0000000784000000, 0x00000007c0000000)
+  eden space 49152K, 28% used [0x0000000780000000,0x0000000780ddc0d0,0x0000000783000000)
+  from space 8192K, 0% used [0x0000000783800000,0x0000000783800000,0x0000000784000000)
+  to   space 8192K, 0% used [0x0000000783000000,0x0000000783000000,0x0000000783800000)
+ ParOldGen       total 131072K, used 0K [0x0000000700000000, 0x0000000708000000, 0x0000000780000000)
+  object space 131072K, 0% used [0x0000000700000000,0x0000000700000000,0x0000000708000000)
+ Metaspace       used 3334K, capacity 4496K, committed 4864K, reserved 1056768K
+  class space    used 355K, capacity 388K, committed 512K, reserved 1048576K
+```
+根据打印信息可知， 新生代默认有57344K 大小的空间，
+根据VM参数调整新生代内存的大小，VM参数：
