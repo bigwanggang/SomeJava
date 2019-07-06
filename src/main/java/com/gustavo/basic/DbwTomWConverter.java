@@ -3,6 +3,9 @@ package com.gustavo.basic;
 /**
  * dbw 到 W 的对应关系,但是为了取整，将W的数乘以100
  * 比如0dbw = 1w， 0.1dbw = 1.02w,  0.2dbw = 1.04w
+ * 这个表示dbw 到w的对应关系，但是如果我有一个dbm的值，我能不能找到对应的w值呢
+ * 比如44dbm，其实由于dbm比dbw大30 ， 完全可以通过获取14对应的w值来计算，如表140位置的值为2511
+ * 但是也可以通过440位置获取值2511886 更精确
  */
 public class DbwTomWConverter {
     private static final int[] gadwPowDbmToMwTab = {
