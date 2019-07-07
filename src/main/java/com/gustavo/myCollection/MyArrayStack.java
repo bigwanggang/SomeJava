@@ -1,4 +1,4 @@
-package com.gustavo.MyCollection;
+package com.gustavo.myCollection;
 
 public class MyArrayStack<Type> implements MyStack<Type> {
     int size = 0;

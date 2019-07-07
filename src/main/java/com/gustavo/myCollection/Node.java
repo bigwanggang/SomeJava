@@ -1,4 +1,4 @@
-package com.gustavo.MyCollection;
+package com.gustavo.myCollection;
 
 public class Node<MyType> {
     private MyType object;

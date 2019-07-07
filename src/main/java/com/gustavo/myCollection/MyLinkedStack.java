@@ -1,4 +1,4 @@
-package com.gustavo.MyCollection;
+package com.gustavo.myCollection;
 
 public class MyLinkedStack<Type> implements MyStack<Type> {
     Node top = null;

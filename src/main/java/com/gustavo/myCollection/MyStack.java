@@ -1,4 +1,4 @@
-package com.gustavo.MyCollection;
+package com.gustavo.myCollection;
 
 public interface MyStack<T> {
     int size();

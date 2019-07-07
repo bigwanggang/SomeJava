@@ -6,7 +6,7 @@ import java.util.concurrent.DelayQueue;
  * 验证个问题：看代码发现在delayQueue中take会阻塞, 先放进DelayQueue里一个长时间的任务
  * 任何启动线程take，之后再往DelayQueue里加一个时间比较短的任务
  */
-public class DelayQueueRemoveDemo {
+public class DelayQueueTakeDemo {
     public static void main(String[] args) {
         final DelayQueue<Message> delayQueue = new DelayQueue<Message>();
         boolean b = delayQueue.offer(new Message("hello", 10));

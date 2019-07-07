@@ -1,4 +1,4 @@
-package com.gustavo.MyCollection;
+package com.gustavo.myCollection;
 
 import junit.framework.Assert;
 import org.junit.Test;

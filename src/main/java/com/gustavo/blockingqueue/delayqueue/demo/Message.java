@@ -9,7 +9,7 @@ public class Message implements Delayed {
 
     public Message(String msg, long executeTime) {
         this.msg = msg;
-        this.executeTime = TimeUnit.NANOSECONDS.convert(executeTime, TimeUnit.SECONDS) + System.nanoTime();
+        this.executeTime = TimeUnit.NANOSECONDS.convert(executeTime, TimeUnit.MILLISECONDS) + System.nanoTime();
     }
 
     @Override

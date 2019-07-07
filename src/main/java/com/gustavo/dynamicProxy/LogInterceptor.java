@@ -1,9 +1,10 @@
-package com.gustavo.DynamicProxy;
+package com.gustavo.dynamicProxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 /**
+ * 动态代理的代理对象
  * Created by gustaov on 2017/3/18.
  */
 public class LogInterceptor implements InvocationHandler {

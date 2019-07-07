@@ -1,8 +1,11 @@
-package com.gustavo.basic;
+package com.gustavo.failfast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class ArrayListFailFast {
     public static void main(String[] args) {
         List<String> masterList = new ArrayList();
@@ -12,7 +15,7 @@ public class ArrayListFailFast {
         masterList.add("four");
 
         for (String s : masterList) {
-            if(s.equals("two")){
+            if(s.equals("third")){
                 masterList.remove(s);
             }
         }

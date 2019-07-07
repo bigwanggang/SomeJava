@@ -20,6 +20,7 @@ public class RemoveTask implements Runnable {
             Message m = iterator.next();
             if (removeString.equals(m.getMsg())) {
                 iterator.remove();
+                MultiThreadRemoveDelayQueue.atoic.incrementAndGet();
                 System.out.println("remove: " + removeString + " at " + System.currentTimeMillis());
             }
         }

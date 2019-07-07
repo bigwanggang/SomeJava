@@ -1,4 +1,4 @@
-package com.gustavo.DynamicProxy;
+package com.gustavo.dynamicProxy;
 
 import java.lang.reflect.Proxy;
 

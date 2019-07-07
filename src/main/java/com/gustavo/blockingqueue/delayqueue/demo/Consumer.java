@@ -7,6 +7,7 @@ import java.util.concurrent.DelayQueue;
  */
 public class Consumer implements Runnable {
     private DelayQueue<Message> delayQueue;
+    private boolean isStop = false;
 
     public Consumer(DelayQueue<Message> delayQueue) {
         this.delayQueue = delayQueue;
@@ -14,13 +15,18 @@ public class Consumer implements Runnable {
 
     @Override
     public void run() {
-        while (true){
+        while (!isStop){
             try {
                 Message m = delayQueue.take();
+                MultiThreadRemoveDelayQueue.atoic.incrementAndGet();
                 System.out.println(Thread.currentThread().getName() + " get: " + m.getMsg() + " at time: " + System.currentTimeMillis());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void stop() {
+        isStop = true;
     }
 }
