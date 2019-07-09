@@ -232,3 +232,50 @@ Heap
 当堆内存通过参数设置为20M的时候，新生代分配了5952k，老年代分配了13696k，共19648k， 新生代占30%
 
 
+### 分配对象的步骤
+简单的创建一个对象，其实本质包含着3个步骤，之前在学习双重检查锁的时候也有所了解，这三个步骤具体到字节码是什么样子的？可以通过下面的栗子来学习
+```java
+public class NewStringTest {
+    public static void main(String[] args) {
+        String s = new String("abc");
+    }
+}
+```
+
+使用 javap -verbose 进行反编译，得到以下内容：
+
+```java
+// ...
+Constant pool:
+// ...
+   #2 = Class              #18            // java/lang/String
+   #3 = String             #19            // abc
+// ...
+  #18 = Utf8               java/lang/String
+  #19 = Utf8               abc
+// ...
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=2, args_size=1
+         0: new           #2                  // class java/lang/String
+         3: dup
+         4: ldc           #3                  // String abc
+         6: invokespecial #4                  // Method java/lang/String."<init>":(Ljava/lang/String;)V
+         9: astore_1
+// ...
+```
+
+对上面的字节码分析：0：作用是new一个String对象，注意：该步骤只完成了内存分配，并且在虚拟机栈上压入堆地址的引用  
+3：dup 命令相当于把栈顶的数据再次压入栈，执行完dup后，栈顶两个元素都是指向堆内相同的地址  
+4： 将常量池的字面量abc压入栈  
+6： 执行初始化操作，可知invokespecial消化了栈顶的两个元素  
+9： astore_1 是将栈顶的元素存入局部变量1
+
+根据分析可知，在单线程中，如果将步骤9放在3和4之间，执行结果是相同的，编译器的指令重拍就有可能这么做，volatile就可以防止这种指令重拍
+
+在 Constant Pool 中，#19 存储这字符串字面量 "abc"，#3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中，0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。
+
+以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。
