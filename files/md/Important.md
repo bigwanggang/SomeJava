@@ -165,6 +165,7 @@ modCount的作用用jdk里面的描述是：The number of times this list has be
 - springboot+vue 工程搭建的流程： https://my.oschina.net/u/3491123/blog/1592935?nocache=1514124797918
 - 数据库工具：https://fishcodelib.com/Database.htm database.net可以连接几乎常见的所有类型的数据库
 - mobaxterm工具，包含ftp、vnc、ssh工具
+- 不错的搜索：https://cn.bing.com/
 
 ## 消息
   ActiveMQ 是jms消息的实现，jms消息提供的消息的规范和接口，是比较老的消息队列（相比RabbitMq）
