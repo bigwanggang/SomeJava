@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 验证是否count到0，await就立即执行还是要等所有countDown的线程执行完之后，await才执行
+ * 通过验证得到：只要CountDownLatch的count的值为0，所有await的方法就立即执行，而不需要等待所有countDown的线程都结束才执行
  */
 public class CountDownLatchDemo2 {
 
@@ -42,7 +43,7 @@ public class CountDownLatchDemo2 {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(Thread.currentThread().getName() + " " + System.currentTimeMillis());
+            System.out.println(Thread.currentThread().getName() + " over at: " + System.currentTimeMillis());
         }
     }
 
