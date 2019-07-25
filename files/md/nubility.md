@@ -135,7 +135,7 @@
 - 引用类的final static常量，不会初始化该类，引用static变量，会初始化该类
 	例子：
 
-```
+```java
         public class InitialTest {
             public static void main(String[] args) {
                 System.out.println(Class1.a);
@@ -168,7 +168,7 @@
 - 查看程序InterruptTest和InterruptTest1的区别，只在InterruptTest1里面中断了阻塞的状态，抛出异常：java.lang.InterruptedException: sleep interrupted，通过interrupt()中断阻塞的线程，只是将线程的中断标志位置1，该中断标志位可通过isInterrupted()获得。
 - ReentrantLock常用的有三个锁的方法，lock(), tryLock(),lockInterruptibly（）,弄清楚
 - LockTest大概演示了lock（）的用法，当一个线程想要获取一个锁的时候，如果这个锁被其他线程占有，这个线程就处于阻塞的状态，此时如果执行该线程的interrupt()方法，会把该线程的中断标志位置1，并不会立刻终止该线程，LockTest的输出为：
-```Bash
+```
 	Thread-0 in run()...
 	Thread-0 out run()...
 	Thread-1 in run()...
@@ -188,7 +188,9 @@
 - Integer.toHexString()可以实现十进制到十六进制的转换，
 - Integer.toBinaryString 方法是把十进制转换成二进制，测试35和-35的二进制分别为：100011\11111111111111111111111111011101，二进制是用补码的方式显示，正数的补码和原码一样，负数的补码是取反加一
 - 移位运算符<<和>> 是针对整形和长整形的，如果对整形运算，移位的位数是要对32取余数，例如35>>33等于35>>1(35是整形数)，如果long l = 35; l>>65==l>>1
-
+- java 不支持向下转型，精度变低，例如 int i=1; long l =i; 可以，但是long l=2; int i=l; 确不可以
+- 默认小数都是double类型，如果小数要赋值给float要加f，例如float f = 1.2f; 如果float f=1.2 就会报错
+- 字面量常量是
 
 ### 泛型
 - 泛型的栗子：GenericDemo， 方法的泛型是放在<>里面，尖括号里的是代表一种未知类型，可以随便写比如<shui,bian,xie>,泛型一定要放在方法法返回值前
