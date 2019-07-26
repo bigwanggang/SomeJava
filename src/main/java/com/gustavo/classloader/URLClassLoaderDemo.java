@@ -22,7 +22,18 @@ public class URLClassLoaderDemo {
         System.out.println(path);
         URLClassLoader classLoader = new URLClassLoader(new URL[]{new URL(path)});
         Class clazz = classLoader.loadClass("com.demo.HelloWorld");
-        Object obj = clazz.newInstance();
+        Object obj = clazz.getConstructor(String.class).newInstance("hello");
+        Object obj1 = clazz.getConstructor(String.class).newInstance("hello");
+        System.out.println("same classloader, if equals: " + obj.equals(obj1));
+
+        URLClassLoader classLoader1 = new URLClassLoader(new URL[]{new URL(path)});
+        Class clazz1 = classLoader1.loadClass("com.demo.HelloWorld");
+        Object obj2 = clazz1.getConstructor(String.class).newInstance("hello");
+
+        System.out.println("two classloader, if equals: " + obj2.equals(obj));
+        System.out.println(classLoader1);
+        System.out.println(obj2.getClass().getClassLoader());
+
         clazz.getDeclaredMethod("hello").invoke(obj);
         System.out.println(clazz.getClassLoader());
         System.out.println(ClassLoader.getSystemClassLoader());
