@@ -222,8 +222,8 @@
 ### 例子WriteInfo中，向excel写数据，有时会出现java.lang.OutOfMemoryError: Java heap space 异常，不同的机器出现异常几率不同
 	解决方案：1. IDEA通过-Xms512M -Xmx800M，增加jvm内存值，-Xms表示最小内存， -Xmx表示最大内存
 	
-### 关于byte
-```
+### 关于整数
+```java
     byte b = -1;
     System.out.println(b);
     System.out.println(b & 0xff);
@@ -231,6 +231,13 @@
 	输出为：-1,255
 	原因是System.out.println的输入如果是byte类型，是要转换成int，-1的byte表示为1111_1111, -1的int表示
 	为1111_1111_1111_1111_1111_1111_1111_1111, b & 0xff 相当于只截取低8位的值 
+-   java中整数变量有byte、short、int、long，把整数赋值给整数变量时，如果能装下就赋值成功，否则就报错，编译失败，比如1可以赋值给
+byte、short、int、long，但是有一点，如果把一个超过int的范围的值赋值给long时，要在字面量值加L（不要加小写l，因为容易和1弄混），
+一个字面量值通常是int型的，
+-   short s =1; s=s+1; 是编译失败的，因为s+1的s是short型，1是整形，首先要将s向上转型为int，然后执行加1，然后赋值给s，将int型赋值给short型。
+则赋值失败，可以用s=(short)(s+1)或s+=1来实现
+-   
+
 
 ### 关于double的精度
 ```

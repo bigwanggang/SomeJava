@@ -3,8 +3,8 @@ package com.gustavo;
 /**
  * Created by gustaov on 2019/6/16.
  */
-public class HelloWorld {
-    public HelloWorld() {
+public class Hello {
+    public Hello() {
         System.out.println("new instance");
     }
 
