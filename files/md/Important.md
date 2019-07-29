@@ -137,6 +137,7 @@ str.replaceAll("hello(?!world)", "goodbye");
 modCount的作用用jdk里面的描述是：The number of times this list has been structurally modified，出现fail-fast的原因是每个集合都可以通过迭代器的方式访问，ArrayList的迭代器中有个expectedModCount字段，每次通过迭代器访问List都会先检查expectedModCount和ArrayList的modCount的值是否相等，如果不等就抛ConcurrentModificationException，调用List的remove相当于ArrayList的modCount值加，而迭代器的expectedModCount值没变，因此下次执行next就会抛异常，而Iterator的方式remove是将modCount和expectedModCount的值同时修改 
 - 解决ArrayList的fail-fast问题的方式是用：CopyOnWriterArrayList
 - 开启 -XX:+TraceClassLoading 选项后，可以看到有哪些类被加载。
+- -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=${目录}。 发生OOM时， 自动生成dump文件
 
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - SpringBoot 揭秘 : 快速构建微服务体系 看透！
