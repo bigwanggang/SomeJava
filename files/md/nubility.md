@@ -191,6 +191,8 @@
 - java 不支持向下转型，精度变低，例如 int i=1; long l =i; 可以，但是long l=2; int i=l; 确不可以
 - 默认小数都是double类型，如果小数要赋值给float要加f，例如float f = 1.2f; 如果float f=1.2 就会报错
 - 字面量常量是
+- Class.forName和ClassLoader.loadClass区别
+- 小数默认是double类型，如果小数赋值给float要加f，例如float f=1.2f;
 
 ### 泛型
 - 泛型的栗子：GenericDemo， 方法的泛型是放在<>里面，尖括号里的是代表一种未知类型，可以随便写比如<shui,bian,xie>,泛型一定要放在方法法返回值前
