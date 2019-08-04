@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * CHECK UPDATE RESULT:TASKNO=1
  * Created by gustaov on 2019/8/3.
  */
 public class Utils {

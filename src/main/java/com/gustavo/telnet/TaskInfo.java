@@ -1,11 +1,13 @@
 package com.gustavo.telnet;
 
 import lombok.Data;
+import lombok.ToString;
 
 /**
  * Created by gustaov on 2019/8/4.
  */
 @Data
+@ToString
 public class TaskInfo {
     private String taskNo;
     private int progress;
@@ -21,4 +23,5 @@ public class TaskInfo {
         this.progress = 0;
         this.info = "executing";
     }
+
 }
