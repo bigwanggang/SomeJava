@@ -37,6 +37,18 @@ public class Utils {
 
     public static Map<String, String> getMapInfo(String command) {
         Map<String, String> map = new HashMap<String, String>();
+        String[] infos = StringUtils.split(command, ",");
+        for (String info : infos) {
+            String key = StringUtils.substringBefore(info, "=");
+            String value = StringUtils.substringAfter(info, "=");
+            if (value.startsWith("\"")) {
+                value = StringUtils.substringAfter(value, "\"");
+            }
+            if (value.endsWith("\"")) {
+                value = StringUtils.substringBefore(value, "\"");
+            }
+            map.put(key, value);
+        }
         return map;
     }
 }
