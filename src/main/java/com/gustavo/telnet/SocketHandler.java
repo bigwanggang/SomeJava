@@ -39,6 +39,7 @@ public class SocketHandler implements Runnable {
             String command = null;
             while (!"EXIT".equals(command)) {
                 command = readOneLine();
+                command = command.trim();
                 String result = getResult(command);
                 out.write(result.getBytes());
                 out.write("\r\n$>".getBytes());
