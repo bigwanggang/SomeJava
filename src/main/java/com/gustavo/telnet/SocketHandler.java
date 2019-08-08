@@ -1,5 +1,7 @@
 package com.gustavo.telnet;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -8,6 +10,7 @@ import static com.gustavo.telnet.Utils.getResult;
 /**
  * Created by gustaov on 2019/8/3.
  */
+@Slf4j
 public class SocketHandler implements Runnable {
     private Socket socket;
     private BufferedReader br = null;
@@ -40,6 +43,7 @@ public class SocketHandler implements Runnable {
             while (!"EXIT".equals(command)) {
                 command = readOneLine();
                 command = command.trim();
+                log.info("receive command: " + command);
                 String result = getResult(command);
                 out.write(result.getBytes());
                 out.write("\r\n$>".getBytes());
