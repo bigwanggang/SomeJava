@@ -28,7 +28,7 @@ public class Utils {
             if (task == null) {
                 return "taskNo: " + taskNo + " not found";
             } else {
-                return MessageFormat.format("ACK CHECK UPDATE RESULT:TASKNO={0},PROGESS={1}%,STATUS={2}", task.getTaskNo(),
+                return MessageFormat.format("ACK CHECK UPDATE RESULT:ERRCODE=0,TASKNO={0},PROGESS={1}%,STATUS={2};", task.getTaskNo(),
                         task.getProgress(), task.getInfo());
             }
         }
