@@ -9,7 +9,7 @@ import java.util.Map;
  * Created by gustaov on 2019/8/4.
  */
 public class DataUpdateHandler {
-    private static String COMMAND_RESULT = "ACK DATA UPDATE:TASKNO={0}";
+    private static String COMMAND_RESULT = "ACK DATA UPDATE:ERRCODE=0,TASKNO={0};";
     private String result;
 
     public DataUpdateHandler(String command) {
