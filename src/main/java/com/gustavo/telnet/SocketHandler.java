@@ -38,16 +38,23 @@ public class SocketHandler implements Runnable {
             out.write("password:".getBytes());
             String password = readOneLine();
             out.write("$>".getBytes());
-            System.out.println("username: " + username + " login");
+            log.info("username: " + username + " login");
             String command = null;
             while (!"EXIT".equals(command)) {
                 command = readOneLine();
+                if (command == null) {
+                    break;
+                }
                 command = command.trim();
                 log.info("receive command: " + command);
                 String result = getResult(command);
                 out.write(result.getBytes());
                 out.write("\r\n$>".getBytes());
             }
+            in.close();
+            out.close();
+            socket.close();
+            log.info("connect close");
         } catch (IOException e) {
             e.printStackTrace();
         }

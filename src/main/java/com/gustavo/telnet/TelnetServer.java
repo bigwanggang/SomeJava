@@ -1,5 +1,7 @@
 package com.gustavo.telnet;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -11,6 +13,7 @@ import java.util.concurrent.TimeUnit;
  * 启动服务器后，通过telnet连接，发送命令
  * Created by gustaov on 2019/8/3.
  */
+@Slf4j
 public class TelnetServer {
     public static void main(String[] args) {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10, 60, TimeUnit.SECONDS,
@@ -25,7 +28,7 @@ public class TelnetServer {
         }
         while (true) {
             try {
-                System.out.println("listener accept");
+                log.info("listener accept");
                 Socket socket = server.accept();
                 executor.execute(new SocketHandler(socket));
             } catch (IOException e) {
