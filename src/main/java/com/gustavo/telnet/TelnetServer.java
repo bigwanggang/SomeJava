@@ -21,7 +21,7 @@ public class TelnetServer {
         ServerSocket server = null;
         try {
             server = new ServerSocket(8787);
-            System.out.println("server start up");
+            log.info("server start up");
         } catch (IOException e) {
             e.printStackTrace();
             return;

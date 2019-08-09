@@ -1,5 +1,7 @@
 package com.gustavo.telnet;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.text.MessageFormat;
 import java.util.Map;
 
@@ -8,12 +10,13 @@ import java.util.Map;
  * CHECK UPDATE RESULT:TASKNO=1
  * Created by gustaov on 2019/8/4.
  */
+@Slf4j
 public class DataUpdateHandler {
     private static String COMMAND_RESULT = "ACK DATA UPDATE:ERRCODE=0,TASKNO={0};";
     private String result;
 
     public DataUpdateHandler(String command) {
-        System.out.println("command: " + command);
+        log.info("command: " + command);
         Map<String, String> map = Utils.getMapInfo(command);
         String path = map.get("PATH");
         String sourceVersion = map.get("SOURCEVERSION");
