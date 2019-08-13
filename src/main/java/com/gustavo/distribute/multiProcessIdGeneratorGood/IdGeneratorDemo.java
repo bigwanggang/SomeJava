@@ -8,6 +8,7 @@ import java.util.concurrent.locks.Lock;
 
 /**
  * 该栗子演示，即使是多把锁，也能达到同步的目的，因为每个都是zookeeper锁
+ * 但是该栗子有个惊群效应的问题
  * Created by gustaov on 2019/8/12.
  */
 public class IdGeneratorDemo {
