@@ -1,4 +1,4 @@
-package com.gustavo.distribute.MultiProcessIdGeneratorFailure;
+package com.gustavo.distribute.multiProcessIdGeneratorFailure;
 
 import java.util.concurrent.locks.Lock;
 
