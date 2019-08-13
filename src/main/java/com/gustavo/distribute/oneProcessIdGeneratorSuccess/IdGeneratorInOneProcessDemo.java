@@ -1,7 +1,5 @@
 package com.gustavo.distribute.oneProcessIdGeneratorSuccess;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
@@ -11,8 +9,7 @@ import java.util.concurrent.TimeUnit;
  * Created by gustaov on 2019/8/12.
  */
 public class IdGeneratorInOneProcessDemo {
-    private static int num = 500;
-    private static Set<Integer> set = new HashSet<Integer>();
+    private static int num = 5000;
 
     public static void main(String[] args) {
         CyclicBarrier barrier = new CyclicBarrier(num);
@@ -26,8 +23,6 @@ public class IdGeneratorInOneProcessDemo {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        // 如果set.size() 的值小于num的值，就说明出现线程同步问题
-        System.out.println(set.size());
     }
 
     private static class GetIdThread extends Thread {
@@ -49,8 +44,9 @@ public class IdGeneratorInOneProcessDemo {
                 e.printStackTrace();
             }
             int i = idGenerator.nextId();
-            set.add(i);
-            System.out.println(Thread.currentThread().getName() + "--" + i);
+            if (i == num) {
+                System.out.println("good");
+            }
         }
     }
 }
