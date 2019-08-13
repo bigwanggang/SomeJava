@@ -8,7 +8,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 单进程下的id生成器的多线程场景
- * 此栗子问什么多线程不能获取唯一的Id号
+ * 此栗子问什么多线程不能获取唯一的Id号， 
+ * 本栗子想演示同步原因导致i++时的问题，但是在打印set.size()小于num，是因为使用了Set集合，Set集合本质上是HashMap，不能在多线程中使用
+ * 可以使用ConcurrentHashMap
  * Created by gustaov on 2019/8/12.
  */
 public class IdGeneratorInOneProcessDemo {
