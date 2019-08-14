@@ -22,209 +22,209 @@
         ```	 
         引用自： https://blog.csdn.net/u012364631/article/details/47682011
         
-        ### ArrayList的elementData为什么要修饰为transient?
-                ArrayList的实现原理是动态数组，elementData是个存储数据的数组，随着不断的往数组add数据，如果数组容量不够，要进行扩容，ArrayList扩容是在  
-        	当前数组容量的1.5倍扩容，ArrayList里真正存储数据的个数是size，size肯定是小于elementData数组的容量的，elementData用transient修饰的目  
-        	的是，序列化的过程中不序列化elementData，而是通过实现readObject（）和writeObject（）两个方法来实现序列化，问：readObject（）和  
-        	writeObject（）是private的，是怎么调用的？ 肯定时反射，文章：https://www.cnblogs.com/sharkli/p/5607895.html
+### ArrayList的elementData为什么要修饰为transient?
+        ArrayList的实现原理是动态数组，elementData是个存储数据的数组，随着不断的往数组add数据，如果数组容量不够，要进行扩容，ArrayList扩容是在  
+    当前数组容量的1.5倍扩容，ArrayList里真正存储数据的个数是size，size肯定是小于elementData数组的容量的，elementData用transient修饰的目  
+    的是，序列化的过程中不序列化elementData，而是通过实现readObject（）和writeObject（）两个方法来实现序列化，问：readObject（）和  
+    writeObject（）是private的，是怎么调用的？ 肯定时反射，文章：https://www.cnblogs.com/sharkli/p/5607895.html
+
+    
+### 注意点： 导入hamcrest包后执行单元测试，有时会出现错误： java.lang.NoSuchMethodError: org.hamcrest.core.AllOf.allOf(Lorg/hamcrest/Matcher;Lorg/hamcrest/Matcher;)Lorg/hamcrest/Matcher;
+      
+导致该错误的原因是jar引入顺序导致，因为如果hamcrest的jar包放到了junit jar包的后面则程序会默认调用junit jar包里面的 hamcrest core，就会出现上面的问题了
         
-        	
-        ### 注意点： 导入hamcrest包后执行单元测试，有时会出现错误： java.lang.NoSuchMethodError: org.hamcrest.core.AllOf.allOf(Lorg/hamcrest/Matcher;Lorg/hamcrest/Matcher;)Lorg/hamcrest/Matcher;
+### Redis 查看所有的key的命令： keys *  
+### git相关
+ - git clean -xfd 清除所有
+ - git branch -a 查看远程分支
+ - git branch 查看本地分支
+ - git branch branchName 创建本地分支
+ - git branch -d branchName 删除本地分支
+ - git checkout branchName 切换到新分支(该branchName 是git branch命令 查看显示的分支，是本地分支)
+ - git checkout -b branchName 相当于 git branch branchName + git checkout branchName
+-  git log fileName  查看某文件的变更记录
         
-        导致该错误的原因是jar引入顺序导致，因为如果hamcrest的jar包放到了junit jar包的后面则程序会默认调用junit jar包里面的 hamcrest core，就会出现上面的问题了
-                
-        ### Redis 查看所有的key的命令： keys *  
-        ### git相关
-         - git clean -xfd 清除所有
-         - git branch -a 查看远程分支
-         - git branch 查看本地分支
-         - git branch branchName 创建本地分支
-         - git branch -d branchName 删除本地分支
-         - git checkout branchName 切换到新分支(该branchName 是git branch命令 查看显示的分支，是本地分支)
-         - git checkout -b branchName 相当于 git branch branchName + git checkout branchName
-        -  git log fileName  查看某文件的变更记录
-                
-        - 从远程分支拉到本地分支
-                git checkout -b localName remoteBranchName  
-        	工作中发现，如果本地分支名称和远程分支名称不一致导致提交失败，所以最好让本地分支和远程分支名称一致，  
-        	也就是如果远程分支是  origin/release/V1.2.3.4, 本地分支名要是release/V1.2.3.4  
-                git branch -vv 查看本地分支和远程分支的对应关系  
-                git tag 可以查看标签  
-                查看完标签可以用git reset --hard tag 切换到标签  
-                git add . 增加文件，删除文件时 git add -A .  
-                git push origin master 将本地的master分支推送到origin主机的master分支  
-                git reset 提交号 回到某次提交（提交号通过git log查看）  
-                git reset --hard 提交号 文件恢复到某次提交  
-                这时如果想要回到最新状态 git reset --hard origin/master           
-                                       git reset --hard origin/V12.17.10  
-                                       
-                unlink of file .. failed should I try ... 出现此告警提示，执行如下操作：
-                git gc --auto
-                git repack -d -l
-                
-                查看某个文件的提交记录
-                git log 文件名
-                git log --pretty=oneline 文件名
-                
-                删除远程分支 git branch -r -d origin/branchname
-                git push origin :branchName
-        	
-        	git提交提示错误：can not push in mirror
-        	原因解析git 没有配置pushInsteadOf , 可以通过命令配置，也可以通过修改.gitconfig
-        	.gitconfig 位置 window ： c:\\users\\user 下
-        			linux : /root/ 下
-        -	git检出与提交如果涉及换行符的转换就配置core.autocrlf 为true，如果不需要就配置为false	
-        -	git如果删除了文件可以用git reset HEAD来恢复
-                
-        ### spring cloud
-                每个使用配置管理的客户端项目中一个名为bookstrap.yml的本地配置文件，用来设定连接配置管理服务器、应用的名称、以及需要有配置管理服务器提供的配置文件等参数
-                例如：
-                spring:
-                  application:
-                    name:web
-                  profiles:
-                    active:development
-                  cloud:
-                    config:
-                      uri:http://localhost:8888
-                                
-             以上配置是一个配置管理客户端的bookstrap.yml的配置信息，它包含的信息是：该客户端使用的配置文件是http://localhost:8888配置服务器的web-development.yml配置文件，如果profiles.active不配置，则对应web.yml配置文件
-             
-             @RefreshScope是解决配置信息在线实时更新的，可以用在服务端和客户端，但是必须要有spring-boot-starter-actuator 这个依赖才可以
+- 从远程分支拉到本地分支
+        git checkout -b localName remoteBranchName  
+    工作中发现，如果本地分支名称和远程分支名称不一致导致提交失败，所以最好让本地分支和远程分支名称一致，  
+    也就是如果远程分支是  origin/release/V1.2.3.4, 本地分支名要是release/V1.2.3.4  
+        git branch -vv 查看本地分支和远程分支的对应关系  
+        git tag 可以查看标签  
+        查看完标签可以用git reset --hard tag 切换到标签  
+        git add . 增加文件，删除文件时 git add -A .  
+        git push origin master 将本地的master分支推送到origin主机的master分支  
+        git reset 提交号 回到某次提交（提交号通过git log查看）  
+        git reset --hard 提交号 文件恢复到某次提交  
+        这时如果想要回到最新状态 git reset --hard origin/master           
+                               git reset --hard origin/V12.17.10  
+                               
+        unlink of file .. failed should I try ... 出现此告警提示，执行如下操作：
+        git gc --auto
+        git repack -d -l
         
-        ### docker
-                docker build -t demo:v1 . 制作镜像
-                
-                
-        ### Dockerfile
-                FROM 基础镜像,必须为第一条指令
-                VOLUME 可以实现挂载功能
-                语法为： VOLUME ["/data"]
-                RUN 运行指定的命令，例如：
-                        RUN /bin/bash -c 'echo hello'
-                        RUN ["/bin/bash", "-c", "echo hello"]
-                ADD 复制命令，把文件复制到镜像中， 如果把虚拟机与容器想象成两台linux服务器的话，那么这个命令就类似于scp
-                ENTRYPOINT 功能是启动是的默认命令
-                语法如下：
+        查看某个文件的提交记录
+        git log 文件名
+        git log --pretty=oneline 文件名
         
-                1. ENTRYPOINT ["executable", "param1", "param2"]
-                2. ENTRYPOINT command param1 param2
+        删除远程分支 git branch -r -d origin/branchname
+        git push origin :branchName
+    
+    git提交提示错误：can not push in mirror
+    原因解析git 没有配置pushInsteadOf , 可以通过命令配置，也可以通过修改.gitconfig
+    .gitconfig 位置 window ： c:\\users\\user 下
+            linux : /root/ 下
+-	git检出与提交如果涉及换行符的转换就配置core.autocrlf 为true，如果不需要就配置为false	
+-	git如果删除了文件可以用git reset HEAD来恢复
         
-        ### hashMap和HashTable 区别
-        ### 任务
-                java实现死锁
-                java锁的理解， synchronize，Lock 区别和优缺点
-                pubilc synchronized void test() {}
-         
-         
-                pubilc synchronized void test() {}   //synchronized用在方法上
-                
-                synchronized也可以用在代码块上：
-                public void test() {
-                     synchronized(obj) {
-                          System.out.println("===");
-                     }
-                }
-                synchronized 用在方法和代码块上有什么区别呢？
-        ### Java 基础
-        - 有点类构造方法里会有super(),目的是引用父类的无参构造器，这个super()是可以省略的
-        - 在idea里执行 Thread.activeCount() 为什么为2
-        - Integer和AtomicInteger区别
-        - 优先使用ConcurrentHashMap,而不是Collections.SynchronizedMap或Hashtable
-        - Runnable与Callable的区别
-        - 引用类的final static常量，不会初始化该类，引用static变量，会初始化该类
-        	例子：
-        
-        ```java
-                public class InitialTest {
-                    public static void main(String[] args) {
-                        System.out.println(Class1.a);
-                        System.out.println(Class2.a);
-                    }
-        	            class Class1 {
-                    final static String a = "hello";
-        
-                    static {
-                        System.out.println("Class1 init");
-                    }
-                }
-        
-                class Class2 {
-                    static String a = "hello";
-        
-                    static {
-                        System.out.println("Class2 init");
-                    }
-                }
-                }
-        ```
-        	输出为：
-        	hello
-        	Class2 init
-        	hello
-        	
-        - BlockingQueue 了解一下
-        - Thread的interrupt()不会中断正则执行的线程，只会中断sleep、wait、join的阻塞状态的线程
-        - 查看程序InterruptTest和InterruptTest1的区别，只在InterruptTest1里面中断了阻塞的状态，抛出异常：java.lang.InterruptedException: sleep interrupted，通过interrupt()中断阻塞的线程，只是将线程的中断标志位置1，该中断标志位可通过isInterrupted()获得。
-        - ReentrantLock常用的有三个锁的方法，lock(), tryLock(),lockInterruptibly（）,弄清楚
-        - LockTest大概演示了lock（）的用法，当一个线程想要获取一个锁的时候，如果这个锁被其他线程占有，这个线程就处于阻塞的状态，此时如果执行该线程的interrupt()方法，会把该线程的中断标志位置1，并不会立刻终止该线程，LockTest的输出为：
-        ```
-        	Thread-0 in run()...
-        	Thread-0 out run()...
-        	Thread-1 in run()...
-        	Thread-1 interrupt()...
-        ```
-        说明t2线程执行interrupt（）之后，还是继续等待并获取了锁，只是在执行阻塞方法sleep时，由于该线程的中断标志位为1，所以直接抛出异常
-        	
-        - LockInterruptTest 演示了lockInterruptibly()方法，当一个线程想要获取一个锁的时候，如果这个锁被其他线程占有，这个线程就处于阻塞的状态，此时如果执行该线程的interrupt()方法，立刻抛出异常，因为lockInterruptibly()方法抛出InterruptedException
-        	
-        - JdbcTemplate 了解一下：https://www.cnblogs.com/tuhooo/p/6491913.html
-        - 平衡二叉树和红黑树熟悉一下  
-        - 与null比较，比如a==null,通常用null==a 的方式来表示，优点是外一把"=="不小心写成： "="，程序会报错，否则这个错误很难定位。  
-        - 双重检查单例模式
-        - 不要在finally中赋值，更不要在finally中return
-        - 新项目中日志最好使用slf4j+logback的组合日志
-        - ？？？为什么TCP是长连接的，而基于TCP的HTTP协议是无连接的？？？
-        - Integer.toHexString()可以实现十进制到十六进制的转换，
-        - Integer.toBinaryString 方法是把十进制转换成二进制，测试35和-35的二进制分别为：100011\11111111111111111111111111011101，二进制是用补码的方式显示，正数的补码和原码一样，负数的补码是取反加一
-        - 移位运算符<<和>> 是针对整形和长整形的，如果对整形运算，移位的位数是要对32取余数，例如35>>33等于35>>1(35是整形数)，如果long l = 35; l>>65==l>>1
-        - java 不支持向下转型，精度变低，例如 int i=1; long l =i; 可以，但是long l=2; int i=l; 确不可以
-        - 默认小数都是double类型，如果小数要赋值给float要加f，例如float f = 1.2f; 如果float f=1.2 就会报错
-        - 字面量常量是
-        - Class.forName和ClassLoader.loadClass区别
-        - 小数默认是double类型，如果小数赋值给float要加f，例如float f=1.2f;
-        
-        ### 泛型
-        - 泛型的栗子：GenericDemo， 方法的泛型是放在<>里面，尖括号里的是代表一种未知类型，可以随便写比如<shui,bian,xie>,泛型一定要放在方法法返回值前
-        - 下的的情况是赋值失败的：
-        ```java
-                List<Integer> list1 = new ArrayList<>();
-                List<Object> objectList = list1;
-        ```
-        - List\<?\>是通配符，不能add，可以clear和remove，可以把任何类型的集合赋给List\<?\>
-        - 《码出高效》中的栗子，Garfield继承自Cat，Cat继承于Animal, List\<Garfield\>不能赋值给List\<? super Cat\>, List\<Animal\>不能赋给List\<? extends Cat\>, 任何元素都不能添加到List\<? extends T\> 集合内，List<\? super Cat\>集合只能添加Cat或Cat的子类， List<\? super T\>可以get，但是只能返回Object类型，List\<? extends Cat\>可以get，只能返回Cat或Cat的父类
+### spring cloud
+        每个使用配置管理的客户端项目中一个名为bookstrap.yml的本地配置文件，用来设定连接配置管理服务器、应用的名称、以及需要有配置管理服务器提供的配置文件等参数
+        例如：
+        spring:
+          application:
+            name:web
+          profiles:
+            active:development
+          cloud:
+            config:
+              uri:http://localhost:8888
+                        
+     以上配置是一个配置管理客户端的bookstrap.yml的配置信息，它包含的信息是：该客户端使用的配置文件是http://localhost:8888配置服务器的web-development.yml配置文件，如果profiles.active不配置，则对应web.yml配置文件
+     
+     @RefreshScope是解决配置信息在线实时更新的，可以用在服务端和客户端，但是必须要有spring-boot-starter-actuator 这个依赖才可以
+
+### docker
+        docker build -t demo:v1 . 制作镜像
         
         
-        ### 反射了解一下
-        - RTTI，编译器在编译时打开和检查.class文件
-        - 反射，运行时打开和检查.class文件   		
-        ### 事务了解一下
+### Dockerfile
+        FROM 基础镜像,必须为第一条指令
+        VOLUME 可以实现挂载功能
+        语法为： VOLUME ["/data"]
+        RUN 运行指定的命令，例如：
+                RUN /bin/bash -c 'echo hello'
+                RUN ["/bin/bash", "-c", "echo hello"]
+        ADD 复制命令，把文件复制到镜像中， 如果把虚拟机与容器想象成两台linux服务器的话，那么这个命令就类似于scp
+        ENTRYPOINT 功能是启动是的默认命令
+        语法如下：
+
+        1. ENTRYPOINT ["executable", "param1", "param2"]
+        2. ENTRYPOINT command param1 param2
+
+### hashMap和HashTable 区别
+### 任务
+        java实现死锁
+        java锁的理解， synchronize，Lock 区别和优缺点
+        pubilc synchronized void test() {}
+ 
+ 
+        pubilc synchronized void test() {}   //synchronized用在方法上
         
-        ### IDEA 记录
-        #### IDEA 编译中文乱码的问题
-        - 	bin文件夹下面idea64.exe.vmoptions和idea.exe.vmoptions这两个文件，分别在这两个文件中添加：-Dfile.encoding=UTF-8  
-        	找到intellij idea的file---settings---Editor---FileEncodings的GlobalEncoding和ProjectEncoding和  
-        	Default encoding for properties都配置成UTF-8  
-        -	IntelliJ IDEA中pom.xml报错project上Failed to read artifact descriptor for XXX.jar: 通过everything工具搜索lastupdate,把所有的搜索到记录都删除，然后在重新刷新maven导入
-        #### idea有时引入多工程时，跑UT路径问题
-        - 	在project Structure里，Modules里能看到多个工程，把Paths标签的“Output path”和"Test output path"修改成对于的路径就可以
-        #### IDEA 快捷键
-        -	shift+F8是跳出当前方法，如果想要继续运行到下个断点，可以用快捷键F9， 也页面的位置是Debug窗口，和"View Breakpoints"按同一排的"Resume Program"
-        
-        ### 例子WriteInfo中，向excel写数据，有时会出现java.lang.OutOfMemoryError: Java heap space 异常，不同的机器出现异常几率不同
-        	解决方案：1. IDEA通过-Xms512M -Xmx800M，增加jvm内存值，-Xms表示最小内存， -Xmx表示最大内存
-        	
-        ###
+        synchronized也可以用在代码块上：
+        public void test() {
+             synchronized(obj) {
+                  System.out.println("===");
+             }
+        }
+        synchronized 用在方法和代码块上有什么区别呢？
+### Java 基础
+- 有点类构造方法里会有super(),目的是引用父类的无参构造器，这个super()是可以省略的
+- 在idea里执行 Thread.activeCount() 为什么为2
+- Integer和AtomicInteger区别
+- 优先使用ConcurrentHashMap,而不是Collections.SynchronizedMap或Hashtable
+- Runnable与Callable的区别
+- 引用类的final static常量，不会初始化该类，引用static变量，会初始化该类
+    例子：
+
+```java
+        public class InitialTest {
+            public static void main(String[] args) {
+                System.out.println(Class1.a);
+                System.out.println(Class2.a);
+            }
+                class Class1 {
+            final static String a = "hello";
+
+            static {
+                System.out.println("Class1 init");
+            }
+        }
+
+        class Class2 {
+            static String a = "hello";
+
+            static {
+                System.out.println("Class2 init");
+            }
+        }
+        }
+```
+    输出为：
+    hello
+    Class2 init
+    hello
+    
+- BlockingQueue 了解一下
+- Thread的interrupt()不会中断正则执行的线程，只会中断sleep、wait、join的阻塞状态的线程
+- 查看程序InterruptTest和InterruptTest1的区别，只在InterruptTest1里面中断了阻塞的状态，抛出异常：java.lang.InterruptedException: sleep interrupted，通过interrupt()中断阻塞的线程，只是将线程的中断标志位置1，该中断标志位可通过isInterrupted()获得。
+- ReentrantLock常用的有三个锁的方法，lock(), tryLock(),lockInterruptibly（）,弄清楚
+- LockTest大概演示了lock（）的用法，当一个线程想要获取一个锁的时候，如果这个锁被其他线程占有，这个线程就处于阻塞的状态，此时如果执行该线程的interrupt()方法，会把该线程的中断标志位置1，并不会立刻终止该线程，LockTest的输出为：
+```
+    Thread-0 in run()...
+    Thread-0 out run()...
+    Thread-1 in run()...
+    Thread-1 interrupt()...
+```
+说明t2线程执行interrupt（）之后，还是继续等待并获取了锁，只是在执行阻塞方法sleep时，由于该线程的中断标志位为1，所以直接抛出异常
+    
+- LockInterruptTest 演示了lockInterruptibly()方法，当一个线程想要获取一个锁的时候，如果这个锁被其他线程占有，这个线程就处于阻塞的状态，此时如果执行该线程的interrupt()方法，立刻抛出异常，因为lockInterruptibly()方法抛出InterruptedException
+    
+- JdbcTemplate 了解一下：https://www.cnblogs.com/tuhooo/p/6491913.html
+- 平衡二叉树和红黑树熟悉一下  
+- 与null比较，比如a==null,通常用null==a 的方式来表示，优点是外一把"=="不小心写成： "="，程序会报错，否则这个错误很难定位。  
+- 双重检查单例模式
+- 不要在finally中赋值，更不要在finally中return
+- 新项目中日志最好使用slf4j+logback的组合日志
+- ？？？为什么TCP是长连接的，而基于TCP的HTTP协议是无连接的？？？
+- Integer.toHexString()可以实现十进制到十六进制的转换，
+- Integer.toBinaryString 方法是把十进制转换成二进制，测试35和-35的二进制分别为：100011\11111111111111111111111111011101，二进制是用补码的方式显示，正数的补码和原码一样，负数的补码是取反加一
+- 移位运算符<<和>> 是针对整形和长整形的，如果对整形运算，移位的位数是要对32取余数，例如35>>33等于35>>1(35是整形数)，如果long l = 35; l>>65==l>>1
+- java 不支持向下转型，精度变低，例如 int i=1; long l =i; 可以，但是long l=2; int i=l; 确不可以
+- 默认小数都是double类型，如果小数要赋值给float要加f，例如float f = 1.2f; 如果float f=1.2 就会报错
+- 字面量常量是
+- Class.forName和ClassLoader.loadClass区别
+- 小数默认是double类型，如果小数赋值给float要加f，例如float f=1.2f;
+
+### 泛型
+- 泛型的栗子：GenericDemo， 方法的泛型是放在<>里面，尖括号里的是代表一种未知类型，可以随便写比如<shui,bian,xie>,泛型一定要放在方法法返回值前
+- 下的的情况是赋值失败的：
+```java
+        List<Integer> list1 = new ArrayList<>();
+        List<Object> objectList = list1;
+```
+- List\<?\>是通配符，不能add，可以clear和remove，可以把任何类型的集合赋给List\<?\>
+- 《码出高效》中的栗子，Garfield继承自Cat，Cat继承于Animal, List\<Garfield\>不能赋值给List\<? super Cat\>, List\<Animal\>不能赋给List\<? extends Cat\>, 任何元素都不能添加到List\<? extends T\> 集合内，List<\? super Cat\>集合只能添加Cat或Cat的子类， List<\? super T\>可以get，但是只能返回Object类型，List\<? extends Cat\>可以get，只能返回Cat或Cat的父类
+
+
+### 反射了解一下
+- RTTI，编译器在编译时打开和检查.class文件
+- 反射，运行时打开和检查.class文件   		
+### 事务了解一下
+
+### IDEA 记录
+#### IDEA 编译中文乱码的问题
+- 	bin文件夹下面idea64.exe.vmoptions和idea.exe.vmoptions这两个文件，分别在这两个文件中添加：-Dfile.encoding=UTF-8  
+    找到intellij idea的file---settings---Editor---FileEncodings的GlobalEncoding和ProjectEncoding和  
+    Default encoding for properties都配置成UTF-8  
+-	IntelliJ IDEA中pom.xml报错project上Failed to read artifact descriptor for XXX.jar: 通过everything工具搜索lastupdate,把所有的搜索到记录都删除，然后在重新刷新maven导入
+#### idea有时引入多工程时，跑UT路径问题
+- 	在project Structure里，Modules里能看到多个工程，把Paths标签的“Output path”和"Test output path"修改成对于的路径就可以
+#### IDEA 快捷键
+-	shift+F8是跳出当前方法，如果想要继续运行到下个断点，可以用快捷键F9， 也页面的位置是Debug窗口，和"View Breakpoints"按同一排的"Resume Program"
+
+### 例子WriteInfo中，向excel写数据，有时会出现java.lang.OutOfMemoryError: Java heap space 异常，不同的机器出现异常几率不同
+    解决方案：1. IDEA通过-Xms512M -Xmx800M，增加jvm内存值，-Xms表示最小内存， -Xmx表示最大内存
+    
+###
 ```java
     byte b = -1;
     System.out.println(b);
