@@ -1,5 +1,6 @@
 ### VM参数
 -	使用-XX:-UseSpinning参数关闭自旋锁优化；-XX:PreBlockSpin参数修改默认的自旋次数。
+-	使用参数-XX:-UseBiasedLocking禁止偏向锁优化（默认打开）
 
 http://www.importnew.com/13107.html
 
