@@ -1,5 +1,5 @@
 ### VM参数
--	-XX:PreBlockSpin 设置自旋锁的自旋的次数
+-	使用-XX:-UseSpinning参数关闭自旋锁优化；-XX:PreBlockSpin参数修改默认的自旋次数。
 
 http://www.importnew.com/13107.html
 
