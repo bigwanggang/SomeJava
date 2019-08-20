@@ -1,3 +1,6 @@
+### VM参数
+-	-XX:PreBlockSpin 设置自旋锁的自旋的次数
+
 http://www.importnew.com/13107.html
 
 将常量压入栈：当int取值-1-5采用iconst指令，取值-128-127采用bipush指令，取值-32768-32767采用sipush指令，取值-2147483648-2147483647采用 ldc 指令。
