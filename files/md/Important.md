@@ -140,6 +140,19 @@ modCount的作用用jdk里面的描述是：The number of times this list has be
 - 解决ArrayList的fail-fast问题的方式是用：CopyOnWriterArrayList
 - 开启 -XX:+TraceClassLoading 选项后，可以看到有哪些类被加载。
 - -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=${目录}。 发生OOM时， 自动生成dump文件
+- .class 文件就是字节码
+- System.gc()方法，并不是一定触发jvm进行gc回收，只是提醒虚拟机
+- 永久代有jvm本身设置固定大小的上限，无法进行调整
+- 永久代中包含了虚拟机中所有可能通过发射获取到的信息（类， 属性，方法）
+- 类的初始化过程可以通过static代码块的执行来判断
+- Class.forName可以控制类的初始化（加载链接初始化中的初始化）， 具体可以查看ClassInitialDemo，而ClassLoader只负责类的加载
+- 在准备阶段（链接第二阶段）为类的静态变量（static）分配内存（在方法区），并设置初始值，真正赋值是在初始化阶段完成，但是final static变量在初始化阶段完成
+- 父类的静态语句块要先于子类的静态语句块
+- Full GC会对永久代回收
+- java程序不是一次加载所有的类，而是需要用时再加载
+- 加载----链接----初始化
+- 链接包括：验证、准备、解析
+- 解析阶段：将符号引用转为直接引用
 
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - SpringBoot 揭秘 : 快速构建微服务体系 看透！
