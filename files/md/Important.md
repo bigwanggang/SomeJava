@@ -36,6 +36,7 @@
 ### 最佳实践
 -  apache commons的常用工具要熟悉，例如StringUtils 和FileUtils，熟悉后会起到事半功倍的效果
 -  ubuntu手动安装java，放在/usr/local/lib里比较合适
+-  linux免密码登录，网上很多教程，到时有时还不能免密登录，要修改下权限：.ssh目录的权限为700，其下文件authorized_keys和私钥的权限为600
 
 ### ClassLoader
 -   自定义ClassLoader的栗子，MyClassLoader和MyClassLoader_1, MyClassLoader_1中为什么读取字符没有用byte数组做缓存？
