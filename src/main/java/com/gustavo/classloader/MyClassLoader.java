@@ -1,7 +1,5 @@
 package com.gustavo.classloader;
 
-import com.gustavo.HelloWorld;
-
 import java.io.*;
 
 /**
@@ -17,12 +15,9 @@ public class MyClassLoader extends ClassLoader {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         MyClassLoader loader = new MyClassLoader();
         Class clazz = loader.findClass("com.gustavo.HelloWorld");
-        Object o = clazz.newInstance();
-        System.out.println(o.getClass().getClassLoader());
-        HelloWorld h = new HelloWorld();
-        System.out.println(h.getClass().getClassLoader());
+//        Object o = clazz.newInstance();
+//        System.out.println(o.getClass().getClassLoader());
 
-        System.out.println(o instanceof HelloWorld);
 
     }
 

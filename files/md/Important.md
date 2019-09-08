@@ -129,7 +129,8 @@ str.replaceAll("hello(?!world)", "goodbye");
 (?<=pattern) 肯定式后顾 ， (?<!pattern) 否定式后顾
 - 正则的文章： https://blog.csdn.net/u013197629/article/details/73499129
 - 动态代理： https://blog.csdn.net/zpf336/article/details/82751925
-- 同步和异步可以同打电话和发短信来形象的比喻
+- 同步和异步可以同打电话和发短信来形象的比喻， 同步是一个任务依赖另一个任务的完成，被依赖的任务完成，依赖的任务才能继续执行
+- 阻塞和非阻塞的区别是等待调用结果返回前的状态，如果调用方挂起，不做其他事情，则是阻塞，如果调用方还做其他事情，则是非阻塞
 - InnerClassDemo是内部类和静态内部类的区别demo
 - LinkedList在1.6是双向循环链表，1.7之后是双向链表（没有循环）
 - 为什么双重检查锁需要两次null检查?, 双重检查锁必须要加volatile，讲的清楚的文章：https://www.cnblogs.com/dquery/p/7077154.html
@@ -146,13 +147,42 @@ modCount的作用用jdk里面的描述是：The number of times this list has be
 - 永久代中包含了虚拟机中所有可能通过发射获取到的信息（类， 属性，方法）
 - 类的初始化过程可以通过static代码块的执行来判断
 - Class.forName可以控制类的初始化（加载链接初始化中的初始化）， 具体可以查看ClassInitialDemo，而ClassLoader只负责类的加载
-- 在准备阶段（链接第二阶段）为类的静态变量（static）分配内存（在方法区），并设置初始值，真正赋值是在初始化阶段完成，但是final static变量在初始化阶段完成
+- ClassLoader的四个方法就是通往java虚拟机的通道
+- Class.forName和ClassLoader的区别？  
+Class.forName可以初始化类（初始化时类加载的第三步）， ClassLoader只能控制类加载（加载是类加载的第一步）
+- ClassLoader的loadClass和findClass的区别？  
+如果不想违背双亲委派模式，只需重写findClass即可，如果想违背双亲委派模式，需要重写loadClass，通常一般情况不需要重写loadClass
+只需重写findClass即可（findClass中需要调用defineClass）
+- Constructor.Instance和Class.newInstance区别？  
+Class.newInstance只能调用无参构造器，Constructor.Instance可以调用任何参数构造器
 - 父类的静态语句块要先于子类的静态语句块
 - Full GC会对永久代回收
 - java程序不是一次加载所有的类，而是需要用时再加载
 - 加载----链接----初始化
+- 加载：把class文件加载到内存（方法去），在堆中生成一个Class对象
 - 链接包括：验证、准备、解析
+- 在准备阶段（链接第二阶段）为类的静态变量（static）分配内存（在方法区），并设置初始值，真正赋值是在初始化阶段完成，但是final static变量在初始化阶段完成
 - 解析阶段：将符号引用转为直接引用
+- java虚拟机栈中存放的数据结构是栈帧，栈帧中有局部变量表、操作数栈、动态链接、方法返回地址
+- 8种基本类型和对象引用存储于局部变量表
+- 栈帧在jvm、体系中地位颇高
+- iload_1,从局部变量表的第一号抽屉取出int类型值压入操作数栈栈顶
+- load指令 局部变量表->操作数栈   
+store(istore\astore) 操作数栈->局部变量表  
+pop 出战  
+dup 复制栈顶元素并压入站
+- 我们写的类的ClassLoader是AppClassLoader,因为AppClassLoader就是加载classpath下的类， 可以通过System.getProperty("java.class.path")来查看classpath路径
+- 永久代被元空间取代原因？  
+    永久代：启动时固定，不能调优
+- 永久代和元空间都是对虚拟机规范方法区的实现，但是元空间和永久代最大的区别是元空间不是在虚拟机中，而是使用本地内存
+- 编译期间， String字面量会直接放入class文件常量池
+- 成员变量和局部变量区别？  
+1. 属于 2. 内存的存储位置 3. 生命周期 4. 默认值
+- 遍历HashMap为什么要用entrySet而不用keySet？  
+entrySet番号的是Map.Entry，是key和value作为一个整体，而keySet返回的是key的集合，如果通过keySet遍历，还要通过key的值去再次查询对于的value值
+而entrySet番号的Map.Entry不需要再次查询
+- 操作数栈可以理解为java虚拟机栈的一个用于计算的临时数据存储区
+
 
 ## 好书多看看计划（只写一本，不要写很多，然后写完就忘了，也不看）
 - SpringBoot 揭秘 : 快速构建微服务体系 看透！
