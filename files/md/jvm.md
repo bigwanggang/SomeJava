@@ -283,3 +283,12 @@ Constant pool:
 在 Constant Pool 中，#19 存储这字符串字面量 "abc"，#3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中，0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。
 
 以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。
+
+-   [GC 打印详细信息分析](https://blog.csdn.net/zc19921215/article/details/83029952)
+-   查看gc信息的jvm参数：
+-XX:+PrintGC 输出GC日志
+-XX:+PrintGCDetails 输出GC的详细日志
+-XX:+PrintGCTimeStamps 输出GC的时间戳（以基准时间的形式）
+-XX:+PrintGCDateStamps 输出GC的时间戳（以日期的形式，如 2013-05-04T21:53:59.234+0800）
+-XX:+PrintHeapAtGC 在进行GC的前后打印出堆的信息
+-Xloggc:../logs/gc.log 日志文件的输出路径
