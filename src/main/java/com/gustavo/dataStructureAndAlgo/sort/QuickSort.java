@@ -1,6 +1,6 @@
-package com.gustavo.sort;
+package com.gustavo.dataStructureAndAlgo.sort;
 
-import com.gustavo.sort.heapSort.Utils;
+import com.gustavo.dataStructureAndAlgo.sort.heapSort.Utils;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package com.gustavo.permutationCombination;
+package com.gustavo.dataStructureAndAlgo.permutationCombination;
 
 import java.util.ArrayList;
 import java.util.List;

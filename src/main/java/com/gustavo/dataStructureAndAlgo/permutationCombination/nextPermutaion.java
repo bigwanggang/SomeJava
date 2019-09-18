@@ -1,4 +1,4 @@
-package com.gustavo.permutationCombination;
+package com.gustavo.dataStructureAndAlgo.permutationCombination;
 
 public class nextPermutaion {
 

@@ -1,4 +1,4 @@
-package com.gustavo.sort.heapSort;
+package com.gustavo.dataStructureAndAlgo.sort.heapSort;
 
 import org.junit.Test;
 

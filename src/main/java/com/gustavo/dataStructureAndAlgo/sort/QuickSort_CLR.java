@@ -1,4 +1,4 @@
-package com.gustavo.sort;
+package com.gustavo.dataStructureAndAlgo.sort;
 
 /**
  * CLR 是算法导论
