@@ -1,6 +1,7 @@
 ### VM参数
 -	使用-XX:-UseSpinning参数关闭自旋锁优化；-XX:PreBlockSpin参数修改默认的自旋次数。
 -	使用参数-XX:-UseBiasedLocking禁止偏向锁优化（默认打开）
+-   -Xss 是设置设置虚拟机栈的栈深度，例如-Xss1M
 
 http://www.importnew.com/13107.html
 
