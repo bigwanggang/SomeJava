@@ -1,7 +1,7 @@
 package com.gustavo.classloader;
 
 
-import sun.util.resources.ar.CalendarData_ar;
+//import sun.util.resources.ar.CalendarData_ar;
 
 /**
  * Created by gustaov on 2019/6/16.
@@ -19,8 +19,8 @@ public class ClassLoaderDemo {
         System.out.println(System.getProperty("java.ext.dirs"));
 
         //CalendarData_ar的classLoaderw为extClassLoader
-        Class clazz = CalendarData_ar.class;
-        System.out.println(clazz.getClassLoader());
+//        Class clazz = CalendarData_ar.class;
+//        System.out.println(clazz.getClassLoader());
 
     }
 }
