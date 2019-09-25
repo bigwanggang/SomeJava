@@ -9,8 +9,8 @@ public class GeneartorConsumer implements Runnable {
 
     @Override
     public void run() {
-
-        generator.nextId();
-
+        for (int i = 0; i < 10; i++) {
+            generator.nextId();
+        }
     }
 }
