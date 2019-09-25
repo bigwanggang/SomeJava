@@ -12,15 +12,23 @@ public class MySqlLock implements Lock {
     private final static String UNLOCK_SQL = "delete from lock1 where name ='Lock'";
 
     private Connection connection;
+    private PreparedStatement lockPs;
+    private PreparedStatement unlockPs;
 
-    public MySqlLock(Connection connection) {
+
+    public MySqlLock(Connection connection) throws SQLException {
         this.connection = connection;
+        lockPs = connection.prepareStatement(LOCK_SQL);
+        unlockPs = connection.prepareStatement(UNLOCK_SQL);
     }
 
     @Override
     public void lock() {
-        while (!tryLock())
-            ;
+        if (!tryLock()) {
+            System.out.println(Thread.currentThread().getName() + " get lock failure");
+            lock();
+        }
+        System.out.println(Thread.currentThread().getName() + " get lock ***********");
     }
 
     @Override
@@ -31,9 +39,8 @@ public class MySqlLock implements Lock {
     @Override
     public boolean tryLock() {
         try {
-            PreparedStatement ps = connection.prepareStatement(LOCK_SQL);
-            boolean result = ps.execute();
-            return result;
+            int result = lockPs.executeUpdate();
+            return result > 0;
         } catch (SQLException e) {
 
             return false;
@@ -48,19 +55,12 @@ public class MySqlLock implements Lock {
     @Override
     public void unlock() {
         try {
-            PreparedStatement ps = connection.prepareStatement(UNLOCK_SQL);
-            ps.execute();
+            unlockPs.execute();
 
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+
         }
 
     }
@@ -69,4 +69,6 @@ public class MySqlLock implements Lock {
     public Condition newCondition() {
         return null;
     }
+
+
 }
