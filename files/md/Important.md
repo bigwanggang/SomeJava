@@ -1,6 +1,7 @@
 ## 查书
 - 豆瓣读书里查找： https://book.douban.com/
 - 图灵社区：http://www.ituring.com.cn/
+- 在https://github.com/trending 里找好项目
 ## git仓库分类
 - spring相关 ： https://github.com/OhLaughing/SpringLearn
 ## 要看的书单
