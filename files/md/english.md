@@ -14,3 +14,9 @@ derived: 衍生的
 spam:垃圾邮件  
 message broker: 消息代理  
 
+baggage claim tag 行李牌
+baggage claim area 行李认领处
+left behind 遗留，留下
+retractable handle 拉杆
+resemble 看起来像
+make every effort to do 尽力做某事
