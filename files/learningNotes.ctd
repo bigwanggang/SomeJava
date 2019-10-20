@@ -6,8 +6,12 @@
 过一段时间之后，回头看看，是否有了进步，以及学习了无用的东西</rich_text>
 		<node custom_icon_id="0" foreground="" is_bold="False" name="十月" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1571573443.32" ts_lastsave="1571573443.36" unique_id="2">
 			<rich_text></rich_text>
-			<node custom_icon_id="0" foreground="" is_bold="False" name="20 周日" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1571573443.36" ts_lastsave="1571573443.36" unique_id="3">
-				<rich_text></rich_text>
+			<node custom_icon_id="0" foreground="" is_bold="False" name="20 周日" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1571573443.36" ts_lastsave="1571579269.29" unique_id="3">
+				<rich_text>由于以后可能会用到web自动化，今天随便看看selenium相关的东西
+pip 安装selenium失败了
+后来下载安装包 通过python setup.py install 安装
+selenium 教程： </rich_text>
+				<rich_text link="webs https://selenium-python.readthedocs.io/index.html">https://selenium-python.readthedocs.io/index.html</rich_text>
 			</node>
 		</node>
 	</node>
