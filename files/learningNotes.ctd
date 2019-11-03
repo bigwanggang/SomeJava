@@ -1,9 +1,11 @@
 <?xml version="1.0" ?>
 <cherrytree>
-	<node custom_icon_id="0" foreground="" is_bold="False" name="2019" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1571573442.97" ts_lastsave="1571573799.66" unique_id="1">
+	<node custom_icon_id="0" foreground="" is_bold="False" name="2019" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1571573442.97" ts_lastsave="1572711174.54" unique_id="1">
 		<rich_text>一个人精力有限，学习些能让自己有用的，累计一定程度，就是专家
 本笔记只是记录每天、一段时间学习了什么东西
-过一段时间之后，回头看看，是否有了进步，以及学习了无用的东西</rich_text>
+过一段时间之后，回头看看，是否有了进步，以及学习了无用的东西
+本笔记只记录技术，不记录
+</rich_text>
 		<node custom_icon_id="0" foreground="" is_bold="False" name="十月" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1571573443.32" ts_lastsave="1571573443.36" unique_id="2">
 			<rich_text></rich_text>
 			<node custom_icon_id="0" foreground="" is_bold="False" name="20 周日" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1571573443.36" ts_lastsave="1571579269.29" unique_id="3">
@@ -12,6 +14,25 @@ pip 安装selenium失败了
 后来下载安装包 通过python setup.py install 安装
 selenium 教程： </rich_text>
 				<rich_text link="webs https://selenium-python.readthedocs.io/index.html">https://selenium-python.readthedocs.io/index.html</rich_text>
+			</node>
+		</node>
+		<node custom_icon_id="0" foreground="" is_bold="False" name="十一月" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1572705389.3" ts_lastsave="1572784222.34" unique_id="4">
+			<rich_text></rich_text>
+			<node custom_icon_id="0" foreground="" is_bold="False" name="02 周六" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1572705389.35" ts_lastsave="1572741262.81" unique_id="5">
+				<rich_text>今天看了比特币
+github上有bitcoin代码，C++代码的
+但是需要编译
+相关文章：</rich_text>
+				<rich_text link="webs https://www.cnblogs.com/wintersun/p/3813424.html">https://www.cnblogs.com/wintersun/p/3813424.html</rich_text>
+				<rich_text>
+bitcoin 技术文章： </rich_text>
+				<rich_text link="webs https://en.bitcoin.it/wiki/Category:Technical">https://en.bitcoin.it/wiki/Category:Technical</rich_text>
+				<rich_text>
+中本聪发明了区块链技术，区块链是源自比特币的底层技术</rich_text>
+			</node>
+			<node custom_icon_id="0" foreground="" is_bold="False" name="03 周日" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1572784222.34" ts_lastsave="1572785058.42" unique_id="6">
+				<rich_text>看了bitcoin 相关的文章
+区块链技术指南pdf 将的是区块链技术 可以详细看看</rich_text>
 			</node>
 		</node>
 	</node>
