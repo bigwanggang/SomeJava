@@ -30,9 +30,12 @@ bitcoin 技术文章： </rich_text>
 				<rich_text>
 中本聪发明了区块链技术，区块链是源自比特币的底层技术</rich_text>
 			</node>
-			<node custom_icon_id="0" foreground="" is_bold="False" name="03 周日" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1572784222.34" ts_lastsave="1572785058.42" unique_id="6">
+			<node custom_icon_id="0" foreground="" is_bold="False" name="03 周日" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1572784222.34" ts_lastsave="1572792601.72" unique_id="6">
 				<rich_text>看了bitcoin 相关的文章
-区块链技术指南pdf 将的是区块链技术 可以详细看看</rich_text>
+区块链技术指南pdf 将的是区块链技术 可以详细看看
+
+看了github trending, python相关的项目，大概看了下streamlit
+</rich_text>
 			</node>
 		</node>
 	</node>
