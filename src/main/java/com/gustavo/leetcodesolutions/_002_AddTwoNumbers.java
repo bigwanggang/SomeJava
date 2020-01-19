@@ -4,6 +4,29 @@ package com.gustavo.leetcodesolutions;
  * Created by gustaov on 2018/9/2.
  */
 public class _002_AddTwoNumbers {
+    public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
+        ListNode val = new ListNode(0);
+        ListNode res = val;
+        int toUp = 0;
+        for (; l1 != null || l2 != null; ) {
+            int cur = toUp;
+            if (l1 != null) {
+                cur += l1.val;
+                l1=l1.next;
+            }
+            if (l2 != null) {
+                cur += l2.val;
+                l2=l2.next;
+            }
+            val.next = new ListNode(cur % 10);
+            toUp = cur / 10;
+            val = val.next;
+        }
+        if(toUp!=0){
+            val.next=new ListNode(toUp);
+        }
+        return res.next;
+    }
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         if (l1 == null)
             return l2;
