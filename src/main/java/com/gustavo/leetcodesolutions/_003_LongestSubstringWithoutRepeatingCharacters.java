@@ -26,6 +26,25 @@ public class _003_LongestSubstringWithoutRepeatingCharacters {
         }
         return longest;
     }
+    /*20200120*/
+    public int lengthOfLongestSubstring(String s) {
+        Set<Character> set = new HashSet<Character>();
+        int longest = 0;
+        int begin = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char cur = s.charAt(i);
+            if (set.contains(cur)) {
+                longest = longest > set.size() ? longest : set.size();
+                while (cur != s.charAt(begin)) {
+                    set.remove(s.charAt(begin));
+                    begin++;
+                }
+                begin++;
+            } else {
+                set.add(cur);
+            }
+        }
+        return longest > set.size() ? longest : set.size();
 
     public static void main(String[] args) {
         String s = "helloworld";
