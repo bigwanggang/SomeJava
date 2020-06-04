@@ -288,3 +288,4 @@ entrySet番号的是Map.Entry，是key和value作为一个整体，而keySet返�
 - 编程：部分排序
 - 内存泄漏文章：https://www.cnblogs.com/liuroy/p/6442888.html
 - JDK8-废弃永久代（PermGen）迎来元空间: https://www.cnblogs.com/yulei126/p/6777323.html
+- RandomAccessFile断点续传和多线程断点续传（大文件分段下载） https://blog.csdn.net/zx_android/article/details/79356328
