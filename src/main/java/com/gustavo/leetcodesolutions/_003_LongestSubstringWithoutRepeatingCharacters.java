@@ -27,7 +27,7 @@ public class _003_LongestSubstringWithoutRepeatingCharacters {
         return longest;
     }
     /*20200120*/
-    public int lengthOfLongestSubstring(String s) {
+    public static int lengthOfLongestSubstring1(String s) {
         Set<Character> set = new HashSet<Character>();
         int longest = 0;
         int begin = 0;
@@ -45,6 +45,7 @@ public class _003_LongestSubstringWithoutRepeatingCharacters {
             }
         }
         return longest > set.size() ? longest : set.size();
+    }
 
     public static void main(String[] args) {
         String s = "helloworld";

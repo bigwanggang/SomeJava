@@ -1,5 +1,7 @@
 package com.gustavo.distribute.mysql_distribute_lock;
 
+import com.mysql.jdbc.TimeUtil;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -12,7 +14,7 @@ import java.util.concurrent.locks.Lock;
 public class DistributeLockDemo {
     public static void main(String[] args) {
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 200; i++) {
             Connection c = getConnection("jdbc:mysql://localhost:3306/test1", "root", "");
 
             Lock lock = null;

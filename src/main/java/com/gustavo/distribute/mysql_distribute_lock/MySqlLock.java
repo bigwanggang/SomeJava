@@ -9,7 +9,7 @@ import java.util.concurrent.locks.Lock;
 
 public class MySqlLock implements Lock {
     private final static String LOCK_SQL = "insert into lock1 values ('Lock')";
-    private final static String UNLOCK_SQL = "delete from lock1 where name ='Lock'";
+    private final static String UNLOCK_SQL = "delete from lock1";
 
     private Connection connection;
     private PreparedStatement lockPs;

@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <cherrytree>
-	<node custom_icon_id="0" foreground="" is_bold="False" name="2019" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1571573442.97" ts_lastsave="1572711174.54" unique_id="1">
+	<node custom_icon_id="0" foreground="" is_bold="False" name="2019" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1571573442.97" ts_lastsave="1575467570.98" unique_id="1">
 		<rich_text>一个人精力有限，学习些能让自己有用的，累计一定程度，就是专家
 本笔记只是记录每天、一段时间学习了什么东西
 过一段时间之后，回头看看，是否有了进步，以及学习了无用的东西
@@ -16,7 +16,7 @@ selenium 教程： </rich_text>
 				<rich_text link="webs https://selenium-python.readthedocs.io/index.html">https://selenium-python.readthedocs.io/index.html</rich_text>
 			</node>
 		</node>
-		<node custom_icon_id="0" foreground="" is_bold="False" name="十一月" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1572705389.3" ts_lastsave="1572784222.34" unique_id="4">
+		<node custom_icon_id="0" foreground="" is_bold="False" name="十一月" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1572705389.3" ts_lastsave="1575032817.18" unique_id="4">
 			<rich_text></rich_text>
 			<node custom_icon_id="0" foreground="" is_bold="False" name="02 周六" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1572705389.35" ts_lastsave="1572741262.81" unique_id="5">
 				<rich_text>今天看了比特币
@@ -35,6 +35,38 @@ bitcoin 技术文章： </rich_text>
 区块链技术指南pdf 将的是区块链技术 可以详细看看
 
 看了github trending, python相关的项目，大概看了下streamlit
+</rich_text>
+			</node>
+			<node custom_icon_id="0" foreground="" is_bold="False" name="09 周六" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1573262426.79" ts_lastsave="1573262491.21" unique_id="7">
+				<rich_text>今天下载了《精通比特币》 github地址：</rich_text>
+				<rich_text link="webs https://github.com/bitcoinbook/bitcoinbook">https://github.com/bitcoinbook/bitcoinbook</rich_text>
+				<rich_text>
+</rich_text>
+			</node>
+			<node custom_icon_id="0" foreground="" is_bold="False" name="29 周五- dokcer" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1575032817.18" ts_lastsave="1575032833.53" unique_id="8">
+				<rich_text>《第一本docker书》</rich_text>
+			</node>
+		</node>
+		<node custom_icon_id="0" foreground="" is_bold="False" name="十二月" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1575467570.98" ts_lastsave="1575467571.22" unique_id="9">
+			<rich_text></rich_text>
+			<node custom_icon_id="0" foreground="" is_bold="False" name="04 周三" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1575467571.22" ts_lastsave="1575467658.52" unique_id="10">
+				<rich_text>spleeter项目
+运行__main__.py失败
+13行
+</rich_text>
+				<rich_text foreground="#cc7832">from </rich_text>
+				<rich_text>. </rich_text>
+				<rich_text foreground="#cc7832">import </rich_text>
+				<rich_text>SpleeterError
+出错
+改为
+</rich_text>
+				<rich_text foreground="#cc7832">from </rich_text>
+				<rich_text>spleeter </rich_text>
+				<rich_text foreground="#cc7832">import </rich_text>
+				<rich_text>SpleeterError
+就可以
+python3的模块引用怎么回事？
 </rich_text>
 			</node>
 		</node>
