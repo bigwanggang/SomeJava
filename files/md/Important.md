@@ -236,6 +236,10 @@ entrySet番号的是Map.Entry，是key和value作为一个整体，而keySet返�
 - TCP/IP : https://www.cnblogs.com/wulala1119/p/4749892.html
 
 
+## java8 
+-   函数式接口
+-   
+
 ## 面试题知识点
 - 2019-01-08：HashMap的底层实现原理？ 主要熟悉put和resize方法
 - 2019-01-09: java中的错误和异常：Throwable、Error、Exception、RunTimeException
