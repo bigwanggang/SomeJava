@@ -1,0 +1,1 @@
+- multiThreadGet.java: 十个线程从map里取值，一个线程往map里put值，结果取值线程取出null，把hashmap改成ConcurrentHashMap即可解决
